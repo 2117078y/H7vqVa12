@@ -1,0 +1,612 @@
+\documentclass[twocolumn, landscape, a4paper , 8pt, fleqn, titlepage ]{jsarticle}
+\usepackage[driver=dvipdfm,hmargin=20truemm,vmargin=25truemm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+\usepackage{stmaryrd}
+
+%box
+\usepackage{ascmac}
+
+%%
+\usepackage{xcolor} 
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\hypersetup{
+setpagesize=false,
+ bookmarksnumbered=true,
+ bookmarksopen=true,
+ colorlinks=true,
+ linkcolor=teal,
+ citecolor=black,
+}
+%
+%
+%
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+%%
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \textrm{s.t.} \, }
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+\newcommand{\dbra}[1]{\llbracket #1 \rrbracket}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\supp}{\textrm{supp}\,} 
+
+\newcommand{\ifufu}{\,\textrm {iff} \, \it}
+
+
+\newcommand{\proj}[1]{\it{p}_{#1}}
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\push}{_{\#}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%ベクトル解析
+\newcommand{\grad}{\textrm{grad}}
+\renewcommand{\div}{\textrm{div}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\renewcommand{\d}{\, \textrm{d} }
+\newcommand{\length}{\textrm{length}}
+\newcommand{\Func}{\textrm{Func}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\Cone}{\textrm{Cone}}
+\newcommand{\Hess}{\textrm{Hess}}
+\newcommand{\Lip}[1]{\textrm{Lip}(#1)}
+\newcommand{\spt}{\textrm{spt}}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+\newcommand{\limright}{\displaystyle{\lim_{\rightarrow}}}
+
+
+\renewcommand{\-}{\hyphen}
+
+\renewcommand{\Im}{\textrm{Im}}
+
+\newcommand{\sgyouretsu}[1]{\paren{\begin{smallmatrix} #1 \end{smallmatrix} }}
+
+
+%↓本体↓
+
+\title{積分の変数変換 -Firs Aid Kit-}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\scriptsize 
+
+\begin{itembox}[l]{道案内}
+$1.3$から読んでも多分大丈夫です. 生き急いでる場合は$1.3$ で記号だけ確認して, 命題\ref{8}から読んでも大丈夫です. 誤植/間違いは大いにありうるので自分で訂正してください.
+\end{itembox}
+
+\section{積分の変数変換}
+\subsection{リプシッツ写像の拡張の存在}
+\begin{dfn}
+$A \subset \mathbb R^n$ を定義域とする写像$f: A \rightarrow \mathbb R^m$ は
+\begin{align*} \norm{f(x) - f(y)} \leq C \norm{x - y} \quad (\any x,y \in A)\end{align*}
+をみたす$C \in \mathbb R$ が存在するときにリプシッツ連続であるという. 
+\end{dfn}
+
+\begin{dfn}$A\subset \mathbb R^n$ を定義域とする写像$f: A \rightarrow \mathbb R ^m$に対して
+\begin{align*} \Lip f \coloneqq \sup \cbra{ \frac{\norm{f(x) - f(y)}}{\norm{x - y}  }   \mid x, y \in A , x \neq y}\end{align*}
+と定める. 
+\end{dfn}
+
+\begin{dfn}\label{1}
+$A \subset \mathbb R^n$ を定義域とする写像$f: A \rightarrow \mathbb R^m$ は, 任意のコンパクト集合$K \subset A$への制限がリプシッツ連続写像であるときに, 局所リプシッツ連続であるという. 
+\end{dfn}
+
+\begin{prop}
+$A \subset \mathbb R^n$ を定義域とするリプシッツ連続関数$f: A \rightarrow \mathbb R$ に対して, $\mathbb R^n$ を定義域とするリプシッツ連続関数$\tilde f : \mathbb R^n \rightarrow \mathbb R$ で $A$ への制限が$f$ と一致するもの存在する.
+\end{prop}
+\begin{pf*}
+実数値関数 $\tilde f : \mathbb R^n \rightarrow \mathbb R$ を
+\begin{align*} \tilde f (x) \coloneqq \inf \cbra{f(a) + \Lip f \norm{x-a} \mid a \in A }\end{align*}
+により定めると, これが求めるリプシッツ連続関数である. 実際, まず, 任意の$b \in A$ に対して
+\begin{align*} f(a) + \Lip f \norm{b-a} \geq f(b) \quad (\any a \in A) \end{align*}
+が成り立つので, $\inf_{a \in A} \cbra{ f(a) + \Lip f \norm{b-a} \geq f(b) } \geq f(b)$ が成り立ち, また
+\begin{align*} &\inf_{a \in A} \cbra{f(a) + \Lip f \norm{x-a} } \leq f(b) + \Lip f \norm{x-b} \\
+&\tilde f (b) \leq f(b) + \Lip f \norm{b-b} = f(b)
+\end{align*}
+なので$\tilde f (b) = f(b) \quad (\any b \in A)$ である. さらに, 任意の$x, y \in \mathbb R^n$ に対して三角不等式から
+\begin{align*} \tilde f(x) & \leq \inf_{a \in A} \cbra{f(a) + \Lip f \paren{\norm{x-y} + \norm{y-a}}} = \tilde f(y) + \Lip f \norm{x-y} \end{align*}
+が成り立つので, 結局$\norm{\tilde f(x) - \tilde f(y)} \leq \Lip f \norm{x- y}$ が成り立つ. 
+\qed
+\end{pf*}
+
+
+\begin{prop}
+$A \subset \mathbb R^n$ を定義域とするリプシッツ連続写像$f: A \rightarrow \mathbb R ^m$ に対して, $\mathbb R^n$ を定義域とするリプシッツ連続写像$\tilde f : \mathbb R^n \rightarrow \mathbb R ^m$ で $A$ への制限が$f$ と一致するもの存在する.
+\end{prop}
+\begin{pf*}
+$f = (f_1, \ldots , f_m)$ と表して, 命題\ref{1}に従い$\tilde f_1, \cdots , \tilde f_m$ と拡張をとり, $\tilde \coloneqq (\tilde f_1, \ldots , \tilde f_m)$ と定めるとこれが求めるリプシッツ連続な写像である. 実際, $A$ への制限が$f$と一致することは明らかであるし, 
+\begin{align*} \norm{\tilde f(x) - \tilde f(y)} = \paren{\sum_{i=1}^m \norm{\tilde f _i (x) - \tilde f_i (y) }^2  }^{\frac{1}{2}} \leq \sqrt m \Lip f \norm{x-y} \end{align*}
+が成り立つ.
+\qed
+\end{pf*}
+
+
+\begin{remark}
+この証明においては, 拡張後のリプシッツ定数は, 少なくとも$\sqrt m$ だけ大きくスケールされてしまう. しかし, Kirszbraunの定理によるとリプシッツ定数を保ちながら拡張することができるということが知られている. らしい. 
+\end{remark}
+
+したがって, リプシッツ連続写像を扱うときは特に不都合の生じない限り始域全体で定義されているものを考えれば良い.
+
+\subsection{Rademacherの定理}
+
+\begin{remark}
+実数値関数$f: \mathbb R^n \rightarrow \mathbb R$ の$x\in \mathbb R^n$ における$v \in S^{n-1}$ 方向の微分
+\begin{align*} \lim_{t\rightarrow 0}\frac{ f(x + tv) - f(x)}{t}\end{align*}
+を$v f(x)$ で表すことにする. 
+\end{remark}
+
+\begin{prop}\label{2}
+リプシッツ連続関数$f:\mathbb R^n \rightarrow \mathbb R$ は, 任意の方向$v \in S^{n-1} $ に対し$n$次元ルベーグ測度に関して至る所方向微分可能である. 
+\end{prop}
+\begin{pf*}任意の$v \in S^{n-1}$ に対して(方向微分不可能な点を意味する)ボレル可測集合
+\begin{align*} A_v \coloneqq \cbra{x \in \mathbb R^n \mid \liminf_{t\rightarrow 0}   \frac{f(x + tv) - f(x)}{t} < \limsup_{t\rightarrow 0}   \frac{f(x + tv) - f(x)}{t}  } \end{align*}
+をとる(可測であることは超簡単にわかるが, まあとりあえず認める). $\mathbb R$ 上の関数を
+\begin{align*} \varphi_x^v(t) \coloneqq f(x+ t v) \end{align*}
+で定めると$f$がリプシッツ連続であることから, $\varphi$ は$t$に関してリプシッツ連続である. リプシッツ連続ならば絶対連続であるので, $\varphi$ は$t$に関して絶対連続であり, したがって1次元ルベーグ測度に関して至る所微分可能である(絶対連続であれば至る所微分可能であるというのはよく知られている). したがって, $x$ を通る$v$ 方向の直線を$L_x^v$ で表すと. 
+\begin{align*} \mathcal H^1 (A_v \cup L_x^v) = 0 \end{align*}
+が成り立つ. 故に, フビニの定理(のversion)から$\Leb^n (A_v ) = 0$ が成り立つ.
+\qed
+\end{pf*}
+
+\begin{prop}\label{3}
+局所リプシッツ連続関数$f:\mathbb R^n \rightarrow \mathbb R$ は, 任意の方向$v \in S^{n-1} $ に対し$n$次元ルベーグ測度に関して至る所方向微分可能である. 
+\end{prop}
+\begin{pf*}
+命題\ref{2}から明らかである($x \in \mathbb R^n$ における微分可能性の議論は$x$ の適当な近傍において行われていると思えばいいから). 
+\qed
+\end{pf*}
+
+
+次の命題は, 滑らかな関数に対しては成り立つが, 局所リプシッツ関数に関してはどうだろうか. 
+
+\begin{prop}\label{4}
+$f:\mathbb R^n \rightarrow \mathbb R$ を局所リプシッツ関数とする. 任意の方向$v \in S^{n-1} $ に対して
+\begin{align*} vf(x) = \tbra{v, \nabla f (x)} \quad (\Leb^n a.e.)\end{align*}
+が成り立つ(ただし, $\nabla f(x) \coloneqq (\partial_{x_1} f (x), \ldots, \partial_{x_n} f(x))$ であり, これは命題\ref{3}から存在する). 
+\end{prop}
+\begin{pf*}
+任意のコンパクト台をもつ滑らかな関数$\zeta \in C_c^\infty (\mathbb R^n )$ に対して
+\begin{align*}  \int_{\mathbb R^n} \frac{f(x+tv) -f (x)}{t} \zeta (x) \d x &= \int_{\mathbb R^n} \frac{f(x+tv)}{t}\zeta (x) \d x  - \int_{\mathbb R^n} \frac{f(x)}{t}\zeta (x) \d x \\
+&= \int_{\mathbb R^n} \frac{f(x)}{t}\zeta (x-tv) \d x  - \int_{\mathbb R^n} \frac{f(x)}{t}\zeta (x) \\
+&= - \int_{\mathbb R^n} f(x) \frac{\zeta (x) - \zeta (x-tv)}{t} \d x
+\end{align*}
+両辺, (リプシッツ連続であることを用いると適当に可積分関数で上から抑えられるので)優収束定理から
+\begin{align*} \int_{\mathbb R^n} vf(x) \zeta (x) \d x = - \int_{\mathbb R^n} f(x) v\zeta(x) \d x\end{align*}
+が成り立つ.  $\zeta $ は滑らかで, かつコンパクトな台をもつので, $v = (v_1, \ldots, v_n) \in S^{n-1}$ と表すと
+\begin{align*} - \int_{\mathbb R^n} f(x) v\zeta(x) \d x &= - \int_{\mathbb R^n} f(x) \tbra{v, \zeta (x)} \d x \\
+&= - \sum v_i \int_{\mathbb R^n} f(x) \zeta_{x_i} (x) \d x \\
+&= \sum v_i \int_{\mathbb R^n} f_{x_i} \zeta (x) \d x \\
+&= \int_{\mathbb R^n} \tbra{v, \nabla f(x)} \zeta (x) \d x
+\end{align*}
+が成り立つ. $\zeta \in C_c^\infty (\mathbb R^n)$ は任意であったので, 命題の主張が従う. 
+\qed
+\end{pf*}
+
+
+
+
+\begin{prop}(Rademacherの定理)
+局所リプシッツ連続写像$f:\mathbb R^n \rightarrow \mathbb R$ はルベーグ測度に関して至る所全微分可能であり, その全微分$Df(x)$ に対して
+\begin{align*} Df(x) = \nabla f(x)  \end{align*}
+が成り立つ.
+\end{prop}
+\begin{pf*}
+$S^{n-1}$ の可算稠密部分集合$\cbra{v_k}$ をとり,
+\begin{align*}A_k \coloneqq \cbra{v_k \text{方向微分可能,} \,\, \nabla f \text{が存在,} \,\, v_k f(x) = \tbra{v_k, \nabla f(x)}}, \quad A \coloneqq \bigcap A_k \end{align*}
+とする. ここで, $x \in A, v \in S^{n-1}, t \in \mathbb R\, (t \neq 0)$ に対して
+\begin{align*} Q(x,v,t) \coloneqq \frac{f(x+tv) - f(x)}{t} - \tbra{x, \nabla f(x)} \end{align*}
+と定める. $\cbra{v_k}$ が稠密であることと, $S^{n-1}$ がコンパクトであることから, 十分大きな$N$ をとると, 適当な$k(v) \in \cbra{1, \ldots, N}$ で
+\begin{align*} \abs{v - v_{k(v)}} \leq \frac{\veps}{2(\sqrt n + 1) \Lip f}\end{align*}
+となるものがとれるようにできる. また, $k=1$ に対して$\lim Q(x, v_1, t) = 0$ なので $0 < \abs  t < \delta_1 \naraba \abs{Q(x, v_1, t)} < \frac{\veps}{2}$ となる$\delta_1$ をとり, $k=2$ に対して$\lim Q(x, v_2, t) = 0$ なので $0 < \abs  t < \delta_2 \naraba \abs{Q(x, v_2, t)} < \frac{\veps}{2}$ となる$\delta_2$ をとり, という感じで$k=N$ まで続けると, 結局 $\delta \coloneqq \min \cbra{\delta_1, \ldots , \delta_N}$ ととると, 
+\begin{align*} 0 < \abs < t < \delta \naraba \abs{Q(x, v_1, t)} < \frac{\veps}{2} \end{align*}
+が成り立つ. 従って$0 < \abs t < \delta $ ならば, 任意の$v \in S^{n-1}$ に対して
+\begin{align*} \abs{Q(x,v,t)} &\leq  \abs{Q(x,v,t) - Q(x,v_{k(v)},t)} + \abs{Q(x,v_{k(v)},t)}  \\ &\leq \abs{\frac{f(x+tv) - f(x+ tv_{k(v)}}{t} } + \abs{\tbra{v - v_{k(v)}, \nabla f(x) } } + \abs{Q(x,v_{k(v)},t)}  \\ &\leq \Lip f \abs{v - v_{k(v)}} + \abs{\nabla f (x)} \abs{v - v_{k(v)}} + \abs{Q(x,v_{k(v)},t)}  \\ &\leq \Lip f  \abs{v - v_{k(v)}}  + \sqrt n  \Lip f \abs{v - v_{k(v)}}   + \abs{Q(x,v_{k(v)},t)}  \\ &< \frac{\veps}{2} + \frac{\veps}{2} \end{align*}
+が成り立つ. $y \in \mathbb R^n$ に対して
+\begin{align*} f(y) - f(x) - \tbra{\nabla f (x), (y-x)} &= f(x + \abs{y-x}\frac{y-x}{\abs{y-x}}) - f(x) - \tbra{\nabla f (x) , \abs{y-x} \frac{y-x}{\abs{y-x}}} \\&= Q(x, \frac{y-x}{\abs{y-x}}, \abs{y-x}) \rightarrow 0 \quad (y \rightarrow x)\end{align*}
+であることと, 命題\ref{4}より$\Leb^n(\mathbb R^n \setminus A) = 0$ であることから, 主張が従う. 
+\qed
+\end{pf*}
+
+\subsection{線型写像}
+
+\begin{dfn}
+線型写像$O:\mathbb R^ n \rightarrow \mathbb R^m$ は, 任意の$x,y \in \mathbb R^n$ に対して$\tbra{O(x) , O(y)} = \tbra{x,y}$ が成り立つ時, 直交(線型)写像という.
+\end{dfn}
+
+\begin{dfn}
+線型写像$S:\mathbb R^ n \rightarrow \mathbb R^n$ は, 任意の$x,y \in \mathbb R^n$ に対して$\tbra{x, S(y)} = \tbra{S(x), y}$ が成り立つ時, 対称(線型)写像という. 
+\end{dfn}
+
+\begin{dfn}
+線型写像$A: \mathbb R^n \rightarrow \mathbb R^m$ に対して, 任意の$x,y \in \mathbb R^n$ に対して$\tbra{x, A^* y} = \tbra{Ax, y}$ を満たす線型写像$A^*:\mathbb R^m \rightarrow \mathbb R^n$ を, $A$ の随伴(線型)写像という.
+\end{dfn}
+
+\begin{prop}(線型写像の極分解).
+$L:\mathbb R^n \rightarrow \mathbb R^m$ を線型写像とする. \\
+(1)$n\leq m$ のとき, 対称写像$S:\mathbb R^n \rightarrow \mathbb R^n$ と, 直交写像$O:\mathbb R^ n \rightarrow \mathbb R^m$ で
+\begin{align*} L = O \circ S \end{align*}
+を満たすものが存在する. \\
+(2)$n \geq m$ のとき, 対称写像$S:\mathbb R^m \rightarrow \mathbb R^m$ と, 直交写像$O:\mathbb R^ m \rightarrow \mathbb R^n$ で
+\begin{align*} L = S \circ O^* \end{align*}
+を満たすものが存在する.
+\end{prop}
+\begin{pf*}
+(1)$C \coloneqq L^* \circ L$ とすると, $C$ は非負対称な線型写像であるので, 適当に固有値$\mu_1, \ldots , \mu_n \geq 0$ と, それに対応する固有ベクトル$x_1, \ldots , x_n$からなる正規直交基底をとる. $\lambda_i ^2= \mu_i, \lambda_i \geq 0$ により$\lambda_i \quad (i = 1, \ldots , n)$ を定める. 各添字$i = 1,\ldots, n$ について, $\lambda _i \neq 0$ のときは$z_i \coloneqq \frac{1}{\lambda_i} L x_i$ と定め, $\lambda_i = 0$ のときは$z_j\,\,(j \neq i)$ に対して直交する単位ベクトルを$z_i$ とすることで, 正規直交基底$\cbra{z_i}$ をつくる. $Sx_i \coloneqq \lambda_i x_i$ (を自然に線型に拡張すること)により$S:\mathbb R^n \rightarrow \mathbb R^n$ を定め(これは対称写像になる), $Ox_i \coloneqq z_i$ (を自然に線型に拡張すること)により$O:\mathbb R^n \rightarrow \mathbb R^m$ を定める(これは直交写像になる)と, 
+\begin{align*} O(S x_i) = O(\lambda x_i) = \lambda z_i = L x_i \end{align*}
+となるので, 主張が従う. (2)は, $L^*:\mathbb R^n \rightarrow \mathbb R^m$ に(1)を適用すると, 適当な対称写像$S$と直交写像$O$ を用いて $L^* = O \circ S $ と分解されるので, 随伴をとると$L = S^* \circ O^* = S \circ O^*$ となることから主張が従う. 
+\qed
+\end{pf*}
+
+\begin{dfn}
+(1)$n \leq m$ とし, $L:\mathbb R^n \rightarrow \mathbb R^m$ を線型写像とする. 
+\begin{align*} \dbra L \coloneqq \abs{\det S} \end{align*}
+と定め, これを$L$ のヤコビアンという. ただし, $S$ は$L = O \circ S$ と極分解したときの$S$ である. \\
+(2)$n \geq m$ とし, $L:\mathbb R^n \rightarrow \mathbb R^m$ を線型写像とする. 
+\begin{align*} \dbra L \coloneqq \abs{\det S} \end{align*}
+と定め, これを$L$ のヤコビアンという. ただし, $S$ は$L = S \circ O^*$ と極分解したときの$S$ である. 
+\end{dfn}
+
+
+
+\begin{dfn}
+$\mu, \nu$ を$\mathbb R^n$ 上のラドン測度とする. このとき, $x \in \mathbb R^n$ に対して,
+\begin{align*} \overline D _\mu \nu (x) \coloneqq \begin{cases} \limsup_{r\rightarrow 0} \frac{\nu(B(x;r))}{\mu(B(x;r))} \quad &\textrm{if}\,\, \mu(B(x;r)) > 0\,\, \textrm{for all } r>0 \\  \infty \quad &\textrm{if}\,\, \mu(B(x;r)) = 0\,\, \textrm{for some } r>0 \end{cases}\end{align*}
+\vspace{-20pt}
+\begin{align*} \underline D _\mu \nu (x) \coloneqq \begin{cases} \liminf_{r\rightarrow 0} \frac{\nu(B(x;r))}{\mu(B(x;r))} \quad \,\,&\textrm{if}\,\, \mu(B(x;r)) > 0\,\, \textrm{for all } r>0 \\  \infty \quad \,\, &\textrm{if}\,\, \mu(B(x;r)) = 0\,\, \textrm{for some } r>0  \end{cases}\end{align*}
+と定める. $\overline D _\mu \nu (x) = \underline D _\mu \nu (x)$ を満たす$x \in \mathbb R^n$ に対しては, 
+\begin{align*} D_\mu \nu (x) \coloneqq \overline D _\mu \nu (x) = \underline D _\mu \nu (x) \end{align*}
+と定め, これにより定まる$D_\mu \nu$ を$\nu$ の$\mu$ に関する密度(あるいは$\nu$ の$\mu$ による微分)という. 
+\end{dfn}
+
+\begin{prop}\label{9}
+$\nu, \mu$ を$\mathbb R^n$ 上のラドン測度とし, $\nu \ll \mu$ とすると, 任意の$\mu$ 可測集合$A \subset \mathbb R^n$ に対して, 
+\begin{align*} \nu (A) = \int_A D_\mu \nu \d \mu \end{align*}
+が成り立つ.
+\end{prop}
+\begin{pf*}
+認める.
+\qed
+\end{pf*}
+
+
+\begin{prop}\label{5}
+$E\subset \mathbb R^n$ を$\Leb^n$可測集合とする. このとき, $\Leb^n$ に関して殆ど至る所
+\begin{align*} \lim_{r \rightarrow 0} \frac{\Leb^n(B(x;r)\cap E)}{\Leb^n (B(x;r))} = 1 \end{align*}
+が成り立つ.
+\end{prop}
+\begin{pf*}
+ノートの構成の都合上, これ, 使わないかもしれんから一旦放置.
+\qed
+\end{pf*}
+
+\begin{dfn}$n \leq m$ のときに,\\
+(1) $\Lambda (m,n) = \cbra{\lambda : \cbra{1, \ldots, n } \rightarrow \cbra{1, \ldots , m} \mid \lambda \text{は単調増大}}$ と定める. \\
+(2)$\lambda \in \Lambda(m,n)$ に対して, $P_\lambda : \mathbb R^m \rightarrow \mathbb R^n$ を
+\begin{align*} P_\lambda (x_1, \ldots , x_m) \coloneqq (x_{\lambda(1)} ,\ldots x_{\lambda(n)})\end{align*}
+により定める. \\
+(3)$\lambda \in \Lambda(m,n)$ に対して, $n$ 次元部分空間$S_\lambda \subset \mathbb R^m$ を
+\begin{align*} S_\lambda \coloneqq \span(e_{\lambda(1)} \ldots , e_{\lambda(n)}) \end{align*}
+により定める(ただし, $e_1, \ldots , e_n$ は標準基底を表す).
+ \end{dfn}
+ 
+ \begin{prop}\label{10}
+ (Cauchy-Binet formula). $n \leq m$ とし, $f : \mathbb R^n \rightarrow \mathbb R^m$ を線型写像とする. このとき, 
+ \begin{align*} \dbra{L}^2 = \sum _{\lambda \in \Lambda ( m , n)}{ (\det (P_\lambda \circ L) )^2} \end{align*}
+ が成り立つ. 
+\end{prop}
+\begin{pf*}
+線形代数の範疇なので大胆カット! wikipediaのコーシー$\cdot$ビネの公式のページを眺めるとよい. 
+\qed
+\end{pf*}
+
+
+
+
+
+\subsection{Area Formula}
+
+\begin{prop}\label{7}
+$n \leq m$ とし, $L:\mathbb R^n \rightarrow \mathbb R^m$ を線型写像とする. このとき, 任意の$\Leb^n$可測集合$A \subset \mathbb R^n$ に対して
+\begin{align*} \mathcal H^n (L(A)) = \dbra L \Leb^n(A)\end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+($L$ の極分解を$L = O \circ S$ とする.) $\dbra L = 0$ の時には, $S$ は退化しているので$\dim S(\mathbb R^n)) \neq n$ であることから, $\mathcal H ^n (L(\mathbb R^n)) = \Leb^n (S(\mathbb R^n)) = 0 $ となり, 主張が従う. $\dbra L > 0$ の時には, 
+\begin{align*}\frac{\mathcal H ^n (L(B(x;r)))}{\Leb ^n (B(x;r))} &= \frac{\mathcal H ^n (O^* \circ L(B(x;r)))}{\Leb ^n (B(x;r))} = \frac{\mathcal H ^n (S(B(x;r)))}{\Leb ^n (B(x;r))} \\&=  \frac{\Leb ^n (S(B(x;r)))}{\Leb ^n (B(x;r))} = \abs{\det S} = \dbra L .\end{align*}
+$\Leb^n$ 可測集合$A \subset \mathbb R^n$ に対して$\nu (A) \coloneqq \mathcal H^n (L(A))$ とすることで, $\nu \ll \Leb^n$ を満たす測度を定める. 
+\begin{align*} D_{\Leb^n} \nu (x) = \lim_{r\rightarrow 0} \frac{\nu(B(x;r))}{\Leb^n(B(x;r))} = \lim{r\rightarrow 0 } \dbra L = \dbra L\end{align*}
+と, 命題\ref{9}から
+\begin{align*} \mathcal H ^n (L(A)) = \int_A \dbra L \d \Leb^n = \dbra L \Leb ^n (A) \end{align*}
+が成り立つ. 
+\qed
+\end{pf*}
+
+\begin{prop}
+$A\subset \mathbb R^n$ を$\Leb^n$ 可測集合, $f:\mathbb R^n \rightarrow \mathbb R^m$ をリプシッツ連続写像とする. このとき, \\
+(1)$f(A)$ は$\mathcal H^n $ 可測である. \quad (2)写像$:y \rightarrow \mathcal H^0(A \cap f^{-1}(y))$ は$\mathcal H^n$ 可測である. \\
+(3)$\int_{\mathbb R^m} \mathcal H^0 (A \cap f^{-1} (y)) \d \mathcal H^n \leq (\Lip f )^n \Leb ^n (A)$ が成り立つ. 
+\end{prop}
+\begin{pf*}
+極めて作業感が強い. ちょっと疲れてきたので証明を書くのは省略する. 認めることとする. 
+\qed
+\end{pf*}
+
+\begin{prop}\label{6}
+$t > 1$ とし, 
+\begin{align*} B \coloneqq \cbra{x \mid x\text{で全微分可能,}\,\, \dbra{JF(x)} > 0 }\end{align*}
+とする. このとき, 可算個のボレル集合の族$\cbra{E_i}$ で, \\
+(1)$B = \cup E_i.$ \\ (2)$f$ の$E_i$ への制限は単射である. \\
+(3)任意の$i \in \mathbb N$ に対して, 対称な線型同型写像$T_i : \mathbb R^n \rightarrow \mathbb R^n$ で
+\begin{align*}\quad \Lip{f|_{E_i} \circ T_i ^{-1}} \leq t, \quad \Lip{T_i \circ (f|_{E_i}) ^{-1}  } \leq t, \quad \frac{1}{t^n} \abs{\det T_i} \leq \dbra{Jf|_{E_i} } \leq t^n \abs{\det T_i} \end{align*} 
+を満たすものが存在する. \\
+(1)(2)(3)を満たすものが存在する. 
+\end{prop}
+\begin{pf*}
+極めて作業感が強い. これもまた, 疲れているので証明を書くのは省略する. 認めることにする.
+\qed
+\end{pf*}
+
+\begin{prop}(Area formula). \label{8}
+$n \leq m$ とし, $f: \mathbb R^n \rightarrow \mathbb R^m$ をリプシッツ連続写像とする. このとき, 任意の$\Leb ^n$ 可測集合$A \subset \mathbb R^n$ に対して
+\begin{align*} \int_A \dbra{Jf(x)} \d x = \int_{\mathbb R^m} \mathcal H^0 (A \cap f^{-1} (y)) \d \mathcal H ^n (y) \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+ラデマッハの定理より, 殆ど至る所$\dbra{Jf(x)}$ は存在する. $A$ の測度が有限でない場合は$A$ に収束する測度有限な集合の増大列を取ればよいので, $A$ が測度有限の場合に示す. (i)$A \subset \cbra{x \mid \dbra{Jf(x)} > 0}$ の場合を考える. $A$ に対して命題\ref{6} の$\cbra{E_i}$ をとり, 適当に$E^\prime _1 = E^\prime_1, E^\prime_2 = E_2 \setminus E_1, \ldots $ というように, disjointな集合族$\cbra{E^\prime_i}$ をつくる.  また, 
+\begin{align*} B_k \coloneqq \cbra{Q^k\mid Q^k = \prod_{j = 1}^n (a_j, b_j], \,\, a_j = \frac{c_j}{k}, \,\, b_j = \frac{c_j + 1}{k}, \,\, c_j \in \mathbb Z } \end{align*}
+とし, 
+\begin{align*} F^k_{i,j} \coloneqq E^\prime _j \cap Q^k_i \cap A \quad (Q^k_i \in B_k)\end{align*}
+と定める. すると, 
+\begin{align*} g_k \coloneqq \sum_{Q\in B_k} 1_{f(F^k_{i,j})} \end{align*}
+とすると. 単調収束定理より, 
+\begin{align*} \lim_{k\rightarrow \infty} \sum_{i,j} \mathcal H^n (f (F^k_{i,j})) = \int_\mathbb {R^m} \mathcal H^0 (A \cap f^{-1} (y)) \d \mathcal H^n \end{align*}
+が成り立つ. また, $F^k_{i,j} \subset E^\prime _j \subset E_j$ であるので, 命題\ref{5} の不等号から
+\begin{align*} \mathcal H^n (f(F^k_{i,j})) = \mathcal H^n (f|_{E_j} \circ T_j ^{-1} \circ T_j(F^k_{i,j})) \leq t^n \Leb ^n (T_j (F^k_{i,j}))\end{align*}
+と, 
+\begin{align*} \frac{1}{t^n}  \Leb^n(T_j(F^k_{i,j})) = \frac{1}{t^n} \mathcal H ^n (T_j \circ (f|_{E_j})^{-1} \circ f(F^k_{i,j})) \leq \frac{1}{t^n}  t^n \mathcal H^n (f(F^k_{i,j})) = \mathcal H^n (f(F^k_{i,j})) \end{align*}
+が成り立つので, これらの不等式と, さらにあらためて命題\ref{5}を適用することにより, 
+\begin{align*} \frac{1}{t^{2n}} \mathcal H^n(f (F^k_{i,j})) &\leq  \frac{1}{t^n}  \Leb^n(T_j(F^k_{i,j})) =\frac{1}{t^n} \abs{\det T_j} \Leb^n(F^k_{i,j}) \\& \leq \int_{F^k_{i,j}} \dbra{Jf(x)} \d x \leq t^n \Leb ^ n (T_j (F^k_{i,j})) = T^n \Leb^n(T_j(F^k_{i,j})) \\&\leq t^{2n} \mathcal H^n (f (F^k_{i,j})) \end{align*}
+(第3,4の不等号で命題\ref{5}を用いた.) であるので, 結局, 
+\begin{align*} \frac{1}{t^{2n}} \mathcal H^n(f (F^k_{i,j}))  \leq \int_{F^k_{i,j}} \dbra{Jf(x)} \d x  \leq t^{2n} \mathcal H^n (f (F^k_{i,j}))  \end{align*} 
+が成り立つ. 添字$i,j$ について和をとることで, $A = \cup F^k_{i,j}$ に注意すると, 
+\begin{align*}  \frac{1}{t^{2n}} \sum_{i,j =1} ^\infty  \mathcal H^n(f (F^k_{i,j}))  \leq \int_{A} \dbra{Jf(x)} \d x  \leq t^{2n} \sum_{i,j =1} ^\infty \mathcal H^n (f (F^k_{i,j}))  \end{align*}
+が成り立ち, $k \rightarrow \infty $ とすることで, 
+\begin{align*} \frac{1}{t^{2n}} \int_\mathbb {R^m} \mathcal H^0 (A \cap f^{-1} (y)) \d \mathcal H^n \leq \int_{A} \dbra{Jf(x)} \d x \leq t^{2n} \int_\mathbb {R^m} \mathcal H^0 (A \cap f^{-1} (y)) \d \mathcal H^n \end{align*}
+が成り立つので, $t\rightarrow 1$ とすればよい. 続いて, (ii)$A \subset \cbra{x \mid \dbra{Jf(x)} = 0}$ の場合を考える. $0 < \veps \leq 1$ なる$\veps$ をとる. $g: \mathbb R^n \rightarrow \mathbb R^m \times \mathbb R^n, p:\mathbb R^m \times \mathbb R^n \rightarrow \mathbb R^m$ をそれぞれ, 
+\begin{align*}g(x) \coloneqq (f(x), \veps x), \quad p(y,z) \coloneqq y \end{align*}
+により定め, $f = p \circ g$ と分解しておく. 
+\begin{align*} Jg(x) = \sgyouretsu{Jf(x) \\ \veps I} \end{align*} であるので, 
+コーシー$\cdot$ビネの公式(命題\ref{10})を用いて, (落ち着いて$n = 2, m=3$とかで考えるとわかるが, ) 
+\begin{align*} 0 < \sup_{x \in A} (\veps^n)^2 \leq \sup_{x \in A} \paren{ \dbra{Jg(x)}^2 = \dbra{Jf(x)}^2 + \sum (\veps \text{を含む項})^2 } \leq \Const \veps^2 \end{align*}
+が成り立つ. あとは, これを用いると, 
+\begin{align*} \mathcal H ^n (f(A)) & \leq \mathcal H^n (g(A)) \leq \int_{\mathbb R ^{n+m} } \mathcal H ^0 (A \cap g^{-1}(\cbra{y,z})) \d \mathcal H^n((y,z)) \\& = \int_A \dbra{Jg(x)} \d x \leq \veps \Const\, \Leb ^n (A) \rightarrow 0 \quad (\textrm{as} \,\, \veps \rightarrow 0) \end{align*}
+であり, 
+\begin{align*} y \in \spt (\mathcal H^0(A\cap f^{-1}(\cbra{y}))) \naraba f(A) \cap f(\cbra{y}) \neq \varnothing \naraba f(y) \in f(A) \end{align*}
+であることから$\spt (\mathcal H^0(A\cap f^{-1}(\cbra{y})))  \subset  f(y) \in f(A) $ 
+なので, 
+\begin{align*}  \int_{\mathbb R^n} \mathcal H^0 (A \cap f^{-1}(y)) \d \mathcal H^n \leq \int_{\mathbb R^n} f(A) \d \mathcal H^n =  0 \end{align*}
+となる. そもそもこれは$x\in A \naraba \dbra{Jf(x)} = 0$ の場合を考えていたので$\int_A \dbra{Jf(x)} \d x = 0 $である. 従って, 結局$ \int_{\mathbb R^n} \mathcal H^0 (A \cap f^{-1}(y)) \d \mathcal H^n =  \int_A \dbra{Jf(x)} \d x \quad (= 0)$ である. 結局, $\mathbb R^n = \cbra{x \in \mathbb R^n \mid \dbra{Jf(x)} = 0} \cup \cbra{x \in \mathbb R^n \mid \dbra{Jf(x)} > 0} $ である($\dbra{\cdot}$の定義から負にはならない.)ことに注意すると, (i)と(ii)から命題の主張が従う. 
+\qed
+\end{pf*}
+
+\begin{prop}\label{11}(積分の変数変換1).
+$n \leq m$ とし, $f: \mathbb R^n \rightarrow \mathbb R^m$ をリプシッツ連続写像, $g:\mathbb R^n \rightarrow \mathbb R$ を$\Leb^n$ 可積分関数とする. このとき, 
+\begin{align*} \int_{\mathbb R^n} g(x) \dbra{Jf(x)} \d x = \int_{\mathbb R^m} \sum_{x \in f^{-1} (\cbra{y})} g(x) \d \mathcal H^n (y) \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+$g$ が非負の時にだけ示して, 一般の場合には$g = g^+ - g^-$ なる分解に従って足し合わせれば良い. $g$ を単関数$h$ で近似することを考えると, 結局$g = \sum_{i=1} ^k  a_i 1_{A_i}$ の形をしている場合に示せばよい. 
+\begin{align*} \int_{\mathbb R^n} g \dbra{Jf(x)} \d x &= \sum a_i \int_{A_i} \dbra{Jf(x)} \d x \\ &= \sum a_i \int _{A_i} \mathcal H^0 (A_i \cap f^{-1} (\cbra{y})) \d \mathcal H^n (y) \\&= \sum a_i \int_{A_i} \sum_{x \in f^{-1}(\cbra{y})} 1_{A_i} (x) \d \mathcal H^n (y) = \int_{\mathbb R^m} \sum_{x\in f^{-1} (\cbra{y})} g(x) \d \mathcal H^n (y)  \,\, . \end{align*}
+\qed
+\end{pf*}
+
+
+\subsection{Coarea Formula}
+
+\begin{itembox}[l]{謝罪}
+Coarea Forumla の証明は, 書けば腱鞘炎になること間違いなしなので省略し, 結果だけ載せます.
+\end{itembox}
+
+\begin{prop}\label{12}(Coarea Formula). 
+$n \geq m$ とし, $f: \mathbb R^n \rightarrow \mathbb R^m$ をリプシッツ連続写像とする. このとき, $\Leb ^n $ 可測集合$A \subset \mathbb R^n$ に対して,
+\begin{align*} \int_A \dbra{Jf(x) } \d x = \int_{\mathbb R^m} \mathcal H^{n-m} (A \cap f^{-1} (\cbra{y} )) \d y \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+腱鞘炎.
+\qed
+\end{pf*}
+
+\begin{prop}\label{13}(積分の変数変換2).
+$n \geq m$ とし, $f: \mathbb R^n \rightarrow \mathbb R^m$ をリプシッツ連続写像とし, $g:\mathbb R^n \rightarrow \mathbb R$ を$\Leb^n$ 可積分関数とする. このとき, \\
+(1)$g|_{f^{-1} (\cbra{y})}$ は$\Leb^n$ a.e. \, $y$ で$\mathcal H^{n-m}$ 可積分である. \\
+(2)\begin{align*} \int_{\mathbb R^n } g(x) \dbra{Jf(x)} \d x = \int_{\mathbb R^m}\paren{ \int_{f^{-1}(\cbra{y}) } g(x) \d \mathcal H^{n-m}} \d y \end{align*}
+\end{prop}
+\begin{pf*}
+Area Formula(命題\ref{8}) の時の証明に書いてあることと同様の理由から, $g$ を単関数$\sum a_i 1_{A_i}$ とする. 
+\begin{align*} \int_{\mathbb R ^n} g(x) \dbra{Jf(x)} \d x &= \sum a_i \int_{A_i} \dbra{Jf(x)} \d x \\&= \sum a_i \int_{\mathbb R^m} \mathcal H^{n-m} (A_i \cap f^{-1} (\cbra{y})) \d y \\ &= \int_{\mathbb R^m}\paren{ \int_{f^{-1}(\cbra{y}) } g(x) \d \mathcal H^{n-m}} \d y  \end{align*}
+が成り立つ. (ただし, Coarea Formula(命題\ref{12}) を第2の等号で用いた.)
+\qed 
+\end{pf*}
+
+
+\subsection{Applications}
+
+\begin{prop}(曲線の長さ).
+$c :\mathbb [0,1] \rightarrow \mathbb R^m$ を単射なリプシッツ連続写像とする. このとき, 
+\begin{align*} \mathcal H^1 (\Im(c)) = \int_0^1 \abs{\dot c(t)} \d t \end{align*}
+\end{prop}
+\begin{pf*}
+$g = 1_{[0,1]}, f = c$ として命題\ref{11}を適用すればよい. 
+\qed
+\end{pf*}
+
+\begin{prop}(曲面の面積).
+$f: \mathbb R^n \rightarrow \mathbb R$ をリプシッツ連続写像とする. このとき, 任意の開集合$U \in \subset \mathbb R^n$ に対して
+\begin{align*} \mathcal H^n (\cbra{(x, f(x)) \mid x \in \mathbb U}) = \int_U \sqrt{1 + \norm{\nabla f(x)}^2 } \d x \end{align*}
+が成り立つ.
+\end{prop}
+\begin{pf*}
+$g(x) \coloneqq  (x, f(x))$ と定めると,  命題\ref{11}により
+\begin{align*} \int_{\mathbb R^n}1_U(x) \dbra{Jg(x)} \d x &= \int_{\mathbb R^{n+1}} \sum_{x \in g^{-1} (y)} 1_U (x) \d \mathcal H^n(y) \\&= \int_{\mathbb R^{n+1}} 1_{g(U)} (y) \d \mathcal H^n(y)  \\&= \mathcal H^n (\cbra{(x, f(x)) \mid x \in \mathbb U})  \end{align*}
+が成り立ち, コーシー$\cdot$ビネの公式(命題\ref{10})から(ちょっと手を動かして計算してみると,) $\dbra{Jg(x)} = \sqrt {1+ \norm{\nabla f(x)} ^2}$ であるので, 主張が従う. 
+\qed
+\end{pf*}
+
+\begin{prop}(極座標変換).
+$g:\mathbb R^n \rightarrow \mathbb R$ を$\Leb^n$ 可積分関数とする. このとき, 
+\begin{align*} \int_{\mathbb R^n} g(x) \d x = \int_0^\infty \paren{\int_{S^{n-1}(r)} g(x) \d \mathcal H^{n-1} } \d r \end{align*}
+\end{prop}
+\begin{pf*}
+$f(x) \coloneqq  \norm x $ として命題\ref{13} を適用すればよい. 
+\qed
+\end{pf*}
+
+\begin{prop}(等高面の積分).
+$f: \mathbb R^n \rightarrow \mathbb R$ をリプシッツ連続写像とする. このとき, 
+\begin{align*} \int_{\mathbb R^n} \norm{\nabla f (x) } \d x = \int_{-\infty}^\infty \mathcal H^{n-1} ([f = t]) \d t \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+命題\ref{13} において, $g(x;R) = 1_{B(0;R)}$ とおくと, 
+\begin{align*} \int_{\mathbb R^n} 1_{B(0;R)} \norm{\nabla f (x)} \d x = \int_{\mathbb R} \paren{ \mathcal H ^{n-1} ([f=t] \cap B(0;R))} \d t \end{align*}
+となるので, 単調収束定理と, 測度の連続性を用いれば良い. 
+\qed
+\end{pf*}
+
+
+\subsection{参考文献}
+
+ByLawrence C. Evans, Ronald F. Garzepy, "Measure Theory and Fine Properties of Functions" の3章の丸パクり簡易版です. 参考文献の案内もそこにかいてあるのを参考にすると良いと思います. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
