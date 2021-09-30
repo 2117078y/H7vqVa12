@@ -1,0 +1,300 @@
+\documentclass[twocolumn, landscape, a4paper , 8pt, fleqn, titlepage ]{jsarticle}
+\usepackage[driver=dvipdfm,hmargin=20truemm,vmargin=25truemm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+%box
+\usepackage{ascmac}
+
+%%
+\usepackage{xcolor} 
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\hypersetup{
+setpagesize=false,
+ bookmarksnumbered=true,
+ bookmarksopen=true,
+ colorlinks=true,
+ linkcolor=teal,
+ citecolor=black,
+}
+%
+%
+
+%
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+%%
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \textrm{s.t.} \, }
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\supp}{\textrm{supp}\,} 
+
+\newcommand{\ifufu}{\,\textrm {iff} \, \it}
+
+
+\newcommand{\proj}[1]{\it{p}_{#1}}
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\push}{_{\#}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%ベクトル解析
+\newcommand{\grad}{\textrm{grad}}
+\renewcommand{\div}{\textrm{div}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Sgn}{\textrm{Sgn}}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\Sec}{\textrm{Sec}}
+\newcommand{\Scal}{\textrm{Scal}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\renewcommand{\d}{\, d}
+\newcommand{\length}{\textrm{length}}
+\newcommand{\Func}{\textrm{Func}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\Cone}{\textrm{Cone}}
+\newcommand{\Hess}{\textrm{Hess}}
+\newcommand{\esssup}{\textrm{ess}\,\textrm{sup}}
+
+\newcommand{\sub}{\textrm{sub}}
+\newcommand{\Par}{\textrm{Par}}
+
+
+\newcommand{\perpperp}{{\perp \perp}}
+
+\newcommand{\sgyouretsu}[1]{\paren{\begin{smallmatrix} #1 \end{smallmatrix} }}
+
+\renewcommand{\ni}{\hspace{2pt} \textrm{I} \hspace{-5pt} \textrm{I} \hspace{2pt}}
+
+
+
+
+
+%↓本体↓
+
+\title{二次接束プチメモ}
+
+\author{神山翼}
+\date{}
+
+\begin{document}
+
+\maketitle
+\scriptsize 
+
+
+%%目次%%
+%\tableofcontents
+%%%%%%
+
+
+
+%%ある意味ここまでテンプレ%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%スタート
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{二次接束プチメモ}
+\subsection{具体的構成}
+\begin{remark} \quad \\
+\begin{itemize} 
+\item $M$ を滑らかな$n$次元多様体とする. 
+\item $M$ の座標近傍系を$(U_\alpha, \varphi _\alpha)$ で表す. 
+\item $TM$ 上の滑らかな実数値関数全体を$C^\infty(TM; \mathbb R) $で表す. 
+\item $TM$ の自然な座標近傍系を$(W_\lambda, \tilde \varphi _\lambda)$ で表す. 
+\end{itemize}
+\end{remark}
+
+
+\begin{dfn} 
+$(p,X_p) \in T_pM, i = 1, \ldots, n , n+1 \ldots, n+ n$ に対して
+\begin{align*} 
+\delta_i |_{(p,X_p)} : C^\infty(TM; \mathbb R) \rightarrow \mathbb R 
+\end{align*}
+を
+\begin{align*}
+\delta_i |_{(p,X_p)} F \coloneqq \frac{\partial F \circ \tilde \varphi^{-1}  }{ \partial v^i } (\varphi(p, X_p) )  
+\end{align*}
+
+により定める. ただし, $\frac{\partial}{\partial v^i}$ は$\mathbb R^{2n}$ 上の関数の第$i$ 成分に関する微分を表す. 
+\begin{align*} T_{(p,X_p)} TM \coloneqq & \Bigl\{ (p, X_p, \mu^1_{ (p, X_p)} \delta_1|_{(p,X_p)}, \ldots , \mu^n _{(p,X_p) } \delta_n|_{(p,X_p)}, \\ &\quad \quad   \eta^1 _{(p, X_p) } \delta_{n+1} |_{(p,X_p)}, \ldots , \eta^n _{(p, X_p)} \delta_{n+n} |_{(p,X_p)}  ) \\  &\quad \quad \mid (\mu^1_{(p,X_p)} , \ldots, \mu^n_{(p,X_p)} , \eta^1 _{(p,X_p)}, \ldots, \eta ^n _{(p,X_p)} \in \mathbb R^{2n}    )\Bigr\}  \end{align*}
+と定め, これを$TM$ の$(p, X_p)$ における接空間という. \\
+\begin{align*} 
+TTM \coloneqq \bigsqcup_{(p, X_p) \in TM} T_{(p,X_p)} TM
+\end{align*}
+と定め, これを$M$ の二次接束という. 
+\end{dfn}
+
+\begin{remark}
+$TTM$ には標準的には, $A \subset TTM$ が開集合であることを, $TM$ の座標近傍系の添字の任意の$\lambda$ に対して
+\begin{align*} \Phi_\lambda (A \cap \pi_{TM} ^-1 (W_\lambda)  ) \end{align*}
+
+が$\mathbb R^{4n}$ で開集合であることにより定め, それによって位相を定める. ただし, $\pi_{TM}$ は$TTM$ から$TM$ への自然な射影である. また, 
+\begin{align*} &\Phi_\lambda  (p, X_p, \mu^1_{ (p, X_p)} \delta_1|_{(p,X_p)}, \ldots , \mu^n _{(p,X_p) } \delta_n|_{(p,X_p)}, \eta^1 _{(p,X_p)} \delta_{n+1}|_{(p,X_p)} , \ldots \eta^n_{(p,X_p)} \delta_{n+n}|_{(p,X_p)} ) \\  &\quad \coloneqq  ( \tilde \varphi_\lambda (p, X_p) , \mu^1_{ (p, X_p)} , \ldots , \mu^n _{(p,X_p) } , \eta^1 _{(p, X_p)}, \ldots ,\eta^n _{(p, X_p)}  )
+\end{align*}
+により$\Phi_\lambda $ を定める. また, これにより$TTM$ には可微分多様体の構造が定まる. 
+\end{remark}
+
+
+\begin{remark}
+明らかな時には$\delta_i |_{(p,X_p)} $ の$|_{(p,X_p)}$ を省略する. 
+\end{remark}
+
+\begin{prop}
+\begin{align*} &d\pi_{TM} \delta_i = \partial_i, \quad d \pi_{TM} \delta_{n+i} = 0  \end{align*}
+\end{prop}
+\begin{pf*}$f: M \rightarrow \mathbb R$ を滑らかな実数値関数とする. 
+\begin{align*} &d\pi_{TM} (\delta_i) f = \frac{ \partial(f (\pi (\tilde \varphi^{-1} (p, X_p)) ) ) }{\partial v^i } (\tilde \varphi (p,X_p)) =  \frac{\partial f (\varphi^{-1} (p) )}{\partial x^i} (\varphi (p) )  \\ 
+&d\pi_{TM} (\delta_{n+i}) f = \frac{ \partial(f (\pi (\tilde \varphi^{-1} (p, X_p)) ) ) }{\partial v^{n+ i }} (\tilde \varphi (p,X_p)) = 0  
+\end{align*}
+であることからわかる. 
+\qed
+\end{pf*}
+
+\newpage
+\subsection{Vertical lift, Horizontal lift}
+
+\begin{dfn}
+\begin{align*} K_{(p,X_p)} : T_{(p,X_p)} T M \rightarrow T_p M  \, ; A \mapsto d(\exp_p \circ \sub _X \circ \Par^p) A  \end{align*}
+と定める. 
+\begin{align*} \sub_{V_p} (X_p) : T_pM \rightarrow T_pM ; X_p \mapsto X_p - V_p  \end{align*}
+と定める. 
+\end{dfn}
+さて, 
+\begin{align*} 
+dY(X) &= dY(X^i \frac{\partial}{\partial x^i }) \\ &= X^i \frac{\partial}{\partial v^i } + X^i (\frac{\partial Y^k}{\partial x^i }) \frac{\partial}{\partial v^{n+k} } \\
+&= X^i\frac{\partial}{\partial v^i } + X(Y^k) \frac{\partial}{\partial v^{n+k} } \\&= X^i \frac{\partial}{\partial v^i }  + X(Y^i) \frac{\partial}{\partial v^{n+i} } \\
+\nabla_X Y &= \nabla_{X^i \frac{\partial}{\partial x^i } }(Y^j \frac{\partial}{\partial x^j } ) \\&= X^i  \frac{\partial Y^j}{\partial x^i } \frac{\partial}{\partial x^i } + X^iY^j \Gamma_{ij}^k   \frac{\partial}{\partial x^k } \\
+&= X^i  \frac{\partial Y^j}{\partial x^i } \frac{\partial}{\partial x^i } + X^iY^k \Gamma_{ik}^i   \frac{\partial}{\partial x^i }  \\
+&= X^i  (\frac{\partial Y^j}{\partial x^i } + X^iY^k \Gamma_{ik}^i )  \frac{\partial}{\partial x^i }  \\
+K((dYX)) &= d(\exp _p \circ \sub_{\pi_{TM} (dYX)_p } \circ \Par^p )(dYX)  \\&= \frac{d}{dt} (\exp _p \circ \sub_{\pi_{TM} (dYX)_p} \circ \Par^p (Y \circ \gamma (t) )) |_{t =0} \\&= \frac{d}{dt}(\exp_p (\Par^p(Y \circ \gamma(t)) - \pi_{TM} (dYX)_p)) |_{t = 0} \\&= d(\exp _p)_{\Par^p (Y\circ (\gamma(0) ) - \pi_{TM}(dYX)_p } \frac{d}{dt}(\Par^p(Y\circ \gamma(t)) - \pi (dYX_p)) |_{t=0} \\&= d(\exp_p)_0 \frac{d}{dt}(\Par^p(Y\circ \gamma(t)) )|_{t=0} \\&= \textrm{Id} \nabla_X Y \\&= \nabla_X Y
+\end{align*}
+であるので
+\begin{align*} K((dYX)) = 0 &\LR \nabla_X Y = 0 \\&\LR X^i  (\frac{\partial Y^j}{\partial x^i } + X^iY^k \Gamma_{ik}^i )  = 0 \\&\LR  X(Y^i) = - X^j Y^k \Gamma_{jk}^i  \end{align*}
+であるので, $TM$ 上の関数$g$に対して($M, TM$ の座標近傍を$\varphi, \tilde \varphi$ とすると)
+\begin{align*} &(dYX)g = dg(dYX) = d(g \circ Y ) X = X^i \partial_i (g \tilde \varphi ^{-1} \circ \tilde \varphi  \circ Y \circ \varphi^{-1} ) = d(g \circ \tilde \varphi^{-1})  (X^i \partial_i ) (\tilde \varphi  \circ Y \circ \varphi^{-1})   \\ & 
+\varphi  \circ Y \circ \varphi^{-1}\, ; (x^1, \ldots, x^n, Y^1(x^1,\ldots, x^n), \ldots, Y^n(x^1,\ldots, x^n))
+\end{align*}
+なので, $dYX = X^1 \frac{\partial}{\partial v^1 } + \cdots + X^n \frac{\partial}{\partial v^n } + (XY^1) \frac{\partial}{\partial v^{n+1} } + \cdots + (X Y^n) \frac{\partial}{\partial v^{n+n} }$
+\begin{align*} dYX = X^i \frac{\partial}{\partial v^i } + X(Y^j) = X^i \frac{\partial}{\partial v^i } - X^i Y^k \Gamma_{ik}^j \frac{\partial}{\partial v^{n+j} }  = X^i \frac{\partial}{\partial v^i } - X^j Y^k \Gamma_{jk}^i \frac{\partial}{\partial v^{n+i } }   \end{align*}
+
+\begin{dfn}
+$X \in TM$ の$Y \in TM$ における垂直リフト$X^V \in T_Y TM $と水平リフト$X^H \in T_Y TM$ をそれぞれ
+\begin{align*} X^V_Y \coloneqq X^i \frac{\partial}{\partial v^{n+i}} , \quad X^H_Y \coloneqq X^i \frac{\partial}{\partial v^i } - X^j Y^k \Gamma_{jk}^i \frac{\partial}{\partial v^{n+i } }   \end{align*}
+\end{dfn}
+
+により定める. 
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+

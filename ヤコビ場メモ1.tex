@@ -1,0 +1,521 @@
+\documentclass[twocolumn, landscape, a4paper , 8pt, fleqn, titlepage ]{jsarticle}
+\usepackage[driver=dvipdfm,hmargin=20truemm,vmargin=25truemm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+%box
+\usepackage{ascmac}
+
+%%
+\usepackage{xcolor} 
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\hypersetup{
+setpagesize=false,
+ bookmarksnumbered=true,
+ bookmarksopen=true,
+ colorlinks=true,
+ linkcolor=teal,
+ citecolor=black,
+}
+%
+%
+%
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+%%
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \textrm{s.t.} \, }
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\ntbra}[1]{\langle#1\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\supp}{\textrm{supp}\,} 
+
+\newcommand{\ifufu}{\,\textrm {iff} \, \it}
+
+
+\newcommand{\proj}[1]{\it{p}_{#1}}
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\push}{_{\#}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%ベクトル解析
+\newcommand{\grad}{\textrm{grad}}
+\renewcommand{\div}{\textrm{div}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\renewcommand{\d}{\, \textrm{d} }
+\newcommand{\length}{\textrm{length}}
+\newcommand{\Func}{\textrm{Func}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\Cone}{\textrm{Cone}}
+\newcommand{\Hess}{\textrm{Hess}}
+
+\newcommand{\perpperp}{{\perp \perp}}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+\newcommand{\limright}{\displaystyle{\lim_{\rightarrow}}}
+
+
+\renewcommand{\-}{\hyphen}
+
+\renewcommand{\Im}{\textrm{Im}}
+
+\newcommand{\sgyouretsu}[1]{\paren{\begin{smallmatrix} #1 \end{smallmatrix} }}
+
+%↓本体↓
+
+\title{ヤコビ場おぼえがき(その1)}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\scriptsize 
+
+
+\section{ヤコビ場}
+\subsection{曲線の変分}
+
+\begin{dfn}
+$c:[a,b]\rightarrow M$ を $C^\infty$ 曲線とする. $C^\infty$ 写像$f:[a,b]\times (-\veps, \veps) \rightarrow M$ は \\
+$f(t,0) = c(t)$ をみたすときに, $c$ の(滑らかな)変分であるという.
+\end{dfn}
+
+\begin{dfn}
+$c$ の変分$f$ は, $f(a, \cdot ) = c(a), f(b, \cdot) = c(b)$ をみたすとき, 端点が固定された変分(あるいはproperな変分)という.
+\end{dfn}
+
+\begin{dfn}
+$c$ の変分$f$ は, 任意のパラメータ$s\in (-\veps, \veps)$ に対して $f(\cdot, s)$ が測地線となるときに, 測地的変分という.
+\end{dfn}
+
+\begin{remark}
+当たり前だが, $c$ が測地線でなければ, $c$ の変分で測地的な変分となるものはあるはずがない.
+\end{remark}
+
+\begin{dfn}
+$c$ の変分を $f$ とする. $df\paren{\frac{\partial}{\partial s} }_{(t,0)} \in \Gamma(c^* TM)$ を$f$ による$c$ に沿った変分ベクトル場という.
+\end{dfn}
+
+\subsection{測地線の変分とヤコビ場}
+
+\begin{dfn}
+$c$ を測地線とする. $X \in \Gamma(c^* TM)$ が
+\begin{align*}
+\nabla_{\frac{d}{dt} }^{c^*} \nabla_{\frac{d}{dt} }^{c^*} X + R(X, \frac{dc}{dt} ) \frac{dc}{dt} = 0 \in \Gamma(c^* TM)
+\end{align*}
+をみたすときに, $X$ を$c$ に沿ったヤコビ場という.
+\end{dfn}
+
+\begin{ex}
+$\gamma$ を測地線とする. $\dot \gamma \in \Gamma(\gamma ^* TM)$ はヤコビ場である. 
+\begin{align*} R(\dot \gamma, \dot \gamma) \dot \gamma = 0 \in \Gamma(\gamma^* TM), \quad  \nabla^{\gamma^*} _{\frac{d}{dt} } \dot \gamma = 0 \in \Gamma(\gamma ^* TM)\end{align*}
+からわかる.
+\end{ex}
+
+\begin{ex}
+$\gamma$ を測地線とする. $t \dot \gamma \in \Gamma(\gamma ^* TM)$ (厳密には$id_{[a,b]} \dot \gamma \in \Gamma(\gamma ^* TM)$とかくべきかもしれない) はヤコビ場である. 
+実際,
+\begin{align*} \nabla^{\gamma^*} _{\frac{d}{dt} }\nabla^{\gamma^*} _{\frac{d}{dt} } (t \dot \gamma) = \nabla^{\gamma^*} _{\frac{d}{dt} } (\frac{dt}{dt} \dot \gamma + t \nabla^{\gamma^*} _{\frac{d}{dt} } \dot \gamma) = \nabla^{\gamma^*} _{\frac{d}{dt} } \dot \gamma = 0, \quad R(t \dot \gamma, \dot \gamma) \dot \gamma = 0 \end{align*}
+よりわかる. 
+\end{ex}
+
+\begin{ex}
+$\gamma$ を測地線とする. $t^2 \dot \gamma$ はヤコビ場ではない. 
+\begin{align*} \nabla^{\gamma^*} _{\frac{d}{dt} }\nabla^{\gamma^*} _{\frac{d}{dt} } (t^2 \dot \gamma) = \nabla^{\gamma^*} _{\frac{d}{dt} }  (2t \dot \gamma + t^2 \nabla^{\gamma^*} _{\frac{d}{dt} } \dot \gamma) = \nabla^{\gamma^*} _{\frac{d}{dt} } (2t \dot \gamma) = 2 \dot \gamma + 2t \nabla^{\gamma^*} _{\frac{d}{dt} } \dot \gamma = 2 \dot \gamma \end{align*}
+
+\end{ex}
+
+\begin{prop}
+$\gamma : [a,b] \rightarrow M$ 正規測地線($\abs{\dot \gamma } = 1$ の測地線) とする. \\
+$X_a \in T_{\gamma (a) } M$ と, $Y_a \in T_{\gamma (a) } M$ が与えられると, $\gamma $ に沿ったヤコビ場$J \in \Gamma(\gamma ^* TM)$で, $J(a) = X_a, (\nabla^{\gamma^*} _{\frac{d}{dt} } J )(a) = Y_a$ を満たすものは存在し, 唯一つである. 
+\end{prop}
+\begin{pf*}
+(sketch) ヤコビ場の方程式が2階の常微分方程式であることから従う.
+\qed
+\end{pf*}
+
+\begin{cor}
+$J$ を測地線$\gamma$ に沿ったヤコビ場で, 恒等的に$0$ ではないとする. $J(t) = 0$ となる点は離散的である.
+\end{cor}
+\begin{pf*}
+集積点$t_0$ をもつとすると, その点の近傍で$J^i (t) = 0, \dot J ^i (t) = 0$ であるので, $J(t_0) = 0, (\nabla^{\gamma^*} _{\frac{d}{dt} } J ) (t_0) = 0$ である. 一意性からそのようなヤコビ場は恒等的に0となる.
+\qed
+\end{pf*}
+
+
+
+\subsection{法ヤコビ場}
+\begin{dfn}(法ヤコビ場).
+$\gamma$ を測地線とする.
+任意の$t \in I$において$ \ntbra{J(t), \dot \gamma (t)} = 0 $ を満たす$\gamma$ に沿ったヤコビ場を, 法ヤコビ場という.
+\end{dfn}
+
+\begin{prop}(ヤコビ場の法ヤコビ場と接ヤコビ場への分解).
+$\gamma$ を測地線とする. $J$ を$\gamma$ に沿ったヤコビ場とすると, 実数$\alpha , \beta \in \mathbb R$ で, \\
+$J - \alpha t \dot \gamma - \beta \dot \gamma $ が法ヤコビ場となるものが存在する.
+\end{prop}
+\begin{pf*}
+$\frac{d^2}{dt^2} \tbra{J, \dot \gamma } = \frac{d}{dt} \ntbra{\nabla^{\gamma^*} _{\frac{d}{dt} } J, \dot \gamma } = \ntbra{\nabla^{\gamma^*} _{\frac{d}{dt} } \nabla^{\gamma^*} _{\frac{d}{dt} } J, \dot \gamma}  = -\tbra{R(J,\dot \gamma) \dot \gamma, \dot \gamma}  $ \\
+ここで, $g(R(J,\dot \gamma)\dot \gamma,\dot \gamma) = - g(R(J,\dot \gamma)\dot \gamma,\dot \gamma) $ であるので, 最後の項は0になる. 従って, 適当な実数$a,b \in \mathbb R$ により $ g(J, \dot \gamma) = at + b $ と表される. \\
+$\alpha \coloneqq \frac{a}{\abs{\dot \gamma} ^2} , \beta \coloneqq \frac{b}{\abs{\dot \gamma} ^2}, J^\perp \coloneqq X - \alpha t \dot \gamma - \beta \dot \gamma $ とすると, $g(J^\perp, \dot \gamma) = 0$ が成り立つ.
+\qed
+\end{pf*}
+
+\begin{prop}(ヤコビ場が法ヤコビ場であるための必要十分条件).\\
+$J$ を測地線$\gamma$ に沿ったヤコビ場とする. このとき, \\
+$J$ が法ヤコビ場である. $\LR$ $\begin{cases} \tbra{J(0), \dot \gamma(0)} = 0 \\ \ntbra{\nabla^{\gamma ^* } _{\frac{d}{dt}} J(0), \dot \gamma (0) } = 0 \end {cases} $
+
+\end{prop}
+\begin{pf*}
+$\naraba.$ $\ntbra{J(t), \dot \gamma (t) } = 0, \ntbra{\nabla^{\gamma ^* } _{\frac{d}{dt}} J(t), \dot \gamma(t) } = \frac{d}{dt} \ntbra{J(t), \dot \gamma (t) } = 0$ \\
+$\gyaku.$ 測地線の速度を$c$ とする. うまく実数$c_1, c_2$ をとって法ベクトル場 $J^\perp \coloneqq J - c_1 t \dot (t) - c_2 \dot (t)$ を定める. 
+$\ntbra{J(t), \dot \gamma (t)} = \ntbra{J ^\perp (t) , \dot \gamma (t)  } + c_1 t c + c_2 c $ が成り立つので, 適当に暗算すると結局$c_2 c = 0, c_1 c = 0$ となるので, 結局$J$ が法ヤコビ場であるということがわかる. 
+\qed
+\end{pf*}
+
+\begin{remark}
+つまり, ヤコビ場は時刻$0$ においてそれ自体と微分が$\dot \gamma (0)$ と直交していれば, ずっと直交している. 
+\end{remark}
+
+\begin{remark}
+とくに, $(0, w)$ を初期データとするヤコビ場を考えている場合は $\tbra{0 , \dot \gamma (0) } = 0$ は明らかなので, $\tbra{w , \dot \gamma (0)} = 0$ を満たせば法ヤコビ場である.
+\end{remark}
+
+\begin{remark}
+仮に$n$ 個のヤコビ場を初期データの第二パラメータを正規直交基底になるようにとったからといって, そのヤコビ場たちが各点で正規直交枠かっていうと, 冷静に考えると全く関係ない. 各点で正規直交になる測地線に沿ったベクトル場たちが欲しかったら, 純粋に$\gamma (0)$ で正規直交基底をとって, それを初期パラメータとする測地線に沿ったベクトル場を得ればよい. \\ 実際そのようにして得られたベクトル場は,
+\begin{align*}\frac{d}{dt} \tbra{E_1 (t), E_2 (t) } = \ntbra{\nabla ^{\gamma ^* } _{\frac{d}{dt} } E_1 (t) , E_2 (t)  } + \ntbra{E_1 (t), \nabla ^{\gamma ^* } _{\frac{d}{dt} }  E_2 (t)} = \tbra{0, E_2 (t)} + \tbra{E_1(t), 0} = 0 \end{align*}
+であるので, 時刻$0$での角度を保ち続ける.
+\end{remark}
+
+
+
+\subsection{よくある変分}
+
+\begin{ex}(与えられた$X \in (\gamma)$を変分ベクトル場とする両端点固定の変分). \\
+$c: [0,1] \rightarrow M$ を測地線とは限らない曲線, $X \in \Gamma(c^* TM)$ を$c$ に沿ったベクトル場とする. \\
+このとき, $F(t,s) \coloneqq \exp_{c(t)} (s X(t))$ は$X$ を変分ベクトル場とする$c$ の変分である. \\
+実際, $s = 0$ の時は$F_0 (t) = \exp_{c(t)} (0) = c(t)$ 
+\end{ex}
+
+
+$\gamma : [0,1] \rightarrow M$ を測地線とする. $w_{\gamma(0)} \in T_{\gamma(0)} M$ は適当なベクトルとする. \\まず最初に, 
+$d(f \circ g)_(p) = df_{g(p)} \circ dg_{p}$ であることから, \\ $d{\exp(f)}_{(s_0,t_0)}= d(\exp \circ f )_{(s_0, t_0)} = d\exp_{f(s_0, t_0)} \circ df_{(s_0, t_0)} $が成り立つことを思いだしておく.
+
+
+
+\begin{ex}((0,w)を初期パラメータとするヤコビ場をつくる測地線の族). \\
+測地線の族 $F(t,s) \coloneqq \exp _{\gamma(0)} (t\dot \gamma(0) + ts w_{\gamma(0)} ) $ の変分ベクトル場を$J \in \Gamma(\gamma ^* TM)$ で表すと, \\
+(1)$J_0 = 0,$ (2)$\paren{\nabla ^{\gamma ^* }_{\frac{d}{dt}} J }_0 = w_{\gamma(0)},$ (3)$J$は$\gamma$ に沿ったヤコビ場である. 
+実際, 
+\begin{align*}
+&J_0 \\
+&= (d\exp_{\gamma(0)}(t\dot \gamma(0) + tsw_{\gamma(0)}) \paren{\frac{\partial}{\partial s} })|_{(0,0)} \\
+&= (d\exp_{\gamma(0)})_{(0\dot\gamma(0) + 0 \cdot 0 \cdot w_{\gamma(0)})} \frac{d(t\dot\gamma(0) + tsw_{\gamma(0)})}{ds} (0,0) 
+&=   \paren{d \exp _{\gamma(0)}}_{0} (0\cdot w_{\gamma(0)}) = Id(0) \\
+&= 0 \quad  \\
+\\
+&\paren{\nabla^{F^*}_{\frac{d}{d t}} J }_0 \\
+&= \paren{\nabla^{F^*}_{\frac{\partial}{\partial t}} \paren{\frac{\partial}{\partial s}} \exp _{\gamma(0)} (t\dot \gamma(0) + tsw_{\gamma(0)}) }|_{(0,0)} \\
+&= \paren{\nabla^{F^*}_{\frac{\partial}{\partial s}} \paren{\frac{\partial}{\partial t}} \exp _{\gamma(0)} (t\dot \gamma(0) + tsw_{\gamma(0)}) }|_{(0,0)} \\
+&= \paren{\nabla^{F^*}_{\frac{\partial}{\partial s}} \paren{\frac{\partial}{\partial t}} \exp _{\gamma(0)} (t\dot \gamma(0) + tsw_{\gamma(0)}) }|_{(0,0)} \\
+&= \paren{\nabla^{F^*}_{\frac{\partial}{\partial s}} Id (w_{\gamma (0)})  } \\
+& = w_{\gamma(0)}
+\end{align*}
+から(1),(2)は成り立ち, (3)については測地線の族の変分なのでヤコビ場であることは明らか.
+\end{ex}
+
+
+
+\subsection{共役点とヤコビ場}
+$\exp_{\gamma(0)}(t\dot \gamma(0))$ の微分写像は原点で恒等写像となり非退化なので, $T_{\gamma(0)} M$ の原点で局所的に微分同相である. では他の点ではどうだろうか. \\
+
+\begin{dfn}(共役点).
+$\gamma : [0,1] \rightarrow M$を測地線とする. $\gamma(t_0)\,\, (0 < t_0 < 1)$ は, $(d\exp_{\gamma(0)})_{(t_0 \dot \gamma (0))} $ が線形写像として退化しているとき, $\gamma(0)$ の$\gamma$ に沿った共役点であるという. 
+\end{dfn}
+
+つまり, 共役点というのは, 指数写像が局所的に微分同相にならない時刻と対応している. \\
+
+\begin{prop}(共役点のヤコビ場による特徴づけ).
+$\gamma$ を測地線とする. \\
+$\gamma(t_0)$ が$\gamma(0)$ の$\gamma$ に沿った共役点である. \\
+$\LR$ $\gamma$ に沿ったヤコビ場$J \in \Gamma(\gamma ^* TM)$で, $J(0) = J(t_0) = 0$ をみたして, かつ non-vanishing なものが存在する. 
+\end{prop}
+\begin{pf*}
+$(\naraba)$. $\ker (d \exp _{\gamma(0)})_{t_0 \dot \gamma(0)} \neq 0$ なので, 非自明な解$w_{\gamma(0)} \in T_{\gamma(0)} M$ をとってきて, $\exp_{\gamma(0)} (t \dot \gamma(0) + ts w _{\gamma (0)})$ という測地線族を考えると, 変分ベクトル場$(d\exp_{\gamma(0)})_{t\dot \gamma(0)} (t w _{\gamma(0)})$は$\gamma $ に沿ったヤコビ場であり, 時刻$0, t_0$ で$0$ になる. また non-vanishing であることも$w_{\dot \gamma(0)} \neq 0$ からわかる. \\
+$(\gyaku)$. $\exp_{\gamma(0)} (t \dot \gamma(0) + t s (\nabla ^{\gamma ^* } _{\frac{d}{dt} } J) (0) ) $ の変分ベクトル場$(d\exp_{\gamma(0)})_{t\dot \gamma(0)} (t (\nabla ^{\gamma ^* } _{\frac{d}{dt} } J) (0)  )$は$J$ と一致するので, 時刻$t_0$ を考えると,  $(d\exp_{\gamma(0)})_{t_0 \dot \gamma(0)} (t_0 (\nabla ^{\gamma ^* } _{\frac{d}{dt} } J) (0)  ) = J(t_0) = 0$ となり, これは非自明な解(なぜなら自明な解だとすると$J$ は(0,0) を初期データとするヤコビ場になり恒等的に0となるから)ので主張が従う.
+\qed
+\end{pf*}
+
+\begin{prop}
+$\gamma_t$ が$\gamma_0$ の$\gamma$ に沿う共役点ではないとすると, 
+\begin{align*} J_0 = v \in T_pM, \quad J_t = w \in T_{\gamma_t} M \end{align*}
+をみたす$\gamma$ に沿うヤコビ場$J$が存在する. 
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+
+\begin{prop}(ガウスの補題).
+$v \in T_p M$ とし, $\gamma$ を$(0,b)$を定義域に含む$\gamma_0 = p$なる測地線とする. このとき, 
+\begin{align*} &(1) \quad d(\exp_p)_{t \dot \gamma_0} (\dot \gamma_0) = \dot \gamma (t) \\&(2)\quad g(d(\exp_p)_{t \dot \gamma_0} v, \dot \gamma_t) = g(v, \dot \gamma_0)\end{align*}
+\end{prop}
+\begin{pf*}(1)
+$d(\exp_p)_{t \dot \gamma_0} (\dot \gamma_0)  = \frac{d}{ds}|_{s=0} \exp_p ((t+s)\dot \gamma_0) = \frac{d}{dr}|_{r = t} \exp_p(r \dot \gamma _0) =  \dot \gamma (t)  \,\,.$ \\
+(2)$J_0 = 0, \nabla_{\frac{d}{dt}} J (0) = v$ をみたす$\gamma$ に沿うヤコビ場$J$をとる. 
+\begin{align*} \frac{d^2}{dt^2} g(J_t, \dot \gamma_t) = 0\end{align*}
+となることから, $g(J_t, \dot \gamma_t ) = c_1 t + c_2$ と表され,
+\begin{align*} g(J_0, \dot \gamma_0)  = 0, \quad  \frac{d}{dt}g(J_t, \dot \gamma_t) (0)= g(\nabla_{\frac{d}{dt} } J(0), \dot \gamma_0) = g(v, \dot \gamma_0) \end{align*}
+であることから, $c_2 = 0, c_1 = g(v, \dot \gamma_0)$ である. $J$ が $\exp_p t(\dot \gamma_0 + s v)$ の変分ベクトル場であることと, $J_t (= \partial_s|_{s = 0} \exp_p t(\dot \gamma_0 + s v))= t d (\exp_p) _{t \dot \gamma_0} v$ が成り立つことから, 
+\begin{align*} g(d(\exp_p)_{t \dot \gamma_0} \nabla_{\frac{d}{dt} } J(0), \dot \gamma_t  ) = g (\frac{1}{t} J_t, \dot \gamma_t)  = g (v, \dot \gamma_0)\end{align*}
+である. 
+\qed
+\end{pf*}
+
+
+\begin{prop}
+$(M,g)$を任意の点の任意の接平面における断面曲率が非負のリーマン多様体とする. このとき, 任意の点$p$は, 測地線$\gamma\,\,\,(\gamma(0) = p)$に対して, 測地線$\gamma$に沿った共役点を持たない. 
+\end{prop}
+\begin{pf*}
+$\gamma(t_0)$ を共役点と仮定する. $\gamma$ に沿ったnon-vanishingなヤコビ場$J$で, $J(0) = J(t_0) = 0$ となるものが存在する. 一方で, そのようなヤコビ場$J$に対しては
+\begin{align*} (\frac{d}{dt})^2  g(J(t), J(t)) &= 2 \paren{g(\nabla^{\gamma^*}_{\frac{d}{dt}} \nabla^{\gamma^*}_{\frac{d}{dt}}J(t)  , J(t))  + g(\nabla^{\gamma^*}_{\frac{d}{dt}} J(t) , \nabla^{\gamma^*}_{\frac{d}{dt}}  J(t) )} \\
+&= 2 \paren{g(-R(J, \dot \gamma)\dot \gamma, J) + g(\nabla^{\gamma^*}_{\frac{d}{dt}} J , \nabla^{\gamma^*}_{\frac{d}{dt}}  J )} \\
+&\geq 0
+\end{align*}
+となることが, $g(-R(J(t), \dot \gamma)\dot \gamma, J(t)) = K(J, \dot \gamma) \leq 0$ となることからわかる. 従って, $g(J(t),J(t))$ は$t=0$ で$0$の値をとってから広義単調増大であるわけだが, non-vanishingであるので$g(J(t_0), J(t_0)) > 0$ となり, $J(t_0) = 0$ であることと矛盾する. 
+\qed
+\end{pf*}
+
+
+
+\subsection{Cut Locus}
+測地線$\gamma$は$t_0$ が十分小さければ$\gamma(0), \gamma(t_0)$ を結ぶ曲線のうち, 最短のものである. そこで, 最短線である時刻の上限に着目すると, 何かいえることはあるだろうか. \\
+
+\begin{dfn}(cut point).
+$p \in M, \gamma : [0, \infty) \rightarrow M $ を$\gamma (0) = p$ なる測地線とする. \\
+$t_0 \coloneqq \sup \cbra{t \in [0, \infty) \mid \gamma \text{は} \gamma(0) \text{と} \gamma(t_0) \text{の間の最短線である. }}$ 
+とする. \\
+$t_0 < \infty$ のとき, $\gamma (t_0) $ を$\gamma $ に沿った $p$ の cut point という. \\
+\begin{dfn}
+
+\end{dfn}
+$p \in M$ において, 各単位ベクトル$v \in T_p M$ に対して$\exp _p (t_0 v)$ が$p$ の$\exp_p(tv)$ に沿った cut point となる$t_0$ を対応させる写像を$\rho(p ; v)$ と定める. \\
+\end{dfn}
+
+\begin{prop}
+$M$ を完備連結リーマン多様体とする. このとき, $\rho_p: S^{n-1} \rightarrow (0, + \infty] $ は連続写像である.  
+\end{prop}
+\begin{pf*}
+(加須栄篤"リーマン幾何学" p.175)
+\qed
+\end{pf*}
+
+\begin{remark}
+$V_p \coloneqq \cbra{tv \mid 0 \leq t < \rho_p (v), v \in S^{n-1}(1) }$ 上で$\exp_p $ は微分同相である. 
+\end{remark}
+
+
+
+\begin{dfn}(cut locus).\\
+$\textrm{Cut} (p) \coloneqq \cbra{q \in M \mid \exists \gamma: \gamma(0) = p, q\text{は} \gamma \text{に沿った} p \text{の共役点}}$ \\
+(あるいは$\textrm{Cut} (p) \coloneqq \cbra{ \exp_p (\rho_p (v) v) } $ と定めても同じである.) \\
+これを$p$ の最小跡(cut locus) という.
+\end{dfn}
+
+
+\begin{dfn}
+$\min_{v \in S^{n-1}} \rho_p (v)$ を$p\in M$ における単射半径という. (最小値の存在は連続性から従う.)
+\end{dfn}
+
+
+
+\subsection{比較定理}
+
+
+
+\begin{dfn}
+$\gamma $ を正規測地線とする. $(0, \omega )$ を初期データとするヤコビ場の時刻$t$ での値を与える写像を $\mathcal Y_t : T_{\gamma(0)} M \rightarrow T_{\gamma(t)} M$ とする. \\
+ヤコビ場は初期データの第二パラメータが測地線と直交していれば, 任意の時刻で測地線と直交するので, この写像を$T_{\gamma(0)}M ^{\perp \dot \gamma(0)} \coloneqq \cbra{w \in T_{\gamma(0)}M \mid \tbra{w, \dot \gamma(0)} = 0 } $ に制限した写像を \\
+$\mathcal Y_t ^\perp : T_{\gamma(0)}M ^{\perp \dot \gamma(0)} \rightarrow T_{\gamma(t)}M ^{\perp \dot \gamma(t)}$ として定める. \\
+$C : ()$
+
+\end{dfn}  
+
+
+
+
+\subsection{$N$ヤコビ場}
+
+\begin{dfn}
+$N\subset M$ を$M$ の部分多様体とする. $M$の測地線$\gamma $に沿ったヤコビ場$J$ が
+\begin{align*} \dot \gamma(0) \in T_p N ^\perp , \quad J_{\gamma_0} \in T_pN, \quad \nabla_{\frac{d}{dt}} J_{\gamma_0} - A_{Y_\gamma(0)} \dot \gamma(0) \in T_p N^\perp  \end{align*}
+をみたすとき, $N$ヤコビ場という. (ただし, $A$ は型作用素である.)
+\end{dfn}
+
+\begin{prop}
+$J$を$\xi \in T_p N ^\perp$ を始方向とする測地線$\gamma$ に沿ってのベクトル場とする. \\
+$J$が$N$ヤコビ場であることの必要十分条件は, $J$ を変分ベクトル場とする変分$\alpha(t,s)$で, 任意の$s$に対して$\alpha_s (t)$ が測地線で$\partial_t \alpha_s (0)$が$N$に垂直となるものが存在することである. 
+\end{prop}
+\begin{pf*}
+$\gyaku.$ 測地的変分であるので, ヤコビ場であることは明らかである. 仮定より, 測地線$\alpha_0 (t)$の始方向は$N$ に垂直である. $\alpha_0(s)$ が$N$の曲線であることから$\partial_s \alpha_(0,0) \in T_p N$であることもわかる. 
+\begin{align*} &\nabla_{\partial_t} J_{\alpha{(0,0)} } = \nabla_{\partial_t} (\partial_s \alpha(0,0)) = \nabla_{\partial_s} (\partial_t \alpha(0,0)) = \nabla_{\partial_s \alpha{(0,0)} } (\partial_t \alpha(0,0)) \end{align*}
+となる.  $\partial_s \alpha_{(0,0)} = J_{\alpha(0,0)}$ であるので, これの$TN^ \top$ 成分は$A_{J_{\alpha(0,0)}} (\partial_t \alpha(0,0))$ であるので, それを除いた$\nabla_{\partial_t} J_{\alpha{(0,0)} } - A_{J_{\alpha(0,0)}} (\partial_t \alpha(0,0))$ は$T_\alpha(0,0) N^\perp$ に属する. 従って$J$は$N$ヤコビ場である. \\
+$\naraba.$ $s = 0$ で$\dot \gamma(0) \in T_{\gamma(0)} N^\perp  $ を通り, $(J_{\gamma(0)}, \nabla_{\frac{d}{dt} } J_{\gamma (0) } - A_{J_{\gamma(0)} } \dot \gamma (0)  ) \in T_{\dot \gamma(0) } T_{\gamma(0) }N ^\perp$ を速度ベクトルとする$TN^\perp$ 内の曲線を$\xi (s)$ とすると, $\alpha (t,s) \coloneqq \exp_{\nu_N  \xi (s) } (t \xi (s))$ が求める変分である. 実際, 
+\begin{align*} &(\partial_s)(\exp_{\nu_N  \xi (s) } (t \xi (s))) (0, 0) = (\partial_s)|_{s = 0} (\exp_{\nu_N  \xi (s) } (0 \xi (s))) \\ &\quad \quad = \partial_s (\nu_N \xi) (0) = d\nu_N (\dot \xi (0) ) = d \nu_N ( (J_{\gamma(0)}, \nabla_{\frac{d}{dt} } Y_{\gamma (0) } - A_{J_{\gamma(0)} } \dot \gamma (0)  ) ) = J_{\gamma(0)} \end{align*}
+である. (ここでは, $\nu_N: TN^\perp \rightarrow N$ で法束を表している.) また, 
+\begin{align*} &\nabla_{\partial_t} (\partial_s \alpha (0,0)) = \nabla_{\partial_s} (\partial_t \alpha (0,0)) = \nabla_{\partial_s} (\xi (0)) = \nabla_{\partial_s} (\xi (0)) ^\top + \nabla_{\partial_s} (\xi (0)) ^\perp \\&\quad \quad  = K^\perp  \dot \xi (0) + \nabla_{\partial_s \alpha } (\xi) ^\top (0) = K^\perp ( (J_{\gamma(0)}, \nabla_{\frac{d}{dt} } J_{\gamma (0) } - A_{J_{\gamma(0)} } \dot \gamma (0)  ) ) + A_{J_{\gamma_0}} \xi (0) \\& \quad \quad =  \nabla_{\frac{d}{dt} } J_{\gamma (0) } - A_{J_{\gamma(0)} } \dot \gamma (0)  +  A_{J_{\gamma(0)} } \dot \gamma (0) = \nabla_{\frac{d}{dt} } J_{\gamma (0) }  \end{align*}
+となる.  
+\qed
+\end{pf*}
+
+\begin{prop}
+$J$が$\gamma$ に沿った$N$ヤコビ場であることの必要十分条件は, $(X,Y) \in TTN^\perp$ で, $TM$ の曲線$\xi (s)$ を$\dot \xi (0) = (X,Y)$ となるよう定めると
+\begin{align*} J_{\gamma_t} = d (\exp_{\nu_N} \xi (s)) _{t \xi (s)} (X, tY)\end{align*}
+となるものが存在することである. 
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+\begin{dfn}(焦点(focal point)). $M$の測地線$\gamma$を$N \subset M$ に垂直であるとする. $\gamma$ に沿った$N$ヤコビ場$J$ で, $J_{t_0} = 0 \,\, (t_0 > 0)$ となるものが存在する時, $\gamma_{t_0}$ を$\gamma$ に沿う$N$の焦点という. また, $t_0$ を焦値という. 
+\end{dfn}
+
+\begin{prop}
+
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

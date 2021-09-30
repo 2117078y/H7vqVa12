@@ -1,0 +1,339 @@
+\documentclass[10pt, fleqn, label-section=none, titlepage]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+%box
+\usepackage{ascmac}
+
+%%
+\usepackage{xcolor} 
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\hypersetup{
+setpagesize=false,
+ bookmarksnumbered=true,
+ bookmarksopen=true,
+ colorlinks=true,
+ linkcolor=teal,
+ citecolor=black,
+}
+%
+%
+%
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+%%
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \textrm{s.t.} \, }
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\supp}{\textrm{supp}\,} 
+
+\newcommand{\ifufu}{\,\textrm {iff} \, \it}
+
+
+\newcommand{\proj}[1]{\it{p}_{#1}}
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\push}{_{\#}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%ベクトル解析
+\newcommand{\grad}{\textrm{grad}}
+\renewcommand{\div}{\textrm{div}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\renewcommand{\d}{\, d}
+\newcommand{\length}{\textrm{length}}
+\newcommand{\Func}{\textrm{Func}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\Cone}{\textrm{Cone}}
+\newcommand{\esssup}{\textrm{ess}\,\textrm{sup}}
+
+\newcommand{\perpperp}{{\perp \perp}}
+
+\newcommand{\sgyouretsu}[1]{\paren{\begin{smallmatrix} #1 \end{smallmatrix} }}
+
+%↓本体↓
+
+\title{距離空間の間の距離}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\scriptsize 
+
+
+%%目次%%
+%\tableofcontents
+%%%%%%
+
+
+
+%%ある意味ここまでテンプレ%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%スタート
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{距離空間の間の距離}
+\subsection{Hausdorff距離}
+\begin{dfn}(集合の$\veps$近傍).
+$(X,d)$ を距離空間とする. $A\subset X, \veps > 0$ に対して, \\
+$B(A;\veps ) \coloneqq \cbra{x \in X \mid d(x, A) < \veps}$ とする.
+\end{dfn}
+
+\begin{dfn}(Hausdorff 距離).
+$(X,d)$ を距離空間とする. $A_1, A_2  \subset X$ の間の距離を, \\
+$d(A_1, A_2) \coloneqq \inf\cbra{\veps > 0 \mid A_2 \subset B(A_1 ; \veps ), A_1 \subset B(A_2 ; \veps) }$\\
+で定め, これをHausdorff距離という.
+\end{dfn}
+
+\begin{prop}
+$d(A,B) = \max \cbra{\sup_{a\in A} d(a,B) , \sup_{b \in B} d(b ,A) }$
+\end{prop}
+\begin{pf*}
+$m = \max \cbra{\sup_{a\in A} d(a,B) , \sup_{b \in B} d(b ,A) }, \veps^* = \inf\cbra{\veps > 0 \mid A_2 \subset B(A_1 ; \veps ), A_1 \subset B(A_2 ; \veps) }$ とする. \\
+$(\geq). \forany \it \delta >0 , a \in A \naraba d(a,B) \geq \sup d(a,B) < \sup d(a,B) + \delta \leq m + \delta $ より, $A \subset B(B;m+\delta)$, 同様に, $B \subset B(A;m+\delta)$ である. \\
+故に, 任意の$\delta$に対して$\veps^* \leq m + \delta$ が成り立つので, $\veps^* \leq m$である. \\
+$(\leq). \forany \it \delta >0, A \subset B(B; \veps^* + \delta)  $ なので, 任意の$a\in A$ に対して, $d(a,B) < \veps^* + \delta$である. \\
+すると, $\sup d(a,B) < \veps^* + \delta$ だし, 同様に$\sup d(b,A) < \veps^* + \delta$ なので, \\
+$m = \max \cbra{\sup_{a\in A} d(a,B) , \sup_{b \in B} d(b ,A) } < \veps^* + \delta$ が成り立つから, $m \leq \veps^*$である.
+\qed
+\end{pf*}
+
+\begin{prop}
+Hausdorff距離は対称性と三角不等式を満たす.
+\end{prop}
+\begin{pf*}
+対称性は明らかとして, 三角不等式を示す. \\
+任意の$b \in B$ に対して, $\max \cbra{\sup d(a,C) , \sup d(A,c)} \leq \max \cbra{\sup d(a,b) + \sup d(b,C) , \sup d(A,b) + \sup d(b,c)} $ が成り立つので, \\
+$\max \cbra{\sup d(a,C) , \sup d(A,c)} \leq \max \cbra{\sup d(a,B) + \sup d(b,C) , \sup d(A,b) + \sup d(B,c)} $ が成り立つ. \\
+$\max \cbra{1+3, 4+2} \leq \max \cbra{1,4} + \max \cbra{3,2}$ とかを観察すると, \\
+$\max \cbra{\sup d(a,B) + \sup d(b,C) , \sup d(A,b) + \sup d(B,c)} \leq \max \cbra{\sup d(a,B) , \sup d(A,b)} + \max \cbra{\sup d(a,b), \sup d(B,c)}$ なので, 
+$d(A,C) \leq d(A,B) + d(B,C)$ が成り立つ.
+\qed
+\end{pf*}
+
+\begin{remark}
+実数直線 $(\mathbb{R},d)$ を考えると, \\
+$\mathbb{R}, \mathbb{Q}$ の間のハウスドルフ距離は0だが, $\mathbb{R} \neq \mathbb{Q}$. \\
+$\mathbb{R}, \cbra{\text{1点}}$ の間のハウスドルフ距離は$\infty$. となる.
+\end{remark}
+
+\newpage
+\subsection{Gromov-Hausdorff 距離}
+\begin{dfn}(Gromov-Hausdorff 距離).
+$X,Y$ を距離空間とする. \\
+$d_{GH}(X,Y) \coloneqq  \inf \cbra{d(\varphi(X), \psi(Y)) \mid Z \text{距離空間} , \varphi:X\rightarrow Z, \psi:Y\rightarrow Z, \text{等長写像}}$
+と定める. \\
+これをGromov-Hausdorff 距離という.
+\end{dfn}
+
+\begin{prop}
+Gromov-Hausdorff 距離は三角不等式を満たす.
+\end{prop}
+\begin{pf*}
+任意に$\veps > 0$ をとる. 
+適当な等長写像$f_1 :X\rightarrow W_1, g_1 :Z \rightarrow W_1 , f_2 :Y\rightarrow W_2, g_2 :Z \rightarrow W_2$ で, \\
+$d(f_1(X), g_1(Z)) \leq d(X,Z) + \veps, d(f_2(Y), g_2(Z)) \leq d(Y,Z) + \veps$ を満たすものをとる. \\
+$W_1 \sqcup W_2$ に同値関係を$p \sim q \LR p=q$ または $^\exists z \in Z; p = g_1(z), q = g_2(z)$ $^\exists z \in Z; p = g_2(z), q = g_1(z)$ \\
+で定めて, $W_1 \sqcup W_2 / \sim$ をつくり, 距離を
+\begin{align*}
+d([p], [q]) = 
+\begin{cases}
+d_1 (p,q) & \textrm{if}\,\,\, p,q \in W_1 \\
+d_2 (p,q) & \textrm{if}\,\,\, p,q \in W_2 \\
+\inf_{z \in Z} d_1 (p, g_1(z)) + d_2 (g_2(z), q) & \textrm{if}\,\,\, p \in W_1, q \in W_2\\
+\inf_{z \in Z} d_2 (p, g_2(z)) + d_1 (g_1(z), q) & \textrm{if}\,\,\, p \in W_2, q \in W_1 
+\end{cases}
+\end{align*}
+とする. \\
+$\varphi, \psi$ を包含写像と自然な射影の合成による自然な等長写像, \\
+$F_1 = \phi \circ f_1, F_2 = \psi \circ f_2,G_1 = \phi \circ g_1, G_2 = \psi \circ g_2$ と等長写像を定める.
+\begin{align*}
+\xymatrix{
+(X, d_X) \ar[r]^{f_1} \ar@/^24pt/[rr]^{F_1} & (W_1 ,d_1) \ar[r]^{\hspace{-18pt} \varphi} & (W_1\sqcup W_2 / \sim ,d )\\
+(Z, d_Z)  \ar[ur]^{g_1} \ar[r]_{g_2}  \ar@<0.5ex>[urr]^{G_1} \ar@<-0.5ex>[urr]_{G_2}& (W_2, d_2) \ar[ur]_{\psi}& \\
+(Y, d_Y) \ar@/_18pt/[uurr]_{F_2} \ar[ur]_{f_2}& & 
+}
+\end{align*}
+
+的なノリで$X,Y$ を等長に同じ距離空間に埋め込むと, \\
+\begin{align*}
+d_{GH}(X,Y) & \leq d(F_1(X), F_2(Y)) \leq d(F_1(X), G_1(Z)) + d(G_2(Z), F_2(Y)) \\
+&= d_1 (f_1(X), g_1(Z)) + d_2 (g_2(Z), f_2(Y)) \\
+&\leq d_{GH}(X,Z) + \veps + d_{GH}(Z,Y) + \veps
+\end{align*}
+で$\veps \rightarrow 0$ とすればよい.
+\qed
+\end{pf*}
+
+\newpage
+Gromov-Hausdorff 距離は実際にはありとあらゆる距離空間と等長な埋め込みの組を考える必要はなく, $X\sqcup Y$の上の距離の取り方を考えるだけで良い.
+
+\begin{prop}
+\label{1908}
+$d_{GH}(X,Y) = \inf \cbra{d_H (X, Y) (= d_H(\iota_X X, \iota_Y Y) ) \mid (X\sqcup Y, d,  \iota_X, \iota_Y) , d\text{は包含写像} \iota_X, \iota_Y \text{を等長にする距離} }$
+\end{prop}
+\begin{pf*}
+$d_{GH}(X,Y) = \inf \cbra{d_H^Z (f(X), g(Y)) \mid (Z,d^Z, f, g), d^Z \text{は}Z\text{の距離}, f:X\rightarrow Z, g;Y \rightarrow Z \text{は等長写像}}$ と定義されていたことを思い出しておく. \\
+$(\leq)$ 明らか. \\
+$(\geq)$をしめす. \\
+$d_{GH} (X,Y) = 0$ なので, 任意の$ \veps >0$ に対して, 組$(Z,d^Z,f,g)$で, $d_H^Z (f(X), g(Y)) < d_{GH} (X, Y) + \veps$ となるものがとれる. \\
+(i)$f(X) \cup g(Y) = \varnothing$ のとき, $(X\sqcup Y , d)$ として, $d(p,q) \coloneqq  \begin{cases} d_X (p,q) \,\,\, &(\textif  p,q \in X) \\ d_Y(p,q) \,\,\, &(\textif p,q \in Y)\\ \,\,\, d^Z(f(p),g(q)) \,\,\, &(\textif p \in X, q \in Y \text{or} \,\,\, p \in Y, q \in Y) \end{cases}$\\
+ととれば, 任意の$\iota_X x$ に対して$\iota_Y y$ で, $d(\iota_X x , \iota_Y y) = d^Z (f(x), g(y) ) < d_{GH}(X,Y) + \veps$ を満たすものがとれる. 同様に, $\iota_Y y$ に対して$\iota_X x$ で, $d(\iota_X x , \iota_Y y) = d^Z (f(x), g(y) ) < d_{GH}(X,Y) + \veps$ を満たすものがとれる. 従って, $d_H(\iota_X X ,\iota_Y Y) \geq d_{GH} (X,Y) + \veps$ である. \\
+(ii)$f(X) \cup g(Y) \neq \varnothing$ のとき, $(\tilde{Z} , d^{\tilde Z})$ として, $\tilde Z \coloneqq Z \times \mathbb{R}$, $d^{\tilde Z}((p,r_1),(q,r_2))\coloneqq d^Z (p,q) + \abs{r_2 - r_1}$ ととる. $\tilde f :X \rightarrow Z \times \mathbb{R}; x \mapsto (f(x),0), \tilde g : Y \rightarrow Z \times \mathbb{R} ; y \mapsto (g(y), \veps)$ と定める. \\
+$(X \sqcup Y, d)$ として, $d(p,q) \coloneqq  \begin{cases} d_X (p,q) \,\,\, &(\textif  p,q \in X) \\ d_Y(p,q) \,\,\, &(\textif p,q \in Y)\\ \,\,\, d^{\tilde Z}(\tilde f (p),\tilde g (q)) \,\,\, &(\textif p \in X, q \in Y \text{or} \,\,\, p \in Y, q \in Y) \end{cases}$ \\
+ととれば, 任意の$\iota_X x$ に対して$\iota_Y y$ で, $d(\iota_X x , \iota_Y y) = d^{\tilde Z} (\tilde f (x), \tilde g (y) ) = d^Z (f(x), g(y) ) + \veps  < d_{GH}(X,Y) + \veps + \veps $ を満たすものがとれる.  同様に, 任意の$\iota_Y y$ に対して$\iota_X x$ で, $d(\iota_X x , \iota_Y y) = d^{\tilde Z} (\tilde f (x), \tilde g (y) ) = d^Z (f(x), g(y) ) + \veps  < d_{GH}(X,Y) + \veps + \veps $ を満たすものがとれる. \\
+結局のところ, $\inf \cbra{d_H (\iota_X X, \iota_Y Y)} \leq d_{GH} (X,Y)$ が成り立つ. \\
+\qed
+\end{pf*}
+
+\begin{remark}
+場合わけの2つ目で, もし$f(X), g(Y)$ を新たな軸に関してずらさずに, そのまま$d(\iota_X x , \iota_Y y) = d^Z (f(x), g(y))$ と定めてしまうと, $f(x) = g(y)$ となる元の場合に, $\iota_X x \neq \iota_Y y$ なのに, $d(\iota_X x , \iota_Y y) = 0$ となってしまい, 距離にならない.
+\end{remark}
+
+\newpage 
+
+コンパクト距離空間全体を全単射な等長写像が存在するものを同一視して, それを$\mathcal{C}$ で表す.
+$d_{GH}([X],[Y]) \coloneqq d_{GH}(X,Y)$ と定める.
+
+\begin{prop}
+$(\mathcal{C}, d_{GH})$ は距離空間である.
+\end{prop}
+\begin{pf*}
+$d_{GH}([X],[Y]) = 0 \naraba [X] = [Y]$ を示す. \\
+適当に$X \in [X], Y \in [Y]$ をとってきて, $X,Y$の間に等長な全単射が存在することを示す(そうすれば$[X] = [Y] $).\\
+$d_{GH}(X,Y) = 0$ なので命題\ref{1908} より, 任意の$k \in \mathbb{N}$ に対して, $(X\sqcup Y, d^k)$ で $d_H^k (\iota_X X, \iota_Y Y) < \frac{1}{k}$ を満たすものが存在する. \\
+任意の$x \in X$ に対して$d^k(\iota_X x, \iota_Y y) < \frac{1}{k}$ を満たす$y \in Y$ をひとつ選んで$T_k (x) \coloneqq y$ とすることで, 写像$T_k: X \rightarrow  Y$ を定める. 
+同様に, 任意の$y \in Y$ に対して$d^k(\iota_X x, \iota_Y y) < \frac{1}{k}$ を満たす$x \in X$ をひとつ選んで$S_k (y) \coloneqq x$ とすることで, 写像$S_k: Y \rightarrow X$ を定める. \\
+$X,Y$ からそれぞれ可算稠密部分集合$\cbra{x_i}, \cbra{y_i}$ をとる(コンパクト距離空間なのでこれがとれる). \\
+$\cbra{T_k(x_1)}$ はコンパクト空間 $Y$ の上の点列なので収束部分列$T_{1,1}(x_1), T_{1,2}(x_1), T_{1,3}(x_1), \ldots $と$S_{1,1}(y_1), S_{1,2}(y_1), S_{1,3}(y_1)\ldots $がとれる(添字を共有できるように, $T$ の方で収束部分列をとったあとに, その添字をつかって$S$ の方の収束部分列をとり, あらためてその添字を採用する). つづいて, $x_2, y_2$ で$T_{1,k}, S_{1,k}$ が収束するような部分列をとる. \\
+これを繰り返し, 対角線論法により$\cbra{T_{k,k}}, \cbra{S_{k,k}}$ という列を考えると, \\
+任意の$x_i$において, $T_{i,i}(x_i), T_{i+1,i+1}(x_i), T_{i+2,i+2}(x_i), \ldots $は収束列$T_{i,i}(x_i), T_{i,i+1}(x_i), T_{i,i+2}(x_i), \ldots $ の部分列なので収束し, $\cbra{S_{k,k}}$ においても同様のことが成り立つ. つまり $\cbra{x_i} \subset X, \cbra{y_i} \subset Y$ の各点で$\cbra{T_{k,k}}, \cbra{S_{k,k}}$ は収束する. \\
+ここで簡単のために, $T_{k,k} = T_k, S_{k,k} = S_k$ と添字を付け直しておく. 
+任意の$k$ に対して, $d^{n(k)} (\iota_X x, \iota_Y, T_k (x) ) < \frac{1}{n(k)} , d^{n(k)} (\iota_X S_k(y), \iota_Y  y ) < \frac{1}{n(k)}$ を満たす$n(k) \geq k$ が存在するので, 
+\begin{align*}
+d_Y (T_k(x_i), T_k(x_j) ) &= d^{n(k)} (\iota_Y T_k(x_i), \iota_Y T_k(x_j)) \\
+&= d^{n(k)} (\iota_Y T_k(x_i), \iota_Y x_i )  + d^{n(k)} (\iota_Y x_i , \iota_Y x_j )  + d^{n(k)} (\iota_Y x_j , \iota_Y T_k(x_j) ) \\
+&< \frac{2}{n(k)} + d(x_i, x_j)
+\end{align*}
+より, $d_Y (T_k(x_i), T_k(x_j) ) - d(x_i, x_j) < \frac{2}{n(k)}$. 同様に, $d(x_i, x_j) - d_Y (T_k(x_i), T_k(x_j) ) < \frac{2}{n(k)}$ が成り立つので, \\
+$\abs{d_Y (T_k(x_i), T_k(x_j) ) - d(x_i, x_j) }< \frac{2}{n(k)}$ が成り立つ. 従って, $\cbra{x_i} \subset X$ 上の$T:\cbra{x_i} \rightarrow Y; x_i \mapsto \lim_k T_k(x_i)$ という関数は等長写像である. \\
+これを各$x\in X$ に対して$x_i \rightarrow x$となる点列をとって, $T(x) \coloneqq T(x_i) $ と定めることで, $X$ 上に拡張すると, \\
+$d_Y (T(x), T(x^\prime)) = \lim_i d(T(x_i), T(x_i^\prime)) = \lim_i d_Y (x_i, x_i^\prime) = d(x, x^\prime)$ となるので, $X$ 全体の等長写像に拡張される. \\
+$S:Y\rightarrow X$ も同様に構成しておく. \\
+$d(x_i , S_k(T_k(x_i))) = d^{n(k)}(\iota_X x_i , \iota_X S_k(T_k(x_i ))) \leq d^{n(k)} (\iota_X x, \iota_Y T_k(x_i)) + d^{n(k)} (\iota_Y T_k(x_i), \iota_X S_k (T_k(x_i))) < \frac{2}{n(k)}  $ となるので, $k$ について極限をとることで, $d(x_i , S(T(x_i))) = 0$, つまり $x_i = S(T(x_i))$ が成り立つ. 従って任意の点$x \in X$ において, $x = S(T(x))$ が成り立つ. \\
+このことから$S$ は全射な等長写像(つまり全単射な等長写像)であることがいえるので, 主張が従う. 
+\qed
+\end{pf*}
+
+
+\end{document}

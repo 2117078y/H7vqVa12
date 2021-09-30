@@ -1,0 +1,859 @@
+\documentclass[10pt, fleqn, label-section=none, titlepage]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+
+\title{経済学のための最適輸送入門}
+\date{}
+
+
+\author{神山 翼}
+
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{記号・表記}
+
+\begin{itemize}
+
+\item $X$ を位相空間として,可測空間$(X, Σ)$ を考える際には, 断りのない限り$\sigma$ 代数$\Sigma$として$X$ 上のボレル集合族$\mathcal{B}(X)$ をとる.
+$(X, \mathcal{B}(X))$ を単に$X$ と書くことにする.
+\item $\mathcal{M}(X)$ で $X$ 上の(正値ボレル)測度全体を表す. $\mathcal{P}(X)$ で$X$ 上の(ボレル)確率測度全体を表す.
+\item $x \in  X$ に対して, $\delta_{x}$ で$x$を中心とするディラック測度を表す.
+\item $A \subset X$に対して, $1_{A}$で$A$の定義関数(または指示関数)を表す.
+\item $f:X \rightarrow Y$, $g:X\rightarrow Z$ に対して, $(f,g):X \rightarrow Y \times Z ; x \mapsto (f(x), g(x))$ と定める.
+\item $p_{i} : X_{1} \times X_{2} \times \cdots \times X_{n} \rightarrow X_{i} ; (x_{1}, x_{2}, \ldots , x_{n}) \mapsto x_{i}$ で第$i$成分への射影を表す.
+\item $p^{i} : X_{1} \times X_{2} \times \cdots \times X_{n} \rightarrow X_{i} ; (x_{1}, x_{2}, \ldots , x_{n}) \mapsto x_{i}$ で第$i$成分への射影を表す. 
+\item $p_{i_{1}, i_{2}, \ldots, i_{k} } : X_{1} \times X_{2} \times \cdots \times X_{n} \rightarrow X_{i_{1}} \times X_{i_{2}} \times \cdots \times X_{i_{k}} ; (x_{1}, x_{2}, \ldots , x_{n}) \mapsto (x_{i_{1}}, x_{i_{2}}, \ldots, x_{i_{k}})$ で第$i_1 \ldots i_k$成分への射影を表す.
+\item $p^{i_{1}, i_{2}, \ldots, i_{k} }: X_{1} \times X_{2} \times \cdots \times X_{n} \rightarrow X_{i_{1}} \times X_{i_{2}} \times \cdots \times X_{i_{k}} ; (x_{1}, x_{2}, \ldots , x_{n}) \mapsto (x_{i_{1}}, x_{i_{2}}, \ldots, x_{i_{k}})$ で第$i_1 \ldots i_k$成分への射影を表す.
+\item $f:X \rightarrow \mathbb{R}$で$Imf$が有限集合となる可測関数を$X$ 上の単関数と呼ぶ.
+
+\end{itemize}
+
+\begin{dfn}
+(測度の押し出し(push forward)).\\
+$X$ を可測空間, $\mu \in \mathcal{M}(X)$, $f:X\rightarrow \mathbb{R}$ を可測関数とする. このとき, $f_{\#} \mu \coloneqq \mu \circ f^{-1}$ と定める.
+\end{dfn}
+
+\newpage
+
+\part{最適輸送問題の一般論}
+\section{輸送問題}
+\subsection{輸送問題の提起}
+
+以下の最適化問題を考える.
+
+\begin{problem*}
+\label{MP}
+(Monge Problem). $X$, $Y$ を可測空間とし, $\mu \in \mathcal{P}(X), \nu \in \mathcal{P}(Y), c : X \times Y \rightarrow \mathbb{R} $ とする.
+\begin{align*}
+\inf \cbra{ \int_{X} c(x, T(x)) d\mu \mid T:X \rightarrow Y \mathop{可測関数, } T_{\#} \mu = \nu }
+\end{align*}
+の下限は実現されるか.
+\end{problem*}
+ 
+ 
+この最適化問題はMonge型の輸送問題(Monge Problem)と呼ばれ,経済学的には「$X$ という"場所"に総量1の"荷物"が$\mu$ なる分布に従って各地点に配置されており, それを$Y$ という"場所"に写像$T$で"輸送"することを考える. Yで荷物がどのように配置されるかは$\nu$ なる分布で指定されており, その指定を満たす限り輸送の仕方$T$は自由に選択できる. "地点"$x$から$y$ への輸送には"輸送費用"$c(x, y)$が掛かるとすると, どのような$T$ を選択すれば総輸送費用を最小化することができるだろうか.」と解釈される.\\
+以降, $ S(\mu, \nu) \coloneqq \left\{  T:X \rightarrow Y \mathop{可測関数} \mid  T_{\#} \mu = \nu  \right\}$ とし, この集合の元を$\mu$ から$\nu$ への輸送写像と呼び, Monge Problem のminimizer(即ち最適化問題の解を与える輸送写像$T$) を最適輸送写像と呼ぶことにする.
+
+\begin{remark}
+\label{19410501}
+
+一般には, 勝手な$\mu \in \mathcal{P}(X)$ と$\nu \in \mathcal{P}(Y)$ を与えた時に, $ S(\mu, \nu) \coloneqq \left\{  T:X \rightarrow Y \mathop{可測関数} \mid  T_{\#} \mu = \nu  \right\}$ という集合は空集合となりうることに注意する. 例えば, $X=Y=\mathbb{R}$ とし, $\nu \coloneqq \delta_{0} \in \mathcal{P}(\mathbb{R})$ , $\mu \coloneqq \frac{1}{2}\delta_{-\frac{1}{3}} + \frac{1}{2}\delta_{\frac{1}{3}} \in \mathcal{P}(\mathbb{R})$ とすると, $S(\mu, \nu)$は空集合となる. なぜならば, 空でないとすると任意の$T \in S(\mu, \nu)$ に対して, $T_{\#}\mu (\left\{\frac{1}{3}\right\}) \neq \nu(\left\{\frac{1}{3}\right\})$ となり矛盾するからである.
+
+\end{remark}
+
+次に, 以下の最適化問題を考える.
+
+\begin{problem*}
+\label{KP}
+(Kantrovich Problem). $X$, $Y$ を可測空間とし, $\mu \in \mathcal{P}(X), \nu \in \mathcal{P}(Y), c:X\times Y \rightarrow \mathbb{R}$ とする.
+\begin{align*}
+\inf \cbra{ \int_{X \times Y} c(x, y) d\pi \mid \pi \in \mathcal{P}(X \times Y)\mathop{, } {\proj{1}}_{\#}\pi = \mu \mathop{, } {\proj{2}}_{\#}\pi = \nu }
+\end{align*}
+の下限は実現されるか.
+\end{problem*}
+
+この最適化問題はKantrovich型の輸送問題(Kantrovich Problem)と呼ばれ,経済学的には「$X$ という"場所"に総量1の"砂"が$\mu$ なる分布に従って各地点に堆積しており, それを$Y$ という"場所"に $\pi$ "輸送"することを考える. Yで砂が分布するかは $\nu$ で指定されており, その指定を満たす限り輸送の仕方$\pi$は自由に選択できる. "地点" $x$ から $y$ への輸送には"輸送費用" $c(x, y)$ が掛かるとすると, どのような $\pi$ を選択すれば総輸送費用を最小化することができるだろうか.」と解釈される.\\
+
+以降, $\prod (\mu, \nu) \coloneqq \paren{ \pi \in \mathcal{P}(X \times Y) \mid {\proj{1}}_{\#}\pi = \mu \mathop{, } {\proj{2}}_{\#}\pi = \nu }$ とし, この集合の元を$\mu$ から$\nu$ への輸送計画と呼び, Kantrovich Problem のminimizer(即ち最適化問題の解を与える輸送計画$\pi$) を最適輸送計画と呼ぶ.
+
+\newpage
+
+\section{最適輸送計画の存在}
+
+\subsection{測度の押し出しの基本的命題}
+
+押し出し測度に関する積分を計算するための基本的な命題を示す.
+ 
+\begin{prop}
+\label{1438}
+$S \in \mathcal{B}(Y) \mathop{, }f:X \times Y \rightarrow \mathbb{R}$ を可測とし, $\mu \in \mathcal{P}(X)$ とすると, 
+\begin{align*}
+\int_{Y} 1_{A} \d f_{\#}\mu = \int_{X} 1_{A} \circ f \d\mu 
+\end{align*}
+が成り立つ.
+\end{prop}
+\begin{pf*}
+$
+\int_{Y} 1_{A} \d f_{\#}\mu
+= f_{\#}{\mu} (A) 
+= \mu \left( f^{-1}(A) \right) 
+= \int_{X} 1_{f^{-1}(A)} \d\mu 
+= \int_{X} 1_{A} \circ f \d\mu \quad. 
+$
+\qed
+\end{pf*}
+
+\begin{cor}
+$f: X \rightarrow Y  $ を可測とし, $\mu \in \mathcal{P}(X)$ とする. $\mu$ 可積分関数 $F : Y \rightarrow \mathbb{R} $ に対して次が成り立つ.
+\begin{align*}
+\int_{Y} F \d f_{\#}\mu = \int_{X} F \circ f \d\mu \quad .
+\end{align*}
+\end{cor}
+
+\begin{pf*}
+$ \left\{ F_k \right\} \mathop{を}F\mathop{に各点収束する単関数の増大列とする.}$
+\begin{align*}
+\int_{Y} F \d f_{\#}\mu &= \lim_{k} \int_{Y} F_{k} \d f_{\#}\mu 
+= \lim_{k} \int_{X} F_{k} \circ f \d\mu 
+= \int_{X} \lim_{k} F_{k} \circ f \d\mu \quad. 
+\end{align*}
+但し, 2つ目の等号は単関数$F_k$ が定義関数の和で表されることに注意すると命題\ref{1438} から従う. 3つ目の等号は単調収束定理より従う.
+\qed
+\end{pf*}
+
+
+\subsection{下半連続関数}
+
+コンパクト集合上の下半連続関数が最小値をもつという命題によって輸送費用が最小値をもつことを示す. そのために下半連続関数に関する必要最低限のことを記しておく.
+
+\begin{dfn}
+$(X,d))$ を距離空間とする. $f:X\rightarrow \mathbb{R}$ が任意の$\veps > 0$ に対して, $\norm{x - x_0} < \delta$ ならば $f(x_0) - f(x) < \veps$ となる$\delta > 0$ が存在するとき, $x_0 \in X$ で下半連続であるという. $f$ が任意の $x \in X$ で下半連続であるときに, 単に $f$ は下半連続であるという.
+\end{dfn}
+
+\begin{prop}
+\label{1409}
+$(X,d)$ を距離空間とする.  任意の下に有界な下半連続関数 $f:X\rightarrow \mathbb{R}$ に対して, 有界連続関数$f_n : X\rightarrow \mathbb{R}$ の非減少列$\cbra{f_n}$ で, 任意の$x  \in X$ において$\lim_n f_n (x) = f(x) $ を満たすものが存在する.
+\end{prop}
+\begin{pf*}
+$f_n(x) \coloneqq \inf \cbra{f(y) + n d(x,y) \mid y \in X}$ が求める関数の列であることを示す. \\
+任意に$x_0 \in X$ をとる.
+\begin{align*}
+f_n(x_0) &= \inf \cbra{f(y) + n d(x_0 , y) \mid y \in X } \\
+&\leq \inf \cbra{f(y) + n d(x_0, x) + n d(x, y) \mid y \in X} \\
+&= \inf \cbra{f(y) + nd(x,y) \mid y \in X} + n d(x_0, x) \\
+&= f_n (x) + n d(x_0, x) 
+\end{align*}
+が成り立つので$f_n$ は連続である. \\
+$n \leq m$ とすると, 
+\begin{align*}
+\inf \cbra{f(y) + n d(x_0, y) \mid y \in X} 
+\leq \inf \cbra{f(y) + m d(x_0, y) \mid y \in X} \leq f(x_0) + md(x_0, x_0) 
+\end{align*}
+ が成り立つので, $f_n \leq f_m \leq f $ である. \\
+ 任意に$\veps > 0$ をとり, $f$ の下半連続性に従って$\norm{x - x_0} < \delta \naraba f(x_0) - f(x) < \veps$ を満たす $\delta$ をとる. $N \in \mathbb{N}$ を $\inf f(x) + N \delta > f(x_0) $ を満たすようにとると, 
+\begin{align*}
+ y \notin B(x_0; \delta) &\naraba f(y) + Nd(x_0,y) \geq f(y) + N\delta \geq \inf f(x) + N\delta > f(x_0) \geq f(x_0) - \veps \\
+ y \in B(x_0 ; \delta) &\naraba f(y) + Nd(x_0,y) \geq f(y) > f(x_0) - \veps
+\end{align*}
+が成り立つ. $f_N \leq f$ であることに気をつけると, $\veps \geq f(x_0) - \inf \cbra{ f(y) + Nd(x_0,y) \mid y \in Y} \geq 0$ が成り立つ.
+\qed
+\end{pf*}
+
+\begin{prop}
+\label{1807}
+$X$ を完備可分な距離空間, $c: X \times X \rightarrow [0, \infty]$ を下半連続関数, $\pi_n \in \mathcal P (X \times X)$ を$\pi \in \mathcal P (X \times X)$ に弱収束する確率測度の列とする. このとき
+\begin{align*} \int _{X \times X} c \d \pi \leq \liminf_n \int_{X\times X} c \d \pi_n \end{align*}
+が成り立つ.
+\end{prop}
+\begin{pf*}
+命題$\ref{1409}$ に従って$c$ に各点収束する有界連続関数の非減少列$\cbra{c_m}$ をとる.
+\begin{align*} \int c \d\pi_n \geq \int c_m \d \pi_n \\
+\lim_m \liminf_n \int c \d\pi_n &\geq \lim_m \liminf_n \int c_m \d\pi _n \\
+&= \lim_m \lim_n \int c_m \d\pi_n \\
+&= \lim_m \int c_m \d\pi\\
+&= \int \lim_m c_m \d\pi \\
+&= \int c \d\pi
+\end{align*}
+が成り立つ.
+\qed
+\end{pf*}
+
+
+\subsection{確率測度の弱収束}
+
+確率測度の弱収束により定まる位相で相対コンパクトであることの特徴づけを行う.
+
+\begin{dfn}
+$X$ を位相空間とする. $\cbra{\mu_n} \in \mathcal{P}(X)$ が$\mu \in \mathcal{P}(X)$ に弱収束するとは, $X$ 上の任意の有界連続関数$f$ に対して $\lim_n \int_X f \d \mu_n = \int_X f \d \mu$ が成り立つことである.
+\end{dfn}
+
+次のよく知られた測度論の定理を証明なしで認めることにする.
+
+\begin{thm}
+$(X,d)$ を完備可分距離空間とし, $\cbra{\mu_n} \subset \mathcal{P} (\Rn), \mu \in \mathcal{P}(\Rn) $ とする. (1)(2)(3)は同値である. \\
+(1) $\mu_n $ が$ \mu $ に弱収束する.\\
+(2)任意の閉集合$C \subset X$ に対して, $\limsup \mu_n (C) \leq \mu (C) $ が成り立つ. \\
+(3)任意の開集合$U \subset X$ に対して, $\mu (U) \leq \liminf \mu_n (U)$ が成り立つ.
+
+\end{thm}
+
+\begin{prop}
+\label{1510}
+$(X,d)$ を完備可分距離空間とし, $\cbra{\pi_n} \subset \mathcal{P}(X \times X)$ を$\pi \in \mathcal{P}(X\times X)$ に弱収束するとする. \\
+$c:X\times X \rightarrow [0,\infty)$ が下半連続であるならば, 
+$\rm{map}\it: \mathcal{P}(X\times X) \rightarrow \mathbb{R}; \pi \mapsto \int c \d\pi$ は
+$\mathcal{P}(X\times X)$ 上で弱収束の位相に関して下半連続である.
+\end{prop}
+\begin{pf*}
+命題\ref{1409} に従って$c$ に各点収束する有界連続関数の非減少列$\cbra{c_m}$ をとる. 
+\begin{align*}
+\liminf_n \int_{X\times X} c \d\pi_n  = \lim_m \liminf_n \int_{X\times X} c \d\pi_n \geq \lim_m \liminf_n \int_{X\times X} c_m \d \pi_n
+= \lim_m \int_{X\times X} c_m  \d\pi = \int_{X\times X} c \d \pi \quad .
+\end{align*}
+但し, 3つ目の等号は$\cbra{\pi_n}$ が$\pi$ に弱収束することから従い, 4つ目の等号は単調収束定理から従う.
+\qed
+\end{pf*}
+
+命題\ref{1510} より, 輸送計画に対して輸送コストを定める写像が, 弱収束の位相に関して下半連続であることが示されたので, 輸送計画全体の集合が弱収束の位相に関してコンパクトであれば, 輸送コストを最小にする輸送計画の存在が示せる. 
+
+\begin{dfn}
+$X$ を位相空間とする. $\mathcal{K} \subset \mathcal{P}(X)$ は, 任意の$\veps > 0$ に対して$\sup_{\mu \in \mathcal{K}}\mu(K_\veps ^c) \geq \veps$ を満たすコンパクト集合$K_\veps \subset X$ が存在するとき, 一様緊密であるという. $\cbra{\mu}\subset \mathcal{P}(X)$ が一様緊密であるとき, 単に$\mu$ は緊密であるという.
+
+\end{dfn}
+
+次の定理\ref{1816}の証明は付録の定理\ref{1752} にまわす.
+
+\begin{thm}
+\label{1816}
+(Prokhorov の定理).
+\end{thm}
+\begin{pf*}
+$\mathcal{K}\subset \mathcal{P}(X)$ が弱収束の位相に関して相対点列コンパクトであることの必要十分条件は, $\mathcal{K}$ が一様緊密であることである.
+\end{pf*}
+
+\subsection{輸送計画のコンパクト性と最適輸送計画の存在}
+
+\begin{prop}
+\label{1812}
+$X$ を完備可分な距離空間とする. $\mu, \nu \in \mathcal{P}(\mathbb X)$ とすると, 輸送計画全体$\Pi (\mu, \nu)\subset\mathcal{P}(X\times X)$ は弱収束の位相で点列コンパクトである. 
+\end{prop}
+\begin{pf*}
+$X$ が完備可分であることから$\cbra{\mu}, \cbra{\nu}$ は$\mathcal P (X)$ で緊密なので, 任意の$\veps$ に対して$1 - \frac{\veps}{2} < \mu (K_\veps ^1) , 1 - \frac{\veps}{2} < \nu (K_\veps ^2)$ をみたすコンパクト集合がとれる. 任意の輸送計画$\pi \in \Pi (\mu, \nu)$ に対して$\pi (K_\veps ^1 \times K_\veps ^2) \geq 1 - \mu((K_\veps ^1) ^c) - \nu((K_\veps ^2 )^c) \geq 1 -\veps $が成り立つので輸送計画全体は一様緊密である. 従ってプロホロフの定理より弱収束で相対点列コンパクトである. $\pi \in \mathcal P (X \times X)$ に収束する部分列を$\cbra{\pi_{n_k}}$ とする. 収束先の確率測度$\pi \in \mathcal P(X \times X)$ が輸送計画であることを示す. 任意にボレル集合$A \in \mathcal B (X)$ をとり, 開集合による外側からの近似$A_\veps \coloneqq B(A; \veps ) \paren{= \bigcup_{x \in A} B(x; \veps)}$ と, 閉集合による内側からの近似$F^\veps$を考えると,
+\begin{align*} \pi (A \times X) &= \inf_\veps \pi (A_\veps) \times X) \\
+&\leq \liminf \pi_{n_k}(A_\veps \times X) \\
+&= \inf \mu(A_\veps ) \\
+&= \mu(A) \\
+\pi (A \times X) &\geq \sup \pi(F^\veps \times X) \\
+&= \sup \limsup \pi_{n_k} (F ^\veps \times) \\
+&= \sup \mu (F^\veps) \\
+&= \mu(A)  
+\end{align*}
+が成り立つ(全く同様に$\pi (X \times A) = \nu(A)$ も成り立つ)ので, $\pi$ が輸送計画であることが示された. 従って, 輸送計画全体は弱収束で点列コンパクトである.  
+\qed
+\end{pf*}
+
+\newpage
+\begin{prop}(最適輸送計画の存在).
+$X$ を完備可分な距離空間とし, $c: X \times X \rightarrow [0, \infty]$ を下半連続関数とする. このとき, 最適輸送計画が存在する.
+\end{prop}
+\begin{pf*}
+$\pi_n \in \Pi(\mu, \nu)$ を $\int c d\pi_n \leq \inf_{\pi \in \Pi (\mu, \nu) } \int c d\pi + \frac{1}{n}$ をみたすようにとる. 命題$\ref{1812}$ で示した輸送計画全体の点列コンパクト性から$\cbra{\pi_n}$ の収束部分列$\cbra{\pi_{n_k}}$ をとり, 極限を$\pi \in \Pi(\mu, \nu)$ とする. この$\pi$ は
+\begin{align*} \int c \d\pi &\leq \liminf_k \int c \d\pi_{n_k} \\
+ &\leq \liminf_k \paren{\inf_{\pi \in \Pi (\mu,\nu)} \int c d\pi + \frac{1}{n_k} } \\
+ &= \inf_{\pi \in \Pi (\mu,\nu)} \int c \d\pi
+ \end{align*}
+より minimizer であることがわかる.
+\qed
+\end{pf*}
+
+
+\newpage
+\section{輸送写像}
+\subsection{c-巡回単調性 $\cdot$ c-変換 $\cdot$ c-凸(凹)性 $\cdot$ c-微分}
+
+\begin{dfn}(c-巡回単調性)
+$c:\mathbb R ^n \times \mathbb R ^n \rightarrow \mathbb R \cup \cbra{\infty}$ をボレル可測関数とする. $S \subset \mathbb R ^n \times \mathbb R ^n $ は, 任意の$\cbra{(x_i, y_i)}_{i=1}^N \subset S$ に対して$\sum c(x_i, y_i) \leq \sum c(x_i, y_{\sigma(i)}) \,\,\, (\any \sigma \in S_N \text{置換})$ が成り立つときに, c-巡回単調であるという.  
+\end{dfn}
+
+\begin{dfn}(c-変換)
+$c:\mathbb R ^n \times \mathbb R ^n \rightarrow \mathbb R \cup \cbra{\infty}$ を$c(x,y) = c(y,x)$ をみたすボレル可測関数とする. このとき, $\varphi: \mathbb R ^n \rightarrow \mathbb R \cup \cbra{-\infty, \infty}$ の$c_{+}$変換$\varphi^{c_+}$, $c_{-}$変換$\varphi^{c_-}$, 変換を以下のように定める. 
+\begin{align*} &\varphi^{c_+}(x) \coloneqq \inf_{y \in \mathbb R ^n} \cbra{c(x,y) - \varphi (y)} \\
+ &\varphi^{c_-}(x) \coloneqq \sup_{y \in \mathbb R ^n} \cbra{-c(x,y) - \varphi (y)} \end{align*}
+\end{dfn}
+
+\begin{dfn}(c-凹関数, c-凸関数)
+$c:\mathbb R ^n \times \mathbb R ^n \rightarrow \mathbb R \cup \cbra{\infty}$ をボレル可測関数とする.
+\begin{align*} \psi : \mathbb R^n \rightarrow \mathbb R \cup \cbra{-\infty, \infty}, \psi^{c_+} = \varphi \end{align*}
+をみたす$\psi$ が存在するとき, $\varphi$ はc-凹であるという. 
+\begin{align*} \psi : \mathbb R^n \rightarrow \mathbb R \cup \cbra{-\infty, \infty}, \psi^{c_-} = \varphi \end{align*}
+をみたす$\psi$ が存在するとき, $\varphi$ はc-凸であるという. 
+\end{dfn}
+
+\begin{dfn}(c-優微分, c-劣微分)
+$c:\mathbb R ^n \times \mathbb R ^n \rightarrow \mathbb R \cup \cbra{\infty}$ をボレル可測関数とする. $\varphi:\mathbb R^n \rightarrow \mathbb R \cup \cbra{-\infty, \infty}$ をc-凹関数とする. このとき, $\varphi$ のc-優微分とc-劣微分をそれぞれ
+\begin{align*} 
+&\partial ^ {c_+} \varphi \coloneqq \cbra{(x,y) \in \mathbb R^n \times \mathbb R^n \mid \varphi (x)+ \varphi^{c_+} (y) = c(x,y)} \\
+&\partial ^ {c_-} \varphi \coloneqq \cbra{(x,y) \in \mathbb R^n \times \mathbb R^n \mid \varphi (x)+ \varphi^{c_-} (y) = -c(x,y)} 
+\end{align*}
+と定める. また, 
+\begin{align*} 
+&\partial ^ {c_+} \varphi (x) \coloneqq \cbra{y  \in \mathbb R^n \mid (x,y) \in \partial^{c_+} \varphi} \\
+&\partial ^ {c_-} \varphi (x) \coloneqq \cbra{y  \in \mathbb R^n \mid (x,y) \in \partial^{c_-} \varphi} 
+\end{align*}
+という表記を用いる.
+\end{dfn}
+
+\newpage
+\subsection{台による最適輸送計画の特徴づけ}
+
+
+\begin{prop}
+$c:\mathbb R^n \times \mathbb R ^n \rightarrow \mathbb R$ を下に有界な連続関数, $\mu, \nu \in \mathcal P (\mathbb R ^n)$ をボレル確率測度, $\pi \in \Pi (\mu, \nu)$ を輸送計画とする. $a \in L^1 (\mu) , b \in L^1(\nu) $で$c(x,y) \leq a(x) + b(y) $ をみたすものが存在するとすると, 次の(1)(2)(3)は同値である. 
+\begin{align*}
+&(1)\pi \text{が最適輸送である.} \\
+&(2)\supp (\pi) \text{はc-巡回単調である.} \\
+&(3)\supp (\pi) \in \partial ^{c_+} \varphi, \max \cbra{\varphi, 0 } \in L^1\paren{\mu} \text{をみたすc-凹関数} \varphi \text{が存在する.} 
+ \end{align*}
+\end{prop}
+\begin{pf*}
+$(1) \naraba (2)$ $\supp (\pi)$ がc-巡回単調でないと仮定して背理法により示す. $\cbra{(x_i, y_i)}_{i=1}^N \subset \supp (\pi) , \exists \sigma \in S_N(\text{N次の置換})$ で$\sum c(x_i, y_i) > \sum c (x_i, y_{\sigma(i)})$ をみたすものをとる. $-\sum c(x_i,y_i) + \sum c (x_i, y_{\sigma(i)})$ は連続なので, $\cbra{B(x_i ; \veps) \times B(y_i ; \veps)}_{i=1}^N$ で $x_1, y_1, x_2, y_2, \ldots ,x_N, y_N \in B(x_1; \veps) \times \cdots B(y_N ; \veps) \naraba -\sum c(x_i, y_i) + \sum c(x_i, y_{\sigma(i)}) < 0$ をみたすものがとれる.  $(X\times X)^N$ 上に
+\begin{align*} \lambda : \bigotimes_1 ^N \mathcal B (X) \otimes \mathcal B (X) \rightarrow \mathbb R; \prod_{i} \paren{\frac{1}{m_i} \pi | _{B(x_i ; \veps)\times B(y_i; \veps)}  }\end{align*}
+(ただし, $m_i \coloneqq \pi (B(x_i ; \veps) \times B(y_i ; \veps))$ と定めた.) という正値測度を定義する. 
+\begin{align*} p^{i,j} (x_1, y_1, \ldots , x_N, y_N ) \coloneqq \begin{cases} x_i \quad (j = 1)\\ y_i \quad (j =2) \end{cases}\end{align*} 
+\begin{align*} (p^{i_1, j_1} , p^{i_2, j_2})(x_1, y_2, \ldots , x_N, y_N) \coloneqq ( p^{i_1, j_1}(x_1, y_2, \ldots , x_N, y_N) , p^{i_2, j_2} (x_1, y_2, \ldots , x_N, y_N)     )\end{align*}
+という記号を用いて, $\lambda$ を$X \times X$ 上に押し出すことにより$X\times X$ 上の符号付測度を
+\begin{align*} \xi \coloneqq \sum_{i =1} ^ N \paren{-(p^{i,1}, p^{i,2})_{\sharp}\lambda + (p^{i,1}, p^{\sigma(i), 2})_{\sharp}\lambda }  \end{align*}
+と定めて, 
+\begin{align*} \tilde \pi \coloneqq \pi + \frac{\min_i m_i }{N}\xi \end{align*}
+という確率測度を定める. すると, $\tilde \pi$ は$\pi$ よりも輸送費用が真に小さい輸送計画であることが示せる. 従って, $\pi$ が最適輸送計画であることに矛盾する.  \\
+$(2) \naraba (3)$ $(x_0, y_0) \in \supp \pi$ をとり, 
+\begin{align*} 
+&\varphi(x) \coloneqq \inf \{ c(x,y_1) - c(x_1, y_1) + c(x_1, y_2) - c(x_2, y_2)   \\  &\quad \quad \quad \quad \quad  + \cdots + c(x_N, y_0) - c(x_0, y_0)  \mid \cbra{(x_i, y_i) \in \supp (\pi) }_{i=1}^N  , \any N \in \mathbb N  \} \end{align*}
+ととると, これが求める関数である. 実際, $(x_0, y_0) \in \supp(\pi)$ なので
+\begin{align*} \varphi(x) \leq c(x, y_0) - c(x_0, y_0) + c(x_0, y_0) - c(x_0, y_0) = c(x, y_0) - c(x_0, y_0) \leq a(x) + b(y_0) - c(x_0, y_0) \in L^1 (\mu) \end{align*}
+より $\cbra{\varphi, 0} \in L^1 (\mu)$ が成り立つ. また, 
+\begin{align*} \varphi(x) &= \inf c(x, y_1) - c(x_1, y_1) + \cdots + c(x_N, y_0) - c(x_0, y_0) \\
+&= \inf_{y_1 \in X } \{c(x, y_1) + \inf \{ - c(x_1, y_1) + \cdots + c(x_N, y_0) - c(x_0, y_0) \} \mid \cbra{(x_i, y_i) \in \supp \pi }_{i=1}^N , \any N \in \mathbb N \} \\
+&= \inf_{y_1 \in X} \cbra{c(x, y_1) - \sup \cbra{c(x_1, y_1) - \cdots - c(x_N, y_0) + c(x_0, y_0) } }  \end{align*}
+従って, $\varphi$ はc-凹関数である. さらに任意に $(x^{\prime}, y^{\prime}) \in \supp \pi$ をとると
+\begin{align*} &\varphi(x) \leq c(x, y^{\prime}) - c(x^{\prime}, y^{\prime}) + \inf \cbra{c(x^{\prime}, y_2) - \cdots + c(x_N, y_0) - c(x_0, y_0)  } \\
+&\sup_{x\in X} (\varphi(x) - c(x, y^\prime) ) \leq - c(x^\prime, y^\prime) + \inf \cbra{c(x\prime, y_2) - \cdots - c(x_0, y_0) } \hspace{80pt} (\star)\end{align*}
+が成り立つ. $\varphi(x^\prime) - c (x ^\prime , y^\prime ) $ は$(\star)$の左辺以下であり, 右辺と一致する. 右辺の $\inf$ の項は$\varphi(x^\prime)$ と一致し, 左辺$- \varphi^{c_+} (y^\prime)$ と一致する. 従って $(\star)$ の左辺と右辺は一致し, 
+\begin{align*}  \varphi(x^\prime) + \varphi^{c_+} (y^\prime)=  c(x^\prime , y^\prime )  \end{align*}
+$(3) \naraba (1)$ を, $\any \pi^\prime \in \Pi (\mu, \nu)$ をとると 
+\begin{align*} \int_{X \times X} c(x,y) \d \pi &= \int_{\supp \pi} c(x,y) \d \pi \\
+&= \int_{\supp \pi} \varphi (x) + \varphi^{c_+} (y) \d \pi \\
+&\leq \int_{X \times Xi} \varphi(x) \d \pi + \int_{X\times X} \varphi^{c_+} (y) \d \pi \\
+&= \int_X \varphi(x) \d \mu + \int_X \varphi^{c_+} \d \nu \\
+&= \int_{X \times X} \varphi \d \pi^\prime + \int_{X \times X} \varphi_{c_+} \d \pi ^\prime  \\
+&= \int_{X \times X} \varphi (x) + \varphi^{c_+} (y) \d \pi ^\prime \\
+&\leq \int_{X \times X} c (x,y) \d \pi^\prime \end{align*}
+が成り立つ. 
+\qed
+
+\end{pf*}
+
+
+\newpage
+\subsection{輸送計画はいつ輸送写像から誘導されるか}
+
+\begin{prop}(輸送計画が輸送写像から誘導されることの特徴づけ). \label{2}
+$X$ を完備可分な距離空間, $\mu, \nu \in \mathcal P (X)$,  $\pi \in \Pi (\mu, \nu)$ を輸送計画とする. このとき
+\begin{align*} \pi = (id \times T)_\sharp \mu \end{align*} 
+を満たす輸送写像$T:X \rightarrow X$ が存在することと, $\pi(\Gamma) = 1$ かつ$\Gamma_x$ が一点となる$x \in X$ の$\mu$測度が$1$ である$\Gamma \in \mathcal B(X) \otimes \mathcal B(X)$ が存在することは必要十分である. ただし, 
+\begin{align*} \Gamma_x \coloneqq \cbra{y \in X \mid (x,y) \in \Gamma }\end{align*}
+である. 
+\end{prop}
+\begin{pf*}
+
+$\naraba$. $\Gamma$として$T$のグラフ$\cbra{(x, T(x)) \in X \times X \mid x \in X}$をとればよい. 
+$\gyaku$. $N \coloneqq \cbra{x \in X \mid \Gamma_x \text{が1点でない}}$ とする. 任意の$k \in \mathbb N$ に対して, コンパクト集合$\Gamma \subset \Gamma \setminus (N \times X)$ で$\pi(\Gamma_k) > 1 - \frac{1}{k}$ をみたすものをとる. 増大列$\tilde \Gamma_k \coloneqq \bigcup_{i=1}^k \Gamma_i$ を定めると, 
+$\lim \pi (\tilde \Gamma_k) = \pi (\bigcup_{i=1}^\infty \tilde \Gamma_k ) = \pi (\bigcup_{i=1}^k \Gamma_k) = 1 $
+なので$\pi(\Gamma \setminus \bigcup \Gamma_k) = \pi (\bigcup \Gamma_k) - \pi(\Gamma) = 0$ が成り立つ. 従って, $0 = \pi (\Gamma \setminus \bigcup \Gamma_k) = \pi (p^1(\Gamma \setminus \bigcup \Gamma_k) \times X) = \mu (\pi^1 (\Gamma \setminus \bigcup \Gamma_k))$ が成り立つ. 
+ $S: \bigcup_{i=1}^\infty \gamma_k \rightarrow p^1 (\bigcup_{i=1}^\infty \gamma_k ); (x,y) \mapsto x$ は各$\Gamma_k$ 上でコンパクト集合からハウスドルフ空間への全単射連続写像であることから同相なので$S^{-1}$もボレル可測写像である. 従って, ボレル可測写像を
+\begin{align*} T(x)\coloneqq \begin{cases} p^2 \circ S^{-1} (x) &\quad (x\in p^1 (\bigcup_{i=1}^k \Gamma_k)) \\ 0 &\quad (otherwise) \end{cases}\end{align*}
+と定める. 任意の有界連続関数 $\varphi \in C_b (X \times X)$ に対して
+\begin{align*} \int_{X \times X} \varphi (x, y) \d (id \times T)_\sharp \mu &= \int_X \varphi(x, T(x) ) \d \mu \\ 
+&= \int_{p^1 (\bigcup \Gamma_k) } \varphi(x, T(x)) \d \mu \\
+&= \int_{p^1 (\bigcup \Gamma_k) } \varphi(x, T(x)) \d p^2_\sharp \pi \\
+&= \int_{\bigcup \Gamma_k} \varphi(x, T(x)) \d \pi \\
+&= \int_{\bigcup \Gamma_k} \varphi(x, y) \d \pi \\
+&= \int_{X\times X} \varphi(x,y) \d \pi
+\end{align*}
+より, 輸送写像であることが示された. 
+\qed
+\end{pf*}
+
+\begin{remark}
+$N \coloneqq \cbra{x \in X \mid \Gamma_x \text{が1点でない}}$ は可測集合とは限らないため, 測度空間を完備化してある. 
+\end{remark}
+
+つまり, ざっくりいうと輸送計画が輸送写像から誘導されるのは, 輸送計画の台がグラフになっていることで特徴づけされる. 
+
+
+
+\newpage
+\section{ユークリッド空間の輸送問題}
+\subsection{二乗コストと輸送写像}
+ここ以降, ユークリッド空間で成り立つ(実際には完備可分なベクトル空間であれば成立する)証明を行う. が, 命題の主張自体はユークリッド空間だけでなく完備可分な距離空間であれば成り立つものがほとんどである. 
+
+\begin{prop}\label{1}
+$\mu \in \mathcal P (\mathbb R ^n)$ を確率測度とする. 任意のリプシッツ関数のグラフの$\mu$ 測度が$0$ ならば, 任意の$\veps >0 , v \in S^{n-1} A \subset \supp(\mu)$ に対して$\mu(\cbra{x \in A \mid c(x,v,\veps) \cup A = \varnothing}) = 0$ が成り立つ. ただし, $S^{n-1}$ は$n-1$次元球面, $c(x,v,\veps) \coloneqq \cbra{x + tv + \veps t w \mid t \in (0,\infty) , w \in \overline{B(0;1)}}$ である.
+\end{prop}
+\begin{pf*}
+$\veps >0,  v \in S^{n-1} , A \subset \supp (\mu) (\mu(A) >0)$ で$x \in A \naraba c(x,v,\veps) \cup \supp(\mu) = \varnothing$ と仮定する. $map:\mathbb R^{n-1} \rightarrow \partial(\bigcup_{x \in A} \overline{C(x,v,\veps)} ) \subset \mathbb R^n$ を,  $x$ を$\mathbb R^{n-1}$ への射影が$x$になる点に対応させる写像とする. $p^n : \mathbb R ^{n-1} \times \mathbb R \rightarrow \mathbb R$ を射影とし, $f: \mathbb R^{n-1} \rightarrow \mathbb R$ を$f\coloneqq p^n \circ map$ で定めると, $\abs{f(x) -f(y)} \geq \frac{1}{\veps} \norm{x-y}$ 故リプシッツ連続であり, $A$ は$f$ のグラフに含まれるので$\mu$測度は$0$となる, よって矛盾である. 
+\qed
+\end{pf*}
+
+\begin{prop}
+$c(x,y) = \norm{x-y}^2$ とする. $\mu$ がルベーグ測度に対して絶対連続であるならば, 最適輸送計画は輸送写像から誘導される. 
+\end{prop}
+\begin{pf*}
+($c$は下に有界な(下半)連続関数なので, 最適輸送計画が存在することは証明済み.) 最適輸送計画が輸送写像から誘導されないと仮定する. $A \coloneqq \cbra{x \in \mathbb R ^n \mid \cbra{y \in \mathbb R^n \mid (x,y) \in \supp (\pi)} \text{が2点以上存在する}}$ で$\mu (A) > 0 $ を満たすものがとれる. $A_i \coloneqq \cbra{ x\in \mathbb R^n \mid ^\exists (x,y_1) , (x, y_2) \in \supp \pi \suchthat \norm{y_1 - y_2} \geq \frac{1}{i} }$ とすると, $A = \bigcup_{i=1} ^ \infty A_i$ なので, $\mu(A_i) > 0$ をみたす$A_i$ が存在する. さて, $\mathbb R^n$ の可算稠密部分集合を$\cbra{x_l}$ とすると, $\mathbb R^n = \bigcup_{l = 1} ^\infty B(x_l; \frac{1}{10i})$ が成り立つ. \\
+$F_{j,k} \coloneqq \cbra{x \in \mathbb R^n \mid \exists (x,y_1), (x,y_2) \in \supp (\pi) \suchthat y_1 \in B(x_j ; \frac{1}{10j}), y_2 \in B(x_k; \frac{1}{10i}), \norm{y_1- y_2 } \geq \frac{1}{i} }$ とすると, $A_i = \bigcup_{j,k \in \mathbb N} F_{j,k}$ であるので, $\mu(F_{j,k}) > 0$ をみたす$F_{j,k}$ が存在する. $F_{j,k}$ は正の測度をもつので, $F_{j,k} \cup \supp (\mu) \neq \varnothing$ であるので, $E_{j,k} \coloneqq F_{j,k} \cup \supp (\mu)$ とすると, $E_{j,k} \subset \supp (\mu)$ なので命題\ref{1}の$A \subset \supp(\mu)$ として$E_{j,k}$ をとると, $\mu (\cbra{x \in E_{j,k} \mid ^\exists; \veps C(x, x_j - x_k, \veps) \cup E_{j,k} \neq \varnothing} ) = 1$ であるので, $E_{j,k} \cup \cbra{x \in E_{j,k} \mid ^\exists; \veps C(x, x_j - x_k, \veps) \cup E_{j,k} \neq \varnothing} \neq \varnothing$ なので$z_q \in E_{j,k}$ をとり, $z_2 \in E_{j,k}\cup C(z_1, x_j - x_k, \veps )$をとる($\veps$は適当に十分小さくとる). $y_1^1, y_2^1 \in \mathbb R^n$ で$(z_1, y_1^1), (z_1, y_2^1) \in \supp (\pi), y_1^1 \in B(x_j; \frac{1}{10i}) , y_2^1 \in B(x_k; \frac{1}{10i})$ を満たすものをとり, $y_1^2, y_2^2 \in \mathbb R^n$ で $(z_2, y_1^2) , (z_2, y_2^2) \in \supp (\pi), y_1^2 \in B(x_j, \frac{1}{10i}) , y_2^2 \in B(x_k, \frac{1}{10i})$ を満たすものをとる. すると
+\begin{align*} \tbra{z_1 - z_2, y_1^1 - y_2^2} < 0 \LR \norm{z_1 - y_1^1}^ 2 + \norm{z_2 - y_2^2} ^2 > \norm{z_1 - y_2^2} ^ 2 + \norm{z_2 - y_1^1} ^2\end{align*} 
+が成り立つので, $\supp (\pi) $ の$c$巡回単調性に矛盾する. 
+\qed
+\end{pf*}
+
+\begin{remark}
+命題の条件を, 絶対連続から, 任意のリプシッツ関数のグラフに対して$\mu$ 測度が$0$に緩めても成立する.
+\end{remark}
+
+
+\subsection{二乗コストと通常の凸関数}
+
+\begin{prop}
+$\varphi: \mathbb R^n \rightarrow \mathbb R \cup \cbra{-\infty} , c(x,y) \coloneqq \frac{\norm{x-y} ^2}{2}$ とする. 
+\begin{align*} \bar \varphi (x) \coloneqq \frac{\norm x ^2}{2} - \varphi(x) \end{align*}
+と定めると, (1)(2)が成り立つ.\\
+(1)$\varphi$が$c$凹関数でることと, $\bar \varphi$ が通常の凸関数であることは必要十分である. \\
+(2)$\partial ^{c_+} \varphi = \partial^- \bar \varphi$ が成り立つ.
+\end{prop}
+\begin{pf*}(1)
+$\naraba$. $\varphi $ が適当な写像$\psi$ によって$\inf \cbra{\frac{\norm{x-y}^2}{2} - \psi (y) \mid y \in \mathbb R^n}$ と表される. \\
+$\bar \varphi(x) = \sup \cbra{\tbra{x,y} - \frac{\norm y ^2}{ 2} + \psi(y) \mid y \in \mathbb R ^n}$ なので
+\begin{align*}
+\bar \varphi(tx + (1-t) y) &= \sup_z \cbra{\tbra{tx + (1-t)y, z} - \frac{\norm z ^2}{2} + \psi (z)} \\
+&= \sup_z \cbra{\tbra{tx + (1-t)y, z} + (t + (1-t))\frac{-\norm z ^2}{2} + \psi (z)} \\
+&= \sup_z \cbra{t(\tbra{x,z} - \frac{\norm z ^2}{ 2} + \psi (z)  ) + (1-t) (\tbra{y,z} - \frac{\norm z ^2}{2} + \psi (z))  } \\
+&\leq t \sup_z \cbra{\tbra{x,z} - \frac{\norm z ^2}{ 2}  + \psi(z)} + (1-t) \sup_z \cbra{\tbra{y,z} - \frac{\norm z ^2}{ 2}  + \psi (z)} \\
+&= t \bar \varphi(x) = (1-t) \bar \varphi(x) 
+ \end{align*}
+ が成り立つ. $\gyaku$. $\bar \phi$ の凸共役は
+ \begin{align*} (\bar \varphi)^* (x) &= \sup_y \cbra{\tbra{x,y} - \frac{\norm y^2}{2} + \varphi(y) } \\
+ &= \sup_y \cbra{\frac{\norm x^2}{2} - \frac{\norm x^2}{2} + \tbra{x,y} - \frac{\norm y ^2}{2} + \varphi(y)} \\
+ &= \frac{\norm x ^2}{2} - \inf \cbra{\frac{\norm{x-y}^2}{2} - \varphi(y)} \\
+ &= \frac{\norm x^2}{2} - \varphi^{c_+} (x) \end{align*}
+ であり, $\bar \varphi$ が凸なので$\bar \varphi = \bar \varphi ^{**}$ であることに注意しながら変形していくと
+ \begin{align*} \bar \varphi (x) &= (\bar \varphi)^{**} (x) \\
+ &= \sup \cbra{\tbra{x,y} - \frac{\norm y^2}{2} + \varphi^{c_+} (y)} \\
+ &= \frac{\norm x^2}{2} - (\varphi^{c_+})^{c_+} (x) \\
+ \end{align*}
+ が成り立つので, 結局$(\varphi ^{c_+})^{c_+} (x) = \frac{\norm x^2}{2} - \bar \varphi(x) = \varphi(x)$ が成り立つ(すなわち, $\varphi$ が適当な写像の$c$凹変換である).
+ (2) 任意の$x \in \mathbb R ^n$ に対して
+ \begin{align*} 
+ y \in \partial^- \bar \varphi (x) &\LR \bar \varphi(z) - \bar \varphi(x) \geq \tbra{z - x, y} \quad (\any z \in \mathbb R^n) \\
+ &\LR \paren{\frac{\norm z^2}{2} - \varphi(z)} - \paren{\frac{\norm x^2}{2} - \varphi(x)} \geq \tbra{z-x,y} \quad (\any z \in \mathbb R ^n) \\
+ &\LR \paren{\frac{\norm z^2}{2} - \tbra{z,y} +\frac{\norm y^2}{2} - \varphi(z)} - \paren{\frac{\norm x^2}{2} - \tbra{x,y} + \frac{\norm y^2}{2} - \varphi(x)} \geq 0 \quad (\any z \in \mathbb R^n) \\
+ &\LR \frac{\norm{z-y} ^2}{2} - \varphi(z) \geq \frac{\norm{x-y} ^2}{2} - \varphi(x) \quad(\any z \in \mathbb R ^n) \\
+ &\LR \varphi^{c_+}(y) = \frac{\norm{x-y} ^2}{2} - \varphi(x) \\
+ &\LR y \in \partial ^{c_+} \varphi(x)
+ \end{align*}
+ が成り立つので, $\partial ^{c_+} \varphi = \partial^{-} \bar \varphi$ である. 
+\qed
+\end{pf*}
+
+最後に応用上よくつかわれるBrenierの定理を証明する. Brenierの定理はユークリッド空間において最適輸送写像が適当な凸関数の勾配で与えられるという主張であるが, この結果はリーマン多様体上での輸送にまで拡張される.
+
+\begin{prop}(Brenier).
+$c(x,y) \coloneqq \frac{\norm{x-y}^2}{2}$ , $\mu \in \mathcal P (\mathbb R ^n) , \int_{\mathbb R ^n} \norm x ^2 \d \mu < \infty$ とする. $\mu$ がルベーグ測度に対して絶対連続であるならば, $\nu \in \mathcal P (\mathbb R ^n), \int_{\mathbb R ^n} \norm x ^2 \d \mu < \infty$ を満たす任意の確率測度$\nu$ に対して, $\mu, \nu$ の間の最適輸送$\pi \in \Pi (\mu, \nu)$ に対して$\varphi: \mathbb R ^n \rightarrow \mathbb R $ で$\pi = (id \times \nabla \varphi) _\sharp \mu$ を満たす凸関数が存在する.
+\end{prop}
+\begin{pf*}
+最適輸送計画を$\pi \in \Pi(\mu, \nu)$ で表す(その存在自体はすでに示されている). $\frac{\norm{x-y} ^2}{2} \ge \norm x ^2 + \norm y ^2$ なので, $c$凹関数で$\sup(\pi) \subset \partial ^{c_+} \varphi$ を満たすものが存在する.
+\begin{align*} \bar \varphi(x) \coloneqq \frac{\norm x ^2}{2} ^ \varphi (x)  \end{align*}
+とすると, $\supp (\pi) \subset \partial ^{c_+} \varphi = \partial^- \bar \varphi$ を満たす凸関数であり, $\bar \varphi $ の微分不可能な点の$\mu$ 測度は$0$である. 従って, 補題\ref{2} の$\Gamma$ として$\partial^- \bar \varphi$ をとるとよい. 
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\appendix
+\setcounter{part}{0}
+\part*{附録}
+\addcontentsline{toc}{part}{付録}
+\section{Prokhorov の定理}
+
+\begin{prop}
+\label{1420}
+$X$ を完備可分距離空間とする. $\mu \in \mathcal{P}(X)$ は緊密である.
+\end{prop}
+\begin{pf*}
+$X$ の可分性に従い, 任意の$k \in \mathbb{N}$ に対して$X$ を被覆する半径$\frac{1}{k}  $ の開球の可算個の族$\cbra{B(x_{k,i} ; \frac{1}{k})}_{i\in \mathbb{N}}$ をとる. 測度の連続性から, $\mu ((\bigcup_{i \leq N(k)} B(x_{k,N(k)})  )^c) \leq \frac{\veps}{2^k}  $ を満たす$N(k)$ がとれる. 任意の$\veps > 0 $ に対して, 十分大きな$K$ をとると, 有限個の半径$\veps$ の開球で $\bigcup_{i \leq N(K)} B(x_{K,i};\frac{1}{K}  )$ を被覆できるので, \\
+$\bigcap_{k} \bigcup_{i \leq N(k)} B(x_{k,i} ; \frac{1}{k}) \subset \bigcup_{i \leq N(K)} B(x_{K,i} ; \frac{1}{K}  )$ も
+有限個の半径$\veps$ の開球で被覆できるため全有界であり, 全有界な集合の閉包も全有界であることと, 完備な空間の閉集合は完備であることから $\overline{\bigcap_{k} \bigcup_{i \leq N(k)} B(x_{k,i}; \frac{1}{k} ) }$ はコンパクト集合である. 
+\begin{align*}
+\mu ((\overline{\bigcap_{k} \bigcup_{i \leq N(k)} B(x_{k,i} ; \frac{1}{k}  }))^c ) \leq \mu ((\bigcap_{k} \bigcup_{i \leq N(k)} B(x_{k,i}; \frac{1}{k}  ) )^c) = \mu( \bigcup_{k}({ \bigcup_{i \leq N(k)} B(x_{k,i}; \frac{1}{k}  } )^c ) \leq \veps
+\end{align*}
+より主張が従う.
+\qed
+\end{pf*}
+
+\begin{remark}
+$X = \Rn$ のときは, 原点を中心とする半径$r$ の閉球の増大列を考えれば測度の連続性より証明できる.
+\end{remark}
+
+
+\begin{dfn}
+単位区間の可算個の直積 $H \coloneqq [0,1]\times[0,1]\times[0,1] \times \cdots $ をヒルベルト立方体という.
+\end{dfn}
+
+\begin{prop}
+可分な距離空間はヒルベルト立方体に埋め込める.
+\end{prop}
+\begin{pf*}
+可算稠密部分集合を $\cbra{p_i}$ とし, 可算開基$\cbra{B(p_i ; \frac{1}{n} )}_n$ をとる. 
+$f_{i,n} \coloneqq
+\begin{cases}
+0 \quad (x \in \overline{B(p_i , \frac{1}{3n}  )} ) \\
+1 \quad (x \in B(p_i , \frac{1}{n}  )^c) 
+\end{cases}
+$ を満たす連続写像をとり, 
+$f:X \rightarrow H; x \mapsto (f_{1,1} (x) , f_{1,2} (x), f_{2,2}(x) , f_{1,3}(x),\ldots )$ で連続写像を定める. $x,y \in X, x \neq y$ に対して適当な$p_i \in \cbra{p_i}$ と十分大きな$N\in \mathbb{N}$ で $x \in B(p_i ; \frac{1}{3N}), y \in B(p_i , \frac{1}{N} )^c $が成り立つようにとっておくと, $f_{i,N}(x) = 0 \neq 1 = f_{1,N}(y)$ となり単射である. つぎに任意に開集合$U \subset X$ をとり, $f(U)$ が開集合であることを示す. 任意の点 $f(x) \in f(U)$ に対して, 適当な$p_j \in \cbra{p_j}$ と十分大きな $M\in \mathbb{N}$ で $x \in B(p_j ; \frac{1}{3M}  ) \subset B(p_j ; \frac{1}{M} \subset U)$ が成り立つようにとっておく.
+ \begin{align*}
+f(x^{\prime}) \in  f(X)\cap {\projproj{j}{M}}^{-1}[0,1) &\naraba \projproj{j}{M}\circ f (x^{\prime}) =  f_{j,M}(x^{\prime}) \neq \rm1\it \in \overline{f_{j,M}(X\setminus U)} = \cbra{\rm1\it} \\
+& \LR x^{\prime} \in U \\
+& \LR f(x^{\prime}) \in f(U)
+ \end{align*}
+ が成り立つので, $f(x) \in f(X)\cap {\projproj{j}{M}}^{-1}[0,1) \subset f(U)$ であり, $f(X)\cap {\projproj{j}{M}}^{-1}[0,1)$ は開集合なので, 任意の点が内点である $f(U)$ は$f(X)$ の開集合である. 従って連続写像$f$ は埋め込み写像である.
+\qed
+\end{pf*}
+
+\begin{cor}
+可分な距離空間はコンパクトな空間に埋め込める.
+\end{cor}
+\begin{pf*}
+ヒルベルト立方体はコンパクト空間の直積なので, チコノフの定理からコンパクトである.
+\qed
+\end{pf*}
+
+\newpage
+
+\begin{dfn}
+$X$ を位相空間とする. $C_c(X) \coloneqq \cbra{f \in C(X) \mid f\mathop{ はコンパクトな台をもつ}}$
+\end{dfn}
+
+\begin{dfn}
+$X$ を位相空間とする. $C_c(X)$ 上の線型汎函数$\phi$が正であるとは, 任意の$f \in C_c(X)$ に対して$f\geq 0$ ならば$\phi(f) \geq 0$ が成り立つことである.
+\end{dfn}
+
+よく知られた関数解析の定理を二つ証明なしで認めることにする.
+
+\begin{thm}
+(Riesz representation).
+$X$ を局所コンパクトハウスドルフ空間とする. $C_c (X)$ 上の任意の正の線形汎関数$\phi $ に対して, $\phi(f) = \int_X f d\mu \,\, (\any f \in C_c (X))$ を満たす$X$ 上の正則ボレル測度$\mu$ が存在する.
+\end{thm}
+
+
+
+\begin{thm}
+(Banach Alaoglu の定理).
+ノルム空間の双対空間の作用素ノルム閉単位球は弱*位相でコンパクトである.
+\end{thm}
+
+\begin{lem}
+$X$ をコンパクト距離空間とすると, $\mathcal{P}(X)$ は弱収束の位相でコンパクトである.
+\end{lem}
+\begin{pf*}
+\begin{align*} \Sigma \coloneqq \cbra{ \varphi \in C(K) ^* \mid \norm \varphi \leq 1, \varphi(1_K) = 1 \text{であり, } f \in C(K), f \geq 0 \naraba \varphi (f) \geq 0  } \end{align*}
+と定めると, $\mathcal P(K)$ に弱収束による位相を定めたものと, $\Sigma$ に弱$*$位相を定めたものは同相である. 実際, \begin{align*} T: \mathcal P (K) \rightarrow \Sigma \; \mu \mapsto \varphi_\mu\end{align*}を, 
+\begin{align*} \varphi_\mu (f) \coloneqq \int_K f \d \mu \quad (f \in C(K)) \end{align*} により定めると, $\varphi_\mu$ は$C(K) = C_c(K)$ 上の正の線型汎関数なので, 表現定理により定まるボレル測度を$\nu$ とすると, $\nu (K) = \int_K 1_K \d \mu = \varphi_\mu (1_K) = 1$ であることから$\mu \in \mathcal P (K) $ なので全射である. また, $\varphi_\mu = \varphi_\nu$ であるならば, 任意のボレル集合$A$ に対して$\nu(A) = \int_K 1_A \d \mu = \varphi_\mu(1_A) = \varphi_\nu (1_A) = \varphi_\nu (1_A) = \int_K 1_A \d \mu = \nu (A) $ が成り立つ(ただし, 3つめの等号は$1_A$ に各点収束する連続関数の列を適当にとり優収束定理を用いることで従う)ので単射である. さらに,$T, T^{-1}$ が連続である(定義がまさに$\mu_n \rightarrow \mu \LR \varphi_{\mu_n} \rightarrow \varphi_\mu$ を意味する)ので, 結局$T$ は同相写像である. そして, 列$\varphi _n \in \Sigma$ が弱$^*$位相で$\varphi_n \rightarrow \varphi$ と収束するならば, ($\sup_{\norm f = 1} \abs{\varphi _n f} \geq 1$ が任意の$n$に対して成り立つことに注意すると)$\norm \varphi = \sup_{\norm f = 1} \abs{\varphi f} = \sup_{\norm f = 1} \abs{ \lim_n \varphi_n f} \geq 1$ であり, $\varphi(1_K) = \lim \varphi_n (1_K) = 1$ で, さらに$f \in C(K), f \geq 0 \naraba \varphi(f) = \lim \varphi_n f \geq 0 $ であるので$\varphi \in \Sigma$ である. 従って, $\Sigma $ は弱$^*$位相で閉集合である. 
+\begin{align*} \Sigma \subset \cbra{\varphi \in C(K) ^* \mid \norm \varphi \leq 1}\end{align*}
+であることから $\Sigma$ は弱$^*$コンパクト集合に含まれる弱$^*$閉集合であるので弱$^*$コンパクトである. 従って, $\mathcal P(K) $ は弱収束の定める位相でコンパクトである. 
+\qed
+\end{pf*}
+
+
+\newpage
+
+\begin{thm}
+\label{1752}
+(Prokhorov の定理).
+$X$ を完備可分距離空間とする.
+$\mathcal{K}\subset \mathcal{P}(X)$ が弱収束の位相に関して相対点列コンパクトであることの必要十分条件は, $\mathcal{K}$ が一様緊密であることである.  
+\end{thm}
+\begin{pf*}
+$\naraba. $
+$X = \bigcup_{n=1}^\infty S_n$ を満たす開集合の増大列$\cbra{S_n}$ が与えられると, 
+任意の$\veps > 0$ に対して, $\inf_{\mu \in \mathcal{K}} \mu(S_{n(\veps)})> 1-\veps$ を満たす$n(\veps) \in \mathbb{N}$ が存在することを示す. 
+そうでないと仮定すると, 適当な$\veps$ をとると,  任意の$n$に対して$\mu _n (S_n ) \leq 1 - \veps$ を満たす$\mu _n \in \mathcal{K}$ がとれる. $\mathcal{K}$ が弱収束の位相に関して相対点列コンパクトであることに従って, $\mu \in \mathcal{P}(X)$ に弱収束する部分列$\cbra{\mu_{n_k}}$ をとると, $\mu(S_n) \leq \liminf \mu_{n_k}(S_n) \leq \liminf \mu_{n_k}(S_{n_k}) \leq 1- \veps$ が任意の$n$ に対して成り立つこととなり矛盾する. $X$ が可分であることに従って任意の$k \in \mathbb{N}$ に対して$X$ を被覆する半径$\frac{1}{k}  $ の開球の可算個の族$\cbra{B(x_{k,n} ; \frac{1}{k})}_{n\in \mathbb{N}}$ をとると, $\cbra{\bigcup_{n=1}^N B(x_{k,n}; \frac{1}{k} ) }$ は$X = \bigcup_{n=1}^\infty B(x_{k,n}; \frac{1}{k} )$ を満たす開集合の増大列なので, 最初に示したことから$m \in \mathbb{N}$ に対して, $\sup_{\mu \in \mathcal{K}} \mu(\bigcup_{n\leq n(m)} B(x_{k,n}; \frac{1}{k} ) ) > 1 - \frac{\veps}{2^m} $ を満たす$n(m)\in \mathbb{N}$ がとれる. 任意の$\mu \in \mathcal{K}$ に対して, 
+\begin{align*}
+\mu((\overline{\bigcap_k \bigcup_{n\leq n(m)} B(x_{k,n}; \frac{1}{k} ) })^c ) 
+\leq \mu((\bigcap_k \bigcup_{n\leq n(m)} B(x_{k,n}; \frac{1}{k} ) )^c ) 
+= \mu( \bigcup_k (\bigcup_{n\leq n(m)} B(x_{k,n}; \frac{1}{k} ) )^c    )
+\leq \veps
+\end{align*}
+が成り立ち, $\overline{\bigcap_k \bigcup_{n\leq n(m)} B(x_{k,n}; \frac{1}{k} ) }$ がコンパクトであることから$\mathcal{K}$ は一様緊密である. \\
+$\gyaku.$ $f:X \rightarrow f(X) \subset H$ をヒルベルト立方体への埋め込み写像とする. $\cbra{\mu_n} \in \mathcal{K}$ に対して $\nu_n \coloneqq f\push \mu_n \in \mathcal{P}(f(X)), \tilde{\nu}_n (A) \coloneqq \nu(A \cap f(X)) \,\,(\any A \in \mathcal{B}(H) )$ とすると, $\tilde{\nu_n} \in \mathcal{P}(H)$ である. 各$m \in \mathbb{N}$ に対して, $1 - \veps \leq \inf_n \mu_n (K_m) = \inf_n \nu_n (f(K_m))$ を満たすコンパクト集合$K_m$ をとり, $E \coloneqq \bigcup_{m=1}^\infty f(K_m) \subset f(X)$ とする. $\cbra{\tilde{\nu_n}}\subset \mathcal{P}(H)$ はコンパクト集合上の確率測度の列なので, ある$\tilde{\nu} \in \mathcal{P}(H)$に弱収束する部分列$\cbra{\tilde{\nu}_{n_k}}$がとれる. 
+\begin{align*}
+\tilde{\nu}(E) = \tilde{\nu}(\bigcup f(K_m)) \geq \tilde{\nu}(f(K_m)) 
+\geq \limsup_k \tilde{\nu}_{n_k}(f(K_m)) = \limsup_k \nu_{n_k}(f(K_m)) \geq 1 - \frac{1}{m}
+\end{align*}
+が成り立つので, $\tilde \nu (E) = 1$ である. 即ち, $\tilde{\nu}$ は$E$ に全測度をもつ.
+任意に閉集合$C\subset X$ をとり, $F\cap f(X) = f(C)$ を満たす閉集合$F \subset H$ をとる.
+\begin{align*}
+\limsup_k \nu_{n_k}(C) &= \limsup_k \nu_{n_k}(f(C)) \\
+&= \limsup_k \tilde{\nu}_{n_k}(f(C)) \\
+&\leq \limsup_k \tilde{\nu}_{n_k}(F) \\
+&\leq \tilde{\nu}(F) \\
+&= \tilde{\nu}(F \cap E) + \tilde{\nu}(F \cap E^c) \\
+&= \tilde{\nu}(F \cap E) \\
+&= \tilde{\nu}(F \cap E \cap X) \\
+&= \tilde{\nu}(f(C) \cap E) \\
+&= f\push \eta (f(C)) \\
+&= \eta (C)
+\end{align*}
+が成り立つ. $\cbra{\mu_n}\subset \mathcal{K}$ は収束部分列をもつので$\mathcal{K}$ は弱収束の位相で相対点列コンパクトである.
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%
+\newpage
+\setcounter{part}{0}
+\part*{参考文献}
+\addcontentsline{toc}{part}{参考文献}
+
+
+
+\begin{thebibliography}{99}
+\bibitem{}  P. Billingsley, Convergencee of Probability Measures, second edition, John Wiley \& Sons, New York, 1999.
+\bibitem{}  T. Rajala, Optimal Mass Transportation, http://users.jyu.fi/~tamaraja/MATS423/lectures.pdf
+\bibitem{} L. Ambrosio, N. Gigli, A user's guide to optimal transport, Lecture Notes in Mathematics, pp 1-155, 2013.
+\end{thebibliography}
+
+\end{document}
+
+%%%%%%%%%%%
+
+\begin{dfn}
+
+\end{dfn}
+
+%
+
+\begin{problem}
+
+\end{problem}
+\begin{solution*}
+
+\qed
+\end{solution*}
+
+%
+
+\begin{ex}
+
+\end{ex}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+%
+
+\begin{prop}
+
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
