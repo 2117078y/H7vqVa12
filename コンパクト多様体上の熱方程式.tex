@@ -1,0 +1,463 @@
+\documentclass[twocolumn, landscape, a4paper , 8pt, fleqn, titlepage ]{jsarticle}
+\usepackage[driver=dvipdfm,hmargin=20truemm,vmargin=25truemm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+%box
+\usepackage{ascmac}
+
+%%
+\usepackage{xcolor} 
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\hypersetup{
+setpagesize=false,
+ bookmarksnumbered=true,
+ bookmarksopen=true,
+ colorlinks=true,
+ linkcolor=teal,
+ citecolor=black,
+}
+%
+%
+%
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+%%
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \textrm{s.t.} \, }
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\ntbra}[1]{\langle#1\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\supp}{\textrm{supp}\,} 
+
+\newcommand{\ifufu}{\,\textrm {iff} \, \it}
+
+
+\newcommand{\proj}[1]{\it{p}_{#1}}
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\push}{_{\#}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%ベクトル解析
+\newcommand{\grad}{\textrm{grad}}
+\renewcommand{\div}{\textrm{div}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\renewcommand{\d}{\, \textrm{d} }
+\newcommand{\length}{\textrm{length}}
+\newcommand{\Func}{\textrm{Func}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\Cone}{\textrm{Cone}}
+\newcommand{\Hess}{\textrm{Hess}}
+
+\newcommand{\perpperp}{{\perp \perp}}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+\newcommand{\limright}{\displaystyle{\lim_{\rightarrow}}}
+
+
+\renewcommand{\-}{\hyphen}
+
+\renewcommand{\Im}{\textrm{Im}}
+
+\newcommand{\sgyouretsu}[1]{\paren{\begin{smallmatrix} #1 \end{smallmatrix} }}
+
+%↓本体↓
+
+\title{コンパクト多様体上の熱方程式}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\scriptsize 
+
+
+\section{コンパクト多様体上の熱方程式}
+\subsection{コンパクト多様体上の熱方程式}
+\begin{remark}
+$\Delta$ を(空間変数に関する)負のラプラシアンとする. すなわち$\Delta = \div\circ \grad$である. $L \coloneqq \Delta - \partial_t$ とする. 混乱の恐れのない限り, 接続も勾配も同じ記号$\nabla$ で表す. 勾配は$\grad, \nabla$ の両方で表す. 
+\end{remark}
+
+\begin{remark}
+$M$ はコンパクト多様体とする. 
+\end{remark}
+
+\begin{dfn}(熱方程式の解). $Lu = 0$ を満たす時間変数に関して$C^1$級, 空間変数に関して$C^2$級の$(0,\infty) \times M$ 上の連続関数を(コンパクト多様体$M$上 の)熱方程式の解という.
+\end{dfn}
+
+\begin{dfn}(熱方程式の基本解). $(0, \infty) \times M \times M$ 上の関数$h(t,x,y)$は\\
+(1)時間変数に対して$C^1$級, 空間変数に対して$C^2$級である. \\
+(2)$Lh = 0$ をみたす.\\
+(3)$\lim_{t \downarrow 0} \int_M h_t(x,y)f(y) \d\vol(y) = f(x) \quad (f \in C_b (M))$ をみたす.
+ときに, 熱方程式の基本解(あるいは熱核)という. 
+\end{dfn}
+
+\begin{prop}
+\begin{align*}  \int_M f \div(\grad g) d \vol = - \int_M \tbra{\grad f, \grad g} d \vol \end{align*}
+\end{prop}
+\begin{pf*}
+$0 = \int \div (f \grad g) d\vol = \int C \nabla (f \otimes \grad g) d \vol = \int df(\grad g) + f C \nabla (\grad g) d \vol $
+\qed
+\end{pf*}
+
+
+\begin{prop}$u$を熱方程式の解とする. このとき, \\
+(1)$\int_M u_t (x) d\vol(x)$ は$t$ に関して一定である. (2)$\int_M u^2_t (x) d \vol (x)$ は$t$ に関して単調非増大である.
+\end{prop}
+\begin{pf*}
+$\partial_t \int u d \vol = \int \Delta u d \vol = 0, \quad \partial_t \int u^2 d \vol = 2 \int u \Delta u d \vol = - 2  \int \tbra{\nabla u, \nabla u} d \vol \leq 0$ .
+\qed
+\end{pf*}
+
+\begin{prop}(Duhamelの原理, のVer).
+$(0,t) \times M$ 上の連続関数$u,v$ を時間変数に関して$C^1$級, 空間変数に関して$C^2$級であるとする. $[\alpha, \beta] \subset (0,t)$ であるならば
+\begin{align*} &\int_M u_{t - \beta} (z) v_\beta (z) - u_{t -\alpha} (z) v_\alpha (z) d\vol(z) \\ &\quad = \int_\alpha^\beta \paren {\int_M (Lu)_{t - \tau} (z) v_\tau (z) - u_{t-\tau}(z)(Lv)_\tau (z) d \vol(z) } d \tau \end{align*}
+\end{prop}
+\begin{pf*}
+\begin{align*} (Lu)_{t - \tau} v_\tau - u_{t- \tau} (Lv)_t = (\Delta u)_{t- \tau} v_t - u_{t- \tau} (\Delta v)_\tau + \partial_t (u_{t-\tau} v_\tau)\end{align*}
+であるので, $\int_\alpha^\beta(\int_M d \vol) d \tau$ により積分すると, $1,2$項目は$0$になる. 
+\qed
+\end{pf*}
+
+\begin{prop}(熱核の対称性).
+\begin{align*} h_t (x,y) = h_t (y,x) \end{align*}
+\end{prop}
+\begin{pf*}
+Duhamelの原理を用いる.
+\begin{align*} &\int_M h_{t - \beta} (x, z) h_\beta (y, z) - h_{t -\alpha} (x, z) h_\alpha (y, z) d\vol(z)
+\\ &\quad = \int_\alpha^\beta \paren {\int_M (Lh)_{t - \tau} (x, z) h_\tau (y, z) - h_{t-\tau}(x, z)(Lh)_\tau (y, z) d \vol } d \tau  \end{align*}
+であるので, $\beta \rightarrow t, \alpha \rightarrow 0$ とすることで, 
+\begin{align*} h_t( y,x) - h_t (x,y) = 0 \end{align*} 
+が成り立つ.
+\qed
+\end{pf*}
+
+\begin{prop}(熱核の一意性).
+熱核は存在するならば一意である. 
+\end{prop}
+\begin{pf*}
+ $h^1, h^2$ をともに熱核とすると, Duhamelの原理から$h^1_t(x,y) = h^2_t (y,x)$ が成り立つが, 熱核の対称性から$h^1_t(x,y) = h^2_t (x,y)$ である. 
+\qed
+\end{pf*}
+
+
+\begin{prop}
+$f,F$ をそれぞれ$M, (0,\infty)\times M$ 上の有界連続関数とする. 非斉次熱方程式$\begin{cases} (Lu)_t = - F_t \\ u_0 = f \end{cases}$ をみたす関数を$u$とすると, 
+\begin{align*} u_t (x) = \int_M h_t (x,y) f(y) d \vol(y) + \int_0^t \paren{\int_M h_{t - \tau}(x,y)F_\tau (y) d \vol } d \tau \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+\begin{align*} &\int_M h_{t - \beta} (x,z) u_\beta (z) - h_{t -\alpha} (x,z) u_\alpha (z) d\vol(z) \\ &\quad = \int_\alpha^\beta \paren {\int_M (Lh)_{t - \tau} (x,z) u_\tau (x, z) - h_{t-\tau}(z)(Lu)_\tau (z) d \vol(z) } d \tau \end{align*}
+より
+\begin{align*} u_t (x) -  \int_M h_t(x,z)u_0 (z) d \vol(z) =  - \int_0^t \paren{\int_M h_{t-\tau}(x,y) (-F)_\tau (y) d \vol(y) } d \tau  \end{align*}
+\qed
+\end{pf*}
+
+\begin{remark}
+時間に関して積分記号の外から極限をとるとき, $M$は今コンパクト多様体であることを仮定しているので, 連続な被積分関数に対しては優収束定理が常に成り立ち, 積分記号の中に入れることができる. ただし, $h_0$ は定義されていないことに注意する.
+\end{remark}
+
+\begin{prop}$f$を$M$上の連続関数とする. 
+\begin{align*} u_t (x) = \int_M h_t (x,y) f(y) d \vol(y) \end{align*}
+は初期データを$f$とする熱方程式の解である.
+\end{prop}
+\begin{pf*}
+明らか.
+\qed
+\end{pf*}
+
+
+少しだけ関数解析の復習をする.
+
+\begin{prop}
+ヒルベルト空間の強閉単位球は弱コンパクト. 従って, 任意の有界列は弱収束部分列をもつ.
+\end{prop}
+\begin{pf*}
+バナッハアラオグルの定理(ノルム空間の双対空間の強閉単位球は弱*コンパクト)より従う.
+\qed
+\end{pf*}
+
+\begin{prop}
+ヒルベルト空間上の対称な全域作用素$T$は自己共役作用素である.
+\end{prop}
+\begin{pf*}
+$H = D(T) \subset D(T^*) \subset H$ であるので, $D(T) = D(T^*)$ が成り立つ. 
+\qed
+\end{pf*}
+
+\begin{prop}
+ヒルベルト空間の上の$0$に弱収束する点列を, 強収束列にうつす作用素はコンパクトである.
+\end{prop}
+\begin{pf*}
+明らか.
+\qed
+\end{pf*}
+
+\begin{dfn}
+ヒルベルト空間$(H, \tbra{\cdot,\cdot})$ 上の双線形形式$b$は, 連続であり, かつ
+\begin{align*} c \tbra{x,x} \leq b(x,x) \,\, (x \in H) \end{align*}
+をみたす正の定数$c>0$が存在するときに強圧的双線形形式という. 
+\end{dfn}
+
+\begin{prop}(ラックス=ミルグラムのver).
+$b$ をヒルベルト空間上の強圧的双線形形式とする. このとき, 任意の有界線型作用素$\varphi $ に対して, $x_\varphi \in H$ で
+\begin{align*} \varphi(y) = b(x_\varphi , y) \,\, (\any y \in H)\end{align*}
+を満たすものが存在する. 
+\end{prop}
+\begin{pf*}
+省略.
+\qed
+\end{pf*}
+
+\begin{prop}(無限次元バナッハ空間上のコンパクト作用素のスペクトル).
+$T$をコンパクト無限次元バナッハ空間上のコンパクト作用素に対して次が成り立つ. \\
+(1)$0$をスペクトルにもつ.
+(2)スペクトル$\setminus \cbra{0}$ = 固有値$\setminus \cbra{0}$ \\
+(3)非零スペクトルをもたない, または非零スペクトルが有限集合, または非零スペクトルは$0$に収束する. 
+\end{prop}
+\begin{pf*}
+省略.
+\qed
+\end{pf*}
+
+
+\begin{prop}(自己共役作用素の固有値).
+自己共役作用素のスペクトルは最小値, 最大値をもち, それぞれ$\inf_{x \in H, \norm x = 1} \tbra{Tx, x}, \sup_{x \in H, \norm x = 1} \tbra{Tx, x}$ である.
+\end{prop}
+\begin{pf*}
+省略.
+\qed
+\end{pf*}
+
+
+\begin{prop}
+$H$を可分なヒルベルト空間, $T$をコンパクトな自己共役作用素とする. このとき, $H$は$T$ の固有ベクトルからなる完全正規直交系をもつ. 
+\end{prop}
+\begin{pf*}
+省略.
+\qed
+\end{pf*}
+
+\begin{prop}(Mercerの定理のver). $(X,\mu)$ を局所コンパクトハウスドルフ空間, 完備ボレル測度からなる測度空間とする. $L^2(M)$ 上の作用素を
+\begin{align*} Tf \coloneqq \int_M k(x,y) f(y) d \mu  \end{align*}
+で定める. $k$ が対称かつ連続かつ, 対角線上への制限$k(x,x)$ が$L^1(X)$, かつ$T$が$\tbra{Tf, f} \geq 0 \,\, (\any f \in H)$ をみたすとする. このとき, $L^2(X)$ は$T$の固有関数からなる完全正規直交系$\cbra{u_i}$をもち, 対応する固有値を$\cbra{\lambda _i}$ で表すと
+\begin{align*} k(x,y) = \sum \lambda_i u_i(x) u_i (y) \end{align*}
+が広義絶対一様収束の意味で成り立つ.
+\end{prop}
+\begin{pf*}
+省略.
+\qed
+\end{pf*}
+
+
+\begin{dfn}
+\begin{align*} H_t f (x) \coloneqq \int_M h_t(x,y)f(y) d \vol(y) \end{align*}
+と定める.
+\end{dfn}
+
+\begin{prop}任意の$t,s >0$ に対して
+\begin{align*} H_{t+s}f = H_t(H_s f) = H_s(H_t f), \quad \lim_{t \downarrow 0}H_{t}f = f \end{align*}
+\end{prop}
+\begin{pf*}
+$h_{t+s}, \int_M h_t(x,z)h_s(z,y) d \vol(z) $ をともに熱核であり, 熱核の一意性から一致する. 
+\qed
+\end{pf*}
+
+\begin{prop}
+\begin{align*} \tbra{H_t f, f} \geq 0  \, .\end{align*}
+\end{prop}
+\begin{pf*}
+$\tbra{H_tf, f} = \tbra{H_{\frac{t}{2} } f,  H_{\frac{t}{2} } f} \geq 0$
+\qed
+\end{pf*}
+
+
+\begin{remark}
+始域と定義域が一致する写像を全域写像といっている. 作用素という言葉を使うときに対しても同様である.
+\end{remark}
+
+\begin{prop}($H_t$ の性質). \\
+(1)$H_t$ は全域作用素である. \\
+(2)$H_t$ は$L^2(M)$ 上の対称作用素である. \\
+(3)$H_t$ は$L^2(M)$ 上の自己共役作用素である. \\
+(4)$H_t$ はコンパクトである. \\
+\end{prop}
+\begin{pf*}
+(1)任意の$L^2$関数を定義域に含む. (2)フビニの定理から$\tbra{H_t f , g} = \tbra{f, H_t g}$が成り立つ. (3)ヒルベルト空間上の全域対称作用素であるから. (4)
+\begin{align*} H_t f_i (x) = \int_M h_t (x,y) f_i (y) d \vol(y) \rightarrow 0 \,\, (i \rightarrow \infty ) \end{align*} 
+が任意の$x \in M$ に対して成り立ち, また優収束定理から
+\begin{align*} \paren{\int_M \abs{H_t f_i (x)}^2 d \vol(x)}^{\frac{1}{2}} \rightarrow 0 \,\, (i \rightarrow \infty )\end{align*}
+が成り立つので, $H_t f_i$ は強収束列である. 
+\qed
+\end{pf*}
+
+\begin{prop}
+(1)$L^2(M)$ は$\Delta$ の固有関数からなる完全正規直交系$\cbra{u_i}$をもつ. \\
+(2)$\Delta$ の各固有空間は有限次元である. \\
+(3)$\sum_{i = 0}^\infty e^{-\lambda_i t} u_i (x) u_i (y)$ は絶対かつ一様に収束し
+\begin{align*}\quad  h_t (x,y) = \sum e^{- \lambda_i t} \varphi_i (x) \varphi_i (y)  \end{align*}
+\quad が成り立つ. ただし, $-\lambda_i$ は$\Delta$ の
+\end{prop}
+\begin{pf*}
+$H_t$ はコンパクト自己共役作用素であるので, 最大の固有値が存在する. 最大のものから$0$に収束する可算個の固有値の列を
+\begin{align*} \lambda_1 (t) \geq \lambda_2 (t) \geq \cdots \rightarrow 0 \end{align*}
+と並べる. 対応する正規固有関数を$u_i (t)$ で表すことにする. 正の整数$N > 0$ と正の実数$t > 0$ に対して
+\begin{align*} &(1)H_{Nt} u_i = (H_{t} )^N u_i  \\ &(2) H_{Nt} (u_i (Nt)) = \lambda_i (Nt), \quad H_{Nt}u_i (t) = (\lambda_i (t)) ^ N \end{align*}
+より, $\lambda_i (Nt) = (\lambda_i (t)) ^N , u_i (Nt) = u_i (t) $ が成り立つ. また, $N, M>0$ を正の整数として, \\$\lambda_i (M \frac{t}{M}) = (\lambda_i ([\frac{t}{M}))^M$ より
+$\lambda_i (M \frac{t}{M})^{\frac{1}{M}} = (\lambda_i ([\frac{t}{M}))$ が成り立つことに注意すると, 
+\begin{align*} \lambda_i (\frac{N}{M} t) = (\lambda_i (\frac{1}{M} t))^ N = (\lambda_i(t) ) ^ \frac{N}{M}  \end{align*}
+となり, 正の有理数$q>0$ に対しても$\lambda_i (qt) = (\lambda_i (t)) ^q$ が成り立ち, さらに任意の正の実数$r > 0$ に対して$r$ に収束する正の有理数列$q_n$ をとると
+$H_{q_n t } u_i(t) = H_{q_n t } u_i(q_n t) = (\lambda_i (t)) ^{q_n} u_i (q_n t) = (\lambda_i (t)) ^{q_n} u_i (t) $ であることから, 極限をとることにより$H_{rt } u_i(t) =(\lambda_i (t)) ^{r} u_i (t)  $が成り立つことから, 正の実数$r>0$に対しても$\lambda_i (rt)  = (\lambda_i (t)) ^{r} $ である. 結局, 任意の$t>0$ に対して
+\begin{align*} \lambda_i (t) = (\lambda_i (1) )^t , \quad u_i(t) = u_i (1)\end{align*}
+が成り立つ. 
+\begin{align*} \partial_t \paren{ \int_M \paren{ \int_M h_t (x,y) f(y) d\vol(y)} ^2  \vol(x) }^{\frac{1}{2}} \leq 0  \end{align*}
+であることから, $\norm{H_t u_i (1) } = \norm{\lambda_i (1) u_i(1)} = \abs{\lambda_i (1) } = \lambda_i (1) $ は広義減少である. すると,
+\begin{align*} \lambda_i (t) = (\lambda_i (1) )^t = \exp(t \log \lambda_i (1) ) \end{align*}
+であることから, $\log \lambda_i (1) \geq 0 $ である(そうでないと広義減少にならない). そこで, 
+\begin{align*} \lambda_i \coloneqq - \log \lambda_i (1) \quad  (\geq 0 ) \end{align*}
+とおくと, 
+\begin{align*} &0 = L(H_t u_i) = L\paren{\exp (t \log \lambda_i (1)) u_i } =  L\paren{e^{-\lambda_i t} u_i } \\&\quad = e^{-\lambda_i t}\Delta u_i + \lambda_i e^{-\lambda_i t} u_i = e^{-\lambda_i t}(\Delta u_i + \lambda_i u_i)  \end{align*}
+であることから,
+\begin{align*} \Delta u_i = - \lambda_i u_i \end{align*}
+が成り立つ. したがって, $\cbra{u_i}$ は$\Delta$ の固有関数である. 残りの主張は$\tbra{H_t f, f} \geq 0 \, (f \in L^2(M))$ であることに注意しながらMercerの定理を適用すると従う.
+\qed
+\end{pf*}
+
+
+\subsection{参考文献}
+
+\begin{itemize}
+\item Frigyes Riesz, Bela Sz.-Nagy, Functional Analysis, Dover Publications, 2012.
+\item Kota Takeda, https://kotatakeda.github.io/math/2020/08/20/mercer-theorem.html, 2020-8-20.
+\item Isaac Chavel, Eigenvalues in Riemannian Geometry, Academic Press, 1984.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
