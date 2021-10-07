@@ -1,0 +1,265 @@
+\documentclass[twocolumn, landscape, a4paper , 8pt, fleqn, titlepage ]{jsarticle}
+\usepackage[driver=dvipdfm,hmargin=20truemm,vmargin=25truemm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+%box
+\usepackage{ascmac}
+
+%%
+\usepackage{xcolor} 
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\hypersetup{
+setpagesize=false,
+ bookmarksnumbered=true,
+ bookmarksopen=true,
+ colorlinks=true,
+ linkcolor=teal,
+ citecolor=black,
+}
+%
+%
+
+%
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+%%
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \textrm{s.t.} \, }
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+
+\newcommand{\ntbra}[1]{\langle#1\rangle}
+
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\supp}{\textrm{supp}\,} 
+
+\newcommand{\ifufu}{\,\textrm {iff} \, \it}
+
+
+\newcommand{\proj}[1]{\it{p}_{#1}}
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\push}{_{\#}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%ベクトル解析
+\newcommand{\grad}{\textrm{grad}}
+\renewcommand{\div}{\textrm{div}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Sgn}{\textrm{Sgn}}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\Sec}{\textrm{Sec}}
+\newcommand{\Scal}{\textrm{Scal}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\renewcommand{\d}{\, d}
+\newcommand{\length}{\textrm{length}}
+\newcommand{\Func}{\textrm{Func}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\Cone}{\textrm{Cone}}
+\newcommand{\hess}{\textrm{hess}}
+\newcommand{\esssup}{\textrm{ess}\,\textrm{sup}}
+
+\newcommand{\sub}{\textrm{sub}}
+\newcommand{\Par}{\textrm{Par}}
+
+
+\newcommand{\perpperp}{{\perp \perp}}
+
+\newcommand{\sgyouretsu}[1]{\paren{\begin{smallmatrix} #1 \end{smallmatrix} }}
+
+\renewcommand{\ni}{\hspace{2pt} \textrm{I} \hspace{-5pt} \textrm{I} \hspace{2pt}}
+
+
+
+
+
+%↓本体↓
+
+\title{局所等長写像が測地線を保存することの証明}
+
+\author{人はそれを自明という}
+\date{}
+
+\begin{document}
+
+\maketitle
+\scriptsize 
+
+
+%%目次%%
+%\tableofcontents
+%%%%%%
+
+\section{}
+
+\begin{remark}
+接続は全てレビチビタ接続を採用する. 
+\end{remark}
+
+
+\begin{dfn}(局所等長写像).
+$(M,g_M)$ から$(N, g_N)$ への局所微分同相写像$f$ で, $f^* g_N = g_M$ をみたすものを, 局所等長写像という.
+\end{dfn}
+
+\begin{dfn}(等長写像).
+$(M,g_M)$ から$(N, g_N)$ への微分同相写像$f$ で, $f^* g_N = g_M$ をみたすものを, 等長写像という.
+\end{dfn}
+
+
+\begin{prop}
+$f: (M,g_M) \rightarrow (N,g_N)$ を局所微分同相写像とする. このとき, 任意の点$p \in M, f(p) \in N$ のまわりの座標近傍$U, V$で
+\begin{align*} df_q {\partial_i} _q  = {\delta_i }_{f(q) }  \quad (\any q \in U)\end{align*}
+を満たすものが存在する. ただし, $\partial_i, \delta_i$ はそれぞれの局所座標の第$i$ 成分に関する偏微分により定まる接ベクトルである. 
+\end{prop}
+\begin{pf*}
+実際, $p$ の周りで微分同相な開集合のペアを$U, V$ とする. $U $ における局所座標写像を$(x^1, \ldots, x^n)$ とする. このとき, $V$ に対しては座標を$(x^1 \circ f^{-1}, \ldots, x^n \circ f^{-1})$ で定める. すると, $N$ 上の滑らかな実数値関数$F$ に対して
+\begin{align*} & \delta_i F = \frac{\partial F \circ f \circ \varphi^{-1} }{ \partial x^i} \varphi \circ f^{-1} = (df \partial_i ) F   \end{align*}
+が成り立つ. 
+\qed
+\end{pf*}
+
+\begin{prop}
+$f: (M,g_M) \rightarrow (N,g_N)$ を局所微分同相写像とする. このとき, 任意の点$p \in M, f(p) \in N$ のまわりで  
+\begin{align*} g^M_{ij}(q) = g^N_{ij}(f(q)) \quad (\any q \in U) \end{align*}
+をみたす局所座標がとれる. 
+\end{prop}
+\begin{pf*}
+直前の命題の通りに局所座標をとると, 
+\begin{align*} &g^N_{ij}( f(q) ) = g^N_{f(q)} ({\delta_i}_{f(q)}, { \delta_j}_{f(q)}  ) = g^N_{f(q)} ({df \partial_i}_{q}, {df \partial_j}_{q}  ) \\&\hspace{32pt} = (f^* g^N_q ) ({\partial_i}_q, {\partial_j}_q) =   g^M _q  ({\partial_i}_q, {\partial_j}_q) = g^M _{ij} (q) \end{align*}
+\qed
+\end{pf*}
+
+
+
+\begin{prop}
+$M$ の測地線の, 局所等長写像による像は$N$ の測地線である.
+\end{prop}
+\begin{pf*}
+はじめの命題と同様の局所座標をとる. すると, クリストッフェル記号はリーマン計量によって決定されるので, ${\Gamma^ M }_{ij}^k (q) = {\Gamma^N }_{ij}^k (f(q)) $ が成り立つ. $M$ における測地線$\gamma $ は
+\begin{align*} \partial_t ^2 (x^k \circ \gamma) + ({\Gamma^M} _{ij}^k \circ \gamma) \partial_t (x^i \circ \gamma) \partial_t (x^j \circ \gamma) = 0\end{align*}
+なる$(M,g)$ の測地線方程式を満たす. 従って, 曲線 $f \circ \gamma$ は
+\begin{align*}  &\partial_t ^2 (x^k \circ f^{-1} \circ f \circ \gamma) + ({\Gamma^N}_{ij}^k \circ f \circ  \gamma) \partial_t (x^i \circ f^{-1} \circ f \circ\gamma) \partial_t (x^j \circ f^{-1} \circ f \circ \gamma) \\&= \partial_t ^2 (x^k \circ \gamma) + ({\Gamma^M}_{ij}^k  \circ \gamma) \partial_t (x^i \circ \gamma) \partial_t (x^j \circ \gamma) = 0    \end{align*}
+となるので, $(N, g_N)$ の測地線方程式をみたす. 
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
