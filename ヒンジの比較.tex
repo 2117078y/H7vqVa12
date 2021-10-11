@@ -1,0 +1,256 @@
+\documentclass[twocolumn, landscape, a4paper , 8pt, fleqn, titlepage ]{jsarticle}
+\usepackage[driver=dvipdfm,hmargin=20truemm,vmargin=25truemm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+%box
+\usepackage{ascmac}
+
+%%
+\usepackage{xcolor} 
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\hypersetup{
+setpagesize=false,
+ bookmarksnumbered=true,
+ bookmarksopen=true,
+ colorlinks=true,
+ linkcolor=teal,
+ citecolor=black,
+}
+%
+%
+
+%
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+%%
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \textrm{s.t.} \, }
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+
+\newcommand{\ntbra}[1]{\langle#1\rangle}
+
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\supp}{\textrm{supp}\,} 
+
+\newcommand{\ifufu}{\,\textrm {iff} \, \it}
+
+
+\newcommand{\proj}[1]{\it{p}_{#1}}
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\push}{_{\#}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%ベクトル解析
+\newcommand{\grad}{\textrm{grad}}
+\renewcommand{\div}{\textrm{div}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Sgn}{\textrm{Sgn}}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\Sec}{\textrm{Sec}}
+\newcommand{\Scal}{\textrm{Scal}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\renewcommand{\d}{\, d}
+\newcommand{\length}{\textrm{length}}
+\newcommand{\Func}{\textrm{Func}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\Cone}{\textrm{Cone}}
+\newcommand{\hess}{\textrm{hess}}
+\newcommand{\esssup}{\textrm{ess}\,\textrm{sup}}
+
+\newcommand{\sub}{\textrm{sub}}
+\newcommand{\Par}{\textrm{Par}}
+
+
+\newcommand{\perpperp}{{\perp \perp}}
+
+\newcommand{\sgyouretsu}[1]{\paren{\begin{smallmatrix} #1 \end{smallmatrix} }}
+
+\renewcommand{\ni}{\hspace{2pt} \textrm{I} \hspace{-5pt} \textrm{I} \hspace{2pt}}
+
+
+
+
+
+%↓本体↓
+
+\title{}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\scriptsize 
+
+
+%%目次%%
+%\tableofcontents
+%%%%%%
+
+\section{}
+
+以下の, ラウチの比較定理のversionを認めることにする.
+
+\begin{prop}(ラウチ比較定理のver).
+$M, \tilde M $ を完備リーマン多様体, $\gamma, \tilde \gamma$ をそれぞれ$\gamma_0 = p \in M, \tilde \gamma_0 = \tilde p \in \tilde M $ なる$M, \tilde M$ の正規測地線とする. $J, \tilde J$ をそれぞれ, $J, \tilde J$ を$J_0, \tilde J_0$ でそれぞれ$\gamma, \tilde \gamma$ に接し, $\norm{J_0} = \norm{\tilde J_0} , \norm{\nabla_t J_0} = \norm{\nabla_t \tilde J_0}, \tbra{\dot \gamma_0, \nabla_t J_0 } = \ntbra{\dot {\tilde{\gamma}}_0 , \nabla_t \tilde J_0 } $ をみたす$\gamma, \tilde \gamma$ に沿ったヤコビ場とする. $t_0(p), \tilde t_0 (\tilde p)$ をそれぞれ$p, \tilde p$ における, $\gamma, \tilde \gamma$ に沿った第一共役値とする. このとき, ($t_0(p) \leq  \tilde t_0 (\tilde p)$が成り立ち, )
+\begin{align*} \norm{J_t} \leq \norm{\tilde J_t} \quad (0 \leq t < t_0 (p) )\end{align*}
+が成り立つ. 
+\end{prop}
+
+\begin{remark}
+一般的な用語ではない全くの造語であるが, ここで, $p \in M$ に対して$\exp_p |_{B(o_p; r)}$ がはめ込みとなる$r$ の上限をはめ込み半径, 埋め込み(同相なはめ込み)となる$r$ の上限を埋め込み半径と呼ぶことにする. 
+\end{remark}
+
+
+\begin{prop}
+$M ,\tilde M$ を完備リーマン多様体, $p, \tilde p$ をそれぞれ$M, \tilde M$ の一点とする. $p$ のはめ込み半径を$r_1$, $\tilde p$ の埋め込み半径を$r_2$ とし, $r \leq \max{r_1, r_2}$ とする. 
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+
+
+
+\begin{dfn}
+$p, p_1, p_2 \in \mathbb R^2$ を$p = \frac{1}{2}p_1 + \frac{1}{2} p_2$ をみたす$3$ 点とする. 
+\begin{align*} l_p \coloneqq \cbra{t p_1 + (1-t)p_2 \in \mathbb R^2 \mid t \in (0,1)} \end{align*}
+を$p$ を中心とする開線分という. また, 単位ベクトル$\frac{p_2 - p_1}{\norm{p_2 - p_1}} \in S^1$ をこの開線分の方向という. 
+\end{dfn}
+
+\begin{problem*}$f: \mathbb R^2 \rightarrow \mathbb R^2 $ を$C^\infty$ 級の写像とする. 
+$p \in \mathbb R^2$ を任意の点とする. このとき, $p$ を中心とする開線分$l_{p}$ で \\
+(条件)任意の$q \in l_p$に対して$\frac{f(q)}{\norm{f(q)}} \in \mathbb R^2$ が$l_p$ の方向と一致しない. \\
+を満たすものは存在するか.
+\end{problem*}
+\begin{solution*}
+
+\qed
+\end{solution*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
