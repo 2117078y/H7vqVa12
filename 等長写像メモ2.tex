@@ -1,0 +1,267 @@
+\documentclass[twocolumn, landscape, a4paper , 8pt, fleqn, titlepage ]{jsarticle}
+\usepackage[driver=dvipdfm,hmargin=20truemm,vmargin=25truemm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+%box
+\usepackage{ascmac}
+
+%%
+\usepackage{xcolor} 
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\hypersetup{
+setpagesize=false,
+ bookmarksnumbered=true,
+ bookmarksopen=true,
+ colorlinks=true,
+ linkcolor=teal,
+ citecolor=black,
+}
+%
+%
+
+%
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+%%
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \textrm{s.t.} \, }
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+
+\newcommand{\ntbra}[1]{\langle#1\rangle}
+
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\supp}{\textrm{supp}\,} 
+
+\newcommand{\ifufu}{\,\textrm {iff} \, \it}
+
+
+\newcommand{\proj}[1]{\it{p}_{#1}}
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\push}{_{\#}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%ベクトル解析
+\newcommand{\grad}{\textrm{grad}}
+\renewcommand{\div}{\textrm{div}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Sgn}{\textrm{Sgn}}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\Sec}{\textrm{Sec}}
+\newcommand{\Scal}{\textrm{Scal}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\renewcommand{\d}{\, d}
+\newcommand{\length}{\textrm{length}}
+\newcommand{\Func}{\textrm{Func}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\Cone}{\textrm{Cone}}
+\newcommand{\hess}{\textrm{hess}}
+\newcommand{\esssup}{\textrm{ess}\,\textrm{sup}}
+
+\newcommand{\sub}{\textrm{sub}}
+\newcommand{\Par}{\textrm{Par}}
+
+
+\newcommand{\perpperp}{{\perp \perp}}
+
+\newcommand{\sgyouretsu}[1]{\paren{\begin{smallmatrix} #1 \end{smallmatrix} }}
+
+\renewcommand{\ni}{\hspace{2pt} \textrm{I} \hspace{-5pt} \textrm{I} \hspace{2pt}}
+
+
+
+
+
+%↓本体↓
+
+\title{等長写像メモ2}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\scriptsize 
+
+\section{}
+
+\begin{prop}
+$f: M \rightarrow N$ を微分同相とする. 
+\begin{align*} df[X,Y] = [dfX, dfY] \quad (X,Y \in \Gamma(TM))\end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+\begin{align*} ((dfY)F)\circ f = ((dfY)_{f(\cdot)})F = (df_{(\cdot)} Y) F = Y_{(\cdot)}(F\circ f) \end{align*}
+であることに注意すると, 
+\begin{align*} &(df[X,Y]) F = [X,Y] (F \circ f) = X (Y(F \circ f)) - Y(X(F \circ f)) \\& \quad = X(((dfY) F) \circ f) - Y (((dfX) F) \circ f) = (dfX)((dfY)F) - (dfY)((dfX)F) = [dfX, dfY] \end{align*}
+\qed
+\end{pf*}
+
+
+\begin{prop}
+$f: (M,g) \rightarrow (\tilde M, \tilde g)$ を等長写像, $\nabla, \tilde \nabla$ をそれぞれ$(M, g), (\tilde M, \tilde g)$ のレビチビタ接続とする. このとき, 
+\begin{align*} &(1)df(\nabla_X Y ) = \tilde \nabla _{dfX} dfY \quad (X, Y \in \Gamma (TM)) \\&(2) df(R(X,Y)Z) = R(dfX,dfY)dfZ \quad (X,Y,Z \in \Gamma(TM) ) \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+\begin{align*} \check \nabla _{\tilde X} \tilde Y \coloneqq df(\nabla_X Y) \quad (\tilde X, \tilde Y \in \Gamma(\tilde M) ) \end{align*}
+により$\tilde M$ に新しい接続を定める(ただし, $X, Y \coloneqq df^{-1} (X), df^{-1} (Y) $ ).  $p \in M$ に対して$\dot c_0 = X_p , c_0 = p$ なる曲線$c$ をとる. 
+\begin{align*} &\check{\nabla}_{\tilde X} (\tilde g (\tilde Y, \tilde Z)) = \tilde X (\tilde g (\tilde Y, \tilde Z)) = (dfX) \tilde g (dfY, dfZ) \\
+& \quad = \partial_t|_0 \paren{\tilde g (dfY, dfZ) \circ (f(c(t))) } = \partial_t | _0 (f^* \tilde g (Y,Z) _{c(t)}) = \partial_t |_0 (g(Y,Z)) \\
+&\quad = X(g(Y,Z)) = g(\nabla_X Y, Z ) + g(Y, \nabla_X Z) = f^* \tilde g (\nabla_X Y, Z)+ f^* \tilde g (Y, \nabla_X Z) \\& \quad = \tilde g (\check{\nabla}_{\tilde X} \tilde Y, \tilde Z) + \tilde g (\tilde Y, \check{\nabla}_{\tilde X} \tilde Z)  \end{align*}
+であることと, 
+\begin{align*} \check{\nabla} _{\tilde X} \tilde Y -  \check{\nabla} _{\tilde Y} \tilde X -  [\tilde X, \tilde Y] = df(\nabla_X Y - \nabla_Y X) - df[X,Y] = df[X,Y] - df[X,Y] = 0\end{align*}
+であることから, $\check \nabla$ は$(\tilde M , \tilde g)$ のレビチビタ接続である. 従って, レビチビタ接続の一意性から, $\check \nabla = \tilde \nabla$ が成り立つ. すなわち, 
+\begin{align*} \tilde{\nabla}_{dfX} dfY =  \tilde{\nabla}_{\tilde X} \tilde Y = \check{\nabla}_{\tilde X} \tilde Y = df(\nabla_X Y) \end{align*}
+である. (2)は$R(X,Y)Z = \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X,Y]}Z$ であるので, (1)と合わせると容易に従う. 
+\qed
+\end{pf*}
+
+
+\begin{prop}
+$f: (M,g) \rightarrow (\tilde M, \tilde g)$ を等長写像とする. このとき, $v \in T_pM, df_p v \in T_{f(p)} \tilde M$ を始方向とする測地線$\gamma, \tilde \gamma$ に対して
+\begin{align*} &(1) \tilde \gamma (t) = f \circ \gamma (t) \\&(2)df\circ P_{\gamma}^{s,t} = P_{\tilde \gamma}^{s,t}\circ df \end{align*}
+が成り立つ.
+\end{prop}
+\begin{pf*}
+($1$)$\tilde \nabla_{df \dot \gamma_t} (df \dot \gamma_t) = df (\nabla_{\dot \gamma_t} \dot \gamma_t) = 0$ なので, $f\circ \gamma (t) $ は測地線である. また, 始点が$f \circ \gamma (0) = f(p)$ であり, 始方向が$df(\dot \gamma_0) = df_p (v)$ であるので, $f\circ \gamma = \tilde \gamma$ が成り立つ. ($2$)$w \in T_{\gamma_s} M$ に対して, $\tilde W _t \coloneqq df(P_{\gamma}^{s,t}(w))$ は$\tilde \nabla_{\dot{\tilde \gamma}_t} df(P_{\gamma}^{s,t}(w)) = df(\nabla_{\dot \gamma_t} (P_{\gamma}^{s,t} w)) = 0$ より, $\tilde W_t$ は$\tilde \gamma_t$ に沿って平行なベクトル場であるので, 
+\begin{align*}df(P_{\gamma}^{s,t}(w)) =  \tilde W_t = P_{\tilde \gamma}^{s,t} \tilde W_s  = P_{\tilde \gamma}^{s,t} df(P_{\gamma}^{s,s}(w)) = P_{\tilde \gamma}^{s,t} dfw \end{align*} 
+\qed
+\end{pf*}
+
+
+\begin{prop} $(M,g), (\tilde M, \tilde g)$ を同じ$n$ 次元のリーマン多様体, $p \in M, \tilde p \in \tilde M$ とする. 
+\begin{align*}I: T_pM \rightarrow T_{\tilde p} \tilde M \end{align*}
+を等長な線型同型とする. $\veps > 0$ を, 指数写像を制限すると微分同相写像
+$\exp_p : B(o_p; \veps) \rightarrow B(p; \veps), \exp_p : B(o_{\tilde p}; \veps) \rightarrow B(\tilde p; \veps) $ となるようにとる. 微分同相写像を, 
+\begin{align*} f \coloneqq \exp_{\tilde p} \circ I \circ \exp_p^{-1} : B(p ; \veps) \rightarrow B(\tilde p ; \veps) \end{align*}
+で定める. \\
+$f$ が等長写像であることの必要十分条件は, \\
+$p$ を始点とする任意の正規測地線$\gamma(t) \,\, (\abs t < \veps)$ に対して
+\begin{align*} &\tilde \gamma (t) \coloneqq f \circ \gamma (t) \\&I_t \coloneqq P_{\tilde \gamma }^{0,t} \circ I \circ P_{\gamma }^{t,0} : T_{\gamma(t)} M \rightarrow T_{\tilde \gamma (t)} \tilde M  \end{align*}
+と定めた時, 
+\begin{align*} I_t (R(X,Y)Z) = \tilde R (I_t X, I_t Y) I_t Z\quad (X,Y,Z \in T_{\gamma (t)} M) \end{align*}
+ が成り立つことである. 
+
+\end{prop}
+\begin{pf*}
+略
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
