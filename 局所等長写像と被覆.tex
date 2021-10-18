@@ -1,0 +1,170 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+
+\title{局所等長写像と被覆}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+\maketitle
+
+\maketitle
+
+
+\section{}
+
+\begin{prop}
+$(M,g), (N,h)$ を同じ$n$次元の連結リーマン多様体とする. \\$M$ が完備で, 局所等長写像$f: (M,g) \rightarrow (N,h)$ が存在するとき, 次が成り立つ.\\
+($1$)$N$ は完備である. \quad 
+($2$)$f$ は全射である. \quad ($3$) $f$ は被覆写像である.
+\end{prop}
+\begin{pf*}
+$(1)$局所等長写像は測地線を保存するので, 任意に$N$ の測地線$\gamma^N$をとる. $f^{-1}(\gamma^N_0)$ を始点, $df^{-1}_{\gamma^N_0} (\dot \gamma_0)$ を始方向とする$M$ の測地線を$\gamma^M$ で表すと, $f\circ \gamma^M = \gamma^N$ が$M$ の完備性より$\mathbb R$ 上で成り立つ. 従って, $N$ の測地線は$\mathbb R$ を定義域に含むので$N$ は完備である. \\
+$(2)$適当に$2$点$q_1, q_2 \in N$ をとると, ある正規測地線$\gamma^N$で$\gamma^N_0 = q_1, \gamma^N_l = q_2$ を満たすものがとれる. ($1$)の証明と同様に, 対応する測地線を$\gamma^M$ で表すと, $f(\gamma^M_l) = \gamma^N_l = q_2$ となるので, $f$ は全射である. \\
+($3$) 任意に$q \in N$ をとる. $r > 0$ を$q$ における単射半径より小さくとる. $\cbra{p_\alpha} = f^{-1}(q)$ とする. $f$ が測地線の長さを保つことに注意すると, $f^{-1} (B(q; r)) \subset \bigcup B(p_\alpha ; r)$ と$B(p_\alpha) \subset f^{-1} (B(q; r))$ が成り立つので, $\bigcup B(p_\alpha ; r) = f^{-1} (B(q; r))$ が成り立つ. また, $exp_{p_\alpha}$ の$B(p_\alpha ; r)$ への制限は微分同相となることから, $f = \exp_{p_\alpha}^{-1} \circ df_{p_\alpha}\circ \exp_q $ の$B(Op_\alpha ; r)$ への制限は微分同相である. また, $p^\prime \in B(p_\alpha ; r) \cap B(p_\beta ; r)$ がとれるとする(背理法). $p^\prime$ から$p_\alpha$ への測地線$\gamma^{M,\alpha}$と, $p^\prime$ から$p_\beta$ への測地線$\gamma^{M,\beta}$をそれぞれとって, $N$ へうつすと, ともに$f(p^\prime) \in N$ から$q \in N$ への測地線($\gamma^N$ とする)であるので, $N$ において互いに一致する. $df_{p^\prime}$ は同型写像であるので, $\gamma^{M,\alpha}, \gamma^{M,\beta}$ の始方向はともに$df_{p^\prime}^{-1}(\dot \gamma^N_0)$ であるので, $\gamma^{M,\alpha} = \gamma^{M,\beta}$ であるので, $p_\alpha = p_\beta$ となり$\alpha = \beta$ なので矛盾する.
+$\alpha \neq \beta \naraba B(p_\alpha ; r) \cup B(p_\beta ; r) $ である. よって$f$ は被覆写像である. 
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
