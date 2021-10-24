@@ -1,0 +1,170 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+
+\title{正則性に関連する不等式1}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+
+\section{}
+
+$k$ を相応に大きな非負整数とする. $f $ を$ H^k(\mathbb R^n)$ の元とする. $f \in L^2$ であるので, $L^2$におけるフーリエ変換が可能で, それを$\hat f$ で表すと, $\hat f \in L^2 (\mathbb R^n)$ である. 適当な定数$\Const$ を用いると
+\begin{align*} \int_{\mathbb R^n} \abs{\hat f (\xi)}^2 (1 + \abs \xi )^k d\xi  \leq \Const \norm{f}_{H^k}^2 \end{align*}
+が成り立つ. $k$ が相応に大きいときには, $\int_{\mathbb R^n} (1 + \abs{\xi }^2 )^{-k}  d\xi < \infty$ であることに注意しつつ, 適当に式変形すると
+\begin{align*} \paren{\int_{\mathbb R^n} \abs{\hat f (\xi) } d\xi}^2 &\leq \paren{\int_{\mathbb R^n} \abs{\hat f (\xi)} ^2 (1 + \abs \xi ) ^k d \xi}\paren{\int_{\mathbb R^n} (1 + \abs{\xi }^2 )^{-k}  d\xi } \\
+&\leq \Const \norm{f}^2_{H^k} \paren{\int_{\mathbb R^n} (1 + \abs{\xi }^2 )^{-k}  d\xi } < \infty \end{align*}
+であるので, $\int_{\mathbb R^n} \abs{\hat f (\xi) } d\xi < \infty$ であるので, $\hat f \in L^1 (\mathbb R^n)$ である. 従って, $L^1$ におけるフーリエ変換の反転公式から, 殆ど至る所
+\begin{align*} f(x) = \frac{1}{(2 \pi)^{\frac{n}{2}} } \int_{\mathbb R^n} \hat f (\xi) e^{ix \xi} d\xi  \end{align*}
+が成り立つ.
+\begin{align*} \abs {\int_{\mathbb R^n} \hat f (\xi) e^{iy \xi} d\xi - \int_{\mathbb R^n} \hat f (\xi) e^{ix \xi} d\xi } = \abs{\int_{\mathbb R^n} \hat f (\xi) (e^{iy \xi}  - e^{ix \xi} )} d\xi \leq \int_{\mathbb R^n} 2 \abs{\hat f (\xi)}  d\xi   < \infty  \end{align*}
+を眺めると, 優収束定理を用いることで$f(x) = \int_{\mathbb R^n} \hat f (\xi) e^{ix \xi} d\xi $ が連続であることがわかる. 
+また, 
+\begin{align*} \abs{f(x)} = \abs{\int_{\mathbb R^n} \hat f (\xi) e^{ix \xi} d\xi} \leq \Const \norm{f}^2_{H^k} \paren{\int_{\mathbb R^n} (1 + \abs{\xi }^2 )^{-k}  d\xi }  \end{align*}
+より, 
+\begin{align*} \abs{f(x)} \leq \Const \norm{f}^2_{H^k}  \end{align*}
+であるので, 
+\begin{align*} \sup_{\mathbb R^n} \abs{f} \leq \Const \norm{f}^2_{H^k } \end{align*}
+が成り立つ. さらに, $\abs \alpha \leq m $ であれば, $\partial^\alpha f \in H^{k-m}$ であることに注意しながら変形すると, 
+\begin{align*} \sup_{\mathbb R^n} \abs{\partial ^\alpha f} \leq \Const \norm{\partial ^\alpha f}_{H^{k-m} } \leq  \Const \norm{f}_{H^k }  \end{align*}
+であるので, 
+\begin{align*} \norm{f}_{C^m} \leq \Const \norm{f}^2_{H^k}\end{align*}
+が成り立つ. ($k$は具体的には少なくとも$k > \frac{n}{2} + m$ であればよい.)
+
+
+
+
+
+
+\end{document}
