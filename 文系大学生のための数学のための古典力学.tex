@@ -1,0 +1,274 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+
+\title{文系大学生のための数学のための古典力学のための数学}
+\date{}
+
+
+\author{30分コース}
+
+
+\begin{document}
+
+
+\maketitle
+
+
+
+\section{}
+
+\subsection{$\mathbb R$における微分方程式}
+
+
+\begin{ex}(自由度$1$の系). 適当な$f: \mathbb R \rightarrow \mathbb R$ を与え, 写像$x: \mathbb R \rightarrow \mathbb R$ で
+\begin{align*} \ddot x = f(x)  \end{align*}
+を満たすものを考える. このとき, $x_0 \in \mathbb R$ を適当な点とし, 神託により頭に思い浮かんだ
+\begin{align*} \frac{1}{2} \dot{x} ^2 - \int_{x_0}^x f(y) dy \end{align*}
+を$t$ について微分すると
+\begin{align*} \dot x \ddot x - f(x) \dot x = \dot x \ddot x- \ddot x \dot x = 0\end{align*} 
+が成り立つ. 従って$x$ がこの微分方程式の解であるならば, $\frac{1}{2} \dot{x} ^2 - \int_{x_0}^x f(y) dy $ の値は時間によらず一定である. つまり, この微分方程式の解$x$とその微分$\dot x$の軌道は, $\mathbb R^2$ における$\frac{1}{2} \dot{x} ^2 - \int_{x_0}^x f(y) dy $ の等高線に対応する. 
+\end{ex}
+
+\begin{remark}
+当然, $\frac{1}{2} \dot{x} ^2 - \int_{x_0}^x f(y) dy + \Const$ も時間によらず一定である.  
+\end{remark}
+
+
+\begin{ex} 例えば, 
+\begin{align*} \ddot x = -x \end{align*}
+という微分方程式を考えると, 
+\begin{align*} \frac{1}{2} \dot {x} ^2 + \frac{1}{2} x^2 \end{align*}
+は時間によらず一定である. $\cbra{(x, \dot x) \in \mathbb R^2 \mid  \frac{1}{2} \ddot {x} ^2 + \frac{1}{2} x^2 = r^2 }$ は原点を中心とする半径$r$ の円の円周である.  
+\end{ex}
+
+
+\subsection{$\mathbb R^2$ における微分方程式}
+
+\begin{ex}適当な$f: \mathbb R \rightarrow \mathbb R^2$ を与え, 写像$x: \mathbb R \rightarrow \mathbb R^2$ で
+\begin{align*} \ddot x = f(x)  \end{align*}
+を満たすものを考える. 神託により, $\nabla U = - f$ なる$U : \mathbb R^2 \rightarrow \mathbb R$ が頭に思い浮かんだとする. すると,
+\begin{align*} \frac{1}{2} \tbra{\dot x, \dot x} + U \end{align*}
+を$t$ について微分すると
+\begin{align*} \tbra{\ddot x, \dot x} + \tbra{\nabla U, \dot x} = \tbra{\ddot x, \dot x} -  \tbra{ f, \dot x} =  \tbra{\ddot x, \dot x} -  \tbra{ \ddot x , \dot x} = 0 \end{align*}
+となるので, $\frac{1}{2} \tbra{\dot x, \dot x} + U $ の値は時間によらず一定である. 
+\end{ex}
+
+
+\begin{prop}(ポテンシャルの存在のための十分条件). $f: \mathbb R^2 \rightarrow \mathbb R^2$ とする. このとき,  
+任意の$p, q \in \mathbb R^2$ に対して, $p,q$ を結ぶ任意の区分的滑らかな曲線$c:[a,b] \rightarrow \mathbb R^2$ の線積分$\int_a^b f(c(t)) \cdot dc$ が同じ値を取る(つまり, 線積分の値が始点と終点のみに依り, それらを結ぶ曲線のとりかたには依らない)ならば, 関数$U: \mathbb R^2 \rightarrow \mathbb R$ で, $\nabla U = - f $ となるものが存在する. 
+\end{prop}
+\begin{pf*}適当に$p_0 \in \mathbb R^2$ をとり, 
+\begin{align*} U(p) \coloneqq -  \int_a^b f(c(t)) \cdot dc \end{align*}
+により関数$U: \mathbb R^2 \rightarrow \mathbb R$ を定める. $p = (x,y)$ における$U$ の勾配を考えたい. 例えば$(1,0)$ への方向微分を考える際に, $p_0, p$ を結ぶ曲線$c$ をひとつとって, $c$ を終点から真横に延長した区分的曲線を
+\begin{align*}  c^h (t)  \coloneqq \begin{cases} c(t) \hspace{59pt}(t \in [a,b]) \\ (x + (t-b) , y) \quad (t \in [b, b+h]) \end{cases} \end{align*}
+で定める. 
+\begin{align*} \partial_x U(x,y) &= - \lim_{h \rightarrow 0} \frac{U((x,y) + h(1,0) ) - U(x,y) }{h }
+\\&= - \lim_{h \rightarrow 0} \frac{\int_a^{b +h} f(c^h(t)) \cdot dc^h + \int_a^{b} f(c(t)) \cdot dc }{h} 
+ \\&= - \lim_{h \rightarrow 0} \frac{\int_b^{b +h} \tbra{f(c^h (t)), (1,0)} dt}{h} \\&= -  \lim_{h \rightarrow 0} \frac{\int_b^{b +h} f_1 (x + (t-b), y)  dt}{h}\\&= -  \lim_{h \rightarrow 0} \frac{\int_0^{h} f_1 (x + t, y)  dt}{h} = - f_1 (x, y)\end{align*}
+同様に$\partial_y U (x,y) = - f_2 (x,y)$ であるので
+\begin{align*} \nabla U = - f \end{align*}
+であることが示された.
+\qed
+\end{pf*}
+
+
+
+\begin{prop} $ x_0 \in \mathbb R^3, \check{f}: \mathbb R \rightarrow \mathbb R$ とする. $f: \mathbb R^3 \setminus 0 \rightarrow \mathbb R^3$ を
+\begin{align*} f(x) \coloneqq \check{f}(\norm{x- x_0}) \frac{x- x_0}{\norm{x- x_0}} \end{align*}
+により定めると, 関数$U: \mathbb R^3 \rightarrow \mathbb R$ で$\nabla U = f$ を満たすものが存在する. 
+
+\end{prop}
+\begin{pf*}$(\textrm{sketch})$にとどめる.
+任意に二点$p,q \in \mathbb R^2 \setminus 0$ をとり, ($0$ を避けて) 適当に$p,q$ を結ぶ区分的に滑らかな曲線$c$ をとる. 線積分の値は$c$ のパラメータの取り方によらないので, 弧長パラメータにとりかえておく.
+\begin{align*} \int_0^l \tbra{\check{f} (\norm{c(t) - x_0}) \frac{c(t) - x_0}{\norm{c(t) - x_0} } , \dot c (t)} dt \end{align*} 
+を極座標$(r, \theta)$ で観察すると, 結局$p$から$q$へ直進する曲線に沿って線積分するのと変わらない. 
+\qed
+\end{pf*}
+
+
+
+\subsection{$\mathbb R^3$ における微分方程式}
+
+\begin{ex} $ x_0 \in \mathbb R^3, \check{f}: \mathbb R \rightarrow \mathbb R$ とする. $f: \mathbb R^3 \setminus 0 \rightarrow \mathbb R^3$ を
+\begin{align*} f(x) \coloneqq \check{f}(\norm{x- x_0}) \frac{x- x_0}{\norm{x- x_0}} \end{align*}
+により定める. 微分方程式
+\begin{align*} \ddot x = f(x) \quad \paren{= \check{f}(\norm{x- x_0}) \frac{x- x_0}{\norm{x- x_0}} } \end{align*}
+を満たす$x: \mathbb R \rightarrow \mathbb R^3$ を考える. ここで, 神託により, ベクトル積により定まる
+\begin{align*}  (x - x_0) \times \dot x \end{align*}
+という量を考え, $t$ に関する微分を計算すると, 
+\begin{align*} \dot x \times \dot x + (x - x_0) \times \ddot x =  \dot x \times \dot x + (x - x_0) \times  \paren{\check{f}(\norm{x- x_0}) \frac{x- x_0}{\norm{x- x_0}} } = 0 + 0  \end{align*}
+となるので, この量は時間によらずに一定である.
+\end{ex}
+
+
+\subsection{解析力学的観点}
+
+\begin{ex}
+
+$U: \mathbb R^n \rightarrow \mathbb R$ とし, $x: \mathbb R \rightarrow \mathbb R^n$ を, 
+\begin{align*} \ddot x = - \nabla U(x) \end{align*}
+を満たす写像とする. このとき, 神託により
+\begin{align*} L(x, \dot x , t) \coloneqq \frac{1}{2} \tbra{\dot x, \dot x} - U(x) \end{align*}
+という関数を考えると, 
+\begin{align*} \frac{d}{dt} \frac{\partial L}{\partial \dot x} - \frac{\partial L}{\partial x} = \frac{d}{dt}  \dot x + \nabla U (x) = \ddot x - \ddot x = 0 \end{align*}
+なので
+\begin{align*} \frac{d}{dt} \frac{\partial L}{\partial \dot x} - \frac{\partial L}{\partial x} = 0 \end{align*}
+を満たす.
+当たり前だが, 逆に, $x$ を$\frac{d}{dt} \frac{\partial L}{\partial \dot x} - \frac{\partial L}{\partial x} = 0$ を満たす写像とすると
+\begin{align*} \ddot x + \nabla U (x) =  \frac{d}{dt} \frac{\partial L}{\partial \dot x} - \frac{\partial L}{\partial x}  = 0  \end{align*} 
+なので, 
+\begin{align*} \ddot x = - \nabla U(x) \end{align*}
+を満たす.
+\end{ex}
+
+
+
+\begin{ex}  適当に$L: \mathbb R \times \mathbb R^n \times \mathbb R^n \rightarrow \mathbb R; (t, x, y) \mapsto L(t,x,y)$ という関数を考える. 座標変換を
+\begin{align*} \begin{cases} q \coloneqq x \\ p \coloneqq \frac{\partial L}{\partial y}\end{cases} \end{align*}
+で定め, 偶然この座標変換が微分同相だったとする. $(x,y)$ が時間に依存する場合を考え, (突然, $L$ の$y$に関するルジャンドル変換を施すことで)
+\begin{align*} H(t,q,p) \coloneqq \tbra{p(t), y(t) } - L(t, x(t), y(t)) \end{align*}
+により新たな関数$H$ を定める. すると, 
+\begin{align*} &\frac{\partial H}{\partial p^i} = \partial_{p^i} (\tbra{p(t), y(t) } - L(t, x(t), y(t))) = y^i(t) + \sum_j p^j \frac{\partial y^j}{\partial y^i} - \sum_j \frac{\partial L}{\partial y^j}\frac{\partial y^j}{\partial p^i} \\&
+\quad \quad = y^i(t) + \sum_j (p^j - \frac{\partial L}{\partial y^j} ) \frac{\partial y^j}{\partial p^i} = y^i(t) + \sum_j 0 \cdot \frac{\partial y^j}{\partial p^i}  = y^i(t)\end{align*}
+であるので, 
+\begin{align*} \frac{d x^i}{dt} - y^i = \frac{d q^i}{dt} - \frac{\partial H}{\partial p^i} \end{align*}
+が成り立つ. さらに, 
+\begin{align*} & - \frac{\partial H}{\partial q^i} =  - \sum_j (p^j \frac{\partial y^i}{\partial q^i} - \frac{\partial L}{\partial x^j} \frac{\partial x^j}{\partial q^i} - \frac{\partial L}{\partial y^j} \frac{\partial y^j}{\partial q^i} ) 
+=  - \sum_j (p^j \frac{\partial y^i}{\partial q^i} - \frac{\partial L}{\partial y^j} \frac{\partial y^j}{\partial q^i}  - \frac{\partial L}{\partial x^j} \frac{\partial x^j}{\partial q^i} ) \\&\quad \quad 
+=  - \sum_j (  ( p^j -  \frac{\partial L}{\partial y^j} ) \frac{\partial y^j}{\partial q^i} -  \frac{\partial L}{\partial x^j}   \delta_{ij}   ) = \frac{\partial L}{\partial x^i}\end{align*}
+より
+\begin{align*} \frac{d}{dt}\frac{\partial L}{\partial y^i} - \frac{\partial L}{\partial x^i} = \frac{d p^i}{dt} + \frac{\partial H}{\partial q^i} \end{align*}
+が成り立つ. まとめると, 二つの微分方程式
+\begin{align*} \begin{cases} y \hspace{42pt} =  \dot x \\ \frac{d}{dt}\frac{\partial L}{\partial y} - \frac{\partial L}{\partial x} = 0  \end{cases} \quad \begin{cases}  \frac{d q}{dt} =  \quad \frac{\partial H}{\partial p}  \\ \frac{d p}{dt} = - \frac{\partial H}{\partial q}\end{cases} \end{align*}
+は等価であることがわかる.
+\end{ex}
+
+
+
+
+\end{document}
