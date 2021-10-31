@@ -130,7 +130,7 @@
 
 
 
-\title{接続の局所表示と第二構造方程式}
+\title{接続の局所表示と構造方程式}
 \date{}
 
 
@@ -147,7 +147,7 @@
 \section{}
 
 \begin{remark}
-$M$ で滑らかな多様体を表す. $\pi: E \rightarrow M$ で階数$r$ の滑らかなベクトル束を表す. $U \subset M$ を開集合, $e_1, \ldots, e_r$ を$E$ の$U$ における局所フレームとする. 
+$M$ で滑らかな多様体を表す. $\pi: E \rightarrow M$ で階数$r$ の滑らかなベクトル束を表す. $U \subset M$ を開集合, $e_1, \ldots, e_r$ を$E$ の$U$ における局所フレームとする. 双対フレームを$\theta^i, \ldots, \theta^r$ で表す.
 \end{remark}
 
 \begin{dfn}(接続形式).
@@ -161,6 +161,23 @@ $U$ 上の$2$形式の族$\cbra{\Omega_i^j}$ で
 \begin{align*} R(X,Y)e_i = \Omega_i^j(X,Y) e_j \quad (\any X, Y \in \mathfrak X (U))\end{align*}
 を満たすものを曲率形式という. 
 \end{dfn}
+
+\begin{dfn}(捩れ形式).
+$U$ 上の$2$形式の族$\cbra{\tau^i}$ で
+\begin{align*} T(X,Y) = \tau^i (X,Y) e_i \quad (\any X, Y \in \mathfrak X (U)) \end{align*}
+を満たすものを捩れ形式という.
+\end{dfn}
+
+\begin{prop}(第一構造方程式).
+\begin{align*} \tau ^i (X,Y) = d\theta^i (X,Y) + \omega_i^j \wedge \theta^i (X,Y) \quad (\any X, Y \in \mathfrak X (U)) \end{align*}
+\end{prop}
+\begin{pf*}
+\begin{align*} \tau^i (X,Y) e_i &= T(X,Y) = \nabla_X Y - \nabla_Y X - [X,Y] = \nabla_X (\theta^i (Y))e_i -\nabla_Y(\theta ^i (X))e_i - \theta^i ([X,Y])e_i 
+\\&= (X(\theta^i (Y)) e_i + \theta^i(Y) \omega_i^j (X) e_j ) - (Y(\theta^i (X)) e_i + \theta^i(X) \omega_i^j (Y) e_j ) - \theta^i ([X,Y]) e_i 
+\\&= d\theta^i (X,Y) e_i  - \theta^i \wedge \omega_i^j (X,Y) e_j  \\ &=  d\theta^i (X,Y) e_i  + \omega_j^i  \wedge \theta ^j (X,Y) e_i \end{align*}
+\qed
+\end{pf*}
+
 
 \begin{prop}(第二構造方程式).
 \begin{align*} \Omega_i^j (X,Y) = d\omega_i^j (X,Y) - \omega_i^k \wedge \omega_k^j (X,Y) \quad (\any X, Y \in \mathfrak X (U)) \end{align*}
