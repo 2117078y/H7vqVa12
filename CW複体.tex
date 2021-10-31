@@ -1,0 +1,218 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+
+
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+
+
+\title{CW複体の定義}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+
+
+\section{}
+
+
+\begin{dfn} (胞体分割).
+ハウスドルフ空間$X$は, $X$ のdisjointな部分集合の族$\cbra{e_\lambda}$と$\dim$ という 各$e_\lambda$ に非負整数を対応させる($\dim(e_\lambda) \in \mathbb Z _{\geq 0}$ ということ)で\\
+(1)$X = \sqcup e_\lambda$ が成り立つ. \\
+(2)各$e_\lambda$ に対して, 連続写像 $\varphi_\lambda : D^{\dim e_\lambda} \rightarrow \bar e_\lambda$ で, $D^ {\dim e_\lambda} \setminus S^{\dim e_\lambda -1}$ への制限が, $e_\lambda$ への同相写像となるものが存在する. \\
+(3)$X^r \coloneqq \displaystyle \bigsqcup_{\dim(e_\lambda) \geq r} e_\lambda$ と表す時に, $\bar e_\lambda \setminus e_\lambda = \varphi_\lambda (S^{\dim e_\lambda - 1}) \subset X^{\dim e_\lambda -1}$ \\
+をみたすものを, 胞体分割可能なハウスドルフ空間という. またこのとき, 各$e_\lambda$ を胞体(cell), という. さらに, 組$(X, \cbra{e_\lambda})$を胞体複体という. 
+\end{dfn}
+
+\begin{dfn}(部分胞体複体). $X$ をハウスドルフ空間, $\cbra{e_\lambda}$ を$X$ の胞体分割とする. $A \subset X$ が$X$ は, $X$ の胞体分割の部分集合$\cbra{  e_{\lambda^\prime }  } \subset \cbra{e_\lambda}$ で\\
+($1$)$e_{\lambda^\prime }  \subset A \naraba \overline{e_{\lambda^\prime } } \subset A $ \\
+($2$)$\cbra{  e_{\lambda^\prime }  }$ は$A$ の胞体分割である.
+が存在する時に, $X$ の部分胞体複体という. 
+\end{dfn}
+
+\begin{dfn}
+胞体の数が有限である胞体複体を有限胞体複体という. 任意の点$x \in X$に対して, $x \in \textrm{Int} A$ を満たす部分胞体複体$A$で有限なものが存在する時に, 局所有限であるという. 
+\end{dfn}
+
+\begin{dfn}(CW複体).
+胞体複体$X$ で, \\
+(C)任意の点$x \in X$ に対して$x \in  A$ を満たす部分胞体複体$A$ で有限なものが存在する. \\
+(W)$X$ の部分集合$F$ が閉集合であることの必要十分条件が, $X$ の各胞体$e_\lambda$ に対して$\overline{e_\lambda} \cup F$ が閉集合となること, である.
+を満たす時に, $X$ はCW複体であるという. 
+\end{dfn}
+
+\begin{prop} 胞体複体$X$ が$(C), (W)$を満たすことと,  \\
+($C^\prime$) 任意の胞体$C_\lambda \subset X$ に対し, $e_\lambda \subset A$ を満たす部分胞体複体$A$ で有限なものが存在する. \\
+($W^\prime$) $X$ の部分集合$F$ が閉集合であることの必要十分条件が, $X$ の任意の有限部分複体$A$ に対して$A \subset F$ が閉集合となること, である. 
+\end{prop}
+\begin{pf*}
+まず, ($C$) と ($C^\prime$) が必要十分であることは本当に簡単に確かめられる. 次に, ($C$), ($C^\prime$) が成り立つとして, $(W) \LR (W^\prime)$ を示したい. $F\subset X$ を部分集合とする.  \\
+($w$)$X$ の各胞体$e_\lambda$ に対して$\overline{e_\lambda} \cup F$ が$N$ の相対位相で閉集合となること\\
+($w^\prime$) $X$ の任意の有限部分複体$A$ に対して$A \subset F$ が閉集合となること \\
+が同値であることを示せば良い. ($\naraba$)
+任意の有限部分胞体複体$A \subset X$ に対して, $A$ は適当な有限個の胞体を用いて$A = \sqcup_{\textrm{finite}} e_\lambda = \cup _{\textrm{finite}} \overline{e_\lambda}$ と表されるので, $A \cap F = \cup _{\textrm{finite}} \overline{e_\lambda} \cap F  $ は閉集合である. ($\gyaku$) $e_\lambda$ に対して適当な有限部分胞体複体$A$ で$e_\lambda \subset A$ を満たすものが存在するので, $\overline{e_\lambda} \cap F =\overline{e_\lambda} \cap A \cap F$ は閉集合であるので, 常に成り立つ. 従って実際には($\gyaku$)を条件として課せばよい. 
+\qed
+\end{pf*}
+
+\begin{remark}
+($W^\prime$) の条件の, $(\naraba)$ は, $A$ が有限部分胞体複体であれば, $A = \cup_{\textrm{finite}} \overline{e_\lambda} $ であるので$A \cup F$ は閉である. 
+\end{remark}
+
+
+\begin{prop}
+局所有限な胞体複体はCW複体である.
+\end{prop}
+\begin{pf*}
+($C$) 任意の$x \in X$ に対して有限部分複体$A$ で$x \in \textrm{int} A$ を満たすものがとれるので, $x \in A$ なる有限部分複体$A$ がとれたことになる. ($W^\prime$) $F^c$ が開集合であることを示す.  $x \in F^c$ に対して, $x \in \textrm{int} A$ を満たす部分胞体複体$A$ がとれるので. $A \cap F$ が閉集合であることに注意すると, $x \in  \textrm{int} A \cap (A \cap F)^c \subset F^c$ というように開近傍がとれる. 
+\qed
+\end{pf*}
+
+
+
+\begin{prop}
+CW複体$X$の部分胞体複体$A$は閉集合であり, CW複体でもある.
+\end{prop}
+\begin{pf*}
+$X$ がCW複体であるので, 任意の有限部分胞体複体$A^\prime$ に対して$A \cap A^\prime $ が閉集合であることを示せば, ($W^\prime$) を用いて$A$ が閉集合であることが言える. $A \cap A^\prime$ は有限胞体複体であるので, 閉集合である.  続いてCW複体であることを示す. $F \subset A$ を, $A$ の任意の部分胞体複体$B$ に対して$F \cap B$ が閉であるとする. $X$ の任意の有限部分複体$X^\prime \subset X$ に対して$A \cap X^\prime$ は$A$ の有限部分胞体複体であるので, $F \subset A$ に注意すると$F \cap A \cap X^\prime = F \cap X^\prime$ は閉集合である. 従って$X$ がCW複体であることから, 条件($W^\prime$)を用いると, $F$ は閉集合である. 
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+\end{document}
