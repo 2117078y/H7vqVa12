@@ -1,0 +1,186 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+
+
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+
+
+\title{接続の局所表示と第二構造方程式}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+
+
+\section{}
+
+\begin{remark}
+$M$ で滑らかな多様体を表す. $\pi: E \rightarrow M$ で階数$r$ の滑らかなベクトル束を表す. $U \subset M$ を開集合, $e_1, \ldots, e_r$ を$E$ の$U$ における局所フレームとする. 
+\end{remark}
+
+\begin{dfn}(接続形式).
+$U$ 上の$1$形式の族$\cbra{\omega_i^j}$で
+\begin{align*} \nabla_X e_i = \omega_i^j (X) e_j \quad (\any X \in \mathfrak X (U))\end{align*}
+を満たすものを接続形式という.
+\end{dfn}
+
+\begin{dfn}(曲率形式). 
+$U$ 上の$2$形式の族$\cbra{\Omega_i^j}$ で
+\begin{align*} R(X,Y)e_i = \Omega_i^j(X,Y) e_j \quad (\any X, Y \in \mathfrak X (U))\end{align*}
+を満たすものを曲率形式という. 
+\end{dfn}
+
+\begin{prop}(第二構造方程式).
+\begin{align*} \Omega_i^j (X,Y) = d\omega_i^j (X,Y) - \omega_i^k \wedge \omega_k^j (X,Y) \quad (\any X, Y \in \mathfrak X (U)) \end{align*}
+\end{prop}
+\begin{pf*}
+\begin{align*} \Omega_i^j (X,Y) e_j &= R(X, Y) e_i = \nabla_X \nabla_Y e_i - \nabla_Y \nabla_X e_i - \nabla_{[X,Y]} e_i \\&= \nabla_X (\omega_i^j(Y) e_j) - \nabla_Y (\omega_i^j (X) e_j) 
+\\&= (  X(\omega_i^j(Y)) e_j + \omega_i^j (Y) \omega_j^k (X) e_k   ) - (Y(\omega _i^j (X)) e_j  + \omega_i^j (X) \omega_j^k (Y) e_k  )  - \omega _i^j ([X,Y]) e_j
+\\&= (  X(\omega_i^j(Y)) e_j + \omega_i^k (Y) \omega_k^j (X) e_j   ) - (Y(\omega _i^j (X)) e_j  + \omega_i^k (X) \omega_k^j (Y) e_j  )  - \omega _i^j ([X,Y]) e_j  
+\\&= (  X(\omega_i^j(Y)) - Y(\omega _i^j (X))  -   \omega _i^j ([X,Y])  ) e_j + ( \omega_i^k (Y) \omega_k^j (X) - \omega_i^k (X) \omega_k^j (Y) ) e_j  
+\\&= d\omega_i^j (X,Y) e_j - \omega_i^k \wedge \omega_k^j (X,Y) e_j 
+\\&= (d\omega_i^j (X,Y)  - \omega_i^k \wedge \omega_k^j (X,Y) )e_j \end{align*}
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+\end{document}
