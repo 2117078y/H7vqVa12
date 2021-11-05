@@ -1,0 +1,196 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+
+
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+
+
+\title{文系とゆく極大トーラス}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+
+
+\section{}
+
+\begin{remark}
+$\simeq $ は群同型を表す. 
+\end{remark}
+
+
+\begin{remark}
+\begin{align*} SO(2) \coloneqq \cbra{A =  \gyouretsu{a & b \\ c & d} \mid a,b,c,d \in \mathbb R, A^{-1} = A^\top, \det A = 1} \simeq \cbra{ \gyouretsu{\cos \theta & - \sin \theta \\ \sin \theta & \cos \theta} \mid \theta \in S^1} \end{align*}
+\end{remark}
+
+\begin{dfn}集合
+\begin{align*} \mathbb T \coloneqq \cbra{z \in \mathbb C \mid \abs z = 1} \end{align*}
+は複素数の乗法を演算として群を成す. これを$1$ 次元トーラスという.  
+\end{dfn}
+
+\begin{prop}
+\begin{align*} \mathbb T = \cbra{z \in \mathbb C \mid \abs z = 1} \simeq SO(2) \end{align*}
+\end{prop}
+\begin{pf*}
+\begin{align*} f(e^{i \theta}) \coloneqq \gyouretsu{\cos \theta & - \sin \theta \\ \sin \theta & \cos \theta}   \end{align*}
+と定めると, 明らかに全単射であり, 
+\begin{align*} f(e^{i\theta_1} e^{i\theta_2}) = f(e^{i (\theta_1 + \theta_2)}) = \gyouretsu{\cos (\theta_1 + \theta_2) & - \sin(\theta_1 + \theta_2)  \\ \sin(\theta_1 + \theta_2)  & \cos (\theta_1 + \theta_2) }  \end{align*}
+であり, 
+\begin{align*} f(e^{i\theta_1}) f(e^{i\theta_2}) = \gyouretsu{\cos \theta_1 & - \sin \theta_1 \\ \sin \theta_1 & \cos \theta_1} \gyouretsu{\cos \theta_2 & - \sin \theta_2 \\ \sin \theta_2 & \cos \theta_2}  = \gyouretsu{\cos (\theta_1 + \theta_2) & - \sin(\theta_1 + \theta_2)  \\ \sin(\theta_1 + \theta_2)  & \cos (\theta_1 + \theta_2) }   \end{align*}
+であるので, 群準同型でもある.  従って, $f$ は同型写像である.
+\qed
+\end{pf*}
+
+
+
+\begin{dfn}(閉線型群).
+$GL(n; \mathbb C)$ の部分群であり, かつ閉集合であるものを, 閉線型群という.
+\end{dfn}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

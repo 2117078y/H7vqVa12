@@ -1,0 +1,285 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+
+
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+
+
+\title{Gelfand-Mazur}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+
+
+\section{}
+
+\begin{remark}
+本文中に登場する多元環は, 特に断らない限り, 結合的であるとする.
+\end{remark}
+
+
+\begin{dfn}(ノルム環). 多元環$A$ とノルム$\norm{\cdot}$ の組($A, \norm{\cdot}$) で, 任意の二点$x, y \in A$ に対して
+\begin{align*} \norm{xy} \leq \norm{x} \norm{y} \end{align*}
+を満たすものを, ノルム環という. 
+\end{dfn}
+
+\begin{dfn}(バナッハ環).
+ノルムに関して完備であるノルム環を, バナッハ環という. 単位元をもつバナッハ環を, 単位的バナッハ環という. 
+\end{dfn}
+
+\begin{remark}
+$A$ をノルム環, $1 \in A$ を単位元とするとき, $\norm{1} = 1$ であるとは限らないが, 常に適当に正規化して$\norm{1} = 1$ であるようにしておく. 
+\end{remark}
+
+\begin{dfn}
+バナッハ環$A$ の可逆元全体を$GL(A)$ で表す. 
+\end{dfn}
+
+\begin{dfn}
+$A$ を単位的バナッハ環, $x \in A$ とする. 
+\begin{align*} \textrm{Sp} (x; A) \coloneqq \cbra{\lambda \in \mathbb C \mid \lambda 1 - x \notin GL(A)} \end{align*}
+と定め, これを$x$ の$A$ におけるスペクトルという. 
+\end{dfn}
+
+\begin{dfn}$X$ をバナッハ空間, $z_0 \in  \textrm{dom} (f) \subset \mathbb C $とする. $f :\mathbb C \rightarrow X$ は, 
+\begin{align*} \lim_{z \rightarrow z_0} \norm{ \frac{f(z) - f(z_0)}{z-z_0} - \xi   } = 0    \end{align*}
+を満たす$\xi \in X$ が存在する時に, $z_0$ において微分可能であるという. また, このとき$f^\prime (z_0) \coloneqq \xi$ と表す. また, $\textrm{dom}(f)$ の領域の任意の点において微分可能であるとき, $f$ はその領域で正則であるという. 
+\end{dfn}
+
+\begin{prop}
+$A$ を単位的バナッハ環とする. $x \in A$ が$\norm x < 1 $ を満たすならば, $1 - x \in GL(A)$ である. 
+\end{prop}
+\begin{pf*}
+無限級数$1 + x + x^2 + \cdots $ は収束して$A$に属する. これが$1- x$ の逆元である. 
+\qed
+\end{pf*}
+
+\begin{prop}
+$GL(A)$ は$A$ の開集合である.
+\end{prop}
+\begin{pf*}
+任意に$x \in GL(A)$ をとる. $B(x ; \frac{1}{\norm{x}})$ が$GL(A)$ に含まれることを示せば良い. $y \in B(x ; \frac{1}{\norm{x}})$ に対して
+\begin{align*} \norm{1 - x^{-1} y }  \leq \norm{x^{-1}} \norm{x -y} < \norm{x^{-1}} \frac{1}{\norm{x}} =1 \end{align*}
+であるので, 前述の命題より$x^{-1} y  \in GL(A) $ であるので, $y = x x^{-1} y$ の逆元として$(x^{-1} y) ^{-1} x^{-1}$ がとれるので, $y \in GL(A)$ である. 
+\qed
+\end{pf*}
+
+\begin{prop} $A$ を単位的バナッハ環, $x \in A$ とする. 
+$\lambda \in \textrm{Sp}(x ; A) \naraba \abs \lambda \leq \norm x$ が成り立つ.  
+\end{prop}
+\begin{pf*}
+$\abs \lambda > \norm x$ であるならば, $\lambda 1 - x$ の逆元として, 収束する無限級数$\frac{1}{\lambda} (1 + \frac{1}{\lambda} x + (\frac{1}{\lambda} x)^2 + \cdots  )$ がとれるので, $\lambda \notin \textrm{Sp}(x ; A)$ である. 
+\qed
+\end{pf*}
+
+\begin{prop} $A$ を単位的バナッハ環, $x \in A$ とする. このとき, 
+$\textrm{Sp}(x ; A)$ は閉集合である. 
+\end{prop}
+\begin{pf*}
+$f: \mathbb C \rightarrow A; \lambda \mapsto \lambda 1 - x$ は, 
+\begin{align*} \norm{f(\lambda) - f(\mu)} = \norm{ (\lambda 1 - x ) - (\mu 1 - x) } = \abs{\lambda - \mu} \end{align*}
+より連続であり, $\mathbb C \setminus \textrm{Sp}(x ; A)  = f^{-1} (GL(A))$ であるので, 主張が従う. 
+\qed
+\end{pf*}
+
+\begin{prop}$\lambda, \mu \in \mathbb C \setminus \textrm{Sp}(x ; A) $ に対して
+\begin{align*}   & (\lambda1 - x)^{-1}  -  (\mu 1 - x)^{-1} = (\mu - \lambda)  (\lambda1 - x)^{-1}  (\mu 1 - x)^{-1}  \\ &(\lambda1 - x)^{-1}  -  (\mu 1 - x)^{-1} = (\mu - \lambda)  (\mu 1 - x)^{-1}  (\lambda 1 - x)^{-1}      \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+\begin{align*}  (\mu - \lambda)  (\lambda1 - x)^{-1}  (\mu 1 - x)^{-1}   &=   (\lambda1 - x)^{-1} ( (\mu 1 - x) - (\lambda 1 - x) )  (\mu 1 - x)^{-1}  \\&=    (\lambda1 - x)^{-1}  -  (\mu 1 - x)^{-1}            \end{align*}
+と
+\begin{align*}  (\lambda - \mu)  (\mu1 - x)^{-1}  (\lambda 1 - x)^{-1}  &= (\mu 1 - x) ^{-1} ( (\lambda 1 - x) - (\mu 1 - x) ) (\lambda 1 - x) ^{-1}  \\&= (\mu 1 - x) ^{-1} - (\lambda 1 - x) ^{-1}  \end{align*}
+よりわかる. 
+\qed
+\end{pf*}
+
+\begin{prop}$\lambda, \mu \in  \mathbb C \setminus \textrm{Sp}(x ; A) $ に対して, 
+\begin{align*} \frac{ (\lambda 1 - x)^{-1} - (\mu1 - x)^{-1}   }{\lambda - \mu} = - (\mu1 - x)^{-2} + (\mu1 - x)^{-1}  ((\mu1 - x)^{-1}  - (\lambda 1 - x)^{-1} )    \end{align*}
+が成り立つ.
+\end{prop}
+\begin{pf*}
+素朴に計算する. 
+\qed
+\end{pf*}
+
+\begin{prop}$f: A \rightarrow A; x \mapsto x^{-1}$ は連続である. 
+\end{prop}
+\begin{pf*}
+省略する.
+\qed
+\end{pf*}
+
+
+\begin{prop}$A$ をバナッハ環, $f : \mathbb C \setminus \textrm{Sp}(x ; A) \rightarrow A$ を$f(\lambda) \coloneqq (\lambda 1 - x)^{-1} $  により定めると, $f$ は$ \mathbb C \setminus \textrm{Sp}(x ; A)$ 上で正則である. 
+\end{prop}
+\begin{pf*}
+$ \frac{ (\lambda 1 - x)^{-1} - (\mu1 - x)^{-1}   }{\lambda - \mu} = - (\mu1 - x)^{-2} + (\mu1 - x)^{-1}  ((\mu1 - x)^{-1}  - (\lambda 1 - x)^{-1} ) $ であるので, 
+\begin{align*} \frac{ (\lambda 1 - x)^{-1} - (\mu1 - x)^{-1}   }{\lambda - \mu} - ( - (\mu1 - x)^{-2} ) =  (\mu1 - x)^{-1}  ((\mu1 - x)^{-1}  - (\lambda 1 - x)^{-1} ) \end{align*}
+となり, あとは逆元を取る操作が連続であることから,
+\begin{align*} \lim_{\lambda \rightarrow \mu }  \norm {\frac{ (\lambda 1 - x)^{-1} - (\mu1 - x)^{-1}   }{\lambda - \mu} - ( - (\mu1 - x)^{-2} )  } &\leq \lim_{\lambda \rightarrow \mu } \norm{ (\mu1 - x)^{-1} } \norm{ ((\mu1 - x)^{-1}  - (\lambda 1 - x)^{-1} ) }  \\& = 0 \end{align*} 
+なので主張が従う. 
+\qed
+\end{pf*}
+
+
+
+\begin{prop}
+$A$ をバナッハ環, $x \in A$ とする. このとき, 
+$\textrm{Sp}(x ; A)$ は空でない.  
+\end{prop}
+\begin{pf*}
+空であるとすると, $(\lambda 1 - x) ^{-1}$ は$\mathbb C$ 上で正則であり, 無限遠点で消える連続関数なので有界でもある. 有界な整関数は定数関数である. また, 無限遠点で消えることと合わせると, $(\lambda 1 - x) ^{-1}$恒等的に$0$でなければならない. 一方で, 
+$(\lambda 1 - x) ^{-1} = 0 \in A$ となることはない(零環でないから積の逆元が和の単位元となることはない)ので矛盾. 
+\qed
+\end{pf*}
+
+\begin{prop}(Gelfand-Mazur). 
+$A$ を単位的可換バナッハ環とする. $A$ が体であるならば, $A \simeq \mathbb C$である. 
+\end{prop}
+\begin{pf*}
+任意の$x \in A$ に対して,  $\textrm{Sp} (x ;A)$ は空でないので, 適当に$\lambda \in \textrm{Sp} (x ;A)$  をとる. すると, $\lambda 1 - x  \in A$ は積の逆元を持たない. $A$ が体であることから, 積の逆元を持たないのは和の逆元に限られる. 従って, $\lambda 1 - x = 0$ であるので, $x = \lambda 1$である. これにより定まる対応$A \rightarrow \mathbb C; x \mapsto \lambda$ を考えると, 準同型である. 体から体への準同型は単射であることと, 明らかに全射であることから, 同型である. 
+\qed
+\end{pf*}
+
+
+
+
+
+
+\end{document}
