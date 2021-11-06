@@ -1,0 +1,179 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+
+
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+
+
+\title{$\sqrt{1-t}$}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+
+
+\section{}
+
+\subsection{}
+
+\begin{ex}
+$\sqrt{1-t}$ と$0$ の近傍で一致する冪級数を探す. 候補としては
+\begin{align*} 1 + \frac{1}{1!} \frac{1}{2} (1-t)^{-\frac{1}{2}} (-1) |_{t = 0} t +  \frac{1}{2!} \frac{1}{2} \frac{-1}{2} (1-t)^{-\frac{3}{2}} (-1)^2  |_{t = 0}  t^2 + \frac{1}{3!} \frac{1}{2} \frac{-1}{2} \frac{-3}{2}(1-t)^{-\frac{5}{2}} (-1)^3  |_{t = 0}  t^3 + \cdots   \end{align*}
+である. $n$次の係数を$a_n$ とすると, 適当に眺めると
+\begin{align*} \abs{\frac{a_{n+1}}{a_n}} =  \abs{-1} \frac{1}{n+1} \frac{2(n+1) -3}{2} \rightarrow 1\end{align*}
+であることから, $(-1, 1)$ でこの級数は各点収束する.  この級数を$f(t)$ で表すことにする. 適当に眺めると$f(t) = -\frac{1}{2 (1-t)} f^\prime(t)$ が成り立つので, $f(0) = 1$ を初期条件としてこの微分方程式を解くと
+\begin{align*} f(t) = \sqrt{1-t}\end{align*}
+が解であることがわかる. 微分方程式の解の一意性から$(-1,1)$ で$\sum a_n t^n = \sqrt{1-t}$ であることがわかる. $[0,1)$ における状況を観察することにする. 地道に$\cbra{\sum_{n=0}^{N} a_n \cdot 1}_N$ を評価すると, 上に有界な単調増大列であることがわかるので, $\sum_{n=0}^\infty a_n$ は存在するので, $f$ は$\cbra{1}$ を定義域に含み, $f(1) = \sum_{n=0}^\infty a_n$ である. 従って, $[0, 1)$ 上で冪級数$f(t)$は一様収束し, $f(t) = \sqrt{1-t}$ である. 
+\end{ex}
+
+\subsection{参考文献}
+
+Matt Young, "The Stone-Weierstrass Theorem", https://mast.queensu.ca/~speicher/Section14.pdf, 2006.
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
