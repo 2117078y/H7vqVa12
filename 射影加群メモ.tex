@@ -1,0 +1,225 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+
+
+
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+
+\title{射影加群}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+
+
+\section{}
+
+\subsection{}
+
+\begin{remark}
+本文中の加群は環$R$ 上のものとする. 
+\end{remark}
+
+
+\begin{dfn}(短完全系列の分裂). 加群の短完全系列
+\begin{align*}  \xymatrix@C=13pt{
+& 0 \ar[r] &A \ar[r]^f &B \ar[r]^g &C \ar[r] & 0
+} \end{align*}
+は,  $\textrm{Im} f = \textrm{Ker} g$ が$B$ の直和因子であるときに分裂するという. 
+\end{dfn}
+
+
+\begin{prop}加群の短完全系列
+\begin{align*}  \xymatrix@C=13pt{
+& 0 \ar[r] &A \ar[r] ^i &B  \ar[r] &C \ar[r] & 0
+} \end{align*}
+は, 準同型$j: B\rightarrow A$で$j \circ i =  \textrm{id}$ を満たすものが存在するならば, 分裂する. 
+
+\end{prop}
+\begin{pf*}
+実際, $B = \im i \oplus \Ker j$ であることを確かめる. 任意の$b \in B$ に対して
+$i\circ j (b)  \in \im i, b- i \circ j (b) \in \Ker j$ ととれば, $b = i \circ j (b) + b- i \circ j (b)$ であるので, $B$ は$\im i, \Ker j$ の和空間である. また, $i(a) \in \im i, b \in \Ker j$ に対して
+\begin{align*} i (a) + b = 0\end{align*}
+であるならば, $0 = j \circ i (a) + j(b) = a + 0 = a$ より, $i(a) = 0$ であることがわかり, それによって$b = 0$ であることもわかる. 従って, 直和である. 
+\qed
+\end{pf*}
+
+\begin{remark}
+前述の証明をなぞると, \xymatrix@C=13pt{B \ar[r] ^i &A  \ar[r]^j &B } は$j \circ i = \textrm{id}_B$ であれば, $B = \im i \oplus \Ker j$ 
+\end{remark}
+
+
+\begin{dfn}(射影加群).
+加群$P$ は, 任意の加群$B, A$と全射準同型$g:B \rightarrow A$と準同型$f: P \rightarrow A$ に対して準同型$h: P \rightarrow B$ で$g \circ h = f$ をみたすものが存在する時に, 射影(的)加群という.
+\end{dfn}
+
+\begin{prop}
+射影加群$P$は自由加群の直和因子である. 
+\end{prop}
+\begin{pf*}
+$P$ を集合と見做したときの形式的有限和$\displaystyle \sum_{\textrm{有限}} r_i a_i \quad (r_i \in R, a_i \in P)$ 全体により自然に定まる自由加群を$F(P)$とする. 明らかに$F(P)$ から$P$ への全射準同型が存在するのでそれを$g$ で表すことにする. 
+$P$ は射影的加群なので, $g \circ h = \textrm{id}_P $ を満たす準同型$h: P \rightarrow F(P)$ が存在する. 従って, 図式
+\begin{align*}  \xymatrix@C=13pt{
+  &P \ar[r]^h &F(P)  \ar[r]^g &P  
+} \end{align*}
+は$g \circ h = \textrm{id}_P$ を満たすので, $F(P) = \im h \oplus \Ker g  \simeq P \oplus \Ker g$
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
