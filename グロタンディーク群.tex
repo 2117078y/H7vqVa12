@@ -1,0 +1,240 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+
+
+
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{Step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+
+%%
+
+
+\title{グロタンディーク群}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+
+
+\section{}
+
+\begin{dfn}
+群の条件のうち, 逆元の存在を除いたものを半群という. 
+\end{dfn}
+
+\begin{prop}
+$H$ を可換半群とする. このとき, 可換群$\tilde H$ と半群準同型$j: H \rightarrow \tilde H$ で, \\
+(普遍性)任意の可換群$G$ と半群準同型$f: H \rightarrow G$ に対して$f = \tilde f \circ j$ をみたす$\tilde fi : \tilde H \rightarrow $がとれる.
+を満たすものが存在する.
+\end{prop}
+\begin{pf*}
+$H\times H$ に同値関係を$(n,m) \sim (n^\prime , m^\prime) \LR n + m^\prime = m + n^\prime $ で定める.  集合$\tilde H \coloneqq H \times H / \sim$ に演算$+$を
+\begin{align*} [n,m] + [n^\prime , m^\prime ] = [n + n^\prime, m + m^\prime ]\end{align*}
+で定める. ($(n^\pprime , m^\pprime  ) \in [n^\prime , m^\prime ]$ とすると, $n^\prime + m^\pprime = m^\prime + n^\pprime $ であるので, $n + n^\pprime + m + m^\prime = m + m^\pprime + n + n^\prime $ となるので, $[n + n^\pprime , m + m^\pprime ] = [n + n^\prime , m + m^\prime ]$ となるので, 不良定義でない. ) すると, $\tilde H $ は
+\begin{claim}
+可換である.
+\end{claim}
+\begin{claimproof}
+明らかである.
+\end{claimproof}
+
+\begin{claim}
+$[n,n]$ が単位元である. 
+\end{claim}
+\begin{claimproof}
+適当に$[s,t] \in \tilde H$ をとる. $[n, n] + [ s, t] = [n + s, n + t] $ であるが, $(n +s, n+t) \sim (s, t) $ であるので, $[n +s, n+t] = [s, t] $
+\end{claimproof}
+
+\begin{claim}
+$[n,m]$ の逆元は$[m,n]$ である. 
+\end{claim}
+\begin{claimproof}
+$[n,m] + [m,n] = [n + m , n + m]$ となる. 
+\end{claimproof}
+
+\begin{claim}適当な$N \in H$ を用いて
+$j : H \rightarrow \tilde H ; n \mapsto [n + N, N] $ と定めると, $j$ は半群準同型である. 
+\end{claim}
+\begin{claimproof}
+$j(n + m) = [n + m + N, N] = [n + m + N + N , N + N] = j(n) + j(m)$ が成り立つ.
+\end{claimproof}
+
+\begin{claim}
+任意の半群準同型$f: H \rightarrow G$ に対して, $\tilde f ([n,m]) \coloneqq f(n) - f(m)$ により$\tilde f : \tilde H \rightarrow G$ を定めると, $f = \tilde f \circ j$ が成り立つ. 
+\end{claim}
+\begin{claimproof}
+($(n,m) \sim (n^\prime, m^\prime )$ であれば, $f(n^\prime) - f(m^\prime ) = f(n^\prime - m^\prime ) = f( n - m) = f(n) - f(m)$ となるので不良定義ではない.) $\tilde f (j(n)) = \tilde f ([n +N, N]) = f(n + N) - f(N) = f(n + N - N) =  f(n)$ が成り立つ. 
+\end{claimproof}
+以上により示された.
+\qed
+\end{pf*}
+
+\begin{dfn}
+可換半群$H$ に対して以上のようにして定まる可換群$\tilde H$ を$H$ のグロタンディーク群という. 
+\end{dfn}
+
+\begin{remark}
+$\tilde H$ に加法を定める際に, いかなる$N \in H$ をとっても, 結局は群として同型となる. 
+\end{remark}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
