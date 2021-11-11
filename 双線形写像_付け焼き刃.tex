@@ -1,0 +1,260 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+
+
+
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{Step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+
+%%
+
+
+\title{双線形写像}
+\date{}
+
+
+\author{付け焼き刃コース}
+
+
+\begin{document}
+
+
+\maketitle
+
+
+$V, W$ でベクトル空間, $V^*, W^*$ でそれぞれの双対空間を表す. 係数体は$\mathbb R$ としておく. 
+
+\section{双線形写像}
+
+\begin{dfn}双線形写像
+\begin{align*} b: V \times W \rightarrow \mathbb R \end{align*}
+は, 
+\begin{align*} &b(v,w) = 0 \,\,\,(\any w \in W) \naraba v = 0 \\&  b(v,w) = 0 \,\,\, (\any v \in V) \naraba w = 0,\end{align*}
+を満たす時に, 非退化であるという. 
+\end{dfn}
+
+\begin{remark}
+この条件はすなわち, 任意の$w \in W$ に対して$b(\cdot , w)$ が単射であり, かつ任意の$v \in V$ に対して $b(v, \cdot)$が単射であることと同じである. 
+\end{remark}
+
+\begin{prop}
+$V, W$ を有限次元とする. 双線形形式$b: V \times W \rightarrow \mathbb R$ で非退化なものが存在するならば, 
+\begin{align*} V \simeq W^* , \quad W \simeq V^* \end{align*}
+\end{prop}
+\begin{pf*}
+
+\begin{claim}
+\begin{align*} \dim W = \dim V^* = \dim V = \dim W^* \end{align*}
+\end{claim}
+\begin{claimproof}
+線型写像を
+\begin{align*} \iota^b :W \rightarrow V^* ; w \mapsto b(\cdot, w) \end{align*}
+により定める. 
+\begin{align*} \iota^b(w) = 0 \naraba b(v, w) = 0\,\,\,(\any v \in V) \naraba w = 0\end{align*}
+であるので, $\iota^b$ は単射であるので, $\dim W \leq \dim V^*$ が成り立つ. 全く同様にして, $\dim W \leq \dim V^*$ も成り立つ.
+有限次元であることから, 
+\begin{align*} \dim V = \dim V^* , \quad \dim W = \dim W^*  \end{align*}
+であるので, 
+\begin{align*} \dim W \leq \dim V^* = \dim V \leq \dim W^* = \dim W \end{align*}
+である. 
+\end{claimproof}
+
+従って, $\iota^b$ は同じ次元のベクトル空間の間の単射線型写像であるので, 同型写像である. 
+\qed
+\end{pf*}
+
+\begin{ex}
+無限次元の場合には, 非退化双線形写像$b$ の定める線型写像$\iota^b $ は単射であっても全射であるとは限らない. $\mathbb R$ の中の有界閉区間$[a,b]$上の滑らかな関数全体$C^\infty ([a,b])$に
+\begin{align*} b(f, g) \coloneqq_{[a,b]} \int f(x) g(x) dx \end{align*}
+により双線形写像を定めると, よく知られた結果としてこれは非退化である. 一方で, ディラック測度が定める双対空間の元を考えると, 全射でないことがわかる. 
+\end{ex}
+
+
+\begin{dfn}
+対称双線形写像$b: V \times V \rightarrow \mathbb R$は
+\begin{align*} b(v,v) > 0 \,\,\, (\any v (\neq 0)\in V )\end{align*}
+が成り立つ時に, 正定値であるという. 
+\end{dfn}
+
+\begin{prop}
+正定値双線形形式は非退化である. 
+\end{prop}
+\begin{pf*}
+$b(v, v_0) = 0\quad (v \in V)$ とすると, $b(v_0, v_0) = 0$ である. $v_0 \neq 0 $ とすると$b(v_0, v_0) > 0$ となるので, $v_0 = 0$
+\qed
+\end{pf*}
+
+\begin{dfn}
+対称双線形写像$b: V \times V \rightarrow \mathbb R$は
+\begin{align*} b(v,v) \geq 0 \,\,\, (\any v (\neq 0)\in V )\end{align*}
+が成り立つ時に, 半正定値であるという. 
+\end{dfn}
+
+\begin{ex}
+例えば, 恒等的に$0$を与える双線形写像$b = 0$ は半正定値であるが, 明らかに非退化でない. 
+\end{ex}
+
+\begin{prop}$V$ を有限次元ベクトル空間とし, 基底を$\cbra{e_i}$ とする. 双線形写像$b: V \times V \rightarrow \mathbb R$ に対して
+\begin{align*} b(v, w) = v^i b_{ij} w^j \quad (v = v^i e_i, w = w^i e_i \in V)\end{align*}
+を満たす行列$B = (b_{ij})$ が存在する. 
+\end{prop}
+\begin{pf*}
+\begin{align*} b_{ij} \coloneqq b(e_i, e_j)\end{align*}
+により定義すれば, 
+\begin{align*} b(v,w) = b(v^ie_i, w^je_j) = v^i b(e_i, e_j) w^j \end{align*}
+が成り立つ. 
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
