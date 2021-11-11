@@ -1,0 +1,274 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+
+
+
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{Step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+
+%%
+
+
+\title{有限補集合位相}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+
+
+\section{有限補集合位相}
+
+
+
+\begin{dfn}
+$\cbra{\varnothing} \cup \cbra{U \subset X \mid U^c \textrm{が有限集合}}$ なる位相を有限補集合位相(cofinite位相)という.
+\end{dfn}
+
+有限補集合位相を$\mathcal O_{cf}$ で表すことにする.
+
+\begin{prop}\label{d19a}
+$X$ が有限集合でないならば, $(X, \mathcal O_{cf})$ はハウスドルフ空間でない. 
+\end{prop}
+\begin{pf*}
+ハウスドルフ空間であると仮定する. 好きに異なる二点$p, q \in \mathbb R$ をとる. $p,q$ それぞれの開近傍$U_p, U_q$ で$U_p \cap U_q = \varnothing$ となるものをとる. $U_q \subset U_p^c$ であるので$U_q$ は有限集合である. 従って, $U_q^c$ は有限集合ではないので開集合でなくなる. よって矛盾である. 
+\qed
+\end{pf*}
+
+\begin{prop}\label{38bm}
+$(X, \mathcal O_{cf})$ はT1空間である. 
+\end{prop}
+\begin{pf*}
+二点$p, q \in X$ に対してそれぞれ$X \setminus \cbra{p}, X \setminus \cbra{q}$ ととればよい. 
+\qed
+\end{pf*}
+
+\begin{prop}
+$(\mathbb R^n , \mathcal O_{cf})$ はT1空間だがハウスドルフ空間ではない. 
+\end{prop}
+\begin{pf*}
+$\mathbb R^n$ は有限集合でない.
+\qed
+\end{pf*}
+
+
+
+\begin{prop}\label{pk2d}
+$(X , \mathcal O _{cf})$ はコンパクトである. 
+\end{prop}
+\begin{pf*}
+任意に開被覆$\mathcal U = \cbra{U_\lambda}$ をとる. 適当に$U \in \cbra{U_\lambda} $ をとると, $\mathbb R \setminus U $ は有限集合なので, それを$\cbra{p_1, p_2, \ldots , p_N}$ とする. $p_i$ を含む$\mathcal U \setminus \cbra{U}$ の集合を$U_i$, とすると, $U, U_1, \ldots ,U_N$ で$\mathbb R^n$ を被覆できる. 
+\qed
+\end{pf*}
+
+\begin{dfn}$V \subset X, p \in X$ とする. $V$ は, 
+$p$の開近傍$U_p$で$U_p \subset V$ をみたすものが存在するとき, $p$ の近傍であるという. 
+\end{dfn}
+
+\begin{prop}\label{77n7}
+$X$ が不可算集合であるならば, $(X, \mathcal O_{cf})$ は第一可算公理を満たさない. 
+\end{prop}
+\begin{pf*}
+第一可算公理を満たすとする. 適当に$p \in \mathbb R^n $ をとり, $p$ の可算基本近傍系$\mathcal V_p \coloneqq \cbra{V \mid V \textrm{は} p \textrm{の近傍}}$ をとる. 
+$\cbra{p}\cup (\bigcup_{v_i \subset \mathcal V_p} V_i  ^c )$ は可算集合となるので, 不可算集合$\mathbb R ^n $ と一致しない. そこで, 
+\begin{align*}q \in \mathbb R ^n  \setminus \paren{ \cbra{p}\cup (\bigcup_{v_i \subset \mathcal V_p} V_i  ^c  )  } \end{align*}
+をとる. $q \in V_i$ となるので$V_i \not\subset \mathbb R \setminus \cbra{q}$ である. 一方で, $p \in \mathbb R^n \setminus \cbra{q}$ であり, $\mathbb R^n \setminus \cbra{q}$ の補集合は有限であるので, これは$p$ の開近傍である. 故に近傍であるので, $V_i \in \mathcal V_p$ で$V_i \subset \mathbb R^n \setminus \cbra{q}$ となるものがとれるので矛盾する. 
+\qed
+\end{pf*}
+
+\newpage
+
+
+\section{可算補集合位相}
+
+\begin{dfn}
+$\cbra{\varnothing} \cup \cbra{U \subset X \mid U^c \textrm{が可算集合}}$ なる位相を可算補集合位相(cocountable)という.
+\end{dfn}
+
+可算補集合位相を$\mathcal O_{cc}$で表すことにする. 
+
+\begin{prop}
+$X$ が不可算集合であるならば, $(\mathbb X, \mathcal O_{cc})$ はハウスドルフ空間ではない.
+\end{prop}
+\begin{pf*}
+命題\ref{d19a}を真似ればよい. 
+\qed
+\end{pf*}
+
+\begin{prop}
+ $(\mathbb X, \mathcal O_{cc})$ はT1空間である.
+\end{prop}
+\begin{pf*}
+命題\ref{38bm} を真似ればよい. 
+\qed
+\end{pf*}
+
+
+\begin{prop}
+$(\mathbb X, \mathcal O_{cc})$ はリンデレーフである. 
+\end{prop}
+\begin{pf*}
+命題\ref{pk2d}を真似ればよい.
+\qed
+\end{pf*}
+
+\begin{prop}
+$X$ が不可算集合であるならば, $(X, \mathcal O_{cc})$ は第一可算公理を満たさない. 
+\end{prop}
+\begin{pf*}
+命題\ref{77n7}を真似ればよい.
+\qed
+\end{pf*}
+
+
+
+
+
+
+\end{document}
