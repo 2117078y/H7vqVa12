@@ -1,0 +1,247 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+
+
+
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{claim:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+
+%%
+
+
+\title{第一可算公理と点列連続と連続}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+\begin{dfn}
+$X$ を集合とする. $\cbra{\varnothing} \cup \cbra{U \subset X \mid U^c \textrm{が可算集合}}$ なる位相を可算補集合位相という. ここでは$\mathcal O_{cc}$ で表す. 
+\end{dfn}
+
+次の事実が知られている. 証明はここには書かない. 
+
+\begin{prop}
+$X$ を不可算集合とすると, $(X, \mathcal O_{cc})$ はハウスドルフ空間ではないし, 第一可算公理を満たさない. 
+\end{prop}
+
+\begin{dfn}
+$X, Y$ を位相空間, $f: X \rightarrow Y$とする. $x \in X $ に収束する任意の点列$x_n$ に対して,  $Y$ の点列 $f(x_n)$ が$f(x)$ に収束するとき, $f$ は$x \in X$ で点列連続であるという. 
+\end{dfn}
+
+\begin{prop}
+$X$ を第一可算公理をみたす位相空間, $x \in X$ とする. $x$ の可算基本近傍系$\mathcal N = \cbra{E_n}$で
+\begin{align*} E_1 \supset E_2 \supset E_3 \supset \cdots \end{align*}
+を満たすものが存在する. 
+\end{prop}
+\begin{pf*}
+好きに$x$ の可算基本近傍系$\check{ \mathcal N} = \cbra{\check E_n}$ をとる. 
+\begin{align*} E_1 \coloneqq \check E_1, \quad E_2 \coloneqq  \check E_1 \cap \check E_2, \quad E_3 \coloneqq \check E_1, \cap \check E_2 \cap \check E_3 \end{align*}
+てな感じでつくればよい. 
+\qed
+\end{pf*}
+
+
+\begin{prop}
+$X, Y$ を位相空間, $f: X \rightarrow Y$とする. $X$ が第一可算公理をみたすとする. $f$ は$x \in X$ で点列連続であるならば, $x \in X $ で連続である. 
+\end{prop}
+\begin{pf*}
+$x$ で連続でないと仮定する. $f(x)$ の近傍$N_{y}$で, 逆像が$x$ の近傍でないものをとる. $x$ の可算基本近傍系$\cbra{E_n}$で, $E_1 \supset E_2 \supset E_3 \supset \cdots  $ であるものをとっておく. 任意の$n$ に対して
+\begin{align*} E_n \not\subset f^{-1} (N_y ) \end{align*}
+であるので, $x_n  \in X$ で $x_n \in E_n , x_n \not \in  f^{-1} (N_y ) $である点列$\cbra{x_n}$ がとれる. $x$ の任意の開近傍$U_x$ に対して十分大きい$N$ で
+\begin{align*} E_N \subset U_x \end{align*}
+となるものがとれることに注意すると, $x_n \rightarrow x$ である. 一方で$f(x_n) \not \in N_{y}$ であるので, $y$ に収束しない. 
+
+\qed
+\end{pf*}
+
+
+\begin{ex}
+始域には補集合有限位相を定めたユークリッド空間$X = (\mathbb R, \mathcal O _{cc})$, 終域には標準的な位相を定めたユークリッド空間$Y = (\mathbb R, \mathcal O)$ を考える. ただの恒等写像
+\begin{align*} f(x) = x\end{align*}
+を考える. 
+\begin{claim}
+$f$ は任意の点で不連続である. 
+\end{claim}
+\begin{claimproof}
+連続な点が存在するとし, それを$x \in X$ とする. 試しに$f(x) = x \in Y$ の近傍$[x - r, x + r)$をとる. 逆像は$[x-r, x+r)$ なのであるが, これは補集合が有限でないので開集合を含むことはあり得ない. よって矛盾する. 
+\end{claimproof}
+
+また, 
+\begin{claim}$x_n$ を$X$ の点列とする. 
+$x_n \rightarrow x \naraba f(x_n ) \rightarrow f(x)$
+\end{claim}
+\begin{claimproof}
+$x_n \rightarrow x$ なので, 試しに$U_x \coloneqq \mathbb R \setminus \cbra{x_n \mid n \in \mathbb N}$ という開集合を考えると, 十分大きい$N \in \mathbb N$ で$n \geq N \naraba x_n \in U_x$ となるものが取れる. 従って$x_n = x \quad (\any n \in \mathbb N)$ である. であるので, $f(x_n) = f(x)$となる.  
+\end{claimproof}
+
+第一可算公理をみたさない場合, 必ずしも点列連続性から連続性はいえない. 
+\end{ex}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
