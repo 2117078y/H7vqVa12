@@ -1,0 +1,468 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+
+
+
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{claim:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+
+
+
+
+%%
+
+
+\title{閉作用素}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+\subsection{閉作用素}
+
+$X$, $Y$ でバナッハ空間を表すことにする.
+\begin{remark}
+バナッハ空間に話を限定しないとすると, 必ずしも"グラフが閉集合であるならばグラフノルムに関して完備である" という命題はなりたたないが, 始域と終域がともにバナッハ空間であるときには, これらは同値になるので, どちらで定義してもよい. 
+\end{remark}
+
+\begin{prop}
+$T$ が$X$ から$Y$ への有界作用素ならば, $T$は閉作用素である.
+\end{prop}
+\begin{pf*}
+$\norm{x}_X \leq \norm{x}_X + \norm{Tx}_Y \leq (1 + \norm{T})\norm{x}_X$ が成り立つので, $\norm{\cdot}_X $が完備なノルムならば$\it{Dom}(T)$ は$T$ のグラフノルムに関しても完備である.
+\qed
+\end{pf*}
+
+\begin{prop}
+バナッハ空間上の有界作用素$T$ が$\overline{\it{Dom}(T)} = X$ を満たすならば,  $\it{Dom}(T) = X$ である.
+\end{prop}
+\begin{pf*}
+$u \in X$ に収束する点列$\cbra{u_n} \subset \it{Dom}(T)$ をとると, Yの点列$\cbra{Tu_n}$ は$T$ が有界作用素なので収束部分列をもつ.
+従って, 閉作用素の定義から$u \in \it{Dom}(T)$ が成り立つ.
+\qed
+\end{pf*}
+
+\begin{remark}
+つまり, バナッハ空間上の有界作用素は, 稠密な定義域をもつならば, 全域写像である. 
+\end{remark}
+
+\begin{prop}
+閉作用素$T$が単射であるならば, その逆作用素$T^{-1}$も閉作用素である.
+\end{prop}
+\begin{pf*}
+$\tau:X\times Y \rightarrow Y \times X ; (x,y) \mapsto (y,x)$ という写像は同相写像であるので, $\Gamma (T)$ が$X \times Y$ の閉集合であれば, $\Gamma(T ^{-1}) = \tau \Gamma(T)$ は$Y \times X$ の閉集合である.
+\qed
+\end{pf*}
+
+
+\subsection{閉拡大}
+
+\begin{dfn}
+ある作用素は, 閉作用素の拡張をもつとき, 前閉作用素, あるいは可閉であるという. そして, この拡張のことをその作用素の閉拡大という. 
+\end{dfn}
+
+\begin{prop}(閉拡大をもつことの必要十分条件).
+$T:X\rightarrow Y$が可閉であることの必要十分条件は\\
+$x_n \in \textrm{dom}(T), x_n \rightarrow 0, Tx_n \rightarrow y \naraba y = 0$
+が成り立つことである. 
+\end{prop}
+\begin{pf*}
+
+($\naraba$)
+$T$ の閉拡大を$S$ とすると, $S$ が閉作用素であることから, $0 \in \textrm{dom}(S)$ であり, $S(0) = y$ が成り立つので, $y = 0$である. 
+($\gyaku$) 作用素$S$ を$\textrm{dom} (S) \coloneqq \overline{\textrm{dom} (T)} $ とし, $Sx$ を, $x_n \rightarrow x$ となる点列$x_n \in \textrm{dom} (T) $を好きにひとつとって, $Sx \coloneqq \lim T x_n$ により定める. 
+\begin{claim}
+$Sx$ の値は点列$x_n \in \textrm{dom}(T)$ のとり方によらない.
+\end{claim}
+\begin{claimproof}
+$x_n \rightarrow 0, x^\prime_n \rightarrow 0, Tx_n \rightarrow y, Tx^\prime_n \rightarrow y^\prime $ とすると, $x_n - x^\prime_n \rightarrow 0, T(x_n - x^\prime_n) = T(x_n) - T(x^\prime_ n) \rightarrow y - y^\prime$ であるので$y - y^\prime = 0$ 
+\end{claimproof}
+
+\begin{claim}
+$S$ は閉作用素である. 
+\end{claim}
+\begin{claimproof}
+ $x_n \rightarrow x, Sx_n \rightarrow y$ とすると, $x \in \textrm{dom}(S), Sx = y$ となる. 
+\end{claimproof}
+
+
+
+\qed
+\end{pf*}
+
+\begin{prop}(線形部分空間のグラフ化の必要十分条件).
+$X \times Y$ の部分空間$\Gamma$ がある線形作用素$T: X \rightarrow Y$ のグラフになるための必要十分条件は, $\cbra{0, y} \in \Gamma \naraba y =0 $が成り立つことである. 
+\end{prop}
+\begin{pf*}
+$(\naraba)$ $y = T(0) = 0 \cdot T(1) = 0$ より従う. $(\gyaku)$ 任意の$X_0 \in X$ に対して $\cbra{(x_0 , y) \in X \times Y \mid y \in Y}$ と$Y$ の共通部分は1点である(2点あるとしたら$(x_0, y_1), (x_0, y_2) \in \Gamma$ であるので, $\Gamma$ が部分空間であることより$(0, y_1 - y_2) \in \Gamma$ なので$y_1 = y_2$となる). $x_0$ をこの1点$(x_0, y)$の$y$を対応させる写像を$T$ とする. $\Gamma$ が部分空間であることから$(x_1 + x_2 , Tx_1 + Tx_2) \in \Gamma$ であるが, $\Gamma$ が$T$ のグラフであることから$Tx_1 + Tx_2 = T(x_1 + x_2)$ となるので, $T$ は線形作用素である.    
+\qed
+\end{pf*}
+
+\begin{prop}
+$T_1 \subset T_2 \LR \Gamma(T_1) \subset \Gamma(T_2)$ 
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+
+\begin{prop}(前閉作用素の最小の閉拡大の存在).
+$T$ を前閉作用素とする. $\overline{\Gamma(T)}$ をグラフとする線形作用素は, $T$ の最小の閉拡大である. 
+\end{prop}
+\begin{pf*}
+$y \neq0$ かつ$(0, y ) \in \overline{\Gamma(T)} $ をみたす$y$ が存在すると仮定すると, その十分近くに$y^\prime \neq 0$かつ$(0,y^\prime ) \in \Gamma(T)$ をみたす$y^\prime$ がとれてしまうので矛盾する. 従って, $\overline{\Gamma(T)}$ をグラフとする線形作用素がとれるので, これを$\overline{T}$ とする. すると, $\overline{T}$ は最小の閉拡大であることが, 適当に他の閉拡大$T_1$ をとると, $\Gamma{\bar T} \subset \Gamma{T_1} $ から従う. 
+\qed
+\end{pf*}
+
+
+\begin{dfn}(閉包).
+$T$ が可閉であるとき, 最小の閉拡大を$閉包$.
+\end{dfn}
+
+
+
+
+
+\subsection{ヒルベルト空間の対称作用素と閉性}
+
+作用素のなかでも, 変換(つまり始域と終域が同じであるもの)を扱う. 
+
+\begin{prop}$y \in X$ に対して$j_y \in X$ で
+\begin{align*} \tbra{x, j_y} =  \tbra{Tx, y} \quad (\any x \in \textrm{dom}T)\end{align*}
+を満たすものが存在するとする. $T$ が稠密に定義されているならば, このような$j_y$ は一意である. 
+\end{prop}
+\begin{pf*}
+$j_y$の他に, 同様の条件を満たす$j^\prime_y$ が存在したとする. 
+\begin{align*} \tbra{x, j_y} = \tbra{x, j^\prime_y} \quad (\any x \in \textrm{dom} T) \end{align*} 
+が成り立つので, 
+\begin{align*} \tbra{x, j_y  -  j^\prime_y} = 0 \quad (\any x \in \textrm{dom} T)\end{align*}
+が成り立ち, $T$ が稠密に定義されているので, $x_n \rightarrow j_y - j^\prime_y$ なる点列をとれば
+\begin{align*} \tbra{j_y - j^\prime_y, j_y - j^\prime_y} = \lim \tbra{x_n , j_y - j^\prime_y} = 0 \end{align*}
+となるので, $j_y = j^\prime _y$ が成り立つ. 
+\qed
+\end{pf*}
+
+\begin{remark}
+$T$ が稠密に定義されていなければ, $j_y$ は一意に定まるとは限らないので, 共役作用素をきちんと定義することができない. 
+\end{remark}
+
+
+
+$T$ の共役作用素を$T^*$ で表す. 
+
+
+
+
+
+\begin{prop}
+$T$ を共役作用素$T^*$ は閉作用素である. 
+\end{prop}
+\begin{pf*}
+$x_n \rightarrow x, T^* x_n \rightarrow y$ とする. 
+\begin{claim}
+$x \in \textrm{dom} T$ であり, $T^* x = y$ が成り立つ. 
+\end{claim}
+\begin{claimproof}
+任意の$z \in \textrm{dom}(T) $ に対して
+\begin{align*} \tbra{Tz, x_n} = \tbra{z, T^* x_n} \end{align*}
+が成り立つので, 極限をとることで
+\begin{align*} \tbra{Tz, x} = \tbra{z, y} \end{align*}
+が成り立つ. 従って, $x \in \textrm{dom}(T)$ であり, $T^* x = y$
+\end{claimproof}
+
+\qed
+\end{pf*}
+
+
+\begin{prop}
+$T$ が定義域, 値域ともに稠密で, かつ単射であるならば
+\begin{align*} (T^*)^{-1} = (T^{-1})^* \end{align*}
+\end{prop}
+\begin{pf*}$T, T^{-1}$ ともに稠密定義されているので, 共役作用素が存在する. 
+\begin{align*} \tbra{x,y} = \tbra{T^{-1} T x, y} = \tbra{Tx, (T^{-1})^* y} \quad (x \in \textrm{dom}T, y \in \textrm{dom}(T^{-1})^*) \end{align*}
+であるので, $(T^{-1})^* y \in \textrm{dom}T^*$であり, $T^* (T^{-1})^* y = y$ が成り立つ. $x \in \textrm{dom} T^{-1}, y \in \textrm{dom} T^*$ に対しては
+\begin{align*} \tbra{x, y} = \tbra{TT^{-1} x, y} = \tbra{T^{-1}x, T^* y} \end{align*}
+であるので, $T^* y \in \textrm{dom} (T^{-1})^*$ であり, $(T^{-1})^* T^* y = y$ が成り立つ. 
+つまり, 
+\begin{align*}T^* (T^{-1})^* y =  (T^{-1})^* T^* y  = y \end{align*}
+が成り立つ. 
+\qed
+\end{pf*}
+
+\begin{prop}$H^\prime \subset H$  を部分空間とする. 
+$H^\prime $ が稠密であることの必要十分条件は, $(H^\prime )^\perp = \cbra{0}$ である.
+\end{prop}
+\begin{pf*}
+($\naraba$)$x \in (H^\prime )^\perp$ をとる. $x_n \in H^\prime$ で$x_n \rightarrow x$ となるものをとる. 
+\begin{align*} \tbra{x,x} = \lim \tbra{x_n , x} = 0 \end{align*}
+であるので, $x = 0$ が成り立つ. ($\gyaku $) $H = (H^\prime)^\perp {}^\perp = \overline {H^\prime} $ より従う. 
+\qed
+\end{pf*}
+
+
+\begin{prop}(逆写像の自己共役性の判定条件).
+自己共役作用素$A$ が単射であるならば, $A^{-1}$ は自己共役作用素である. 
+\end{prop}
+\begin{pf*}
+\begin{claim}
+$A$ の値域は稠密である. 
+\end{claim}
+\begin{claimproof}
+$A$ の値域を$RA$ で表すと, 前述の命題より, $RA^\perp = 0$ を示せば良い. $y \in RA^\perp$ を任意にとる. 
+\begin{align*} \tbra{Ax, y} = 0 \quad (x \in H) \end{align*}
+が成り立つので, $y \in \textrm{dom} A^* $ であり, $A^* y = 0$ である. つまり, $A y = 0 $ であるので, $y = 0$なので, 主張が従う. 
+\end{claimproof}
+
+$A^{-1}$ は定義域, 値域ともに稠密な単射なので前述の命題より
+\begin{align*} A^{-1} {}^* = A^* {}^{-1} = A ^{-1}  \end{align*}
+が成り立ち, 自己共役であることがいえた.
+\qed
+\end{pf*}
+
+
+
+\subsection{対称作用素の半群}
+
+\begin{dfn}(対称作用素の半群). $H$上の対称作用素の族$\cbra{T_t}_{t>0}$ で \\
+(1)(全域性). $T_t\quad (t > 0)$ は全域写像. \\
+(2)(半群性). $T_t T_s = T_{t+s} \quad (t,s > 0)$ \\
+(3)(縮小性). $\norm{T_t x} \leq \norm{x} \quad (t > 0, x \in H)$ \\
+(4)(強連続性). $\norm{T_t x - x} \rightarrow 0 \quad (\textrm{as}\,\, t \downarrow 0, x \in H)$\\
+を満たすものを, 全域縮小強連続対称半群, あるいは単に省略して対称半群という. 
+\end{dfn}
+
+\begin{dfn}(半群の生成作用素). $\tbra{T_t}$ を対称半群とする. 
+\begin{align*} Ax \coloneqq \lim_{t \downarrow 0} \frac{T_t x - x}{t} \end{align*}
+により定まる$A$ をこの半群の生成作用素という. 定義域は, 極限が存在するような$x$ 全体である. 
+\end{dfn}
+
+\begin{dfn}(レゾルベント). $H$上の対称作用素の族$\cbra{G_\alpha}_{\alpha>0}$ で \\
+(1)(全域性). $G_\alpha \quad (\alpha > 0)$ は全域写像. \\
+(2)(レゾルベント方程式). $G_\alpha - G_\beta + (\alpha - \beta ) G_\alpha G_\beta = 0 \quad (\alpha, \beta > 0)$\\
+(3)(縮小性). $\norm{\alpha G_\alpha x} \leq \norm{x} \quad (\alpha > 0 , x \in H)$ \\
+(4)(強連続). $\norm{\alpha G_\alpha x - x} \rightarrow 0 \quad (\alpha \rightarrow \infty, x \in H)$ \\
+を満たすものを, (対称全域縮小)強連続レゾルベント, あるいは単に省略してレゾルベントという. 
+\end{dfn}
+
+\begin{prop}
+$\tbra{G_\alpha}$ を強連続レゾルベントとする. 任意の$\alpha > 0$ に対して$G_\alpha $ は単射である. 
+\end{prop}
+\begin{pf*}任意の$\beta > 0$ に対して
+\begin{align*} G_\alpha x = 0 \naraba G_\alpha x - G_\beta x + (\alpha - \beta ) G_\alpha G_\beta x = G_\beta x = 0 \quad(\beta > 0)\end{align*}
+が成り立つので, 強連続性から
+\begin{align*} 0 = \lim \norm{\beta G_\beta x - x} = \norm{x}   \end{align*}
+であるので, $x = 0$
+\qed
+\end{pf*}
+
+
+
+
+\begin{dfn}(レゾルベントの生成作用素). $\cbra{G_\alpha}$ をレゾルベントとする. 
+\begin{align*} Ax \coloneqq \alpha x - G^{-1}_\alpha x\end{align*}
+により定まる$A$ をレゾルベントの生成作用素という. 定義域は$G_\alpha (H) $ である. (前述の命題より適切に定義される.)
+\end{dfn}
+
+\begin{dfn}(半正定値対称作用素). 
+対称作用素$T$ は$\tbra{Tx, x} \geq 0 \quad(x \in \textrm{dom}T)$ を満たす時に, 半正定値であるという. $\geq$ を$\leq $ におきかえて半負定値も同様に定義される. 
+\end{dfn}
+
+\begin{prop}(逆写像の半定値性). 単射な対称作用素$T$ を半正(resp. 負)定値であるとする.  このとき, $T$ の値域上を定義域にもつ$T^{-1}$ は半正(resp. 負)定値である.  
+\end{prop}
+\begin{pf*} 任意に$x \in \textrm{dom}T^{-1}$ をとると, $T^{-1} x \in \textrm{dom }T$ であるので, $T$ の半正定値性により
+\begin{align*} \tbra{T^{-1} x, x} = \tbra{T^{-1} x, T T^{-1} x } \leq \end{align*}
+が成り立つ. 
+\qed
+\end{pf*}
+
+
+\begin{prop}
+強連続レゾルベント$\cbra{G_\alpha}$の生成作用素$A$は半負定値の自己共役作用素である. 
+\end{prop}
+\begin{pf*}
+$G_\alpha$ は単射な自己共役作用素であるので, $G_\alpha ^{-1}$ は自己共役作用素である. 故に, $A = \alpha - G_{\alpha } ^{-1} $ により定義される$A$ も自己共役作用素である. 
+\begin{claim}
+\begin{align*} \tbra{x, G_\alpha x} \geq 0  \quad (x \in H)\end{align*}
+\end{claim}
+\begin{claimproof}任意の$x \in H$ に対して
+\begin{align*} \frac{d}{d\alpha} \tbra{x, G_\alpha x} = - \tbra{G_\alpha x, G_\alpha x} \end{align*}
+となることがレゾルベント方程式を愚直に計算することでわかる. また, 縮小性から
+\begin{align*} \tbra{x, G_\alpha x}  = \frac{1}{\alpha} \tbra{x, \alpha G_\alpha x} \leq = \frac{1}{\alpha} \norm{x} \norm{\alpha G_\alpha x} \leq  \frac{1}{\alpha} \norm{x} \norm{x}\end{align*}
+となるので, $\lim \tbra{x, G_\alpha x} = 0$ である. 従って, $\tbra{x, G_\alpha x}$ は$\alpha $ に関して広義単調減少で$0$に収束するので, 負の値をとることがない. 
+\end{claimproof}
+
+故に, $G_\alpha $ は半正定値であるので, 
+\begin{align*} \tbra{Ax, x} = \lim_{\alpha \downarrow 0}    \tbra{\alpha x - G_\alpha ^{-1} x , x} = -   \lim_{\alpha \downarrow 0}  \tbra{G_\alpha ^{-1} x , x} \leq 0 \end{align*}
+\qed
+\end{pf*}
+
+\begin{prop}
+
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

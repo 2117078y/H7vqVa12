@@ -1,0 +1,376 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+
+
+
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{claim:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+
+
+
+
+%%
+
+
+\title{複数財オークションの基礎の基礎}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+\begin{screen}
+ちょいちょい証明間違ってたらごめんなさい.
+\end{screen}
+
+\subsection{基本設定}
+
+$n$ 人$m$財でのオークションを考える. 
+
+\begin{setting}
+\begin{align*}   &B = \cbra{1,2, \ldots, n}  \quad \textrm{人の集合} \\ &N = \cbra{1, 2, \ldots, m}  \quad \textrm{財の集合}  \\ &v:B \times N \rightarrow \mathbb R_{\geq 0 }   \quad \textrm{人 i の財j に対する評価額}   \\ &\alpha: B \rightarrow N \cup \cbra{0}  \quad \textrm{人i に割り当てる財}   \\ &p : N \rightarrow \mathbb R_{\geq 0}  \quad \textrm{財の価格}  \end{align*}
+\end{setting}
+
+ここで, $\alpha _i = 0$ は人$i$に財が割り当てられないことを表す. $v_{ij} - p_j $ は利得だと思える. 
+
+
+\begin{dfn}
+与えられた$(B, N, v)$ に対して, 割り当てと財価格の組$(\alpha, p)$ は, \\
+(1)$\alpha_i = j \naraba 0 \leq v_{ij} - p_j = \displaystyle  \max_h \cbra{v_{ih} - p_h}$ \\
+(2)$\alpha_i = 0 \naraba \displaystyle \max_h \cbra{v_{ih} - p_h} \leq 0$ \\
+(3)$p_j > 0 \naraba ^\exists i \in B ; \alpha_i = j $\\
+を満たすとき, 競争均衡という. また, このとき$\alpha$ を均衡配分, $p$ を均衡価格という. 
+\end{dfn}
+
+
+\begin{setting}
+$v(i,0) \coloneqq 0, p(0) \coloneqq 0$ と定める. 与えられた$(B, N, v)$ に対して, 割り当てと財価格の組$(\alpha, p)$ は, \\
+(1)任意の$i \in B $ に対して$v(i, \alpha_i) - p(\alpha_i) = \displaystyle \max_h \cbra{v_{ih} - p_h}$ が成り立つ. \\
+(2)$p_j > 0 \naraba ^\exists i \in B ; \alpha_i = j $ \\
+を満たすとき, 簡約競争均衡という. 
+\end{setting}
+
+\subsection{マッチング}
+
+
+
+\begin{dfn}(2部グラフ). グラフ$G= (V,E)$ は, $V_1, V_2 \subset V$ で\\
+(1)$V = V_1 \sqcup V_2$ \\
+(2)任意の$e \in E$ に対して$e$ の端点は$V_1$と$V_2$ にひとつずつ属する. \\
+を満たすものが存在するとき, 2部グラフであるという. 
+\end{dfn}
+
+\begin{dfn}(マッチング). 2部グラフ$G = (V,E)$ の辺からなる集合$M \subset E$ は, $(V,M)$ の各頂点の次数が1以下であるとき, マッチングという. 
+
+\end{dfn}
+
+\begin{dfn}(最大マッチング). 
+辺の数が最大であるマッチングを, 最大マッチングという.
+\end{dfn}
+
+\begin{remark}
+グラフ$G = (V,E)$ の辺の集合$E_0 \subset E$ に対して, $v(E_0)$ で$E_0$ が接続する頂点全ての集合を表す.
+\end{remark}
+
+
+\begin{dfn}(マッチングの交互路). $G=(V,E)$ を2部グラフ. $M$ をマッチングとする. 道$(v_1, \ldots , v_k)$ は, \\
+(1)任意の$i \in \cbra{1, \ldots , k-1}$ に対して, $(v_i, v_{i+1}) \not \in M \naraba (v_{i+1}, v_{i+2}) \in M$ が成り立つ. \\
+(2)任意の$i \in \cbra{1, \ldots , k-1}$ に対して, $(v_i, v_{i+1})  \in M \naraba (v_{i+1}, v_{i+2}) \not \in M$ が成り立つ. \\
+(3)$(v_1, v_2) \not \in M \naraba v_1 \not \in v(M)$ \\  
+(4)$(v_{k-1}, v_k) \not \in M \naraba v_k \not \in v(M)$ \\
+を満たす時に, $M$の交互路という. 
+\end{dfn}
+
+
+\begin{dfn}(交互閉路). 閉路である交互路を交互閉路という.
+\end{dfn}
+
+\begin{remark}
+道$P = (v_1, \ldots , v_k) \in V^k$ に対して
+\begin{align*} e(P) \coloneqq  \cbra{(v_i , v_{i+1}) \mid i \in \cbra{1, \ldots , k-1} } \end{align*}
+と定める. 
+\end{remark}
+
+
+
+交互路を用いてマッチングを変更できることをみていく. 
+
+
+\begin{ex}(交互路によるマッチングの変更). $G=(V,E)$ を2部グラフ. $M$ をマッチング, 道$AP = (v_1, \ldots , v_k)$ を$M$ の交互路とする. 道$(v_1, \ldots , v_k)$ から定まる辺集合を
+\begin{align*} A = e(AP) (=  \cbra{(v_i , v_{i+1}) \mid i \in \cbra{1, \ldots , k-1} } )   \end{align*}
+で定める.  まず新たなマッチング$(M \cup A) \setminus (M \setminus A)$を作る途中の状態$M \cup A$についてみてみる.
+\begin{claim}
+\begin{align*} M \cup A\end{align*} 
+が接続する頂点は, 次数$2$以下である. さらに, 次数が2の頂点は, 存在するとすれば, $M$ と$A \setminus M$ の辺が1つずつ接続されたものに限る. 
+\end{claim}
+\begin{claimproof}
+$M$ に赤色, $A \setminus M$ に青色を割り当てる. 任意に1つ頂点$v \in V$ を選ぶ. $M$ はマッチングなので, $v$ に接続する辺で赤色が2つ以上あることはない. そこで, 少なくとも青が2つ接続されている場合を考える. $v$ が道の始点でも終点でもないとすると交互路の定義から赤色が2つ以上接続されることになり矛盾するので, 始点か終点か始点かつ終点の3通りの場合が考えられる. 始点かつ終点になることはないので(2部グラフの交互路なので青で始まって青で戻ってくることはありえない), 始点または終点である. すると, 2つの青色辺のうち, 1つは$v$を通過する辺であるので, 必ず$v$には赤色辺が1つ接続されるが, すると交互路の始点または終点でマッチング$M$の接続する頂点に属するものが存在することになってしまうのでありえない. 従って, 青が2つ接続されることはない. 
+\end{claimproof}
+
+以上のことから, 次が示せる. 
+\begin{claim}
+\begin{align*} \tilde M = (M \cup A) \setminus (M \setminus A) \end{align*}
+はマッチングである. 
+\end{claim}
+\begin{claimproof}
+$(M \cup A) $ が接続する頂点で次数2のものは, 赤と青の辺を1つずつ接続しているが, そこから赤の辺が除かれるので, 次数が1に下がる. 従って全ての頂点は次数1以下である. 
+\end{claimproof}
+
+交互路を用いたマッチングの変更は, 辺の数が$-1$ または$+0$ または$+1$ される. 
+\end{ex}
+
+\begin{dfn}(増加路). 
+マッチング$M$ の交互路で, マッチングの変更を行うと辺の数が$+1$ されるものを増加路という. 
+\end{dfn}
+
+\begin{ex}(増加路の探し方). 2部グラフ$G = (V, E)$, マッチング$M \subset E$ を考える. $V = V_1 \sqcup V_2$ によって2部グラフを成すとする. \\
+(1)$V_1$ から$V_2$ に向かうように$E$ を向きづけする. \\
+(2)$M$の各有向辺$(v_1, v_2) \in V_1 \times V_2$ に対し逆向きの有向辺$(v_2, v_1) \in V_2 \times V_1$ を追加する. \\
+(3)頂点$\tilde v$ を追加する. \\
+(4)$v_1 \in V_1$ に対し, $M$の辺が接続されているならば, $(v_1, \tilde v)$ を追加する. $M$ の辺が接続されていないならば, $(\tilde v, v_1)$ を追加する.  \\
+(5)$v_2 \in V_2$ に対し, $M$の辺が接続されているならば, $(\tilde v, v_2)$ を追加する. $M$ の辺が接続されていないならば, $(v_2, \tilde v_2)$ を追加する.  \\
+このような操作により新たに定まる有向グラフを$\tilde M $ とする. 
+
+\begin{claim}
+$\tilde M $ の$\tilde v$ を通る有向閉路から, $\tilde v$ に接続される辺を除き, 向きを忘却したものは$M$ の増加路である. 
+\end{claim}
+\begin{claimproof}
+$V_1$ から$V_2$ に向かう辺を通ったあとは, $V_2$ から$V_1$ へ戻る辺を通らなければならないが, 今$\tilde M $ の構成の仕方から, そのような$V_2$ から$V_1$ へ戻る辺は$M$ の辺である. 従って, ($\tilde v$ に接続される辺を除き, あと向きも忘れると)交互路となる. $V_1$ から入り, $V_2$ へ抜けていくので, 明らかに$V_1$ から$V_2$ への有向辺の方が1つ多いので, 増加路となる. 
+\end{claimproof}
+
+このようなやり方で増加路を探し, マッチングを変更していくことで最大マッチングを探索することができる. 
+\end{ex}
+
+
+\subsection{重みつきマッチング}
+
+\begin{dfn}(重みつきマッチング). $G = (V,E)$ を辺に重みをつけた2部グラフとする. マッチング$M$ で重み$W(M)$ が最大となるものを重み最大マッチングという. 
+
+\end{dfn}
+
+\begin{dfn}(交互路の増加ウェイト). $G=(V,E)$ を2部グラフ. $M$ をマッチング, 道$AP  \coloneqq (v_1, \ldots , v_k)$ を$M$ の交互路とする. $A \coloneqq e(AP)$ とする. この交互路の増加ウェイトを
+\begin{align*} W_{plus}(AP) \coloneqq W(A \setminus M) - W(M \cap A )   \end{align*}
+で定める. 
+\end{dfn}
+
+\begin{ex}(重み最大化). 交互路の増加ウェイトが正であるものが存在する時, 現在のマッチングをこの交互路によって変更すれば, マッチングの重みは真に増加する. これを繰り返すことで重み最大のマッチングを探索することができる. 
+
+\end{ex}
+
+\begin{ex}(複数財オークション). $B, N$ を頂点とし, 人$i$ が財$j$を欲しいと思う時, 人$i$と財$j$の間に頂点$e_{ij}$ を備え, 欲しくない財に対しては辺を備えないことにより, 2部グラフを定める. 評価額$v_{ij}$ をその辺の重みとして重み付き2部グラフを定める. このとき, 重み最大マッチングをみつけることは, 全体の利得を最大化することに等しい. 
+
+\end{ex}
+
+\begin{prop}$\alpha^*$ が(簡約)均衡配分であるならば, $\alpha^*$ の定めるマッチングは重み最大マッチングである. 
+
+\end{prop}
+\begin{pf*}
+任意にマッチング$M$ をとり, $M$ が定める均衡配分を$\alpha $ とする. 
+\begin{claim}
+\begin{align*} v(i, \alpha_i) - p^* (\alpha_i)  \leq v(i, \alpha^*_i) - p^* (\alpha^* _i)  \quad (\any i \in B)  \end{align*}
+が成り立つ. 
+\end{claim}
+\begin{claimproof}
+\begin{align*} v(i, \alpha_i) - p^* (\alpha _i) \leq \max_h \cbra{v_{ih} - p^*_h } =  v(i, \alpha^*_i) - p^* (\alpha^* _i) \end{align*}
+\end{claimproof}
+
+\begin{claim}
+\begin{align*} \sum_{i \in B} p^*(\alpha _i )   \leq  \sum_{i \in B} p^*(\alpha^* _i )  \end{align*}
+\end{claim}
+
+\begin{claimproof}
+\begin{align*} N_0 \coloneqq \cbra{ j \in N \mid ^\exists i \in B ; \alpha_i = j } , \quad N^*_0 \coloneqq \cbra{ j \in N \mid ^\exists i \in B ; \alpha^*_i = j } \end{align*}
+とする. と, 均衡の定義の最後の条件(第一等号)と, 財の価格が非負であることから(第二不等号), 
+\begin{align*} \sum_{ j \in N_0 \setminus N^*_0 } p^* (j) = 0 \leq  \sum_{ j \in N^*_0 \setminus N_0 } p^* (j)  \end{align*}
+となり, 両編に$\displaystyle \sum_{j \in N_0 \setminus N^*_0} p^* (j) $ を足すと, 
+\begin{align*}   \sum_{ j \in N_0  } p^* (j) = 0 \leq  \sum_{ j \in N^*_0  } p^* (j)   \end{align*}
+が成り立つ. 
+\end{claimproof}
+
+従って, 
+\begin{align*} \sum_{i \in B} \paren{  v(i, \alpha_i) - p^* (\alpha _i)  }   \leq  \sum_{i \in B}  \paren{ v(i, \alpha^*_i) - p^* (\alpha^* _i)  }  \end{align*}
+が成り立つので, 
+\begin{align*} \sum_{i \in B} p^*(\alpha _i )   \leq  \sum_{i \in B} p^*(\alpha^* _i )  \end{align*}
+を足すと, 
+\begin{align*} \sum_{i \in B}   v(i, \alpha_i) \leq    \sum_{i \in B}   v(i, \alpha^*_i)  \end{align*}
+が成り立ち, これはすなわち$\alpha^*$ の定めるマッチングが重み最大マッチングだということである. 
+\qed
+\end{pf*}
+
+\begin{prop}
+$M^*$ が重み最大マッチングであるならば, $M^*$ の定める配分は(簡約)均衡配分である. 
+\end{prop}
+\begin{pf*}
+とりあえず認めることにする.  
+\qed
+\end{pf*}
+
+従って, 
+
+\begin{prop}
+本文中の設定での複数財オークションは簡約競争均衡をもつ. 
+\end{prop}
+\begin{pf*}
+重み最大マッチングと簡約競争均衡は全単射であることが前述の命題から示されているので, 重み最大マッチングの存在が言えれば良い. 重み最大マッチングの存在は保証されているので主張が従う. 
+\qed
+\end{pf*}
+
+\section{参考文献}
+
+塩浦 昭義, 東京工業大学 経営工学コース 2016年度　数理経済学特講   Advanced Topics in Mathematical Economics, 2016.
+
+の前半.
+
+
+
+
+
+\end{document}
