@@ -141,9 +141,9 @@
 \section{}
 
 $k$ を相応に大きな非負整数とする. $f $ を$ H^k(\mathbb R^n)$ の元とする. $f \in L^2$ であるので, $L^2$におけるフーリエ変換が可能で, それを$\hat f$ で表すと, $\hat f \in L^2 (\mathbb R^n)$ である. 適当な定数$\Const$ を用いると
-\begin{align*} \int_{\mathbb R^n} \abs{\hat f (\xi)}^2 (1 + \abs \xi )^k d\xi  \leq \Const \norm{f}_{H^k}^2 \end{align*}
+\begin{align*} \int_{\mathbb R^n} \abs{\hat f (\xi)}^2 (1 + \abs{\xi}^2 )^k d\xi  \leq \Const \norm{f}_{H^k}^2 \end{align*}
 が成り立つ. $k$ が相応に大きいときには, $\int_{\mathbb R^n} (1 + \abs{\xi }^2 )^{-k}  d\xi < \infty$ であることに注意しつつ, 適当に式変形すると
-\begin{align*} \paren{\int_{\mathbb R^n} \abs{\hat f (\xi) } d\xi}^2 &\leq \paren{\int_{\mathbb R^n} \abs{\hat f (\xi)} ^2 (1 + \abs \xi ) ^k d \xi}\paren{\int_{\mathbb R^n} (1 + \abs{\xi }^2 )^{-k}  d\xi } \\
+\begin{align*} \paren{\int_{\mathbb R^n} \abs{\hat f (\xi) } d\xi}^2 &\leq \paren{\int_{\mathbb R^n} \abs{\hat f (\xi)} ^2 (1 + \abs{\xi}^2 ) ^k d \xi}\paren{\int_{\mathbb R^n} (1 + \abs{\xi }^2 )^{-k}  d\xi } \\
 &\leq \Const \norm{f}^2_{H^k} \paren{\int_{\mathbb R^n} (1 + \abs{\xi }^2 )^{-k}  d\xi } < \infty \end{align*}
 であるので, $\int_{\mathbb R^n} \abs{\hat f (\xi) } d\xi < \infty$ であるので, $\hat f \in L^1 (\mathbb R^n)$ である. 従って, $L^1$ におけるフーリエ変換の反転公式から, 殆ど至る所
 \begin{align*} f(x) = \frac{1}{(2 \pi)^{\frac{n}{2}} } \int_{\mathbb R^n} \hat f (\xi) e^{ix \xi} d\xi  \end{align*}
