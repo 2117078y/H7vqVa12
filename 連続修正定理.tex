@@ -1,0 +1,257 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+
+
+
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+
+
+
+
+%%
+
+
+\title{コルモゴロフの連続修正定理}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+
+\begin{prop}
+$\cbra{X_t}_{t \in [0,1]}$ を$(\Omega, \mathcal F, P)$ 上の確率過程とする. $\alpha, \beta, c > 0$ で
+\begin{align*} E(\abs{X_t - X_s}^\alpha) \leq c \abs{t -s} ^{1 + \beta} \quad (0 \leq s,t, \leq 1) \end{align*}
+を満たすものが存在するならば, $\cbra{X_t}$ の修正で, 連続な確率過程$\cbra{Y_t}$ が存在する. 
+\end{prop}
+\begin{pf*} 
+
+ \begin{align*} A_n \coloneqq \cbra{\omega \in \Omega \mid \sup_{1 \leq k \leq 2^n}  \abs{X_{\frac{k}{2^n}} (\omega)  - X_{\frac{k-1}{2^n}} (\omega)   }  \geq 2^{-\lambda n} }  \end{align*}
+ とすると, 
+ 
+\begin{claim}
+$\omega \in \cup_{N} \cap_{n \geq N} A_n ^c$ を適当にとると, $N(\omega)$ で
+  \begin{align*} n \geq N(\omega) \naraba \sup_{1 \leq k \leq 2^n}  \abs{X_{\frac{k}{2^n}} (\omega)  - X_{\frac{k-1}{2^n}} (\omega) } < 2^{-\lambda n}     \end{align*}
+ が成り立つものがとれる. 
+\end{claim}
+\begin{claimproof}
+適当にチェビシェフの不等式を途中で用いると, 
+\begin{align*} P(\sup_{1 \leq k \leq 2^n}  \abs{X_{\frac{k}{2^n}}  - X_{\frac{k-1}{2^n}} }  \geq 2^{-\lambda n}      ) &= P( \cup_{k=1}^{2^n} \abs{X_{\frac{k}{2^n}}  - X_{\frac{k-1}{2^n}} }  \geq 2^{-\lambda n}      )  \\
+&\leq  \sum_{k=1} ^ {2^n} P( \abs{X_{\frac{k}{2^n}}  - X_{\frac{k-1}{2^n}} }  \geq 2^{-\lambda n}      ) \\
+&\leq \sum_{k=1} ^ {2^n} c 2^{-\lambda n } \abs{   \frac{k}{2^n}  -  \frac{k-1}{2^n}   }^{1 + \beta} \\
+&= \sum_{k=1} ^ {2^n} c 2^{-\lambda n } \frac{1}{2^n} ^{1 + \beta} \\
+&= 2^n c 2 ^ {-n(1 + \beta - \alpha \lambda)} = c 2^{-n(\beta - \alpha \lambda)}
+ \end{align*}
+ が成り立つ. 
+$\sum_{n=1} ^{\infty} c 2^{-n(\beta - \alpha \lambda)}   < \infty$ であるので, $\sum_{n=1}^\infty P(A_n) < \infty$ であるのでボレルカンテリの補題から
+ \begin{align*} P(\cap_{N} \cup_{n \geq N} A_n ) = 0\end{align*} 
+ が成り立つ. つまり
+  \begin{align*} P(\cup_{N} \cap_{n \geq N} A_n ^c ) = 1\end{align*} 
+  である. 落ち着いて考えると, これは求める主張に合致する. 
+\end{claimproof}
+
+ さて, $[0,1]$区間を$2, 4, 8, 16, \ldots $ と分割する点の集合
+ \begin{align*} D_n \coloneqq \cbra{\frac{k}{2^n} \mid k = 0, 1, \ldots , 2^n  } ,\quad  D = \cup_{n=1}^\infty  D_n \end{align*}
+ を定める. $m > N(\omega)$ を適当にとり,  $t,s \in D_m, 0 < t-s < 2^{-N(\omega)}$ となるものをとる.
+
+\begin{claim}
+$m > M \geq N(\omega)$ で$\frac{1}{2^{M + 1}} \leq t -s < \frac{1}{2^M}$ となるものがとれる. 
+\end{claim}
+\begin{claimproof}
+わかりやすく例を観察するに留める. $m = 3, N = 2, s = \frac{3}{8}, t = \frac{4}{8}$ のとき, $t - s = \frac{1}{8} $ であるので, $M = 2$ ととれば, $\frac{1}{2^3} \leq \frac{1}{8} < \frac{1}{2^2}$ とできる. 
+
+\end{claimproof}
+
+\begin{align*} s_1 \coloneqq \min \cbra{s^\prime \mid D_{n-1}, s \leq s^\prime }, \quad t_1 \coloneqq \max \cbra{t^\prime \in D_{n-1} \mid t^\prime \leq t} \end{align*}
+とする.
+
+\begin{claim}
+任意の$\omega \in \cup_{N} \cap_{n \geq N} A_n ^c$に対して $\cbra{X_t (\omega)}$ は$D$ 上で ヘルダー連続である. 
+\end{claim}
+\begin{claimproof}
+$\abs{s- s_1} , \abs{t - t_1} \leq \frac{1}{2^n}$ となるので, 
+  \begin{align*} n \geq N(\omega) \naraba \sup_{1 \leq k \leq 2^n}  \abs{X_{\frac{k}{2^n}} (\omega)  - X_{\frac{k-1}{2^n}} (\omega) } < 2^{-\lambda n}     \end{align*}
+を用いると,  $\abs{X_t - X_{t_1}  }, \abs{  X_{s_1} - X_s  } \leq 2^{- \lambda n}$ となるので, 適当に三角不等式を用いると
+\begin{align*} \abs{X_t - X_s} \leq 2\cdot 2^{-\lambda n} + \abs{X_{t_1} - X_{s_1}}\end{align*}
+が成り立つ. 今, $t_1 - s_1 < \frac{1}{2^M}$ であるので, 
+\begin{align*} s_2 \coloneqq \min \cbra{s^\prime \mid D_{n-2}, s_1 \leq s^\prime }, \quad t_2 \coloneqq \max \cbra{t^\prime \in D_{n-2} \mid t^\prime \leq t_1} \end{align*}
+として次々に同様の評価を繰り返していくことにより, 
+\begin{align*} \abs{X_t - X_s} &\leq 2\cdot 2^{-\lambda n} + 2\cdot 2^{-\lambda (n-1)}  + 2\cdot 2^{-\lambda (n-2)} + \\ &\quad \quad  \cdots + 2\cdot 2^{-\lambda (n-(m+2))}   +  \abs{X_{t_{n - (m + 1)}} - X_{s_{n -  (m + 1)}}}\end{align*}
+ となり, ちょうど$t_{n - (m + 1)} - s_{n - (m + 1)} = \frac{1}{2^{m+1}}$ となるので, 結局, 地道に計算すると, 
+ \begin{align*} \abs{X_t - X_s} &\leq 2\cdot 2^{-\lambda n} + 2\cdot 2^{-\lambda (n-1)}  + 2\cdot 2^{-\lambda (n-2)} + \\ &\quad \quad  \cdots + 2\cdot 2^{-\lambda (n-(m+2))}  +  2\cdot 2^{-\lambda (n-(m+1))}  \\
+ & \quad \quad \leq \frac{2}{1 - 2^{-\lambda} } (2^{-\lambda})^{m+1} \leq \frac{2}{1 - 2^{-\lambda} } \abs{t-s}^\lambda  \end{align*}
+ となるので, ヘルダー連続性がいえた.
+\end{claimproof}
+そこで, $\omega \not \in  \cup_{N} \cap_{n \geq N} A_n ^c$ に対しては, $Y_t = 0$ と定め, $\omega \in \cup_{N} \cap_{n \geq N} A_n ^c$ に対しては$t$ に収束する$t_n \in D$ の点列がとれるので, 適当にそれをひとつとって
+\begin{align*} Y_t(\omega) \coloneqq \lim X_{t_n} (\omega ) \end{align*}
+とすることにより連続な確率過程$\cbra{Y_t}$を定める.
+\begin{claim}
+$\cbra{Y_t}$ は$\cbra{X_t}$ の修正である. 
+\end{claim}
+\begin{claimproof}(ちょっと嘘書いてるかもしれん.)
+$t \in D \naraba X_t = Y_t \,\,\, a.s.$ である. $t \in D^c \cap [0,1]$ に対しては, $E(\abs{X_t - X_s}^\alpha) \leq c \abs{t -s} ^{1 + \beta} \quad (0 \leq s,t, \leq 1)$ より, $X_{t_n}$ は$X_t$ に$L^\alpha$ 収束するので, 適当に概収束部分列をとって改めて$X_{t_n}$ とする. $\cbra{X_{t_n}}$ は$\cbra{Y_t}$ に概収束するので, 概収束先がa.s.で一意であることから$X_t = Y_t \,\,\, a.s.$ が成り立つ.
+\end{claimproof} 
+
+以上のことから命題の主張がなりたつ.
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+
+\end{document}
