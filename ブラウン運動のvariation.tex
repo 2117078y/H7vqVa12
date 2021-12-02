@@ -1,0 +1,235 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+
+
+
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+
+
+
+
+%%
+
+
+\title{ブラウウン運動のvariation}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+
+\begin{setting}
+区間$[0,t]$ の$n$分割と, 最大区間幅を 
+\begin{align*} &\Delta_n [0,t] \coloneqq \cbra{(t_0^n, t_1^n, \ldots, t_n^n) \in \mathbb R^n \mid 0 = t_0^n \leq t_1^n \leq \cdots \leq t_n^n = t }\\
+&\abs{\Delta_n[0,t] } = \max \cbra{\abs{t_{k+1}^n - t_k^n \mid k = 0, \ldots, n-1}}
+\end{align*}
+により定める. 
+
+
+\end{setting}
+
+
+\begin{prop}(ブラウン運動のvariation). $\cbra{B_t}$ を標準ブラウン運動とする. $t \geq 0 $ とする. 任意の, 分割の列 で
+\begin{align*} \lim_n \abs{\Delta_n [0,t]} = 0 \end{align*}
+を満たすものに対して, $L^2$ の意味で
+\begin{align*} \sum_{k=1}^n \paren{B_{t^n_k} - B_{t^n_{k-1} } }^2 \rightarrow  t \end{align*}
+が成り立つ.
+\end{prop}
+\begin{pf*}
+\begin{align*} V_n \coloneqq \sum_{k=1} ^n (     B_{t^n_k} - B_{t^n_{k-1} }    ) ^2 \end{align*}
+と定める. 
+\begin{align*} &E((V_n - t)^2) \\
+&= E(V_n^2) - 2tE(V_n) + t^2 \\
+&= \sum_{j, k} E( ( B_{t^n_j} - B_{t^n_{j-1} }  ) ^2 ( B_{t^n_k} - B_{t^n_{k-1} }  )^2 ) - 2t^2 + t^2 \\
+&= \sum_{k} E(( B_{t^n_k} - B_{t^n_{k-1} }  ) ^4) + 2 \sum_[j < k] E(( B_{t^n_j} - B_{t^n_{j-1} }  ) ^2 ( B_{t^n_k} - B_{t^n_{k-1} }  ) ^2 ) - t^2 \\
+&= \sum_k (t^n_k - t^n_{k-1}) ^2 E(B_1 ^4) + 2 \sum_{j < k} (t^n_j - t^n_{j-1}) (t^n_k - t^n_{k-1} ) - t^2 \\
+&= 3 \sum_k  (t^n_j - t^n_{j-1}) ^2 + 2 \sum_{j < k} (t^n _j - t^n_{j-1}) (t^n_k - t^n_{k-1}) - t^2 \\
+&= 3 \sum_k  (t^n_j - t^n_{j-1}) ^2 + 2 \sum_{j < k} (t^n _j - t^n_{j-1}) (t^n_k - t^n_{k-1})  - (\sum_j (t^n _j - t^n_{j-1})) (\sum_k (t^n _k - t^n_{k-1})) \\
+&= 3 \sum_k (t^n_j - t^n_{j-1}) ^2  - \sum_k  (t^n_j - t^n_{j-1}) ^2  \\
+&= 2  \sum_k (t^n_j - t^n_{j-1}) ^2 \leq 2t \abs{\Delta_n [0,t]}
+ \end{align*}
+ となることから, 極限をとることで$L^2$ 収束することが従う. 
+\qed
+\end{pf*}
+
+\begin{prop}
+$\cbra{B_t}$ を標準ブラウン運動とする. $t > 0 $ とする. 任意の, 分割の列 で
+\begin{align*} \lim_n \abs{\Delta_n [0,t]} = 0 \end{align*}
+を満たすものに対して, 
+\begin{align*} \sum_k \abs{B_{t^n_k } - B_{t^n_{k-1}}  }  \rightarrow  \infty   \end{align*}
+が$a.s.$で成り立つ. 
+\end{prop}
+\begin{pf*}
+背理法により, ある分割の列で, 発散しないものが存在すると仮定する. 
+\begin{align*} M = \sup_n \sum_k \abs{B_{t^n_k } - B_{t^n_{k-1}}  }  < \infty    \end{align*}
+であると仮定する. 前述の命題より, $L^2$ の意味で
+\begin{align*} \sum_{k=1}^n \paren{B_{t^n_k} - B_{t^n_{k-1} } }^2 \rightarrow  t \end{align*}
+が成り立つので, 確率収束の意味でこれが成り立つ. 従って, 適当な部分列をとって$a.s.$で$ \sum_k (B_{t^n_k} - B_{t^n_{k-1} } )^2 $ が$t$ に収束するようにできる.  しかし, 
+\begin{align*} \sum_k (B_{t^n_k} - B_{t^n_{k-1} } )^2  \leq M \sup_{1 \leq k \leq n} \abs{B_{t^n_k} - B_{t^n_{k-1} } }         \end{align*}
+が成り立ち, $\cbra{B_t}$ の連続性より右辺は分割を細かくすると$0$に$a.s.$で収束する. よって矛盾する. 
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
