@@ -1,0 +1,299 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+
+
+
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+
+
+
+
+%%
+
+
+\title{曲面におけるMorseの補題}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+\begin{prop}(座標変換と臨界点におけるヘッセ行列). $f: \mathbb R^2 \rightarrow \mathbb R$ を$C^2$ 級写像とし, $p$ を$f$ の臨界点とする. 座標系$(x,y)$ を用いて計算したヘッセ行列を$H^f_p$, 座標系$(X,Y)$ を用いて計算したヘッセ行列を$\tilde H^f_p$ とする. 
+\begin{align*} J_{p} \coloneqq \gyouretsu{ \frac{\partial x}{\partial X} p& \frac{\partial x}{\partial Y} p \\ \frac{ \partial y}{\partial X}p &  \frac{ \partial y}{\partial Y} p  }\end{align*} 
+と定める. すると, 
+\begin{align*} \tilde H ^f _p = J_p ^ {\top} H^f _p J_p  \end{align*}  
+が成り立つ.
+\end{prop}
+\begin{pf*}
+省略.
+\qed
+\end{pf*}
+
+\begin{prop}(曲面におけるモースの補題).$M$ を$2$ 次元の可微分多様体とする. $f: M \rightarrow \mathbb R$ を$C^2$ 級の関数とし, $p \in M$ を$f$ の非退化な臨界点とする. このとき, $p$ のまわりの局所座標をうまく選べば, \\
+(1)$f = x^2 + y^2 + c$ \\
+(2)$f = x^2 - y^2 + c$ \\
+(3)$f = -x^2 -y ^2 + c$ \\
+ と局所表示することができる. (ただし, $c$ は適当な定数.) 
+\end{prop}
+\begin{pf*}
+
+$p$ は局所座標をとったときに, 原点に対応するようにしておく. 
+
+\begin{claim}
+
+\begin{align*} \frac{\partial ^2 f}{\partial x^2 } p \neq 0  \end{align*}
+
+となる局所座標がとれる. 
+\end{claim}
+\begin{claimproof}
+(1)初めから$\frac{\partial ^2 f}{\partial x^2 } p \neq 0 $ であれば, 終わり. (2)$\frac{\partial ^2 f}{\partial x^2 } p = 0 $ だが, $\frac{\partial ^2 f}{\partial y^2 } p \neq 0 $ であれば, $x,y$ をとりかえて終わり. (3)$\frac{\partial ^2 f}{\partial x^2 } p = 0 , \frac{\partial ^2 f}{\partial y^2 } p =  0 $ の時を考える. $a \neq 0$ なる実数を用いて, 
+\begin{align*} H^f_p = \gyouretsu{0 & a \\ a& 0} \end{align*}
+と表されるので, 
+\begin{align*} x = X - Y, \quad y = X + Y \end{align*}
+により座標変換を考えると, 座標変換のヤコビ行列を計算すると
+\begin{align*} J_p = \gyouretsu{ 1 & -1 \\  1 & 1} \end{align*}
+であるので, あたらしいヘッセ行列は
+\begin{align*} \tilde H ^f _p = \gyouretsu{ 1 & 1 \\  - 1 & 1} \gyouretsu{0 & a \\ a& 0}  \gyouretsu{ 1 & -1 \\  1 & 1} =  \gyouretsu{ 2a & 0 \\  0 & -2a }  \end{align*}
+となるので, 主張する局所座標がとれる. 
+\end{claimproof}
+
+また, 
+\begin{claim}
+$f(0,0) = 0$ である$C^1$ 級関数に対して, $(0,0)$ の十分小さな近傍上で, その上で定義された連続関数$g_1, g_2$ を用いて
+\begin{align*} f(x,y) = xg_1(x,y) + yg_2(x,y)\end{align*}
+と表される. 
+\end{claim}
+\begin{claimproof}
+\begin{align*} f(x,y) &= \int_0^1 \frac{df(tx,ty)}{dt} dt \\
+& = \int_0^1 x \frac{\partial f}{\partial x} (tx, ty) + y \frac{\partial f}{\partial y} (tx,ty)  dt \\
+&= x \int_0^1  \frac{\partial f}{\partial x} (tx, ty)  dt +  y \int_0^1  \frac{\partial f}{\partial y} (tx,ty)  dt   \end{align*}
+が成り立つ. 
+\end{claimproof}
+
+続けると, 次が成り立つ. 
+
+\begin{claim}
+$f(0,0) = 0$ である$C^1$ 級関数に対して, $(0,0)$ の十分小さな近傍上で, その上で定義された連続関数$h_{11}, h_{12}, h_{21}, h_{22}  $ を用いて
+\begin{align*} f(x,y) = x^2 h_{11}(x,y) + xy (h_{12}(x,y) + h_{21}(x,y) ) + y^2 h_{22} (x,y)\end{align*}
+と表される. 
+\end{claim}
+\begin{claimproof}
+$g_1, g_2$ に対して前述の主張を繰り返せば良い. 
+\end{claimproof}
+
+形を整えるために, $H_{11} \coloneqq h_{11}, H_{12} \coloneqq (h_{12} +h_{21} )/2, H_{22} \coloneqq h_{22} $ とする. すると, 原点で局所的に
+
+\begin{align*} f(x, y ) = x^2 H _{11}(x,y) + 2xy H _{12}(x,y)  + y^2 H _{22}(x,y)  \end{align*}
+と表される. ので, 
+
+\begin{align*} \frac{\partial ^2 f}{\partial x^2} (0,0) =  4 H _{11}(0, 0)  \end{align*}
+
+が成り立つ. 左辺は$0$ ではないので, $H _{11}(0, 0) \neq 0 $ である. $H_{11}$ は連続なので, 原点まわりで局所的に$0$ でない. 
+
+\begin{claim}
+
+\begin{align*} X = \sqrt{\abs{H_{11}}}(x + \frac{H_{12}}{H_{11} y}) \end{align*}
+とし, $y$ はそのままで, $(X, y)$ 
+により新たな座標を定めると, 原点まわりで局所的に
+
+\begin{align*} f = \begin{cases} X^2 + (H_{22} - \frac{H^2_{12}}{H_11}) y^2  & (H_{11} > 0 ) \\ - X^2 + (H_{22} - \frac{H^2_{12}}{H_11}) y^2 & (H_{11} < 0 )  \end{cases}\end{align*}
+
+が成り立つ. 
+
+
+\end{claim}
+\begin{claimproof}
+\begin{align*} X^2 &= \abs{H_{11}} (x^2 + 2 \frac{H_{12}}{H_{11}}xy + \frac{H^2_{12}}{H^2_{11}} y^2) \\
+&= \begin{cases} H_{11}x^2 + 2 H_{12} xy + \frac{H^2_{12}}{H_11} y^2  & (H_{11} > 0) \\ - H_{11}x^2 + 2 H_{12} xy + \frac{H^2_{12}}{H_11} y^2  & (H_{11} < 0) \end{cases}  \end{align*}
+
+であるので, 
+
+\begin{align*} f(x, y ) = \begin{cases} H_{11}x^2 + 2 H_{12} xy + \frac{H^2_{12}}{H_11} y^2 - \frac{H^2_{12}}{H_11} y^2 + H_{22} y^2   & (H_{11} > 0) \\ - H_{11}x^2 + 2 H_{12} xy + \frac{H^2_{12}}{H_11} y^2  - \frac{H^2_{12}}{H_11} y^2 + H_{22} y^2  & (H_{11} < 0) \end{cases}\end{align*}
+
+となるから. 
+
+\end{claimproof}
+
+最後に
+
+\begin{claim}
+\begin{align*} Y = \sqrt{ \abs{ \frac{   H_{11} H_{22} - H^2_{12}  }{H_11}       }  } y \end{align*}
+とすることで, $(X, Y)$ が求める座標となる. 
+\end{claim}
+\begin{claimproof}
+$p$ が非退化臨界点であることから
+\begin{align*}  H_{11}(0,0) H_{22}(0,0) - H^2_{12} (0,0) = \frac{1}{4}\det H^f_p \neq 0  \end{align*}
+であるので, この座標変換は退化していない(きちんと同相である). 
+明らかに, 
+\begin{align*} f = \begin{cases} 
+X^2 + Y ^2  & (H_{11} > 0, H_{11}H_{22} - H^2_{12} > 0 )\\
+X^2 - Y ^2  & (H_{11} > 0, H_{11}H_{22} - H^2_{12} < 0 ) \\
+-X^2 + Y^2 & (H_{11} < 0, H_{11}H_{22} - H^2_{12} < 0 ) \\
+-X^2 - Y^2 & (H_{11} < 0, H_{11}H_{22} - H^2_{12} > 0 )
+\end{cases} \end{align*}
+が成り立つ. $2$ 行目と$3$ 行目の場合は, $x,y$ をとりかえることを考えると, 結局は主張のような$3$ 種類の形に帰着される. 
+\end{claimproof}
+
+
+
+\qed
+\end{pf*}
+
+
+
+
+\subsection{参考文献}
+
+松本幸夫, Morse理論の基礎, 岩波書店, 2005.
+
+
+\end{document}
