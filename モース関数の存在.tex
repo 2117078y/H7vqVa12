@@ -1,0 +1,298 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+
+
+
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+
+
+
+
+%%
+
+
+\title{モース関数の存在}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+
+
+\section{}
+
+\subsection{参考文献}
+
+松本幸夫, Morse理論の基礎, 岩波書店, 2005.
+
+\subsection{}
+
+\begin{setting}
+多様体$M$ の次元は$m$ としておく. 
+\end{setting}
+
+\begin{prop}($\mathbb R^m $ におけるモース関数の存在). $U \subset \mathbb R^m$ を開集合, $f: U \rightarrow \mathbb R$ を滑らかな関数とする. このとき, 適当な$m$ 個の実数 $a_1, a_2, \ldots, a_m$ で
+\begin{align*} \tilde f(x_1, \ldots, x_m) = f(x_1, \ldots, x_m) - (a_1 x_1 + a_2 x_2 + \cdots + a_m x_m)  \end{align*}
+が$U$ 上のモース関数となるものが存在する. また, このとき, $a_1, a_2, \ldots, a_m$ はいずれも絶対値がいくらでも小さくなるようとることができる. 
+\end{prop}
+\begin{pf*}
+\begin{claim}
+$a_1, \ldots , a_m$ が $\nabla f$ の臨界値でないならば, 
+\begin{align*} \tilde f(x_1, \ldots, x_m) = f(x_1, \ldots, x_m) - (a_1 x_1 + a_2 x_2 + \cdots + a_m x_m)   \end{align*}
+はモース関数である. 
+\end{claim}
+\begin{claimproof}
+$p \in U$ を$\tilde f$ の臨界点とする. $\nabla f_p - a = 0$ なので, $\nabla f _p = a$ なのだが, $a$ は$\nabla f$ の臨界値ではないので, $p \in U $ は$\nabla  f$ の臨界点ではない. 従って, $\nabla   f$ の微分$H^{ f}$ は非退化であるので, $\det H^{ f} _p \neq 0$ が成り立つ. $\det H^{\tilde f} = \det H^{f} $ であるので, $p \in U$ は$\tilde f$ の非退化な臨界点である. つまり, 任意の臨界点が非退化臨界点であるので, $\tilde f$ はモース関数である. 
+\end{claimproof}
+
+続き. 
+\begin{claim}
+$a_1, \ldots , a_m$ は存在し, さらに絶対値がいくらでも小さくとれる
+\end{claim}
+\begin{claimproof}
+$\nabla f$ の臨界値の集合はサードの定理から測度$0$ であるので, $0$ のいくらでも近くにもとめるものが存在する. (あたりまえだが, $0$ がとれるわけではない.)
+\end{claimproof}
+
+\qed
+\end{pf*}
+
+
+
+
+\begin{prop}
+$M$ がコンパクト多様体であるとき, 座標近傍による有限被覆と, コンパクト集合による有限被覆の組$(\cbra{U_i}_{i= 1} ^N , \cbra{K_i}_{i = 1} ^ N)$ で, $K_i \subset U_i \quad (i = 1, \ldots , N)$ を満たすものが存在する. 
+\end{prop}
+\begin{pf*}
+任意の$p \in M$ に対して$p \in U_p$ なる座標近傍をとる. $U_p$ は開集合なので, 十分小さい半径の開球$B(p; \veps)$ を含む.  $\cbra{q \in M \mid d(p,q ) \leq \veps/2}$ は, コンパクト集合$M$に含まれる閉集合なのでコンパクト集合. これを$K_p$ とする. $M = \cup_{p \in M } \textrm{int} (K_p)$ なる被覆の有限部分被覆をとれば, もとめるような組が得られる. 
+\qed
+\end{pf*}
+
+
+\begin{setting} $M$をコンパクトな多様体とする. 
+$f, g: M \rightarrow \mathbb R$ は, $M$ に対して, 有限個の座標近傍$U_i$ による被覆$M = U_i$ と, 有限個のコンパクト集合$K_i \in U_i$ による被覆$M = \cup K_i$ の組$(\cbra{U_i}, \cbra{K_i})$をとったとき, 任意の$K_i$ 上で
+\begin{align*}& \abs{f(p) - g(p)} < \veps \\ & \abs{\partial_i f (p)  - \partial _i g (p) } < \veps \quad (i= 1, 2, \ldots , m) \\ &\abs{\partial_i \partial_j f (p) -\partial_i \partial_j g (p) } < \veps  \quad (i, j = 1, 2, \ldots, m)\end{align*} 
+を満たす時に
+$(\cbra{U_i}, \cbra{K_i}, C^2, \veps)$ の意味で近いという. 
+\end{setting}
+
+\begin{remark}
+$(\cbra{U_i}, \cbra{K_i})$ を別の$(\cbra{U^\prime_i}, \cbra{K^\prime_i})$ に取り替えることを考える.  $(\cbra{U_i}, \cbra{K_i}, C^2, \veps)$ の意味で近かったからといって, $(\cbra{U^\prime_i}, \cbra{K^\prime_i}, C^2, \veps)$ の意味で近いとは限らない. 例えば球面を二つ用意して, 二つの球面をまたがる被覆がない場合とある場合を考えれば良い. 
+\end{remark}
+
+\begin{setting}
+今後, $M$ には常に前述の$(\cbra{U_i}, \cbra{K_i})$ を適当にひとつ固定して備えておく. 
+\end{setting}
+
+\begin{prop}$M$ を多様体, $C \in M$ をコンパクト集合, $g: M \rightarrow \mathbb R$ とする. $C$ が$g$ の退化した臨界点を含まなければ, 十分小さな$\veps > 0$ で \\
+$(\cbra{U_i}, \cbra{K_i}, C^2, \veps)$ の意味で近い任意の滑らかな関数$f$ に対して$C$ が$f$ の退化した臨界点を含まないような$\veps$ がとれる. 
+
+\end{prop}
+\begin{pf*}
+
+$g$ の退化した臨界点が$C\cup K_i$ の中に存在しないことの必要十分条件は明らかに
+\begin{align*} \abs{\partial_1 g} + \cdots + \abs{\partial_m g} + \abs{ \det (\partial_i \partial_j g ) } > 0 \end{align*}
+が$C\cap K_i$ 上で成り立つことなので, 十分小さい$\veps$ を選んでおくと, $(\cbra{U_i}, \cbra{K_i}, C^2, \veps)$ の意味で近い滑らかな関数$f$ に対して 
+\begin{align*} \abs{\partial_1 f} + \cdots + \abs{\partial_m f} + \abs{ \det (\partial_i \partial_j f ) } > 0 \end{align*}
+が$C\cap K_i$ 上で成り立つ. 従って, $C \cap K_i $ は退化臨界点を含まない. 従って$C = \cup ( C \cap K_i   )$ は退化臨界点を含まない. 
+\qed
+\end{pf*}
+
+\begin{prop}$M$ を多様体とする. $(U, K)$ を座標近傍と, $K \subset U$ を満たすコンパクト集合の組とする. このとき, 滑らかな関数$h : U \rightarrow \mathbb R$ で\\
+(1) $0 \leq h \leq 1$ \\
+(2) $h$ は$K$ の適当な開近傍$V$ の上で恒等的に$1$である. \\
+(3) $h$ は$V$ を適当なコンパクト集合$L \subset U$ の外部では恒等的に$0$ である. ^^
+を満たすものが存在する. 
+
+\end{prop}
+\begin{pf*}
+多様体の基礎とかにかいてる.
+\qed
+\end{pf*}
+
+\begin{remark}
+(この$h$ を$(U, K)$ に適合したプリン関数ということにし, $(K,V,L,U)$ を皿ということにする. ) 
+\end{remark}
+
+
+
+\begin{prop}(閉多様体上のモース関数の存在). $M$ を閉多様体, $g: M \rightarrow \mathbb R$ を滑らかな関数とする. $(\cbra{U_i}, \cbra{K_i}, C^2, \veps)$ の意味で近い滑らかな関数$f: M \rightarrow \mathbb R$ で, モース関数となるものが存在する. 
+\end{prop}
+\begin{pf*}
+
+\begin{align*} C_0 \coloneqq \varnothing, C_i \coloneqq K_1 \cup \cdots \cup K_i \end{align*}
+と定める. $f_0 \coloneqq  g$ とする. 
+滑らかな関数$f_{i-1} : M \rightarrow \mathbb R $ で$C_{i-1}$ に退化臨界点を含まないものが存在したとする. $(U_i, K_i)$ に適合するプリン関数$h$ をとる. 皿を$(K_i , V_i, L_i, U_i)$ とする. 
+
+\begin{align*} f_i \coloneqq \begin{cases} f_{i-1} (x_1, \ldots, x_m) - (a_1x_1 + \cdots + a_m x_m) h_i (x_1, \ldots , x_m) & (x \in U_i) \\ f_{i-1} (x_1, \ldots, x_m) &(x \in L_i) \end{cases} \end{align*}
+
+として定める($a_1, \ldots , a_m$ はあとからうまく定める). すると, プリンは$K_i$ 上で$1$ なので, $f_i$ は$K_i$ で モース関数となるように$a_1, \ldots, a_m$ をうまく定めればよい. 従って, $f_i$ は$K_i$ 上に退化臨界点を持たない. 
+
+\begin{claim}
+$a_1, \ldots, a_m$ はさらに$f_i$ が$f_{i-1}$ が$(\cbra{U_i}, \cbra{K_i}, C^2, \veps)$ の意味で近いようにとりなおせる. 
+\end{claim}
+\begin{claimproof}
+$U_i$ だと
+\begin{align*} &\abs{f_i (p) - f_{i-1} (p) } = \abs{a_1 x_1 + \cdots a_m x_m} h_i (p) \\
+& \abs{\partial_k  f_i(p) - \partial _k f_{i-1}(p) } = \abs{a_k h_i (p) + (a_1 x_1 + \cdots a_m x_m) \partial_k h_i (p)}  \\
+& \abs{\partial_k \partial_l f_i(p) - \partial _k \partial_l f_{i-1}(p) } = \abs{a_k \partial_l h_i (p) + a_l \partial_k h_i (p) + (a_1 x_1 + \cdots a_m x_m) \partial_k \partial_l h (p) } \end{align*}
+であり, $h_i, \partial_k h_i, \partial_k \partial_l h_i $  は連続なのでコンパクト集合上では最大値をとるので, $a_1, \ldots, a_m$ を十分小さくとれば, $K_i$ 上では$C^2$ の意味で近い. $K_i$ 以外のコンパクト集合$K_j$ の上では, 結局$K_i$ の外では$f_i = f_{i-1}$ であることを考えると, $K_j \cap L_i$ 上での評価を考えれば良い. $K_i \cap L_j$ は座標近傍$U_i \cap U_j$ に含まれるので, 上の式の右辺に座標変換のヤコビ行列分の変化が生じるのだが, それもコンパクト集合上の連続関数なので$a_1, \ldots , a_m$ を十分小さくとればよい.  
+\end{claimproof}
+
+$f_{i-1}$ は$K_1 \cup \cdots K_{i-1}$ 上に退化臨界点をもたないので, 上のようにして定めた$(\cbra{U_i}, \cbra{K_i}, C^2, \veps)$ の意味で近い$f_i$ も$K_1 \cup \cdots K_{i-1}$ に退化臨界点をもたない. $K_i$ も$f_i$ の退化臨界点を含まないので, $K_1 \cup \cdots K_{i-1} \cup K_i$ に退化臨界点を持たない. これを繰り返すことで, $M = \cup K_i$ 上に退化臨界点をもたない $(\cbra{U_i}, \cbra{K_i}, C^2, \veps)$ の意味で近い滑らかな関数を構成できる. 
+
+\qed
+\end{pf*}
+
+
+
+
+
+\end{document}

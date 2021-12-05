@@ -1,0 +1,224 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+
+
+
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+
+
+
+
+%%
+
+
+\title{臨界値を含まない水位上昇}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+
+\begin{setting} $M$ を多様体, $f: M \rightarrow \mathbb R$ とする. 区間$ I \in \mathbb R$ に対して
+\begin{align*}  M_{I}  \coloneqq  \cbra{p \in M \mid f(p) \in  I}   \end{align*}
+という記号を導入する. 
+\end{setting}
+
+
+
+\begin{dfn}(上向きベクトル場). $M$ を閉多様体, $f: M \rightarrow \mathbb R$ をモース関数とする. $X$ を$M$ の滑らかなベクトル場とする. $X$ は \\
+(1) $p \in M$ が$f$ の臨界点ではないならば, $X_p f > 0$ \\
+(2) $p \in M $ が$f$ の指数$\lambda$ の臨界点であるならば, $p$ のまわりの局所座標で, $f, X$ をそれぞれ \\  
+\begin{align*} \quad f = -x_1 ^2 - \cdots - x^2_{\lambda} + x^2_{\lambda + 1} + \cdots + x^2_m \\
+\quad X =  - 2x_1 \partial_1 - \cdots - 2 x_{\lambda } \partial_\lambda + 2 x_{\lambda + 1} \partial_{\lambda + 1} + \cdots + 2x_m \partial_m \end{align*}
+と局所表示できるようなものがとれる. 
+$f$ に適合した上向きベクトル場 という. 
+\end{dfn}
+
+\begin{prop}(上向きベクトル場の存在). $M$ をコンパクト多様体, $f: M \rightarrow \mathbb R$ をモース関数とする. このとき, $f$ に適合した上向きベクトル場$X$ が存在する.
+
+\end{prop}
+\begin{pf*}
+有限個の, コンパクト集合と座標近傍
+\qed
+\end{pf*}
+
+
+
+\begin{prop}
+$M$ を連結な閉多様体, $f: M \rightarrow \mathbb R$ をモース関数とする. $[a,b]$ の中に$f$ の臨界値を含まなければ, $M_{[a,b]}$ は
+\begin{align*} [f = a] \times [0,1]  \end{align*}
+と微分同相である. 
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+
+
+
+\begin{prop} $M$ を連結な閉多様体, $f: M \rightarrow \mathbb R$ をモース関数とする. $a, A$ をそれぞれ$f$ の最小値と最大値とする. $a < b < c < A$ なる実数$b, c$ に対して, $M_{[b,c]}$ が$f$ の臨界値を含まないならば, $M_{( - \infty, b]}$ と$M_{( - \infty, c]} $ は微分同相である.   
+
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+\end{document}
