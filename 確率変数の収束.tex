@@ -1,0 +1,295 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+
+
+
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+
+
+
+
+%%
+
+
+\title{確率変数の収束}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+
+
+\section{}
+
+\subsection{}
+
+
+
+特に断りのない限り, $\cbra{ X_n}$ は$\paren{\Omega,  F , P}$ 上の確率変数の列を表す. 
+\begin{dfn}
+\label{}
+\quad \\
+$\cbra{X_n}$ が$X$ に概収束する. $:\LR P\paren{\lim_n X_n = X} = 1$ が成り立つ.\\
+$\cbra{X_n}$ が$X$ に確率収束する. $:\LR \foranyeps, \lim_n \mathit{P}\paren{\abs{X_n - X} > \veps} = 0$ が成り立つ.
+\end{dfn}
+
+しばらくの間, $A_n \paren{\veps} \coloneqq \sbra{ \abs{X_n - X} > \veps}$ とする.
+\begin{prop}
+$\sbra{\lim_n X_n = X} = \bigcap_k \bigcup_N \bigcap_{n\geq N} \paren{{A_n\paren{\frac{1}{k}}}}^c$ である.
+\end{prop}
+\begin{pf*}
+極限の定義より直ちに従う.
+\qed
+\end{pf*}
+
+
+\begin{prop}
+$\cbra{X_n}$ が$X$ に概収束する. $\naraba$ $X$に確率収束する.
+\begin{pf*} \quad \\
+$\cbra{X_n}$ が$X$ に概収束するならば, 
+\begin{align*}
+0 &= P\paren{\sbra{\lim_n X_n = X}^c} 
+= P\paren{\bigcup_k \bigcap_N \bigcup_{n\geq N} \paren{ {A_n\paren{\frac{1}{k} } } } } \\
+&\geq P\paren{\bigcap_N \bigcup_{n \geq N} \paren{A_n \paren{\frac{1}{k}} }} \quad {\paren{\because \mathop{単調性}}}\\
+&\geq \limsup_n \mathit{P}\paren{\paren{A_n \paren{\frac{1}{k}} }} \quad {\paren{\because \rm{Fatou}}}
+\end{align*}
+が成り立つ. 故に, 
+$\foranyk, \, \lim_n \mathit{P}\paren{A_n \paren{\frac{1}{k}} } = 0$ が成り立つ.
+\qed
+\end{pf*}
+\end{prop}
+
+\begin{prop}
+$\foranyk, \, \mathit{P}\paren{\bigcap_N \bigcup_{n\geq N} A_n\paren{ \frac{1}{k} } } = 0 \naraba \cbra{X_n}$ が$X$ に概収束する.
+\end{prop}
+\begin{pf*}
+$P\paren{\bigcup_k \bigcap_N \bigcup_{n\geq N} \paren{ {A_n\paren{\frac{1}{k} } } } } \leq \sum_k P\paren{\bigcap_N \bigcup_{n\geq N} A_n\paren{ \frac{1}{k} } } = \sum_k 0 = 0$
+\qed
+\end{pf*}
+
+\begin{prop}
+$\foranyk , \lim_N P \paren{\sup_{n\geq N} \abs{X_n - X} > \frac{1}{k}} = 0 \LR \cbra{X_n}$ が$X$に概収束する.
+\end{prop}
+\begin{pf*} 下方連続性より, 
+$P\paren{\bigcap_N \bigcup_{n\geq N} A_n\paren{ \frac{1}{k} } }=\lim_N P \paren{\bigcup_{n\geq N} A_n\paren{ \frac{1}{k} }}$ .
+\qed
+\end{pf*}
+
+\begin{prop}(Chevyshevの不等式) \\
+$f:\paren{0, \infty}\rightarrow \paren{0, \infty},\mathop{単調増加. } \, X:f\paren{\abs{X}} \in L^1\paren{P} \mathop{を満たす確率変数, }$ $a > 0$ に対して, 
+\begin{align*}
+P\paren{\abs{X} > a} \leq \frac{1}{f\paren{a}} E\paren{f\paren{\abs{X}}}
+\end{align*}
+が成り立つ.
+
+\end{prop}
+\begin{pf*} 
+$f\paren{a}E\paren{1_{\sbra{\abs{X}>a}}} = E\paren{f\paren{a}1_{\sbra{\abs{X}>a}}}\leq E\paren{f\paren{\abs{X}} 1_{\sbra{\abs{X}>a}}} \leq E\paren{f\paren{\abs{X}}}$
+\qed
+\end{pf*}
+
+
+\begin{prop}
+$\cbra{X_n}$ が$X$ に$L^p$ 収束する. $\naraba$ $X$ に確率収束する.  
+\end{prop}
+\begin{pf*}
+$P\paren{\abs{X_n - X} > \veps} \leq \frac{1}{\veps^p} E\paren{\abs{X_n - X}^{p}} $
+\qed
+\end{pf*}
+
+\begin{prop}
+\label{1817}
+$\cbra{X_n}$ に対して, 以下が成り立つ. 
+\begin{align*}
+X \mathop{に確率収束 } \LR \lim_{n} E\paren{\frac{\abs{X_n - X} }{1 + \abs{X_n -X } } } = 0
+\end{align*}
+\end{prop}
+\begin{pf*}
+\quad \\
+$\paren{\naraba} \quad A_n\coloneqq \sbra{\abs{X_n - X} > \veps}$ とすると, nを十分大きくとると次が成り立つ.
+\begin{align*}
+E\paren{\frac{\abs{X_n - X} }{1 + \abs{X_n -X } } } 
+&= E\paren{\frac{\abs{X_n - X} }{1 + \abs{X_n -X } } 1_{A_n}} + E\paren{\frac{\abs{X_n - X} }{1 + \abs{X_n -X } } 1_{{A_n }^c}} \\
+&\leq E\paren{1 \cdot 1_{A_n}} + E\paren{\veps \cdot 1_{{A_n }^c}} \\
+&\leq E\paren{1 \cdot 1_{A_n}} + E\paren{\veps \cdot 1_{\Omega}} \\
+&\leq \veps + \veps \qquad \paren{\because \mathop{確率収束するので} P\paren{A_n} はいくらでも小さくできる.}
+\end{align*}
+$\paren{\gyaku} $
+\begin{align*}
+P\paren{\abs{X_n -X} > \veps} \leq \frac{\veps}{1 + \veps} E\paren{\frac{\abs{X_n - X} }{1 + \abs{X_n -X } } } 
+\qquad \naze{チェビシェフの不等式}
+\end{align*}
+\qed
+\end{pf*}
+
+\begin{thm}
+$\cbra{X_n}$ が$X$ に確率収束する. $\naraba$ $X$ に概収束する部分列がとれる.
+\end{thm}
+\begin{pf*}
+命題\ref{1817} より, 十分大きなnをとると, $E\paren{\frac{\abs{X_n - X} }{1 + \abs{X_n -X } } } \leq \frac{1}{k^2}$ とできるので, \\
+適当に部分列を取ることで, $\sum E\paren{\frac{\abs{X_n - X} }{1 + \abs{X_n -X } } } \leq \sum \frac{1}{k^2} < \infty$ が成り立つ. \\
+$\sum E\paren{\frac{\abs{X_n - X} }{1 + \abs{X_n -X } } } = E\paren{\sum \frac{\abs{X_n - X} }{1 + \abs{X_n -X } } } $ 故に, $\sum \frac{\abs{X_n - X} }{1 + \abs{X_n -X } } $ は可積分なのでa.s.で有限の値を取る. \\
+即ち, $\lim_n \paren{\frac{\abs{X_n - X} }{1 + \abs{X_n -X } } } = 0$がa.s.で成り立つので, $\lim_n \abs{X_n - X} = 0$ がa.s.で成り立つ.
+
+
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+
+\end{document}
