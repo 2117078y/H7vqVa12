@@ -178,21 +178,46 @@
 \begin{dfn}(上向きベクトル場). $M$ を閉多様体, $f: M \rightarrow \mathbb R$ をモース関数とする. $X$ を$M$ の滑らかなベクトル場とする. $X$ は \\
 (1) $p \in M$ が$f$ の臨界点ではないならば, $X_p f > 0$ \\
 (2) $p \in M $ が$f$ の指数$\lambda$ の臨界点であるならば, $p$ のまわりの局所座標で, $f, X$ をそれぞれ \\  
-\begin{align*} \quad f = -x_1 ^2 - \cdots - x^2_{\lambda} + x^2_{\lambda + 1} + \cdots + x^2_m \\
-\quad X =  - 2x_1 \partial_1 - \cdots - 2 x_{\lambda } \partial_\lambda + 2 x_{\lambda + 1} \partial_{\lambda + 1} + \cdots + 2x_m \partial_m \end{align*}
+\begin{align*} &\quad f = -x_1 ^2 - \cdots - x^2_{\lambda} + x^2_{\lambda + 1} + \cdots + x^2_m \\
+&\quad X =  - 2x_1 \partial_1 - \cdots - 2 x_{\lambda } \partial_\lambda + 2 x_{\lambda + 1} \partial_{\lambda + 1} + \cdots + 2x_m \partial_m \end{align*}
 と局所表示できるようなものがとれる. 
 $f$ に適合した上向きベクトル場 という. 
 \end{dfn}
 
-\begin{prop}(上向きベクトル場の存在). $M$ をコンパクト多様体, $f: M \rightarrow \mathbb R$ をモース関数とする. このとき, $f$ に適合した上向きベクトル場$X$ が存在する.
+
+ここで一旦, よく使うものを準備する.
+
+\begin{prop}$M$ を多様体とする. $(U, K)$ を座標近傍と, $K \subset U$ を満たすコンパクト集合の組とする. このとき, 滑らかな関数$h : U \rightarrow \mathbb R$ で\\
+(1) $0 \leq h \leq 1$ \\
+(2) $h$ は$K$ の適当な開近傍$V$ の上で恒等的に$1$である. \\
+(3) $h$ は$V$ を適当なコンパクト集合$L \subset U$ の外部では恒等的に$0$ である. ^^
+を満たすものが存在する. 
 
 \end{prop}
 \begin{pf*}
-有限個の, コンパクト集合と座標近傍
+多様体の基礎とかにかいてる.
 \qed
 \end{pf*}
 
+\begin{remark}
+(この$h$ を$(U, K)$ に適合したプリン関数ということにし, $(K,V,L,U)$ を皿ということにする. ) 
+\end{remark}
 
+
+
+\begin{prop}(上向きベクトル場の存在). $M$ をコンパクト多様体, $f: M \rightarrow \mathbb R$ をモース関数とする. このとき, $f$ に適合した上向きベクトル場$X$ が存在する.
+
+\end{prop}
+\begin{pf*}(sketch).
+コンパクト集合の族$\cbra{K_i}$ と座標近傍の族$\cbra{U_i}$ で, $K_i \subset U_i$ を満たし, かつ$M = \cup K_i, M = \cup U_i$ を満たし, かつ任意の臨界点$p\in M$ に対してただ一つの$U_i$ にふくまれる近傍がとれて, $U_i$ は$f$ を標準形にする座標近傍であるものをとる. 
+以下, ざっくりとした説明にとどめる. 適当なひとつの座標近傍$U_i$ では局所的に$X^f \coloneqq \partial_1 f  \partial_1 + \partial_m f \partial_m$ で表されるベクトル場を用いれば, 臨界点以外の点では$X^f f > 0$ が成り立つ. $U_i$ でこう局所表示されるものを, 任意の座標近傍でこのように表示し続けようと思っても, そうできる保証はない(例えば, $U_i$ でこの局所表示をしたものと, $U_j$でこの局所表示したものが, $U_i \cap U_j$ で同じベクトル場である保証はない). そこで諦めて, 各$U_i$ ごとにこの形のベクトル場を$U_i$ から$M$ まで滑らかに拡張してた$X^f_{i}$ を作って, それらをプリン関数を使って全て足し合わせる方針でいく. これでうまくいくかどうかは要チェックである. 
+\qed
+\end{pf*}
+
+\begin{setting}$f: M \rightarrow \mathbb R$, $a \in \mathbb R$ に対して
+\begin{align*}[f = a] \coloneqq \cbra{x \in M \mid } \end{align*}
+という記号を用いる. 
+\end{setting}
 
 \begin{prop}
 $M$ を連結な閉多様体, $f: M \rightarrow \mathbb R$ をモース関数とする. $[a,b]$ の中に$f$ の臨界値を含まなければ, $M_{[a,b]}$ は
@@ -200,17 +225,45 @@ $M$ を連結な閉多様体, $f: M \rightarrow \mathbb R$ をモース関数と
 と微分同相である. 
 \end{prop}
 \begin{pf*}
+$X$ を$f$ に適合した上向きベクトル場とする. $M$ から$f$ の臨界点を除いた開集合上に
+\begin{align*} Y \coloneqq \frac{1}{Xf} X \end{align*}
+というベクトル場$Y$ を定める. $M_{[a,b]}$ は臨界点を含まないので$Y$ の定義域に含まれている. 
+$\dot c_p(t) = Y_{c_p (t)} $ を満たす$p \in [f = a]$ を始点とする積分曲線を考えると, 
+\begin{align*} \frac{d}{dt} f(c_p(t)) = Y_{c_p(t)} f = \frac{1}{X_{c_p(t)}f} X_{c_p(t)} f = 1 \end{align*}
+(つまり$c_p(t)$ は速さ$1$ で$f$ の値を上昇させる, ので$c_p(0) \in [f = a]$ で, $c_p(b-a) \in [f = b]$). このようにして滑らかなベクトル場が定める$c: [f = a] \times [0, b-a] \rightarrow M_{[a,b]}$ は微分同相なので, 主張が従う.
+\qed
+\end{pf*}
 
+\begin{remark}
+上向きベクトル場$X$ を正規化しないでやろうとすると, 始点ごとに一定の時間でどこまで上昇するかが変わってしまうので, $c: [f = a] \times [0, T] \rightarrow M_{[a,b]}$ が微分同相となるように$T$ をとってくることができない. 
+\end{remark}
+
+\begin{prop}
+$M = M_1 \cup _\varphi M_2, N = N_1 \cup_\psi N_2$ を境界つき多様体を微分同相写像$\varphi: \partial M_1 \rightarrow \partial M_2, \psi: \partial N_1 \rightarrow \partial N_2$ で張り合わせた多様体とする. $h_1: M_1 \rightarrow N_1, h_2: M_2 \rightarrow N_2$ なる微分同相写像で, 任意の$p \in \partial M_1$ に対して
+\begin{align*} \psi \circ h_1 (p) = h_2 \circ \varphi (p) \end{align*}
+が成り立つならば, 微分同相写像$H: M \rightarrow N$ が存在する. 
+\end{prop}
+\begin{pf*}
+省略. 
 \qed
 \end{pf*}
 
 
 
-
-\begin{prop} $M$ を連結な閉多様体, $f: M \rightarrow \mathbb R$ をモース関数とする. $a, A$ をそれぞれ$f$ の最小値と最大値とする. $a < b < c < A$ なる実数$b, c$ に対して, $M_{[b,c]}$ が$f$ の臨界値を含まないならば, $M_{( - \infty, b]}$ と$M_{( - \infty, c]} $ は微分同相である.   
+\begin{prop} $M$ を連結な閉多様体, $f: M \rightarrow \mathbb R$ をモース関数とする. $a, A$ をそれぞれ$f$ の最小値と最大値とする. $a < b < c < A$ なる実数$b, c$ に対して, $M_{[b,c]}$ が$f$ の臨界値を含まないならば, $M_{( - \infty, b]}$ と$M_{( - \infty, c]} $ は微分同相である. 
 
 \end{prop}
 \begin{pf*}
+
+\begin{align*} M_{(-\infty, b] } = M_{(-\infty, b- \veps] } \cup M_{[b - \veps, b] }    , M_{(-\infty, c] } = M_{(-\infty, b- \veps] } \cup M_{[b - \veps, c] }   \end{align*}
+
+である(恒等写像で貼り合わせたと思えば良い)ので, 
+
+\begin{align*} & h_1  : M_{(-\infty, b- \veps] } \rightarrow M_{(-\infty, b- \veps] }  \\ & h_2 : M_{[b - \veps, b] }  \rightarrow  M_{[b - \veps, c] } \end{align*}
+
+という二つの微分同相写像を用意する. ここで$h_1$ は恒等写像とする.  $h_2$ は,  $  M_{[b - \veps, b] },  M_{[b - \veps, c] }$ がともに閉じたアニュラス$[f =a] \times [0,1]$に微分同相($[f =b - \veps] \in M$ が$[f =b - \veps] \times \cbra{0}$ と恒等写像で微分同相)なので, $  M_{[b - \veps, b] },  M_{[b - \veps, c] }$ の間に$[f=b - \veps]$ で恒等写像である微分同相写像が存在するのでそれを採用する. すると, 明らかに$p \in [f = b] = \partial M_{(-\infty, b- \veps] }$ に対して$\textrm{id} \circ h_1 (p) = h_2 \circ \textrm{id}$ が成り立つので, 前述の命題よりもとめる微分同相写像が存在する. 
+
+\begin{align*} \end{align*}
 
 \qed
 \end{pf*}
