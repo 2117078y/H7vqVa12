@@ -179,14 +179,21 @@ $f(x) \coloneqq e^x - x- 1$ は$f(0) = 0$ で, 変曲点が$x = 0$ だけ. $x \g
 
 
 
-\begin{prop} 実数の列$\cbra{x_n}$ は$\sum x_n < \infty$ を満たすならば, 
+\begin{prop} 非負の実数の列$\cbra{x_n}$ は$\sum x_n < \infty$ を満たすならば, 
 \begin{align*} \prod (1 + x_n) < \infty \end{align*}
 が成り立つ. 
 \end{prop}
 \begin{pf*}
 \begin{align*} \prod (1 + x_n) \leq \prod e^{x_n} = e^{\sum x_n} \end{align*}
+より, $P_N = \prod_{n=1}^N (1 + x_n)$ は上に有界な広義増大列なので, 収束する. 
 \qed
 \end{pf*}
+
+\begin{remark}
+$x_n \geq 0$ でないならば, これは成り立たない. 例えば
+\begin{align*} x_1 = 1, x_2 = -2, x_3 = 1, x_4 = -2, x_5 = 1, \ldots \cdots \end{align*}
+を考えると$P_N = \prod_{n=1}^N (1 + x_n)$  は収束しない. 
+\end{remark}
 
 
 
