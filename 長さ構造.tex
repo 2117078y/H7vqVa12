@@ -1,0 +1,297 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+
+
+
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+
+
+
+
+%%
+
+
+\title{長さ構造}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+
+
+\section{}
+
+\begin{setting}
+$X, Y$ で距離空間を表す. それぞれが備える距離$d_X, d_Y$ も混乱の恐れのない限り$d$ で表す. 
+
+\end{setting}
+
+\begin{dfn}(伸長). $f: X \rightarrow Y$ に対して$\mathbb R \cup \cbra{\infty}$ に値をとる
+\begin{align*} \textrm{dil} (f) \coloneqq \sup_{x, x^\prime \in X, x \neq x^\prime } \frac{d(fx, fx^\prime )}{ d(x, x^\prime) } \end{align*} 
+と定め, これを$f$ の伸長という. 
+
+\end{dfn}
+
+\begin{dfn}(局所伸長). $f: X \rightarrow Y$ に対して$\mathbb R \cup \cbra{\infty}$ に値をとる
+\begin{align*} \textrm{dil}_x (f) \coloneqq \lim_{\veps \rightarrow 0} \textrm{dil}(f | _ {B(x; \veps)}) \end{align*} 
+と定め, これを$f$ の$x \in X$ における局所伸長という. 
+
+\end{dfn}
+
+\begin{dfn}(リプシッツ写像). $\textrm{dil} (f) < \infty$ を満たす写像をリプシッツ写像という. 
+
+\end{dfn}
+
+\begin{prop}
+任意の点$x \in X$ において, $\textrm{dil}_x f \leq \textrm{dil} f$ が成り立つ. 
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+
+\begin{dfn}(リプシッツ写像の総伸長). $f : [a, b] \rightarrow Y$ をリプシッツ写像とする. 
+\begin{align*} l(f) \coloneqq \int_a^b \textrm{dil} _t f dt \end{align*} 
+と定め, これを$f$ の(リプシッツ写像)総伸長という. 
+\end{dfn}
+
+\begin{dfn}(連続写像の総伸長). 
+リプシッツ連続でない連続写像$f : [a, b] \rightarrow Y$ に対して, 
+\begin{align*} l(f) = \sup \sum d(f(t_i), f(t_{i+1}))  \end{align*}
+で定める. ただし, 上限は全ての$n$ 分割$0 = t_0 \leq t_1 \leq  \ldots \leq t_n = b $ を走る. これを$f$ の(連続写像)総伸長という.
+\end{dfn}
+
+\begin{remark}
+絶対連続な写像に関しては, リプシッツ写像総伸長と連続写像総伸長は一致するらしい. 
+\end{remark}
+
+
+
+\begin{dfn}(長さ構造). $X$ を集合とする. 区間全体を添字集合とする, 閉区間$I \subset \mathbb R$ から$X$  への写像の族$\cbra{\mathcal C(I)}_I$ と, 全ての閉区間に関して$\mathcal C (I)$ を足し合わせた$\mathcal C = \cup_{I} \mathcal C (I)$ 上の関数$l: C \rightarrow \mathbb R$ の組$(\cbra{\mathcal C(I)}_I, l)$で\\
+(1)$l(f) \geq0 \quad (f \in C)$ かつ$l(f) = 0$ であることの必要十分条件が$f$ が定値写像 であることである. \\
+(2-1)$I \subset J $ ならば, 任意の$f \in \mathcal C(J)$ に対して$f |_I \in C(I)$ が成り立つ.  \\
+(2-2)$f \in \mathcal C([a,b]), g \in \mathcal C([b,c])$ で$f(b) = g(b)$ を満たすものに対して, $h(t) \coloneqq \begin{cases} f(t) &(t \in [a,b]) \\ g(t) &(t \in [b,c])\end{cases} $ により定まる写像は$h \in \mathcal C([a,c])$ であり, $l(h) = l(f) + l(g)$ が成り立つ. \\
+(3)区間$I, J$ に対して$\varphi : I \rightarrow J$ が同相写像であるならば, $f \in \mathcal C(J)$ に対して$f \circ \varphi \in \mathcal C(I)$ であり, $l(f\circ \varphi) = l(f)$ が成り立つ. \\
+(4)任意の閉区間$I = [a, b]$ と$f \in \mathcal C([a,b])$ に対して, $t \mapsto l(f|_{[a, t]})$ は連続である. \\
+を満たすとき, 長さ構造という. 
+
+\end{dfn}
+
+\begin{dfn}(長さ擬距離). $X$ を集合とする. $(\cbra{\mathcal C(I)}_I, l)$ を$X$ の長さ構造とする.    
+\begin{align*} d_l (x, y) \coloneqq \inf \cbra{l(f) \mid f \in \mathcal C , x, y \in \textrm{im}(f) }\end{align*}
+をこの長さ構造が定める長さ擬距離という. 
+\end{dfn}
+
+\begin{ex} 距離$d$ を備えた集合$X$ に対して標準的に定まる長さ構造は, $\mathcal C(I)$ を$I$ から$X$ への連続写像とし, $l$ を総伸長とした $(\cbra{ \mathcal C(I)}_I, l)$ である. 
+\end{ex}
+
+\begin{prop} $X$ に長さ構造$(\cbra{ \mathcal C(I)}_I, l)$ を備え, この長さ構造から定まる長さ擬距離を$d_l$ とする. 距離空間$(X, d_l)$ に前述のようにして標準的な長さ構造 $(\cbra{ \mathcal C(I)}_I, \tilde l)$ を定める. (すなわち, $\mathcal C(I)$ を$I$ から$X$ への連続写像とし, $\tilde l$ を連続写像総伸長とした $(\cbra{ \mathcal C(I)}_I, \tilde l)$ である. ) このとき, $l$ がコンパクト開位相を備えた$\mathcal C (I)$ 上で下半連続であるならば, 
+\begin{align*} l = \tilde l \end{align*}
+が成り立つ. 
+
+\end{prop}
+\begin{pf*}
+\begin{claim}
+\begin{align*} l(f) \leq \tilde l (f) \end{align*}
+\end{claim}
+\begin{claimproof}
+$t \mapsto l(f|_{[a,t]})$ は$[a,b]$ 上で一様連続なので適当に$\eta > 0$ で$\abs{t - t^\prime} < \eta$ ならば$d_l (f(t), f(t^\prime)) < \veps$ となるものをとる. 区間$[a, b]$ の$n$ 分割を, 各メッシュの長さが$\eta$ を超えないように分割する. 長さ擬距離の定義から
+\begin{align*} d_l (f(t_i), f(t_{i+1})) = \cbra{l(g) \mid g \in \mathcal C ([t_i, t_{i+1}]) g_{t_i} = f_{t_i}, g_{t_{i+1}} = f_{t_{i+1}}  } \end{align*}
+であるので, $g_i \in \mathcal C ([t_i, t_{i+1}]) $ で 
+\begin{align*} d_l (f(t_i), f(t_{i+1}))  \leq l(g_i) \leq d_l (f(t_i), f(t_{i+1}))  + \frac{\veps}{n} \end{align*}
+を満たすものがとれる. $g_0, \cdots , g_n$ を繋ぎ合わせたものを$h_\veps \in \mathcal C ([a, b]) $ とすると,  
+\begin{align*} \tilde l (f) = \sup \sum d_l (f(t_i), f(t_{i+1})) \end{align*}
+であるので, 
+\begin{align*} l(h_\veps) = \sum l(g_i) \leq \sum d_l (f(t_i), f(t_{i+1}))  + n \cdot \frac{\veps}{n} \leq \tilde l (f) + \veps \end{align*}
+が成り立つ. また, 任意の$t \in [a, b]$ に対して$t \in [t_i, t_{i+1}   ]$なる$i$ をみつけて, 
+\begin{align*} &d_l (h_\veps (t) , f(t)) \\
+&\leq d_l (h_\veps (t), h_\veps (t_{i+1})) + d_l (h_\veps(t_{i+1}), f(t_{i+1})) + d_l (f (t_{i+1}), f(t)) \\
+&< d_l (h_\veps (t), h_\veps (t_{i+1})) + 0 + \veps \\
+&< l(g_i) + \veps \\
+&< d_l(f(t_{i}), f(t_{i+1})) + \frac{\veps}{n} + \veps  < 3 \veps \end{align*}
+が成り立つ. (もしかしたら嘘書いてるかも.) $l$ がコンパクト開位相に関して下半連続なので
+\begin{align*} l(f) \leq \lim\inf l(h_\veps)  \end{align*}
+であり, $\lim \inf l(h_\veps) \leq \lim ( \tilde l (f) + \veps )= \tilde l (f) $ であるので, 主張は示された. 
+\end{claimproof}
+
+つぎに逆側の不等号を考える.
+\begin{claim}
+\begin{align*} \tilde l (f) \leq l (f)  \end{align*}
+\end{claim}
+\begin{claimproof}
+定義通りに追っていくと, 
+\begin{align*}
+&\tilde l (f) \\
+&=  \sup \sum d_l (f(t_i), f(t_{i+1} ))   \\
+&\leq \sup \sum \inf \cbra{l (g) \mid g \in \mathcal C([0,1]), g(0) = f(t_{i}), g(1) = f(t_{i+1})} \\
+&\leq \sup \sum l(f |_{t_i, t_{i+1}}) = l(f) \end{align*}
+が成り立つ. 二つ目の等号では
+\begin{align*} \cbra{l (g) \mid g \in \mathcal C, f(t_{i}), f(t_{i+1}) \in \textrm{im} g }  \subset \cbra{l (g) \mid g \in \mathcal C([0,1]), g(0) = f(t_{i}), g(1) = f(t_{i+1})}   \end{align*}
+を用いた. 
+\end{claimproof}
+
+従って, 命題の主張が成り立つ. 
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

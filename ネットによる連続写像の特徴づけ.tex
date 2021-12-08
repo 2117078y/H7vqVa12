@@ -1,0 +1,246 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+
+
+
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+
+
+
+
+%%
+
+
+\title{ネットによる連続写像の特徴づけ}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+\maketitle
+
+\section{}
+
+\subsection{前置き}
+
+\begin{setting}
+$X$ で適当な位相空間を表す. 
+\end{setting}
+
+\begin{dfn}(ネット). 有向集合$\Lambda$ と$x: \Lambda \rightarrow X$ の組$(x, \Lambda)$ を$X$ のネットという. これを単に$\cbra{x_\lambda}_{\lambda \in \Lambda}$ で表す. 
+
+\end{dfn}
+
+\begin{dfn}(共終). $A$ を順序集合, $B$ を$A$ の部分集合とする. 任意の$a \in A$ に対して, $b \in B$ で
+\begin{align*} a \leq b \end{align*}
+を満たすものが存在するとき, $B$ は$A$ と共終であるという. 
+\end{dfn}
+
+\begin{dfn}(強共終). $A$ を順序集合, $B$ を$A$ の部分集合とする. 任意の$a \in A$ に対して, $b_0 \in B$ で
+\begin{align*} b \geq b_0 \naraba a \leq b \end{align*}
+を満たすものが存在するとき, $B$ は$A$ と強共終であるという. 
+
+\end{dfn}
+
+\begin{dfn}(部分ネット). $(x, \Lambda)$ を$X$ のネットとする. $\Lambda^\prime $ を有向集合, $\varphi: \Lambda^\prime \rightarrow \Lambda$ とする.  $(x, \varphi(\Lambda^\prime))$ は, $\varphi(\Lambda^\prime)$ が$\Lambda$ と強共終であるとき, $(x, \Lambda)$ の部分ネットという. これを単に$\cbra{x_{\varphi(\lambda^\prime)}}_{\lambda^\prime \in \Lambda^\prime }$ で表す. 
+
+\end{dfn}
+
+\begin{dfn}(補有限回属する). $\cbra{x_\lambda}_{\lambda \in \Lambda}$ を$X$ のネット, $S \subset X$ を$X$ の部分集合とする. $\cbra{x_\lambda}$  は $\lambda_0 \in \Lambda$ で
+\begin{align*} \lambda \geq \lambda_0 \naraba x_{\lambda} \in S \end{align*}
+を満たすとき, $S$ に補有限回属するという. 
+\end{dfn}
+
+\begin{dfn}(頻繁に属する). $\cbra{x_\lambda}_{\lambda \in \Lambda}$ を$X$ のネット, $S \subset X$ を$X$ の部分集合とする. $\cbra{x_\lambda}$  は 任意の$\lambda \in \Lambda$ に対して, $\lambda^\prime \geq \lambda $ で
+\begin{align*} x_{\lambda^\prime} \in S \end{align*}
+を満たすとき, $S$ に頻繁に属するという. 
+\end{dfn}
+
+\begin{dfn}(普遍ネット). $X$ のネット$\cbra{x_\lambda}$ は, 任意の部分集合$S \subset X$ に対して, $S$ に補有限回属するか, あるいは$S^c$ に補有限回属するとき, 普遍ネットであるという.  
+
+\end{dfn}
+
+\begin{dfn}(収束点). $\cbra{x_\lambda}$ を$X$ のネットとし, $a \in X$ とする.  $a$ の任意の近傍$V_a$ に対して, $\cbra{x_\lambda}$ が$V_a$ に補有限回属するとき, $a$ を$\cbra{x_\lambda}$ の収束点という. $a = \lim x_\lambda$ と表す. 
+
+\end{dfn}
+
+\begin{prop}(閉包のネットによる特徴づけ). 
+$S \subset X$ を部分集合とする. $x \in \bar S$ であることと, $x$ に収束する$S$ のネットが存在することは必要十分である. 
+\end{prop}
+\begin{pf*}
+$\naraba$ を示す. 
+$x$ は$S$ の閉包に属しているので, $x$ の任意の近傍$V$ に対して, $x_{V} \in S \cap V$ なる点がとれる. $x$ の近傍全体$\mathcal N _x$に, $V \leq  U :\LR V \supset U$ により順序を定めて有向集合とする. すると, $\cbra{x_V}_{V \in \mathcal N _x}$ は$x$ に収束する$S$ のネットである. $\gyaku$ を示す. $x \in X \setminus  \bar S$ であると, $X \setminus \bar S$ は閉集合なので, 小さい$x$ の開近傍$U_x$で$\bar S$ と共通部分を持たないものをとると, $U_x$ に補有限回属する$S$ のネットはとれないので$x$ に収束することに矛盾する.
+\qed
+\end{pf*}
+
+\begin{dfn}(堆積点).  $\cbra{x_\lambda}$ を$X$ のネットとし, $a \in X$ とする.  $a$ の任意の近傍$V_a$ に対して, $\cbra{x_\lambda}$ が$V_a$ に頻繁に属するとき, $a$ を$\cbra{x_\lambda}$ の堆積点という. 
+
+\end{dfn}
+
+
+
+\subsection{本編}
+
+\begin{prop}(連続写像のネットによる特徴づけ). $X, Y$ を位相空間, $f : X \rightarrow Y$ , $x \in X$とする. $f$ が連続であることと, $X$ の任意の収束ネット$\cbra{x_\lambda}$に対して$\cbra{fx_\lambda}$ が$f (\lim x_\lambda )$ に収束する$Y$ の収束ネットとなることは, 必要十分である. 
+\end{prop}
+\begin{pf*}
+$\naraba$ を示す. $X$ の, $x \in X$ に収束するネット$\cbra{x_\lambda}$ をとる. 任意に$f(x)$ の近傍$U$をとり, その逆像を$V_x$ とする. $V_x$ は$x$ の近傍であるので, $\cbra{x_\lambda}$ は補有限回$V_x$ に属する. 従って, $\cbra{fx_\lambda}$ は$U$ に補有限回属するので, 示された. $\gyaku$ 連続でない点$x$ があるとする. $f(x)$ の近傍$U$ で, $x$ の任意の近傍の$f$ による像が$U$ に含まれないものがとれる. そこで, $x$ の任意の近傍$V$ に対して$y \in f(V) \setminus U$ が取れるので, $x_V \in V$ で $fx_V = y$ を満たすものがとれる. $x$ の近傍全体$\mathcal N _x$に, $V \leq  U :\LR V \supset U$ により順序を定めて有向集合とする. すると, $\cbra{x_V}_{V \in \mathcal N _x}$ は$x$ に収束する$X$ のネットである. 一方で, 任意の$V$ に対して$fx_V$ は$fx$ の近傍$U$ に含まれないので, $fx$ には収束しないので矛盾する. 
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
