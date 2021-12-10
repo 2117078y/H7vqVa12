@@ -1,4 +1,4 @@
-\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+\documentclass[platex, driver=dvipdfm, ja = standard, 10pt, fleqn, label-section=none]{bxjsarticle}
 
 %\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
 
@@ -126,6 +126,7 @@
 \newcommand{\id}{\textrm{id}}
 \newcommand{\Ker}{\textrm{Ker}}
 \newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
 
 
 
@@ -284,6 +285,36 @@ $t \mapsto l(f|_{[a,t]})$ は$[a,b]$ 上で一様連続なので適当に$\eta >
 従って, 命題の主張が成り立つ. 
 \qed
 \end{pf*}
+
+
+\subsection{}
+
+
+\begin{prop}
+$f: S^n \rightarrow S^n$ は, $\dil f < 2$ であるならば, $\textrm{deg} f \in \cbra{1, 0, -1}$ である.
+\end{prop}
+\begin{pf*}
+$f$ が全射でない場合は$\textrm{deg} f = 0$ である. $f$ が全射である場合を考える. 
+\begin{align*} \veps \coloneqq  2 - \dil f > 0 \end{align*}
+と定める. 適当に好きな$y \in S^n$ をとる. 
+
+\begin{claim}
+$f^{B(y; \veps)}$ は$S^n$ の適当な開半球に含まれる. 
+\end{claim}
+\begin{claimproof}
+$y^\prime $ を$y$ の対蹠点とする. $x^\prime \in f^{-1}(y^\prime)$ を好きにとる. 任意に$z \in f^{-1} (B(y; \veps))$ をとる. 
+$ \dil f <  2 - \veps $ であるので, $\frac{d(f(x^\prime), f(z))}{d(x^\prime , z)} \leq 2 - \veps$ が成り立つ. また, $y^\prime$ は$y$ の対蹠点であるので, $B(y; \veps)$ に属する$f(z)$ に対しては, $d(y^\prime , f(z)) < \pi - \veps$ が成り立つ. 従って, 
+\begin{align*} d(x^\prime , z) \geq \frac{1}{2 - \veps} d(y^\prime ) \geq \frac{\pi}{2} \end{align*}
+が成り立つ. これはすなわち$f^{B(y; \veps)}$ が$S^n$ の$x^\prime$ を中心とした開半球とは逆の(つまり, $x^\prime$ の対蹠点を中心とする)開半球に含まれることを意味する. 
+
+\end{claimproof}
+
+\qed
+\end{pf*}
+
+
+
+
 
 
 

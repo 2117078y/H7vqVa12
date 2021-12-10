@@ -1,4 +1,4 @@
-\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+\documentclass[platex, driver=dvipdfm, ja = standard, 10pt, fleqn, label-section=none]{bxjsarticle}
 
 %\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
 
@@ -181,22 +181,30 @@
 が成り立つとき, パスメトリック空間という. ただし, $\sup$ は$[0, 1]$ 区間のあらゆる分割を走る. $C([0,1]; X)$ は$[0,1]$ から$X$ への連続写像全体を表す. 
 \end{dfn}
 
-\begin{prop}$(X, d)$ を完備距離空間とする. 任意の$x_0, x_1 \in X$ に対し, 任意の$\veps > 0$ に対して, $x^\prime \in X$ で
-\begin{align*} \quad  \sup{ d(x_0 ,  x^\prime) , d(x^\prime , x_1)} \leq \frac{1}{2} d(x_0, x_1) + \veps \end{align*}
- を満たすものが存在するならば, $(X, d)$ はパラメトリック空間である. 
+\begin{remark}
+パスメトリック空間は, Length space ともいう. 
+\end{remark}
+
+\begin{dfn}($\veps$中点). $x_0, x_1 \in X$, $\veps \geq 0 $ に対して, $x \in X$ で 
+\begin{align*} \quad  \sup \cbra{ d(x_0 ,  x) , d(x , x_1)} \leq \frac{1}{2} d(x_0, x_1) + \veps \end{align*}
+ を満たすものを$\veps$中点という. 
+\end{dfn}
+
+
+\begin{prop}$(X, d)$ を完備距離空間とする. 任意の$x_0, x_1 \in X$ に対し, 任意の$\veps > 0$ に対して, $\veps$中点が存在するならば, $(X, d)$ はパラメトリック空間である. 
 \end{prop}
 \begin{pf*}
 十分小さい$\veps_1$ に対して
-\begin{align*}  \sup{ d(x_0 ,  x_{\frac{1}{2}}     ) , d(x_{\frac{1}{2}}  , x_1)}    & \leq \frac{1}{2} d(x_0, x_1) + \veps \frac{1}{2} d(x_0, x_1)  \\
+\begin{align*}  \sup \cbra{ d(x_0 ,  x_{\frac{1}{2}}     ) , d(x_{\frac{1}{2}}  , x_1)}    & \leq \frac{1}{2} d(x_0, x_1) + \veps \frac{1}{2} d(x_0, x_1)  \\
 &= \frac{1}{2} d(x_0, x_1)  (1 + \veps_1) \end{align*}
 を満たす$x_{\frac{1}{2}} $ がとれる. 次にこれまた十分小さい$\veps_2$ に対して
-\begin{align*} & \sup{ d(x_0 ,  x_{\frac{1}{4}} ) , d(x_{\frac{1}{4}}, x_{\frac{1}{2}}  ), d(x_{\frac{1}{2}}, x_{\frac{3}{4}} ) d(x_{\frac{3}{4}}  , x_1)}     \\
+\begin{align*} & \sup \cbra{ d(x_0 ,  x_{\frac{1}{4}} ) , d(x_{\frac{1}{4}}, x_{\frac{1}{2}}  ), d(x_{\frac{1}{2}}, x_{\frac{3}{4}} ) d(x_{\frac{3}{4}}  , x_1)}     \\
 & \leq \frac{1}{2}( \frac{1}{2} d(x_0, x_1)  + \veps \frac{1}{2}d(x_0, x_1)  ) + \veps_2 (\frac{1}{2} d(x_0, x_1)  + \veps_1 \frac{1}{2} d(x_0, x_1) ) \\
-&= \frac{1}{2}\frac{1}{2}\frac{1}{2} d(x_0, x_1)  (1 + \veps _1) (1 + \veps_2) \end{align*}
+&= \frac{1}{2}\frac{1}{2} d(x_0, x_1)  (1 + \veps _1) (1 + \veps_2) \end{align*}
 を満たす$x_{\frac{1}{4}} , x_{\frac{3}{4}}$ がとれる. これを繰り返して, $\veps_1, \veps_2, \ldots $ と$x_{\frac{1}{2}} , x_{\frac{1}{4}}, x_{\frac{3}{4}}, x_{\frac{1}{8}} , \ldots   $ を定める. ただし, $\veps_1, \veps_2, \ldots $ は十分小さくとって$\prod _{k = 1}^\infty (1 + \veps_k) $ が発散しないようにしておく. 
 $[0, 1]$ に含まれる二進有理数上で
 \begin{align*} d(x_{\frac{k}{2^n}} , x_{\frac{k + 1}{2^n} } ) \leq \frac{1}{2^n} \prod _{k = 1}^\infty (1 + \veps_k) \end{align*}
-が成り立つ. 二進分数でない$x_r$ の値を, $r$ に収束する二進分数の列$q_1, q_2, \ldots $をとり, $\cbra{x_{q_i}}$ を考えるとコーシー列になるので完備性から収束列となり, その値によって$x_r$ を定める. これにより連続な曲線$x: [0,1] \rightarrow X$ が定まるが,  $\prod _{k = 1}^\infty (1 + \veps_k) $ はいくらでも小さくできるので, パラメトリック空間であることが示される. 
+が成り立つ. 二進分数でない$x_r$ の値を, $r$ に収束する二進分数の列$q_1, q_2, \ldots $をとり, $\cbra{x_{q_i}}$ を考えるとコーシー列になるので完備性から収束列となり, その値によって$x_r$ を定める. これにより連続な曲線$x: [0,1] \rightarrow X$ が定まるが,  $\prod _{k = 1}^\infty (1 + \veps_k) $ はいくらでも$1$に近くできるので, パラメトリック空間であることが示される. 
 \qed
 \end{pf*}
 
@@ -213,6 +221,49 @@ $(X, d)$ を距離空間とする. (1)と(2)は必要十分である.\\
 \end{prop}
 \begin{pf*}
 体調が良いときに埋める. 
+\qed
+\end{pf*}
+
+
+\begin{dfn}($\veps$ネット). 部分集合$A \subset X$ は, $X \subset B(A; \veps)$ を満たす時に, $\veps$ ネットという. 
+\end{dfn}
+
+\begin{prop}(距離空間におけるホップリノウの定理). 完備局所コンパクトパスメトリック空間は固有な距離空間である. (すなわち, 任意の有界閉集合がコンパクトである.)
+\end{prop}
+\begin{pf*}
+\begin{align*} \rho(x) \coloneqq \sup \cbra{R> 0 \mid \textrm{閉球} D(x; R) \textrm{がコンパクト} }  \end{align*}
+と定める. 
+
+\begin{claim} 任意の$x \in X$ に対して
+$\rho (x) > 0$
+が成り立つ. 
+\end{claim}
+\begin{claimproof}
+$X$ が局所コンパクトだから. 
+\end{claimproof}
+
+\begin{claim}
+ある点$x \in X$ で$\rho (x) = \infty$ となるものが存在すれば, 任意の点$x^\prime$に対して$\rho (x^\prime) = \infty$ である.  
+\end{claim}
+\begin{claimproof}
+$x^\prime $ の半径$r$ の閉球は$\sup \cbra{d(x, x^\pprime) \mid x^\pprime \in D(x; r)}$ を半径とする$x$ を中心とした閉球に含まれるから. 
+\end{claimproof}
+
+\begin{claim}
+$\rho(x) < \infty \naraba D(x; \rho(x)) $ はコンパクトである. 
+\end{claim}
+\begin{claimproof}
+$D(x ; \rho(x) - \veps)$ は$D(x; \rho(x))$ の有限集合でない$\veps$ネット であるが, コンパクトであるので, (適当に半径$\veps$の開球の族による開被覆をとったあと有限部分被覆をとって, その開球の中心全体を考えると)有限$\veps$ ネットが存在する. 従って, $D(x; \rho(x))$ は全有界である. また, 閉集合であることから完備でもあるので, コンパクトである. 
+\end{claimproof}
+
+\begin{claim} 任意の$x_0, x_1 \in X$ に対して
+\begin{align*} \abs{\rho(x_0) - \rho(x_1)} \leq \abs{x_0 - x_1}  \end{align*}
+が成り立つ. (したがって, $\rho$ は連続である.)
+\end{claim}
+\begin{claimproof}
+
+\end{claimproof}
+
 \qed
 \end{pf*}
 
