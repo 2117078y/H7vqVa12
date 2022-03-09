@@ -1,4 +1,4 @@
-\documentclass[platex, driver=dvipdfm, ja = standard, 10pt, fleqn, label-section=none]{bxjsarticle}
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
 
 %\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
 
@@ -126,9 +126,12 @@
 \newcommand{\id}{\textrm{id}}
 \newcommand{\Ker}{\textrm{Ker}}
 \newcommand{\im}{\textrm{Im}}
-
-
-
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
 
 \renewcommand{\;}{\, ; \,}
 \renewcommand{\d}{\, {d}}
@@ -153,7 +156,7 @@
 %%
 
 
-\title{パスメトリック空間}
+\title{pure metric geometry}
 \date{}
 
 
@@ -166,15 +169,265 @@
 \maketitle
 
 
+\section{登場人物}
 
-\section{}
-
-\subsection{パスメトリック空間}
-
-
+\begin{setting}
+距離空間$X$ の曲線$x: I \rightarrow X$ に対しての微分概念は伸長と呼ぶ. 距離空間$X$ 上の関数$f: X \rightarrow \tilde {\mathbb R}$ に対しての微分概念も伸長というが, 符号を強制されているときはスロープという用語を用いる. また, アッパーグラディエント$(UG)$ という概念もある.  
+\end{setting}
 
 
-\subsection{パスメトリック空間の定義} 
+
+\section{パスメトリック空間}
+
+
+
+\subsection{絶対連続曲線}
+
+\begin{dfn}(絶対連続関数). $f: [a,b] \rightarrow \mathbb R$ は, $ g \in L^1 (a,b)$ で
+\begin{align*} ft - fs = \int_s^t g(u) d_u \quad (a \leq s \leq t \leq b) \end{align*}
+を満たすものが存在する時, 絶対連続関数という.
+\end{dfn}
+
+\begin{remark}
+$g \in L^1(a,b)$ の条件を, $g \in L^1_{loc} (a, b)$ に変えたものを, 局所絶対連続関数という. 
+\end{remark}
+
+
+\begin{prop}$f: [a,b] \rightarrow \mathbb R$ が絶対連続関数であることと, 
+任意の$\veps$ に対して $\delta >0$ で, $\sum_i (b_i - a_i) < \delta$ を満たす$(a,b)$ に含まれるdisjointな開区間の族$\cbra{(a_i, b_i)}$ に対して
+\begin{align*} \sum_i \abs{f b_i - f a_i} < \veps \end{align*}
+が存在することとは必要十分である.
+\end{prop}
+\begin{pf*}
+$\naraba.$ 
+\begin{claim}
+任意の$\veps >0$ に対して, $\delta > 0 $ で$[a, b]$ におけるボレル集合$A$ が$\textrm{leb}(A) < \delta$ ならば, 
+\begin{align*} \int_A \abs{g(u)} du \end{align*}
+を満たすものが存在する. 
+\end{claim}
+\begin{claimproof}
+存在しないと仮定する(背理法). ある$\veps$ で, 任意の$n$ に対して$\textrm{leb}(A_n) < \frac{1}{2^n}$ かつ$\int_{A_n} \abs{g(u)} du > \veps$である$[a,b]$ のボレル集合$A_n$ がとれる. 
+\begin{align*} B_n \coloneqq \cup_{i = n}^\infty A_i \end{align*}
+と定める. ($B_1 \supset B_2 \supset \cdots $ となっている. )
+\begin{align*}  \textrm{leb}(\cap B_n)   = \lim \textrm{leb}(B_n) = \lim  \textrm{leb}(\cup_{i = n}^\infty A_i) =  \lim \frac{1}{2^{n-1}} = 0 \end{align*}
+が成り立つ. すると, 
+\begin{align*} 0 = \int_{\cap B_n} \abs g du = \lim \int_{B_n} \abs g du \geq \lim \int_{A_n} \abs g du \geq \veps > 0\end{align*}
+となるので矛盾する. 
+\end{claimproof}
+故に, $A = \cup (b_i - a_i)$ を考えることで主張が成り立つ. $\gyaku$ 工事中. 
+\qed
+\end{pf*}
+
+\begin{dfn}(一般の距離空間における絶対連続曲線). $\gamma : [a, b] \rightarrow \mathbb R$ は, 
+$g \in L^1(a,b)$ で
+\begin{align*} d(\gamma_t, \gamma_s) \leq \int_s^t g(u) du \quad (a \leq s \leq t \leq b)\end{align*}
+を満たすものが存在するときに, 絶対連続曲線という. 
+\end{dfn}
+
+\begin{remark}
+$g \in L^1(a,b)$ の条件を, $g \in L^1_{loc} (a, b)$ に変えたものを, 局所絶対連続曲線という. 
+\end{remark}
+
+\begin{remark}$\mathbb R$ に値をとる絶対連続関数の場合は, 前述の命題のように, 同値な定義が存在したが, 一般の距離空間における絶対連続曲線の場合には, 前者の定義は真に後者の定義よりつよい. 
+\end{remark}
+
+\begin{dfn}(伸長). リプシッツ連続曲線$\gamma : [a,b] \rightarrow \mathbb R$ に対して
+ \begin{align*} \dil \gamma _t  \coloneqq \limsup_{h \rightarrow 0} \frac{d(\gamma_{t +h} , \gamma_t)}{\abs h}  \end{align*}
+ と定め, これを絶対連続曲線$\gamma$の$t$ における伸長という. 
+\end{dfn}
+
+\begin{prop}$\gamma$ が絶対連続曲線であるとき, 
+\begin{align*} \dil \gamma _t  = \lim_{h \rightarrow 0} \frac{d(\gamma_{t +h} , \gamma_t)}{\abs h}  \end{align*}
+が成り立つ. (つまり, $\limsup$ より強く$\lim$ が存在するということ.) 
+\end{prop}
+\begin{pf*}
+$\cbra{z_i} $ を $\gamma([a,b])$ の可算稠密集合とし, 
+\begin{align*} f_i u \coloneqq d (\gamma_u, z_i)  \end{align*}
+と定める. 三角不等式から$\abs{f_i t - f_i s } = \abs{d (\gamma_t, z_i)  - d (\gamma_s, z_i)   }\leq d(\gamma_t, \gamma_s) \leq \int_t^s g_u du$  が成り立つので, $f_i$ は絶対連続関数なので, 殆ど至る所微分可能である. 微分を$f^\prime_i$ で表すことにすると, 任意の$i$ に対して
+\begin{align*} \abs{f^\prime _i} \leq g\end{align*}
+が成り立っている. さて, 
+\begin{align*} m_t \coloneqq \sup_i \abs{f^\prime_i (t)}\end{align*}
+と定める. 
+
+\begin{claim}
+\begin{align*} \liminf \frac{d(\gamma_{t+h} , \gamma_t)}{\abs h} \geq m_t . \end{align*}
+\end{claim}
+\begin{claimproof}
+\begin{align*} \liminf \frac{d(\gamma_{t+h} , \gamma_t)}{\abs h} \geq  \frac{   \abs{f_i(t+h) - f_i (t) }   }{\abs h} \geq m_t\end{align*}
+が成り立つ. 
+\end{claimproof}
+
+\begin{claim}
+\begin{align*} \limsup \frac{d(\gamma_{t+h} , \gamma_t)}{\abs h} \leq m_t . \end{align*}
+\end{claim}
+\begin{claimproof}
+\begin{align*}   \abs{f_i(t+h) - f_i (t) }  = \int_t ^ {t +h} f^\prime_i (u) du \leq \int_t^{t +h} \abs{f^\prime_i (u)} du \leq \int_t^ {t+h} m(u) du \end{align*}
+であり, また, 稠密性から$\gamma_t$ に近づく点列$z_i$ がとれるので, 
+\begin{align*} \sup_i   \abs{f_i(t+h) - f_i (t) }  = \sup_i \abs{d(\gamma_{t+h}, z_i)  d(\gamma_t, z_i)} = d(\gamma_{t +h} , \gamma_t) - 0 \end{align*} 
+が成り立つ. 従って, これらを合わせると, 
+\begin{align*} d(\gamma_{t +h} , \gamma_t) \leq \int_t ^ {t +h} m(u) du \end{align*}
+が成り立つ. ここで, ルベーグ点である$t$ に対して
+\begin{align*} m(t) = \lim_{h\rightarrow +0} \frac{1}{h} \int_t^{t+h} m(u) du  \end{align*} 
+なので, 
+\begin{align*}\lim_{h \rightarrow 0} \frac{1}{h} \int_t^{t+h} m(u) du = \limsup_{h \rightarrow 0}  \frac{1}{h} \int_t ^ {t +h} m(u) du  \geq \limsup_{h \rightarrow 0}  \frac{1}{h} d(\gamma_{t+h} , \gamma_t) \end{align*}
+が成り立つ. ($h \rightarrow +0$ と$h \rightarrow -0$ に分けて考える必要があるかも?) 
+\end{claimproof}
+
+故に, 殆ど至る所で
+\begin{align*} m(t) = \lim_{\abs h \rightarrow 0} \frac{d(\gamma_{t+h} , \gamma_t)}{\abs h} \end{align*}
+が成り立つ. つまり,$\limsup_{h \rightarrow 0} \frac{d(\gamma_{t +h} , \gamma_t)}{\abs h}$は実際, 極限が存在する. 
+\qed
+\end{pf*}
+
+\subsection{Upper Gradient}
+
+
+
+\subsection{伸長・スロープ・UGの関係}
+
+
+\subsection{長さ構造}
+
+\begin{setting}
+$X, Y$ で距離空間を表す. それぞれが備える距離$d_X, d_Y$ も混乱の恐れのない限り$d$ で表す. 
+
+\end{setting}
+
+\begin{dfn}(伸長). $f: X \rightarrow Y$ に対して$\mathbb R \cup \cbra{\infty}$ に値をとる
+\begin{align*} \textrm{dil} (f) \coloneqq \sup_{x, x^\prime \in X, x \neq x^\prime } \frac{d(fx, fx^\prime )}{ d(x, x^\prime) } \end{align*} 
+と定め, これを$f$ の伸長という. 
+
+\end{dfn}
+
+\begin{dfn}(局所伸長). $f: X \rightarrow Y$ に対して$\mathbb R \cup \cbra{\infty}$ に値をとる
+\begin{align*} \textrm{dil}_x (f) \coloneqq \lim_{\veps \rightarrow 0} \textrm{dil}(f | _ {B(x; \veps)}) \end{align*} 
+と定め, これを$f$ の$x \in X$ における局所伸長という. 
+
+\end{dfn}
+
+\begin{dfn}(リプシッツ写像). $\textrm{dil} (f) < \infty$ を満たす写像をリプシッツ写像という. 
+
+\end{dfn}
+
+\begin{prop}
+任意の点$x \in X$ において, $\textrm{dil}_x f \leq \textrm{dil} f$ が成り立つ. 
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+
+\begin{dfn}(リプシッツ写像の総伸長). $f : [a, b] \rightarrow Y$ をリプシッツ写像とする. 
+\begin{align*} l(f) \coloneqq \int_a^b \textrm{dil} _t f dt \end{align*} 
+と定め, これを$f$ の(リプシッツ写像)総伸長という. 
+\end{dfn}
+
+\begin{dfn}(連続写像の総伸長). 
+リプシッツ連続でない連続写像$f : [a, b] \rightarrow Y$ に対して, 
+\begin{align*} l(f) = \sup \sum d(f(t_i), f(t_{i+1}))  \end{align*}
+で定める. ただし, 上限は全ての$n$ 分割$0 = t_0 \leq t_1 \leq  \ldots \leq t_n = b $ を走る. これを$f$ の(連続写像)総伸長という.
+\end{dfn}
+
+\begin{remark}
+絶対連続な写像に関しては, リプシッツ写像総伸長と連続写像総伸長は一致するらしい. 
+\end{remark}
+
+
+
+\begin{dfn}(長さ構造). $X$ を集合とする. 区間全体を添字集合とする, 閉区間$I \subset \mathbb R$ から$X$  への写像の族$\cbra{\mathcal C(I)}_I$ と, 全ての閉区間に関して$\mathcal C (I)$ を足し合わせた$\mathcal C = \cup_{I} \mathcal C (I)$ 上の関数$l: C \rightarrow \mathbb R$ の組$(\cbra{\mathcal C(I)}_I, l)$で\\
+(1)$l(f) \geq0 \quad (f \in C)$ かつ$l(f) = 0$ であることの必要十分条件が$f$ が定値写像 であることである. \\
+(2-1)$I \subset J $ ならば, 任意の$f \in \mathcal C(J)$ に対して$f |_I \in C(I)$ が成り立つ.  \\
+(2-2)$f \in \mathcal C([a,b]), g \in \mathcal C([b,c])$ で$f(b) = g(b)$ を満たすものに対して, $h(t) \coloneqq \begin{cases} f(t) &(t \in [a,b]) \\ g(t) &(t \in [b,c])\end{cases} $ により定まる写像は$h \in \mathcal C([a,c])$ であり, $l(h) = l(f) + l(g)$ が成り立つ. \\
+(3)区間$I, J$ に対して$\varphi : I \rightarrow J$ が同相写像であるならば, $f \in \mathcal C(J)$ に対して$f \circ \varphi \in \mathcal C(I)$ であり, $l(f\circ \varphi) = l(f)$ が成り立つ. \\
+(4)任意の閉区間$I = [a, b]$ と$f \in \mathcal C([a,b])$ に対して, $t \mapsto l(f|_{[a, t]})$ は連続である. \\
+を満たすとき, 長さ構造という. 
+
+\end{dfn}
+
+\begin{dfn}(長さ擬距離). $X$ を集合とする. $(\cbra{\mathcal C(I)}_I, l)$ を$X$ の長さ構造とする.    
+\begin{align*} d_l (x, y) \coloneqq \inf \cbra{l(f) \mid f \in \mathcal C , x, y \in \textrm{im}(f) }\end{align*}
+をこの長さ構造が定める長さ擬距離という. 
+\end{dfn}
+
+\begin{ex} 距離$d$ を備えた集合$X$ に対して標準的に定まる長さ構造は, $\mathcal C(I)$ を$I$ から$X$ への連続写像とし, $l$ を総伸長とした $(\cbra{ \mathcal C(I)}_I, l)$ である. 
+\end{ex}
+
+\begin{prop} $X$ に長さ構造$(\cbra{ \mathcal C(I)}_I, l)$ を備え, この長さ構造から定まる長さ擬距離を$d_l$ とする. 距離空間$(X, d_l)$ に前述のようにして標準的な長さ構造 $(\cbra{ \mathcal C(I)}_I, \tilde l)$ を定める. (すなわち, $\mathcal C(I)$ を$I$ から$X$ への連続写像とし, $\tilde l$ を連続写像総伸長とした $(\cbra{ \mathcal C(I)}_I, \tilde l)$ である. ) このとき, $l$ がコンパクト開位相を備えた$\mathcal C (I)$ 上で下半連続であるならば, 
+\begin{align*} l = \tilde l \end{align*}
+が成り立つ. 
+
+\end{prop}
+\begin{pf*}
+\begin{claim}
+\begin{align*} l(f) \leq \tilde l (f) \end{align*}
+\end{claim}
+\begin{claimproof}
+$t \mapsto l(f|_{[a,t]})$ は$[a,b]$ 上で一様連続なので適当に$\eta > 0$ で$\abs{t - t^\prime} < \eta$ ならば$d_l (f(t), f(t^\prime)) < \veps$ となるものをとる. 区間$[a, b]$ の$n$ 分割を, 各メッシュの長さが$\eta$ を超えないように分割する. 長さ擬距離の定義から
+\begin{align*} d_l (f(t_i), f(t_{i+1})) = \cbra{l(g) \mid g \in \mathcal C ([t_i, t_{i+1}]) g_{t_i} = f_{t_i}, g_{t_{i+1}} = f_{t_{i+1}}  } \end{align*}
+であるので, $g_i \in \mathcal C ([t_i, t_{i+1}]) $ で 
+\begin{align*} d_l (f(t_i), f(t_{i+1}))  \leq l(g_i) \leq d_l (f(t_i), f(t_{i+1}))  + \frac{\veps}{n} \end{align*}
+を満たすものがとれる. $g_0, \cdots , g_n$ を繋ぎ合わせたものを$h_\veps \in \mathcal C ([a, b]) $ とすると,  
+\begin{align*} \tilde l (f) = \sup \sum d_l (f(t_i), f(t_{i+1})) \end{align*}
+であるので, 
+\begin{align*} l(h_\veps) = \sum l(g_i) \leq \sum d_l (f(t_i), f(t_{i+1}))  + n \cdot \frac{\veps}{n} \leq \tilde l (f) + \veps \end{align*}
+が成り立つ. また, 任意の$t \in [a, b]$ に対して$t \in [t_i, t_{i+1}   ]$なる$i$ をみつけて, 
+\begin{align*} &d_l (h_\veps (t) , f(t)) \\
+&\leq d_l (h_\veps (t), h_\veps (t_{i+1})) + d_l (h_\veps(t_{i+1}), f(t_{i+1})) + d_l (f (t_{i+1}), f(t)) \\
+&< d_l (h_\veps (t), h_\veps (t_{i+1})) + 0 + \veps \\
+&< l(g_i) + \veps \\
+&< d_l(f(t_{i}), f(t_{i+1})) + \frac{\veps}{n} + \veps  < 3 \veps \end{align*}
+が成り立つ. (もしかしたら嘘書いてるかも.) $l$ がコンパクト開位相に関して下半連続なので
+\begin{align*} l(f) \leq \lim\inf l(h_\veps)  \end{align*}
+であり, $\lim \inf l(h_\veps) \leq \lim ( \tilde l (f) + \veps )= \tilde l (f) $ であるので, 主張は示された. 
+\end{claimproof}
+
+つぎに逆側の不等号を考える.
+\begin{claim}
+\begin{align*} \tilde l (f) \leq l (f)  \end{align*}
+\end{claim}
+\begin{claimproof}
+定義通りに追っていくと, 
+\begin{align*}
+&\tilde l (f) \\
+&=  \sup \sum d_l (f(t_i), f(t_{i+1} ))   \\
+&\leq \sup \sum \inf \cbra{l (g) \mid g \in \mathcal C([0,1]), g(0) = f(t_{i}), g(1) = f(t_{i+1})} \\
+&\leq \sup \sum l(f |_{t_i, t_{i+1}}) = l(f) \end{align*}
+が成り立つ. 二つ目の等号では
+\begin{align*} \cbra{l (g) \mid g \in \mathcal C, f(t_{i}), f(t_{i+1}) \in \textrm{im} g }  \subset \cbra{l (g) \mid g \in \mathcal C([0,1]), g(0) = f(t_{i}), g(1) = f(t_{i+1})}   \end{align*}
+を用いた. 
+\end{claimproof}
+
+従って, 命題の主張が成り立つ. 
+\qed
+\end{pf*}
+
+
+
+\begin{prop}
+$f: S^n \rightarrow S^n$ は, $\dil f < 2$ であるならば, $\textrm{deg} f \in \cbra{1, 0, -1}$ である.
+\end{prop}
+\begin{pf*}
+$f$ が全射でない場合は$\textrm{deg} f = 0$ である. $f$ が全射である場合を考える. 
+\begin{align*} \veps \coloneqq  2 - \dil f > 0 \end{align*}
+と定める. 適当に好きな$y \in S^n$ をとる. 
+
+\begin{claim}
+$f^{B(y; \veps)}$ は$S^n$ の適当な開半球に含まれる. 
+\end{claim}
+\begin{claimproof}
+$y^\prime $ を$y$ の対蹠点とする. $x^\prime \in f^{-1}(y^\prime)$ を好きにとる. 任意に$z \in f^{-1} (B(y; \veps))$ をとる. 
+$ \dil f <  2 - \veps $ であるので, $\frac{d(f(x^\prime), f(z))}{d(x^\prime , z)} \leq 2 - \veps$ が成り立つ. また, $y^\prime$ は$y$ の対蹠点であるので, $B(y; \veps)$ に属する$f(z)$ に対しては, $d(y^\prime , f(z)) < \pi - \veps$ が成り立つ. 従って, 
+\begin{align*} d(x^\prime , z) \geq \frac{1}{2 - \veps} d(y^\prime ) \geq \frac{\pi}{2} \end{align*}
+が成り立つ. これはすなわち$f^{B(y; \veps)}$ が$S^n$ の$x^\prime$ を中心とした開半球とは逆の(つまり, $x^\prime$ の対蹠点を中心とする)開半球に含まれることを意味する. 
+
+\end{claimproof}
+
+
+\qed
+\end{pf*}
+
+\subsection{パスメトリック空間} 
 
 \begin{dfn}(パスメトリック空間). 距離空間$(X, d)$ は, 任意の二点$x_0, x_1 \in X$ に対して
 \begin{align*} d(x_0, x_1) = \inf \cbra{ \sup_{\Pi} \sum d(c(t_i), c(t_{i+1} )  ) \mid c \in C([0,1]; X), c_0 = x_0, c_1 = x_1 }   \end{align*}
@@ -228,7 +481,7 @@ $(X, d)$ を距離空間とする. (1)と(2)は必要十分である.\\
 \begin{dfn}($\veps$ネット). 部分集合$A \subset X$ は, $X \subset B(A; \veps)$ を満たす時に, $\veps$ ネットという. 
 \end{dfn}
 
-\begin{prop}(距離空間におけるホップリノウの定理). 完備局所コンパクトパスメトリック空間は固有な距離空間である. (すなわち, 任意の有界閉集合がコンパクトである.)
+\begin{prop}(距離空間におけるホップリノウの定理). 完備で局所コンパクトなパスメトリック空間は固有な距離空間である. (すなわち, 任意の有界閉集合がコンパクトである.)
 \end{prop}
 \begin{pf*}
 \begin{align*} \rho(x) \coloneqq \sup \cbra{R> 0 \mid \textrm{閉球} D(x; R) \textrm{がコンパクト} }  \end{align*}
@@ -241,6 +494,7 @@ $\rho (x) > 0$
 \begin{claimproof}
 $X$ が局所コンパクトだから. 
 \end{claimproof}
+
 
 \begin{claim}
 ある点$x \in X$ で$\rho (x) = \infty$ となるものが存在すれば, 任意の点$x^\prime$に対して$\rho (x^\prime) = \infty$ である.  
@@ -256,16 +510,472 @@ $\rho(x) < \infty \naraba D(x; \rho(x)) $ はコンパクトである.
 $D(x ; \rho(x) - \veps)$ は$D(x; \rho(x))$ の有限集合でない$\veps$ネット であるが, コンパクトであるので, (適当に半径$\veps$の開球の族による開被覆をとったあと有限部分被覆をとって, その開球の中心全体を考えると)有限$\veps$ ネットが存在する. 従って, $D(x; \rho(x))$ は全有界である. また, 閉集合であることから完備でもあるので, コンパクトである. 
 \end{claimproof}
 
-\begin{claim} 任意の$x_0, x_1 \in X$ に対して
-\begin{align*} \abs{\rho(x_0) - \rho(x_1)} \leq \abs{x_0 - x_1}  \end{align*}
+\begin{claim} $\rho(x) < \infty $ ならば, 任意の$x_0, x_1 \in X$ に対して
+\begin{align*} \abs{\rho(x_0) - \rho(x_1)} \leq d(x_0 , x_1)  \end{align*}
 が成り立つ. (したがって, $\rho$ は連続である.)
 \end{claim}
 \begin{claimproof}
-
+主張が成り立たないとする. 適当な$x_0, x_1 \in X $ で
+\begin{align*}  \rho(x_1)  >  \rho(x_0 )   + d(x_0 , x_1)   \end{align*}
+を満たすものが取れる. ($1$ 次元とかで絵をかくとわかりやすいだろうが) 適当な$\veps > 0$ で
+\begin{align*} D(x_0; \rho(x_0) + \veps) \subset D(x_1; \rho (x_1))  \end{align*}
+を満たすものがとれる. すると, $D(x_0; \rho(x_0) + \veps) $ はコンパクト集合に含まれる閉集合なのでコンパクト集合となってしまうのだが, それは$\rho (x_0)$ が閉球をコンパクトにする半径の上限であることに矛盾する. 
 \end{claimproof}
+
+$D(x; \rho(x)) $がコンパクトであることと, $\rho$ が連続であることを用いて, $\veps = \min \cbra{\rho (y) \mid y \in D(x; \rho(x)) }$ とする. $D(x; \rho(x)) $ の有限$\frac{\veps}{10}$ネットを$\cbra{a_1, \ldots , a_n}$ とする. すると, $\cup D(a_i; \veps)$ はコンパクトで, $D(x; \rho(x) + \frac{\veps}{10}) $ を含むので, $D(x; \rho(x) + \frac{\veps}{10}) $ はコンパクトとなる. それは$\rho (x_0)$ が閉球をコンパクトにする半径の上限であることに矛盾する. したがって, $\rho(x) < \infty \quad(x \in X)$ ではない. 
 
 \qed
 \end{pf*}
+
+
+
+
+\subsection{ユークリッド空間における勾配流}
+
+\begin{remark}
+この節では, まずはユークリッド空間で, 十分良い微分可能性をもった曲線と関数に対して勾配流を考察する. 
+\end{remark}
+
+
+\begin{prop}(エネルギー消散不等式を満たす経路は勾配流である). 
+$c: [0, \infty) \rightarrow \mathbb R^n$ を$C^1$ 級曲線とする. $f: \mathbb R^n \rightarrow \mathbb R$ を$C^1$ 級関数とする. 
+\begin{align*} \frac{d}{dt} c_t = - \nabla f (c_t) \quad (t \in (0,\infty)) \end{align*}
+を満たすことと, 
+\begin{align*} f c_t + \frac{1}{2} \int_0^t ( \norm{\dot c_s} ^2 + \norm{\nabla f c_s} ^2 ) ds \leq f c_0 \end{align*}
+を満たすことは必要十分である. 
+\end{prop}
+\begin{pf*}$\naraba$. $\frac{d}{dt} fc_t = \tbra{\nabla f c_t, \dot c_t} = \frac{1}{2}  \tbra{\nabla f c_t, \dot c_t}  + \frac{1}{2}  \tbra{\nabla f c_t, \dot c_t}  = - \frac{1}{2} \tbra{\nabla f c_t, \nabla f c_t} - \frac{1}{2} \tbra{\dot c_t, \dot c_t}$ が成り立つ.  $\gyaku$. $c$ は$C^1$ 級なので, $fc_t$ は微分可能で$\tbra{\nabla f c_t. \dot c_t}$ となる. 従って, 
+\begin{align*} f c_t - f c_0 = \int_0^t \tbra{\nabla f c_s, \dot c_s} ds \end{align*}
+が成り立つ. 従って, 
+\begin{align*} 0 \leq \frac{1}{2} \int_0^t \norm{\dot c_s + \nabla f c_s}^2 ds &= \frac{1}{2} \int_0^t ( \norm{\dot c_s} ^2 + \norm{\nabla f c_s} ^2 ) ds + \int_0^t \tbra{\nabla f c_s, \dot c_s} ds \\&=\frac{1}{2} \int_0^t ( \norm{\dot c_s} ^2 + \norm{\nabla f c_s} ^2 ) ds  + ( f c_t - f c_0 ) \leq 0   \end{align*}
+が成り立つ. ので, $\frac{1}{2} \int_0^t \norm{\dot c_s + \nabla f c_s}^2 ds = 0$ であるので, 殆ど至る所の$s \in (0, t)$ に関して$\dot c_t = - \nabla f c_t $ が成り立つ. $c$ が$C^1$ 級であることから, 任意の$t$ に対して成り立つ. 
+\qed
+\end{pf*}
+
+\begin{prop}(発展変分不等式を満たす経路は勾配流である).  
+$c: [0, \infty) \rightarrow \mathbb R^n$ を$C^1$ 級曲線とする. $f: \mathbb R^n \rightarrow \mathbb R$ を$C^1$ 級関数とする. $c$ が
+適当な$\lambda $ に対して,
+\begin{align*} f c_t + \frac{d}{dt}\frac{1}{2} \norm{c_t - x}^2 + \frac{\lambda}{2} \norm{c_t - x}^2 \leq fx  \quad (\any x \in \mathbb R^n) \end{align*}
+を満たすならば, 
+\begin{align*} \frac{d}{dt} c_t = - \nabla f (c_t) \quad (t \in (0,\infty)) \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+$\frac{d}{dt}\frac{1}{2} \norm{c_t - x}^2 = \tbra{\dot c_t , c_t - x}$ なので, 
+\begin{align*}\tbra{\dot c_t , c_t - x} + \frac{\lambda}{2} \norm{c_t - x}^2 \leq fx - f c_t \quad (\any x \in \mathbb R^n) \end{align*}
+が成り立つ. 任意の$y \in \mathbb R^n$ に対して, ($x$として$x = c_t + \veps y$ をとってやることで, )任意の$\veps > 0$ に対して
+\begin{align*}\tbra{\dot c_t , - \veps y} + \frac{\lambda}{2} \norm{ - \veps y}^2 \leq f(c_t + \veps y) - f c_t \end{align*}
+が成り立つので, $\veps$ で割って$\veps \rightarrow 0$ とすることで
+\begin{align*} - \tbra{\dot c_t, y} \leq \tbra{\nabla f c_t, y} \quad (y \in \mathbb R^n) \end{align*}
+が成り立つ. $y = \dot c_t - \nabla f c_t $ と選ぶことで, 
+\begin{align*} - \tbra{\dot c_t - \nabla f c_t   }  \leq 0\end{align*}
+となるので, $- \dot c_t = \nabla f c_t$ が成り立つ. 
+\qed
+\end{pf*}
+
+
+
+
+
+\subsection{ヒルベルト空間における勾配流}
+
+\begin{setting}
+$H$ でヒルベルト空間を表す. 内積から自然に定まるノルムを$\norm \cdot$ で表す. 
+\end{setting}
+
+\begin{dfn}(ヒルベルト空間上の$\lambda$凸関数). $f: H \rightarrow (-\infty, \infty]$ は
+任意の$x, y \in H$ に対して
+\begin{align*} f(y) \geq f(x) + \tbra{\nabla f (x), y- x } + \frac{\lambda}{2} \norm{y - x}^2 \end{align*}
+\end{dfn}
+
+\begin{dfn}($\lambda$劣微分). $f: H \rightarrow ( - \infty, \infty] $ に対して 
+\begin{align*} \partial^\lambda f x \coloneqq \cbra{p \in H \mid f(y) \geq f(x) + \tbra{p, y-x} + \frac{\lambda}{2} \norm{y-x}^2 \quad (\any y \in H)  }\end{align*}
+と定め, これを$f$ の$x \in H$ における$\lambda$劣微分という. 
+\end{dfn}
+
+\begin{dfn}(ガトー劣微分). $f: H \rightarrow (-\infty, \infty]$とする. $x \in \textrm{dom} f$ に対して
+\begin{align*} \partial-^G f (x) \coloneqq \cbra{p \in H \mid \liminf_{t \rightarrow +0} \frac{f(x + tv) - f(x) }{t} \geq \tbra{p, v} \quad (\any v \in H)}\end{align*}
+と定める. これを$f$ の$x$ におけるガトー劣微分という. 
+\end{dfn}
+
+\section{RCD空間}
+
+\subsection{チーガー型エネルギー汎函数}
+
+\begin{setting}
+$(X, d, m)$ を測度距離空間とする. 
+\end{setting}
+
+\begin{prop}(マズールの補題). $(X, \norm \cdot )$ をバナッハ空間とする. 弱収束する点列$x_n \rightarrow x$ に対して
+\begin{align*} &\cbra{c^1_1, c^1_2, \ldots , c^1_{N_1}}, \cbra{c^2_2, c^2_3, \ldots , c^2_{N_2}}, \cbra{c^3_3, c^3_{4}, \ldots , c^3_{N_3} } , \cbra{c^4_4, c^4_{5}, \ldots, c^4_{N_4}}, \ldots    \end{align*}
+という非負実数の有限集合の列で, $\sum_{i = n }^{N_n} c^n_i = 1$を満たし, 
+\begin{align*} y_1 \coloneqq \sum_{i = 1}^{N_1} c^1_i x_i , y_2 \coloneqq \sum_{i = 2}^{N_2} c^2_i x_i , y_3 \coloneqq \sum_{i = 3}^{N_3} c^3_i x_i , \ldots \end{align*}
+のようにして凸結合で定まる点列$y_1, y_2, \ldots $が$x$ に強収束するものが存在する. 
+\end{prop}
+\begin{pf*}
+省略. 
+\qed
+\end{pf*}
+
+\begin{dfn}(Relaxed gradients). $f \in L^2$ とする. $g \in L^2$ は, $f$ に$L^2$収束するリプシッツ関数の列$f_n \in L^2$ で, $\dil f_n$ が$g^\prime (\leq g \,\,\, a.e.)$ に弱収束するものが存在するとき, $f$ のrelaxed gradientという. $g \in RG(f)$ で表すことにする. 
+\end{dfn}
+
+\begin{remark}
+つまり, うまく$f$ への近づけ方を調整すると$\dil f_n$ が極限で$g$ を下回れるようにできるなら, $g$ は$RG(f)$ に属する. 
+\end{remark}
+
+
+\begin{prop}
+(1)$f \in L^2$ とする. $g \in RG(f)$ ならば, $f$ に$L^2$ 収束するリプシッツ関数の列$f_n \in L^2$と, $\dil f_n \leq g_n$ を満たす列$g_n \in L^2$ で$g^\prime (\leq g)$ に$L^2$収束する ものが存在する. \\
+(2)$f_n \in L^2$ を$f$ に弱収束する列とする. $g_n \in RG(f_n)$ である列$g_n \in L^2$ が, $g$ に弱収束するならば, $g \in RG(f)$ である. \\
+(3)任意の$f \in L^2$ に対して, $RG(f)$ は$L^2(X, m)$ の強閉集合である. \\
+(4)任意の$f \in L^2$ に対して, $f$ に強収束する有界なリプシッツ関数の列$f_n \in L^2$ で, $\dil f_n$ が$\dil^* f$ に$L^2$ 収束するものが存在する. 
+\end{prop}
+\begin{pf*}
+(1)$g \in RG(f)$ なので, $f_n \in \Lip \cap L^2$ で$\dil f_n$ が$g^\prime \leq g$ に弱収束するものがとれる. マズールの補題から, $\dil f_n$ の適当な凸結合の列で$g^\prime$ に強収束するものがとれる. 対応する$f_n$ の凸結合の列を$\tilde f_n$ とすると, リプシッツ関数の凸結合はリプシッツ関数であり, $(\sum c^n_{N_n} \tilde f_i) - f$ は$0$ に強収束するので, $\tilde f_n$ は$f$ に強収束する. また, 凸結合なので, 適当に三角不等式を考えると$\dil \tilde f_n \leq g_n$ である. \\
+(2)$Set \coloneqq \cbra{(f, g) \in L^2 \times L^2 \mid g \in RG(f)}$ が弱閉であることを示せばよいのだが, $Set$ は落ち着いて考えると凸集合であることがわかるので, 強閉であることを示せれば弱閉であることが言える. 
+\begin{claim}
+$Set$ は強閉集合である. 
+\end{claim}
+\begin{claimproof}
+$(f_n, g_n)$ を$(f, g) \in Set$に強収束する点列とする. 各$n$ に対して$g_n \in RG(f_n)$ であるので, (1) を用いると$f_n$ に$L^2$収束するリプシッツ関数列$f_{n, m} \in L^2$ と$\dil f_{n,m} \leq g_{n,m}$ を満たす非負関数列$g_{n, m} \in L^2$ で, $g^\prime_n \leq g_n$ に$L^2$ 収束するものがとれる. (ここちょっと嘘ついてるかもしれないけど, $g_n$ は$g$ に$L^2$ 収束するので, $g^\prime_n \leq g_n$ であることから$\cbra{g^\prime_n}$は有界集合となるので, 弱$*$位相で相対点列コンパクトとなるので, 適当に部分列をとり, 添字を振り直すことで $g^\prime_n$ は適当な$g^\prime \in L^2$ に弱収束するようにしておける.) 対角線論法でうまく部分列をとり,列$\cbra{f_{n, M(n)} }_{n \in \mathbb N}$ は$f$ に$L^2$ 収束するようにしておく. 
+\begin{align*} w-\lim \dil f_n \leq g^\prime_n \leq g_n\end{align*}
+であったので, $\cbra{\dil f_n}$ は有界である. ので, 落ち着いて考えると$\cbra{\dil f_{n, M(n)}}$ が有界であることもわかる. すると$\cbra{\dil f_{n, M(n)}}$ は弱位相で相対点列コンパクトなので, さらに適当に部分列をとり, 添字を振り直してそれも同じ$\cbra{\dil f_{n, M(n)}}$ で表すことにしておくと, 
+\begin{align*} w- \lim \dil f_{n, M(n)} \leq w-\dil g_{n, M(n)} = g^\prime \leq g  \end{align*}
+が成り立つ. 従って, $g \in RG(f)$ である. 
+\end{claimproof}
+
+よって主張が成り立つ. \\
+(3)工事中.
+\qed
+\end{pf*}
+
+\begin{remark}
+"Calculus and heat flow in metric measure spaces and applications to spaces with Ricci bounds from below'' のp.26 の(b)証明の中の$G^i_{n(i)} \rightarrow \tilde G\,\, \textrm{in} \,\, L^2(X,m)$ って嘘? 
+\end{remark}
+
+\begin{remark}
+前述の補題から, $g \in RG(f)$ のうち, ノルムが極小になるもの$\dil^* f$ が存在することがいえてるはず.
+\end{remark}
+
+\begin{prop}$\dil^* f$ はノルムが極小であるだけでなく, 
+\begin{align*} \dil^* f \leq G \quad m-a.e. \,\, \textrm{in} X \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+
+
+\begin{dfn}(チーガー型エネルギー汎函数). 
+\begin{align*} \Ch(f) \coloneqq \inf \cbra{\liminf_{i \rightarrow \infty} \int_X \abs{\dil_x f_i}^2 dm \mid  f_i \in \Lip(X), f_i \xrightarrow {L^2} f  }\end{align*}
+
+\end{dfn}
+
+
+\begin{prop}(極小RGの連鎖律). $f \in L^2$ を$RG(f) \neq \varnothing$ とする. \\
+(1)任意のゼロ集合$N \subset \mathbb R$ に対して, $\dil^* f = 0 \,\, m-a.e. \,\, on f^{-1}(N)$が成り立つ. \\
+(2) 
+
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+
+\subsection{Weak upper gradients}
+
+\begin{setting}$restr_t^s: C([0,1]; X) \rightarrow C([0,1]; X)$ を
+\begin{align*} restr_t^s \gamma _r \coloneqq \gamma_{(1-r)t + rs}\end{align*}
+により定める. つまり, $\gamma$ という曲線を$[t,s]$ に制限したあと, それをにょーんと引き伸ばして$[0,1]$ にパラメータを引き伸ばす. 
+\end{setting}
+
+\begin{dfn}(試験計画), $\rho \in \mathcal P (C([0,1]; X) )$ は, $\rho(AC((0,1); (X, d))) = 1$ でかつ, 
+\begin{align*} {e_{t}}_\# \rho \ll m \quad (t \in [0,1]) \end{align*}
+を満たす時に, 試験(輸送)計画という. 
+\end{dfn}
+
+\begin{dfn}(伸縮可能な試験計画). 試験計画の族$Set$ は, 任意の$\rho \in Set$ に対して任意の$0 \leq t \leq s \leq 1$ に対して${restr_t^s} _\# \rho \in Set$ を満たす時に, 伸縮可能であるという. 
+\end{dfn}
+
+\begin{dfn}(Weak upper gradients). 
+
+\end{dfn}
+
+
+\section{ワッサーシュタイン幾何}
+
+\begin{prop}$\nu \in \mathcal M (X)$ が, $A \subset  X$ に集中しているとする. このとき, 任意の$E \in \mathcal B (X)$ に対して
+\begin{align*} \nu (E) = \nu(E \cap A) \end{align*}
+が成り立つ.
+\end{prop}
+\begin{pf*}
+$\nu (E \cap A^c) = 0$ だから. 
+\qed
+\end{pf*}
+
+
+\begin{prop}(分解定理). $\pi \in \Pi (\mu, \nu)$ であるならば, $\cbra{\nu_x}_{x \in X} \subset \mathcal P_2 (X)$ で\\
+(1)任意の$A \in \mathcal B (X)$ に対して$x \mapsto \nu_x (A)$ は可測である. \\
+(2)任意の$A \in \mathcal B(X)$ に対して$\pi (A) = \int_x \delta_x \otimes \nu_x (A) d \mu (x)$ が成り立つ. 
+
+\end{prop}
+\begin{pf*}
+認めることにする. 
+\qed
+\end{pf*}
+
+
+\begin{prop}(接着補題). $X, Y, Z$ を完備可分距離空間とする. $\pi_{12} \in \mathcal P (X \times Y), \pi_{23} \in \mathcal P (Y \times Z)$ とする. $p^Y_\# \pi^1 = p^Y_\# \pi^2$ であるならば, $\pi \in \mathcal P (X\times Y \times Z)$ で
+\begin{align*} p^{X,Y}_\# \pi = \pi_{12}, \quad p^{Y,Z}_\# \pi = \pi_{23} \end{align*}
+を満たすものが存在する. 
+\end{prop}
+\begin{pf*}
+\begin{align*} \pi(A) \coloneqq \int_Y \mu_y \otimes \delta_y \otimes \eta_y (A) d\nu(y)  \end{align*}
+と定めると, $E \in \mathcal B(X\times Y)$ に対して, 
+\begin{align*} p^{X,Y}_\# \pi (E) &= \pi ({p^{X,Y}}^{-1}(E)) = \pi(E \times Z) = \int_Y \mu_y \otimes \delta_y \otimes \eta_y (E \times Z) d \nu(y) = \pi_{12}(E) \end{align*}
+が成り立つ. $p^{23}_\# \pi(E) = \pi_{23} (E)$ も同様である. 
+\qed
+\end{pf*}
+
+\begin{prop}(三角不等式). $(\mathcal P _2 (X), W_2)$ は距離空間である. 
+
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+
+
+\section{空間の収束}
+
+\begin{dfn}($\veps$近似写像). $T: (X, d_X) \rightarrow (Y, d_Y)$ は, \\
+(1)$B(T(X); \veps) = Y .$\\
+(2)$\abs{d_Y(Tx_1, Tx_2) - d_X(x_1, x_2)} \leq \veps \quad(x_1, x_2 \in X).$ \\
+をみたすときに, $\veps$近似写像という.  
+
+\end{dfn}
+
+\begin{remark}
+(1)の条件は任意の$y \in Y$ に対して$x \in X$ で$d(Tx, y) < \veps$ を満たすものが存在することと同じである.
+\end{remark}
+
+
+
+\begin{prop}
+
+\begin{align*} d^{GH^\prime} (   (X, d_X), (Y, d_Y)   )  \coloneqq  \inf \cbra{\veps > 0 \mid  (X, d_X)\textrm{から}(Y, d_Y)\textrm{への}\veps\textrm{近似写像が存在}   } \end{align*}
+と定めると, 
+\begin{align*} \frac{1}{2}d^{GH^\prime}  \leq d^{GH} \leq 2d^{GH^\prime}   \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+
+\section{曲率次元条件}
+
+\subsection{基本比較関数}
+
+\begin{dfn}(基本比較関数). $t \in [0,1], \theta \in \mathbb R_{\geq 0}$ とする. 
+\begin{align*} S_{K,N}(r) \coloneqq \begin{cases} \sqrt{  \frac{N-1}{K}} \sin(r\sqrt{\frac{K}{N-1}}) & K >0 \\ r & K = 0 \\ \sqrt{- \frac{N-1}{K}} \sinh(r\sqrt{ - \frac{K}{N-1}})  & K < 0 \end{cases}, \quad C_{K,N}(r) \coloneqq \begin{cases}  \cos(r\sqrt{\frac{K}{N-1}}) & K >0 \\ 1 & K = 0 \\  \cosh(r\sqrt{ - \frac{K}{N-1}})  & K < 0 \end{cases} \end{align*}
+と定め, これを基本比較関数という.
+\begin{align*}   \beta_{K,N}^{(t)} (r)      \coloneqq \paren{\frac{S_{K,N}(tr) }{t S_{K,N} (r)}}^{N-1}  , \quad \beta_{K, \infty}^{(t)} (r) \coloneqq e^{ \frac{1}{6}  K(1-t^2)r^2   } \end{align*}
+と定める. 
+\begin{align*} \tau_{K,N}^{(t)} \coloneqq     t^\frac{1}{N}     \beta_{K,N}^{(t)}(\theta)^{1 - \frac{1}{N}}      \end{align*}
+
+\begin{prop}
+\begin{align*} \partial^2_r  S_{K,N}(r) + \frac{K}{N-1} S_{K,N}(r) = 0, \quad S_{K,N}(0) = 0, \quad S^\prime_{K,N}(0) = 1 \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+愚直に微分すればわかる. $\partial_x \partial_x \sinh (ax) = \partial_x  a \cosh(ax) = a^2 \sinh(ax)$ であることを思い出しておく. 
+\qed
+\end{pf*}
+
+\begin{prop}$N_1, N_2 \in (0, \infty)$ とする. 
+\begin{align*} (\beta_{K_1, N_1}^{(t)} (r) )^{N_1} \cdot (\beta_{K_2, N_2}^{(t)} (r) )^{N_2} \geq (\beta_{K_1 + K_2, N_1 + N_2}^{(t)} (r) )^{N_1 + N_2}     \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+$f: K \mapsto \log \frac{\sin(\sqrt K t)}{\sin (\sqrt K)}$ は$(-\infty, \pi^2)$ 上で凸であるので, $1 = \frac{N_1}{N_1 + N_2} + \frac{N_2}{N_1 + N_2}$ であることに注意すると, 
+\begin{align*} f(\frac{N_1}{N_1 + N_2} K_1 \theta^2 + \frac{N_2}{N_1 + N_2} K_2 \theta^2 )\leq \frac{N_1}{N_1 + N_2} f(\frac{K_1}{N_1} \theta ^2 ) + \frac{N_2}{N_1 + N_2} f(\frac{K_2}{N_2})   \end{align*}
+が成り立つ. 従って, $\exp (\textrm{左辺}) \leq \exp(\textrm{右辺})$ であり, この両辺を$t^{N_1 + N_2}$ で割ると求める式になる. 
+\qed
+\end{pf*}
+
+\subsection{リーマン多様体上の$(K,N)$凸関数}
+
+
+\begin{setting}
+多様体には常にリーマン多様体としての構造を備えておくことにする. 
+\end{setting}
+
+\begin{dfn}(多様体上の$(K, N)$凸関数) $F: M \rightarrow \mathbb R$ を滑らかな関数, $K \in \mathbb R, N > 0$とする. $F$ は
+\begin{align*} H_pF (v, v) - \frac{1}{N}\tbra{\grad  F p , v}^2 \geq K \norm v ^2 _p  \quad (p \in M, v \in T_p M)\end{align*}
+を満たす時に, $(K,N)$凸であるという. 
+\end{dfn}
+
+\begin{setting}$F: M \rightarrow \mathbb R, N > 0$ に対して
+\begin{align*} F_N (x) \coloneqq \exp (- \frac{1}{N}F(x))\end{align*}
+という記号を導入する. 
+\end{setting}
+
+\begin{prop}$F: M \rightarrow \mathbb R$ を微分可能な関数とする. $c:  [0,1] \rightarrow \mathbb R$ を滑らかな曲線とする. 
+\begin{align*} \partial_t |_{t = 0} F_N(c_t) = - \frac{1}{N}\tbra{\grad F (c_0), \dot c_0} F_N(c_0) \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+合成関数の微分から. 
+\qed
+\end{pf*}
+
+
+\begin{prop}(多様体における$(K,N)$凸の必要十分条件). $F: M \rightarrow \mathbb R$ を滑らかな関数, $K \in \mathbb R, N > 0$とする. 
+\begin{align*} F_N (x) \coloneqq \exp (- \frac{1}{N}F(x))\end{align*}
+とする. $F$ が$(K,N)$凸であることと
+\begin{align*} H_p F_N (v,v) \leq -\frac{K}{N} F_N \quad (p \in M, v \in T_pM)\end{align*}
+が成り立つこととは必要十分である. 
+\end{prop}
+\begin{pf*}
+工事中.
+\qed
+\end{pf*}
+
+
+
+\begin{prop}(多様体における$(K, N)$凸性の微分を用いない特徴づけ). \\
+(1)$F: M \rightarrow \mathbb R$ が$(K,N)$凸である. \\
+(2)$M$ 上の任意の定速測地線$\gamma : [0,1] \rightarrow M$ に対して
+\begin{align*}  F_N(\gamma_t) \geq \beta_{K,N+1}^{(1-t)}(d(\gamma_0, \gamma_1) )F_N(\gamma_0) + \beta_{K,N+1}^{(t)} (d(\gamma_0, \gamma_1)) F_N (\gamma_1) \quad (t \in [0,1])\end{align*}
+が成り立つ. \\
+(3)$M$ 上の任意の定速測地線$\gamma : [0,1] \rightarrow M$ に対して
+\begin{align*} F_N (\gamma_1) \leq C_{K,N+1}(d(\gamma_0, \gamma_1) ) F_N(\gamma_0) + \frac{S_{K,N+1}(d(\gamma_0, \gamma_1))}{d(\gamma_0, \gamma_1)} \paren{\partial_t}_{t = 0}  \paren{ F_N(\gamma_t)  }  \end{align*}
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+\subsection{距離空間上の$(K,N)$凸関数}
+
+\begin{setting}
+$(X, d)$ を距離空間とする. 
+\end{setting}
+
+\begin{dfn}(距離空間上の$(K,N)$凸関数). $F: X \rightarrow [-\infty, \infty]$ は, 任意の$p, q \in \dom F$ に対して, $p, q$ を結ぶ定速測地線$\gamma : [0,1] \rightarrow X $で, 
+\begin{align*}  F_N(\gamma_t) \geq \beta_{K,N+1}^{(1-t)}(d(\gamma_0, \gamma_1) )F_N(\gamma_0) + \beta_{K,N+1}^{(t)} (d(\gamma_0, \gamma_1)) F_N (\gamma_1) \quad (t \in [0,1])\end{align*}
+を満たすものが存在するとき, $(K,N)$凸関数という. また, 任意の定速測地線に対して成り立つときは強$(K,N)$凸関数という. 
+\end{dfn}
+
+
+
+\subsection{相対エントロピー}
+
+\begin{setting}$N \in \mathbb N_{\geq1}$ に対して
+\begin{align*} U_N (r) \coloneqq - N r^{1- \frac{1}{N}}, \quad \tilde S_N (\nu) \coloneqq \int_X U_N(f(x)) dm + N \quad (\nu_{ac} = fm )\end{align*}
+と定める. 
+\end{setting}
+
+\begin{prop}
+(1)$r \mapsto U_N(r)$は$\mathbb R_{\geq 0}$ 上で凸である. \\
+(2)$\lim_{N \rightarrow \infty} (N r + U_N (r)) = \sup_N  (N r + U_N (r)) = r \log r$
+\end{prop}
+\begin{pf*}
+(1)$\partial_r \partial_r U_N(r) = \partial _r (- (N-1) r^{-\frac{1}{N} } ) = \frac{N-1}{N} r ^{- \frac{1}{N}}$ なので, $r \geq 0 $であれば, これは非負となる. 従って, $r \geq 0$ 上で$U_N(r)$ は凸である. (2)
+\qed
+\end{pf*}
+
+\begin{prop}$f_n m \rightarrow f m $ とする. 
+\begin{align*} \Ent_m( f m) \leq \liminf \Ent_m (f_n m )\end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+
+\subsection{レニーエントロピー}
+
+\begin{dfn}$N \in \mathbb R_{\geq 1}$ とする. 
+$S^N_m: \mathcal P_2(X) \rightarrow \mathbb R$ を
+\begin{align*} S^N_m(\nu) \coloneqq - \int_X \paren{\frac{d\nu_{ac} }{dm} }^{-\frac{1}{N}} d \nu \end{align*}
+と定め, これをレニーエントロピーという. 
+\end{dfn}
+
+
+
+
+\end{dfn}
+
+\begin{prop}(レニーエントロピーの性質). $M(X) < \infty$ とする. \\
+(1)$N > 1$であれば, $S^N_m$ は下半連続である. \\
+(2)$N >1$ であれば, $-m(X)^{\frac{1}{N}} \leq S^N_m \leq 0$ が成り立つ. \\
+(3)$\Ent_m(\nu) = \lim_{N \rightarrow \infty} N(1 + S^N_m (\nu)).$ 
+
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+
+\begin{prop}$(M, g)$ を完備リーマン多様体とする. $K \in \mathbb R, N \in \mathbb R_{\geq 1}$ とする. $d = d_g, m = \vol_g$ とする. 測度距離空間$(M ,d, m)$ が$CD(K,N)$を満たすことと, $(M, g)$ が$\Ric \geq K, \dim(M) \leq N$ を満たすことは必要十分である. 
+
+\end{prop}
+\begin{pf*}
+
+
+
+\qed
+\end{pf*}
+
+
+
+
+
+\section{リーマン多様体と輸送}
+
+
+
+
+
+
+\begin{prop}$x:[0,1] \rightarrow \mathbb R, x \in C^{\infty}, a \in \mathbb R$ とする. 
+\begin{align*} & \ddot x (t) + a x(t) \leq 0 \\ & x(0) = x(1) = 0  \end{align*}
+を満たすならば, $x(t) \geq 0  \quad (t \in [0,1])$ が成り立つ.  
+\end{prop}
+\begin{pf*}
+$\ddot x (t) + a x(t) = \partial^2_t (x(t) + \frac{1}{6} a x^3(t)   ) \leq 0$ より, $x(t) + \frac{1}{6} a x^3(t) $ は$[0,1]$上で凹関数である. 任意の$t \in [0,1]$ に対して, 凹関数であることから
+\begin{align*} x(t) + \frac{1}{6} a x^3(t) \geq (1-t)( x(0) + \frac{1}{6} a x^3(0)  ) + t (x(1) + \frac{1}{6} a x^3(1) ) = 0\end{align*}
+が成り立つので, 
+\begin{align*} x(t) (1 + \frac{a}{6} x^2 (t)  ) \geq 0   \end{align*}
+が成り立つ. $x(t) \geq 0 \quad (t \in [0,1])$ でないと仮定すると, $x$ が連続であることから, 任意の$\veps > 0$ に対して$t_0 \in [0,1]$ で
+\begin{align*} - \veps < x(t_0) < 0 \end{align*}
+を満たすもの存在する. $\veps = \sqrt{\frac{6}{\abs a}} $ ととると, $t_0 \in [0,1]$ で
+\begin{align*}  -\sqrt{\frac{6}{\abs a}} < x(t_0) < 0 \end{align*}
+を満たすものがとれる. 
+\begin{align*} 0 < x^2 (t_0) < \frac{6}{\abs a}  \end{align*}
+なので
+\begin{align*} -1 < \frac{a}{6} x^2(t_0) < 1 \end{align*}
+となるので, 
+\begin{align*} 0  < 1 + \frac{a}{6} x^2(t_0) < 2 \end{align*}
+となる. すると
+\begin{align*} x(t_0) (1 + \frac{a}{6} x^2(t_0) ) < 0 \end{align*}
+となり矛盾する. 
+\qed
+\end{pf*}
+
+
+
+
 
 
 

@@ -1,4 +1,4 @@
-\documentclass[10pt, fleqn, label-section=none, titlepage]{bxjsarticle}
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
 
 %\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
 
@@ -227,7 +227,7 @@ $\mathbb{R}, \mathbb{Q}$ の間のハウスドルフ距離は0だが, $\mathbb{R
 $\mathbb{R}, \cbra{\text{1点}}$ の間のハウスドルフ距離は$\infty$. となる.
 \end{remark}
 
-\newpage
+
 \subsection{Gromov-Hausdorff 距離}
 \begin{dfn}(Gromov-Hausdorff 距離).
 $X,Y$ を距離空間とする. \\
@@ -275,7 +275,7 @@ d_{GH}(X,Y) & \leq d(F_1(X), F_2(Y)) \leq d(F_1(X), G_1(Z)) + d(G_2(Z), F_2(Y)) 
 \qed
 \end{pf*}
 
-\newpage
+
 Gromov-Hausdorff 距離は実際にはありとあらゆる距離空間と等長な埋め込みの組を考える必要はなく, $X\sqcup Y$の上の距離の取り方を考えるだけで良い.
 
 \begin{prop}
@@ -300,7 +300,7 @@ $(X \sqcup Y, d)$ として, $d(p,q) \coloneqq  \begin{cases} d_X (p,q) \,\,\, &
 場合わけの2つ目で, もし$f(X), g(Y)$ を新たな軸に関してずらさずに, そのまま$d(\iota_X x , \iota_Y y) = d^Z (f(x), g(y))$ と定めてしまうと, $f(x) = g(y)$ となる元の場合に, $\iota_X x \neq \iota_Y y$ なのに, $d(\iota_X x , \iota_Y y) = 0$ となってしまい, 距離にならない.
 \end{remark}
 
-\newpage 
+
 
 コンパクト距離空間全体を全単射な等長写像が存在するものを同一視して, それを$\mathcal{C}$ で表す.
 $d_{GH}([X],[Y]) \coloneqq d_{GH}(X,Y)$ と定める.

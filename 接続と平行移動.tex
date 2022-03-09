@@ -1,0 +1,306 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\dom}{\textrm{dom}}
+
+
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+
+
+
+
+%%
+
+
+\title{接続と平行移動}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+\subsection{接続と平行移動}
+
+\begin{dfn}滑らかな曲線$c$に沿ったベクトル場$X \in \Gamma(c^* TM)$ は, 任意の$t \in \dom c$ に対して
+\begin{align*} (\nabla^{c^*}_t X )(t) = 0 \end{align*}
+が成り立つときに, 曲線$c$と平行であるという. 
+\end{dfn}
+
+\begin{dfn}滑らかな曲線$c$ と, ベクトル場$X_s \in T_{c(s)} M$ に対して同型写像$P^s_t : T_{c(s)} M \rightarrow T_{c(t)} M$ を
+$X_s$ を微分方程式
+\begin{align*} (\nabla^{c^*}_t V )(t) = 0, \quad V_s = X_s \end{align*}
+の解の時刻$t$ における値$V_t$ で定め, 
+\begin{align*} P^s_t X_s \coloneqq X_t\end{align*}
+により定める. 
+\end{dfn}
+
+\begin{remark}
+同型写像であることは, 微分方程式の解の一意性から従う. また, 規約表記と同じ見方ができるように, $P^s_t$ の右上と$X_s$の右下が同じ時刻になるように記号を定めている. 
+\end{remark}
+
+
+\begin{prop}$X \in \Gamma(c^* TM)$ を滑らかな曲線$c$に平行なベクトル場とし, $s \in \dom c$ とする. $P^s_t X_s \in \Gamma(c^* TM)$ に対して
+\begin{align*} \nabla_t P^{s}_t X_{s} = 0  \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+そうなるように定義しているので明らか. 
+\qed
+\end{pf*}
+
+
+\begin{prop}
+$X$ を滑らかな曲線$c$ に沿った平行とは限らないベクトル場とする. 
+\begin{align*} (\nabla^{c^*}_t X ) _0 =  \lim_{t \rightarrow 0} \frac{P^0_t X_0 - X_0}{ t } \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+$c_{0}$ において正規直交基底$\cbra{e_{i0} }$ をとり, $X_t = X^i_t P^{0}_t e_{i0}  $ と表示しておく.  
+\begin{align*} &(\nabla^{c^*}_t X ) _0 = (\partial_t X^i)_0 e_{i0} +  X^i_t (\nabla^{c^*}_t P^{0}_t e_{i0})_0  =  (\partial_t X^i)_0 e_{i0}. \\ 
+&\lim_{t \rightarrow 0} \frac{P^t_0 X_t - X_0}{ t } = \lim_{t \rightarrow 0} \frac{P^t_0 X^i_t P^{0}_t e_{i0} - X^i_0 e_{i0}}{ t } =  \lim_{t \rightarrow 0} \frac{X^i_t P^t_0 P^{0}_t e_{i0} - X^i_0 e_{i0}}{ t } = \lim_{t \rightarrow 0} \frac{X^i_t - X^i_0}{t} e_{i0} = (\partial_t X^i)_0\end{align*}
+\qed
+\end{pf*}
+
+
+\subsection{接空間の標準的な同一視について}
+
+\begin{setting}
+多様体$M$ の$p$ における接空間を, $v:C^\infty(M ; \mathbb R) \rightarrow \mathbb R$ でライプニッツ則をみたすもの全体として定義する. 
+\end{setting}
+
+\begin{setting}
+ユークリッド空間$\mathbb R^n$ の座標は恒等写像によりとる. 
+\end{setting}
+
+\begin{setting}
+接空間$T_pM$ 上の滑らかな関数に対する, 同相写像で定めた座標に対応する偏微分作用素を$(\delta_i)v$ で表す. 
+\end{setting}
+
+\begin{dfn}(ユークリッド空間の接空間と同一視). 線型写像$\iota_p : \mathbb R^n \rightarrow T_p \mathbb R^n$ を
+\begin{align*} \iota_p (e_i) \coloneqq (\partial_i )_p  \quad (i = 1, \ldots , n)\end{align*}
+とし, これを線型に拡張することで定める. これをユークリッド空間と標準的な同一視という. 
+\end{dfn}
+
+\begin{dfn}(接空間の接空間と同一視). 線型写像$\iota_v :  T_p M \rightarrow T_v(T_p \mathbb M)$ を
+\begin{align*} \iota_v ((\partial_i)_p) \coloneqq (\delta_i )_v  \quad (i = 1, \ldots , n)\end{align*}
+とし, これを線型に拡張することで定める. これを接空間と2次接空間の標準的な同一視という. 
+\end{dfn}
+
+\begin{prop}$T_pM$上の曲線$\omega(t) \coloneqq t\xi$ に対して
+\begin{align*} \dot \omega (0) = \iota_o \xi \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+$\xi = \xi^i (\partial_i)_p$ と表す. $\iota_o (\xi) = \iota_o (\xi^i (\partial_i)_p) = \xi^i (\delta_i)_o$ である. 滑らかな関数$f: T_pM \rightarrow \mathbb R$ に対して
+\begin{align*} \partial_t |_{t = 0} f(\omega (t) ) = \nabla f (o) \cdot \xi = \xi^i ((\delta_i )_o f) = \iota_o (\xi) f  \end{align*}
+より主張が従う. 
+\qed
+\end{pf*}
+
+\begin{prop}$T_pM$上の曲線$\omega(s) \coloneqq t \xi + ts \zeta$ に対して
+\begin{align*} \dot \omega (0) = \iota_{t \xi}  (t \zeta) \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+$\zeta = \zeta^i (\partial_i)_p$ と表す. $\iota_{t\xi} (\zeta) = \iota_{t\xi} (\zeta^i (\partial_i)_p) = \zeta^i (\delta_i)_{t\xi}$ である. 滑らかな関数$f: T_pM \rightarrow \mathbb R$ に対して
+\begin{align*} \partial_s |_{s= 0} f(\omega (s) ) = \nabla f (t\xi) \cdot (t \zeta) = t \zeta^i ((\delta_i )_{t\xi} f) = \iota_{t\xi} (t\zeta) f  \end{align*}
+より主張が従う. 
+\qed
+\end{pf*}
+
+
+\begin{prop}
+\begin{align*} d(\exp_p)_{o} \circ \iota_o = \id_{T_p M} \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}任意に$\xi \in T_pM$ をとる. 
+$T_p M$ 上の曲線$\omega (t) \coloneqq t \xi$ を考える. 
+\begin{align*} d(\exp_p)_{o} \circ \iota_o (\xi) =  d(\exp_p)_{o} (\dot \omega (0)) = (\partial_t )|_{t = 0} (\exp_p \circ \omega ) (t) = (\partial_t )|_{t = 0} (\exp _p (t \xi)) = \xi  \end{align*}
+\qed
+\end{pf*}
+
+
+
+\subsection{ヤコビ場と指数写像}
+
+\begin{setting}
+指数写像による座標近傍をとる. 
+\end{setting}
+
+\begin{prop}$J_0 = 0, (\nabla_t J)_0 = \eta \in T_pM$ を満たす$\exp_p (t\xi)$ に沿ったヤコビ場に対して
+\begin{align*} d(\exp_p)_{t\xi} \iota_{ t \xi} \eta = \frac{1}{t} J_t \end{align*} 
+が成り立つ. 
+\end{prop}
+\begin{pf*}このヤコビ場は$\exp_p(t\xi + ts \eta)$ の変分ベクトル場として与えられるので, 
+\begin{align*} J_t = (\partial_s)|_{s = 0} \exp_p (t \xi + ts \eta) = (d\exp_p)_{t \xi} (\iota_{t\xi} t \eta) =  t (d\exp_p)_{t \xi} (\iota_{t\xi}  \eta) \end{align*}
+が成り立つ. 
+\qed
+\end{pf*}
+
+\begin{prop}$J_0 = 0, (\nabla_t J)_0 = (\partial_i)_p \in T_p M $ を満たす$\exp_p (t\xi)$ に沿ったヤコビ場に対して
+\begin{align*} d(\exp_p)_{t\xi} \iota_{ t \xi} (\partial_i)_p = \frac{1}{t} J_t, \quad  (\partial_i)_{\exp_p t\xi} = \frac{1}{t} J_t \end{align*} 
+が成り立つ. 
+\end{prop}
+\begin{pf*}一つ目は前述の命題から直ちに従う. 二つ目は, 
+\begin{align*} d(\exp_p)_{t\xi} \iota_{t \xi} (\partial_i)_p f = \partial_s|_{s = 0} \exp_p (t \xi + ts (\partial_i)p) f = \partial_ i (f \circ \exp_p) (\exp_p t\xi) = \partial_i |_{\exp_p (t\xi)} f  \end{align*}
+が成り立つ. 
+\qed
+\end{pf*}
+
+
+
+
+
+\end{document}
