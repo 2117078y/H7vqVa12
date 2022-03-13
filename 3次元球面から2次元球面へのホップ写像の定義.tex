@@ -1,0 +1,237 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+
+
+
+
+%%
+
+
+\title{3次元球面から2次元球面へのホップ写像}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+
+
+
+\section{}
+
+\subsection{3次元球面の中の2次元トーラス}
+
+
+\begin{align*} S^3 = \cbra{(z^1, z^2) \in \mathbb C ^2 \mid \abs{z^1}^2  + \abs{z^2} ^2 = 1 }\end{align*}
+
+を, あえて
+
+\begin{align*} S^3 = \cbra{(\cos (\frac{\xi}{2}) e^{i \theta_1  } , \sin (\frac{\xi}{2}) e^{i \theta_2  } ) \in \mathbb C ^2 \mid 0 \leq \frac{\xi}{2} \leq \frac{\pi}{2}, \theta_1, \theta_2 \in \mathbb S^1 }  \end{align*}
+
+と表す.
+
+\begin{align*} T_{\frac{\xi}{2}} \coloneqq \cbra{(\cos (\frac{\xi}{2}) e^{i \theta_1  } , \sin (\frac{\xi}{2}) e^{i \theta_2  } ) \in \mathbb C ^2 \mid \theta_1, \theta_2 \in \mathbb S^1 } \end{align*}
+
+と定めると, これは$T^2 = S^1 \times S^1$ と微分同相である. (ただし, $\xi = 0, \pi$ の時は, 退化して$S^1$ と微分同相である.)
+
+\subsection{$S^3$のU(1)による軌道空間}
+
+あたりまえだが, $U(1) = \cbra{a \in \mathbb C \mid \abs{a} = 1}$ である.
+
+右作用$: S^3 \times U(1) \rightarrow S^3$ を
+
+\begin{align*} ( (z^1, z^2) , a) \mapsto (z^1 a, z^2 a)\end{align*}
+
+により定める.
+
+\begin{prop}
+$(z^1, z^2), (w^1, w^2)$ が同じ軌道上にある. $\LR$ $\frac{z^1}{z^2} = \frac{w^1}{w^2} \in \hat{\mathbb C}.$ \\
+(但し, $\hat{\mathbb C} = \mathbb C \cup \cbra{\infty}$ であり, $z^2 = 0$ のときは$z^1/ z^2 = \infty$ であると定める. )
+\end{prop}
+\begin{pf*}
+明らかである. 
+\qed
+\end{pf*}
+
+つまり, 軌道全体と$\hat{\mathbb C}$ が全単射である.
+
+\begin{align*} \mathcal P : S^3 \rightarrow S^2 = S^3 / U(1); (z^1, z^2) \mapsto \hat{\rho_1} \paren{\frac{z^1}{z^2}} \end{align*}
+と定める. (但し, $\hat{\rho_1} : \hat{\mathbb C} \rightarrow S^2$ は立体射影.)
+
+これをホップ写像という. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
