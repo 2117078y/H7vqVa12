@@ -1,0 +1,399 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+
+
+
+
+%%
+
+
+\title{確率測度の正則性}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+
+\section{}
+\begin{prop}(基本的な不等式1).
+\begin{align*} \mu(A \setminus B) &= \mu (A \cap B^c) = 1 - \mu((A \cap B^c)^c) \\
+&= 1 - \mu(A^c \cup B) \geq 1 - \mu(A^c) - \mu(B) =  \mu(A) - \mu(B). \end{align*}
+\end{prop}
+\begin{pf*}
+全くその通り.
+\qed
+\end{pf*}
+
+\begin{prop}(基本的な不等式2). $B \subset C \subset A$ とする. 
+\begin{align*} \mu(A \setminus B) \leq \mu (A \setminus C) + \mu (C \setminus B)\end{align*}
+が成り立つ.
+\end{prop}
+\begin{pf*}
+\begin{align*}  \mu(A \setminus B) = \mu ((A \setminus C) \cup (C \setminus B)) \end{align*}
+より従う.
+\qed
+\end{pf*}
+
+\begin{prop}(基本的な不等式3). 
+\begin{align*} \mu(A \setminus (B \cap C) ) \leq \mu(B^c) + \mu(A \setminus C)
+ \end{align*}
+\end{prop}
+\begin{pf*}
+\begin{align*}\mu(A \setminus (B \cap C) ) 
+&= \mu(A \cap (B^c \cup C^c) ) = \mu(A \cap B^c \cup A \cap C^c) \\&\leq  \mu(A \cap B^c) + \mu( A \cap C^c) 
+\leq  \mu(B^c) + \mu( A \cap C^c) 
+\end{align*}
+より従う.
+\qed
+\end{pf*}
+
+
+\section{}
+
+\begin{dfn}(正則な測度).
+$(X, \Sigma)$ を可測空間とする. 測度$\mu$ は, 任意の可測集合$A \in \Sigma$ に対して, 任意の$\veps$ に対して
+\begin{align*} &(1)F\subset A \subset G \\ &(2)\mu(G \setminus F) < \veps \end{align*}
+を満たす閉集合$F$ と開集合$G$ が存在するとき, 正則であるという. 
+\end{dfn}
+
+\begin{dfn}(内部正則性).
+$(X, \Sigma)$ を可測空間とする. 測度$\mu$ は, 任意の可測集合$A \in \Sigma$ に対して, 任意の$\veps$ に対して
+\begin{align*} &(1)F\subset A \\ &(2) \mu(A) - \veps < \mu(F) \leq \mu(A) \end{align*}
+を満たす閉集合$F$が存在するとき, 内部正則であるという. 
+\end{dfn}
+
+\begin{dfn}(外部正則性). 
+$(X, \Sigma)$ を可測空間とする. 測度$\mu$ は, 任意の可測集合$A \in \Sigma$ に対して, 任意の$\veps$ に対して
+\begin{align*} &(1)A\subset G \\ &(2) \mu(A) \leq \mu(G) < \mu(A) + \veps \end{align*}
+を満たす閉集合$F$が存在するとき, 外部正則であるという. 
+\end{dfn}
+
+\begin{prop}
+距離空間におけるボレル確率測度は正則である. 
+\end{prop}
+\begin{pf*}
+
+\begin{align*} \mathcal S \coloneqq \cbra{A \subset X \mid \any \veps > 0, ^\exists F:\textrm{open}, ^\exists G:\textrm{close} ; \mu( F \setminus G) < \veps }\end{align*}
+とおく. 
+\begin{claim}
+$\mathcal{S}$ は全ての閉集合を含む.
+\end{claim}
+\begin{claimproof}
+$A$ を閉集合とする. 十分大きな$N$をとって
+\begin{align*} A \subset A \subset B(A; \frac{1}{N})      \end{align*}
+かつ $\mu(F \setminus B(A; \frac{1}{N}) ) < \veps$ が成り立つようにできる. 
+\end{claimproof}
+\begin{claim}
+$\mathcal{S}$ は$\sigma$加法族である. 
+\end{claim}
+\begin{claimproof}
+$\varnothing \subset \varnothing \subset \varnothing$ により$\varnothing \in \mathcal S$. $A \in \mathcal S$ とすると, $F \subset A \subset G$ で条件を満たすものがとれる. $G^c \subset A^c \subset F^c$ を考えることで, $A^c \in \mathcal S$. $A_n \in \mathcal S$ とする. $F_n \subset A_n \subset G_n$ で条件を満たすものがとれる. 
+十分大きな$N$をとって
+\begin{align*} \bigcup_{n \leq N} F_n \subset \bigcup_{n \in \mathbb N}  F_n \subset \bigcup_{n \in \mathbb N}  A_n \subset \bigcup_{n \in \mathbb N}  G_n \end{align*}
+を考え, 
+\begin{align*} \mu(\bigcup_{n \in \mathbb N}  G_n \setminus \bigcup_{n \leq N}  F_n  ) 
+\leq \mu(\bigcup_{n \in \mathbb N}  G_n \setminus \bigcup_{n \in \mathbb N}  F_n ) + \mu (\bigcup_{n \in \mathbb N}  F_n  \setminus \bigcup_{n \leq N} F_n)  \end{align*}
+を用いれば良い.
+\end{claimproof}
+
+故に, $\mathcal S$ は$\mathcal B(X)$ よりも大きな$\sigma$ 加法族であるので, $\mathcal B (X) \subset \mathcal S$ となり, 
+$\mathcal B(X)$ が主張における条件をみたす.
+\qed
+\end{pf*}
+
+
+
+
+\begin{prop}
+$\mu$ が正則なボレル確率測度であるならば, 任意の可測集合$A$ に対して
+\begin{align*} \mu(A) = \sup \cbra{\mu (F) \mid F;\textrm{close}, F \subset A. }\end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+任意の$\veps $ に対して$F \subset A \subset G, \mu (G \setminus F) < \veps$ なる閉集合と開集合がとれる. 
+\begin{align*} \mu(A) - \mu(F) \leq  \mu(A \setminus F) < \veps \end{align*} 
+より
+\begin{align*} \mu(A) - \veps < \mu(F) < \mu(A) \end{align*}
+が成り立つ.
+\qed
+\end{pf*}
+
+\begin{prop}
+$\mu$ が正則なボレル確率測度であるならば, 任意の可測集合$A$ に対して
+\begin{align*} \mu(A) = \inf \cbra{\mu (G) \mid G;\textrm{close}, A \subset G. }\end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+閉集合のときの証明をパクればよい.
+\qed
+\end{pf*}
+
+\begin{prop}
+任意の可測集合$A$ に対して
+\begin{align*} \mu(A) = \sup \cbra{\mu (F) \mid F;\textrm{close}, F \subset A. }   \end{align*}
+が成り立つことと, $\mu$ が内部正則であることは必要十分である.
+\end{prop}
+\begin{pf*}
+上限の定義より明らか.
+\qed
+\end{pf*}
+
+\begin{prop}
+任意の可測集合$A$ に対して
+\begin{align*} \mu(A) = \inf \cbra{\mu (G) \mid G;\textrm{open}, A \subset G. }\end{align*}
+が成り立つことと, $\mu$ が外部正則であることは必要十分である.
+\end{prop}
+\begin{pf*}
+下限の定義より明らか.
+\qed
+\end{pf*}
+
+
+
+\begin{prop}
+\begin{align*} f(x) \coloneqq (1 - \frac{1}{\veps} d(x, F))^+  \end{align*}
+と有界一様連続関数を定める. 
+\begin{align*} 1_{F} \leq f \leq 1_{     B(F; \veps)      } \end{align*}
+が成り立つ.
+\end{prop}
+\begin{pf*}
+$f$ はだいたい, $0$ から$1$ の間の値をとる台形の関数, 
+\qed
+\end{pf*}
+
+\begin{prop}
+$\mu, \nu$ を内部正則なボレル確率測度とする. 
+\begin{align*} \mu f = \nu f \quad (\any f \in UC_{b} (X) )\end{align*}
+が成り立つならば, $\mu = \nu$が成り立つ. 
+\end{prop}
+\begin{pf*}任意の閉集合$F$ に対して, 
+\begin{align*} f(x) \coloneqq (1 - \frac{1}{\veps} d(x, F))^+  \end{align*}
+と定めると, 
+\begin{align*} \mu(F) \leq \mu f(f) = \nu (f) \leq \nu(B(F; \veps) )  \end{align*}
+が成り立つ. 測度の連続性から, 
+\begin{align*} \mu(F) \leq \nu (F) \end{align*}
+が成り立つ. 逆の不等式$\nu(F) \leq \mu(F)$ も成り立つので, 
+\begin{align*} \mu(F) = \nu(F) \end{align*}
+が成り立つ. 任意の可測集合$A$に対して
+\begin{align*} \mu(A) = \sup \cbra{\mu (F) \mid F;\textrm{close}, F \subset A. } =  \sup \cbra{\nu (F) \mid F;\textrm{close}, F \subset A. } = \nu(A) \end{align*}
+であるので, $\mu(A) = \nu(A)$ が成り立つ.
+\qed
+\end{pf*}
+
+\begin{prop}
+$\mu, \nu$ を内部正則なボレル確率測度とする. 
+\begin{align*} \mu f = \nu f \quad (\any f \in C_{b} (X) )\end{align*}
+が成り立つならば, $\mu = \nu$が成り立つ. 
+\end{prop}
+\begin{pf*}
+\begin{align*} UC_b(X) \subset C_b(X) \end{align*}
+より明らかである.
+\qed
+\end{pf*}
+
+\begin{prop}
+$\mu, \nu$ を正則なボレル確率測度とする. 
+\begin{align*} \mu f = \nu f \quad (\any f \in C_{b} (X) )\end{align*}
+が成り立つならば, $\mu = \nu$が成り立つ. 
+\end{prop}
+\begin{pf*}
+正則ならば内部正則なので, 明らかである.
+\qed
+\end{pf*}
+
+
+\begin{dfn}(緊密性). 
+$(X, \Sigma)$ を可測空間とする. 確率測度$\mu$ は, 任意の可測集合$A \in \Sigma$ に対して, 任意の$\veps$ に対して
+\begin{align*} &(1)K\subset A \\ &(2) \mu(A) - \veps < \mu(K) \leq \mu(A) \end{align*}
+を満たすコンパクト集合$K$が存在するとき, 緊密であるという. 
+
+\end{dfn}
+
+\begin{prop}
+$(X, \Sigma)$ を可測空間とする. 確率測度$\mu$ が緊密であることの必要十分条件は, 
+任意の$\veps > 0$ に対してコンパクト集合$K \subset X$ で 
+\begin{align*} 1 - \veps < P(K) \leq 1 \end{align*}
+を満たすものが存在することである.
+\end{prop}
+\begin{pf*}
+$\naraba$ は$A = S$ とすれば明らか. $\gyaku$ を示す. $A$ に対して
+$F \subset A $ で$\mu (A \setminus F) < \veps / 2$ となる閉集合$F$ がとれる. $\mu(K^c) < \veps / 2$ となるコンパクト集合$K$ がとれる. (基本的な不等式$3$)に注意すると, 
+\begin{align*} \mu(A) - \mu(K \cap F ) \leq \mu(A \setminus (K \cap F)) \leq \mu(K^c) + \mu(A \setminus F)  < \veps/2 + \veps /2 =  \veps \end{align*}
+が成り立つ.
+\qed
+\end{pf*}
+
+
+
+\begin{prop}
+$X$ が完備可分な距離空間であるならば, ボレル確率測度は緊密である. 
+\end{prop}
+\begin{pf*}
+$X$ は可分なので, 任意の半径$\frac{1}{i}$ に対して, 可算個の開球$\cbra{B_{ij}}_{j \in \mathbb N}$ で$X = \bigcup_j B_{ij}$ と被覆できる. 故に, 十分大きな$J(i)$ をとって
+\begin{align*} \mu \paren{   ( \bigcup_{j \leq J(i)} B_{ij} )^c   } < \frac{\veps}{2^i} \end{align*}
+とできる. 故に,
+\begin{align*} \mu \paren{ (\bigcap_{i \in \mathbb N}   \bigcup_{j \leq J(i)} B_{ij} )^c }  =  \mu \paren{ \bigcup_{i \in \mathbb N}  ( \bigcup_{j \leq J(i)} B_{ij} )^c }  < \veps .
+  \end{align*}
+ であり, $\bigcap_{i \in \mathbb N}   \bigcup_{j \leq J(i)} B_{ij}  $ は完備な空間のなかの全有界な集合であるので, 相対コンパクトである. 閉包をとっても測度は変わらないので, $K = \textrm{cl}(\bigcap_{i \in \mathbb N}   \bigcup_{j \leq J(i)} B_{ij})$ とすると, $\mu(K^c) < \veps$ が成り立つ.
+\qed
+\end{pf*}
+
+
+
+\end{document}
