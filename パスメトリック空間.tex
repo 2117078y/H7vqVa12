@@ -184,7 +184,7 @@
 \subsection{絶対連続曲線}
 
 \begin{dfn}(絶対連続関数). $f: [a,b] \rightarrow \mathbb R$ は, $ g \in L^1 (a,b)$ で
-\begin{align*} ft - fs = \int_s^t g(u) d_u \quad (a \leq s \leq t \leq b) \end{align*}
+\begin{align*} ft - fs = \int_s^t g(u) du \quad (a \leq s \leq t \leq b) \end{align*}
 を満たすものが存在する時, 絶対連続関数という.
 \end{dfn}
 
@@ -195,21 +195,21 @@ $g \in L^1(a,b)$ の条件を, $g \in L^1_{loc} (a, b)$ に変えたものを, �
 
 \begin{prop}$f: [a,b] \rightarrow \mathbb R$ が絶対連続関数であることと, 
 任意の$\veps$ に対して $\delta >0$ で, $\sum_i (b_i - a_i) < \delta$ を満たす$(a,b)$ に含まれるdisjointな開区間の族$\cbra{(a_i, b_i)}$ に対して
-\begin{align*} \sum_i \abs{f b_i - f a_i} < \veps \end{align*}
-が存在することとは必要十分である.
+\begin{align*} \sum_i \abs{f b_i - f a_i} \leq \veps \end{align*}
+となるものが存在することとは必要十分である.
 \end{prop}
 \begin{pf*}
 $\naraba.$ 
 \begin{claim}
 任意の$\veps >0$ に対して, $\delta > 0 $ で$[a, b]$ におけるボレル集合$A$ が$\textrm{leb}(A) < \delta$ ならば, 
-\begin{align*} \int_A \abs{g(u)} du \end{align*}
+\begin{align*} \int_A \abs{g(u)} du < \veps \end{align*}
 を満たすものが存在する. 
 \end{claim}
 \begin{claimproof}
 存在しないと仮定する(背理法). ある$\veps$ で, 任意の$n$ に対して$\textrm{leb}(A_n) < \frac{1}{2^n}$ かつ$\int_{A_n} \abs{g(u)} du > \veps$である$[a,b]$ のボレル集合$A_n$ がとれる. 
 \begin{align*} B_n \coloneqq \cup_{i = n}^\infty A_i \end{align*}
 と定める. ($B_1 \supset B_2 \supset \cdots $ となっている. )
-\begin{align*}  \textrm{leb}(\cap B_n)   = \lim \textrm{leb}(B_n) = \lim  \textrm{leb}(\cup_{i = n}^\infty A_i) =  \lim \frac{1}{2^{n-1}} = 0 \end{align*}
+\begin{align*}  \textrm{leb}(\cap B_n)   = \lim \textrm{leb}(B_n) = \lim  \textrm{leb}(\cup_{i = n}^\infty A_i) \leq  \lim \frac{1}{2^{n-1}} = 0 \end{align*}
 が成り立つ. すると, 
 \begin{align*} 0 = \int_{\cap B_n} \abs g du = \lim \int_{B_n} \abs g du \geq \lim \int_{A_n} \abs g du \geq \veps > 0\end{align*}
 となるので矛盾する. 

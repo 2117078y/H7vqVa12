@@ -1,0 +1,230 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+
+
+
+
+%%
+
+
+\title{被覆空間への連続曲線のリフト}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+\begin{prop}(自明な被覆空間への連続曲線のリフト). 第$2$成分への射影によりつくられる被覆空間$\pi: \mathbb N \times B \rightarrow B$ は, 
+任意の連続曲線$c: [0, 1] \rightarrow B$ と, 任意の$\tilde p \in \pi^{-1} c_0$ に対して, 
+連続曲線$\tilde c: [0,1] \rightarrow \mathbb N \times B$ で,  $\tilde c_ 0= \tilde p$ かつ, $\pi \circ \tilde c = c$ を満たす連続曲線が存在する.
+
+\end{prop}
+\begin{pf*}$\tilde p \in \cbra{n} \times B$ とする. $\pi | _{\cbra{n} \times B} $ は同相写像なので, 逆写像$\pi | _{\cbra{n} \times B} ^{-1}$ をもつ. 
+\begin{align*} \tilde c \coloneqq \pi | _{\cbra{n} \times B} ^{-1} \circ c \end{align*}
+と連続曲線を定めると, $\tilde c_ 0 = \tilde p$ であり, 
+\begin{align*}  \pi \circ \tilde c =  c\end{align*}
+となるので, これが求める連続曲線である. 
+\qed
+\end{pf*}
+
+\begin{remark}
+大域的に自明な構造をもっていれば, リフトは簡単に構成できた. 
+一般の被覆空間の場合でも, 局所的に自明な構造をもっているので, 部分的にリフトを構成して, 有限回張り合わせていけばよい. 
+\end{remark}
+
+
+
+\begin{prop}$[a,b]$ の任意の開被覆$\cbra{U_\lambda}$ に対して, 
+\begin{align*} a = s_0 < s_1 < \cdots < s_N < b, \quad a < t_0 < t_1, \cdots < t_N = b \end{align*}
+で, $s_i < t_{i-1} < s_{i+1} < t_i$ を満たし, 
+\begin{align*} [s_0, t_0) \subset ^\exists U_{\lambda(0)}, (s_1, t_1) \subset ^\exists U_{\lambda(1)}, \ldots , (s_N, t_N] \subset ^\exists U_{\lambda(N)}  \end{align*}
+となる$s_n, t_n$ が存在する.
+\end{prop}
+\begin{pf*}
+コンパクト空間$[a, b]$ の開被覆$\cbra{U_\lambda}$ のルベーグ数を$\delta$ とする. $N$ を十分大きくとって
+\begin{align*} \frac{3(b-a)}{2m + 1} < \delta  \end{align*}
+としておく. 
+\begin{align*} s_i \coloneqq a + \frac{2i -1}{2m + 1} (b-a), \quad t_j \coloneqq a + \frac{2j + 2}{1m + 1}(b-a) \end{align*}
+と定めると, 各区間の幅が$\frac{3(b-a)}{2m + 1}$ 以下なので, ルベーグの補題より主張が従う.
+\qed
+\end{pf*}
+
+
+
+\begin{prop}(リフトの存在). $\pi : E \rightarrow B$ を被覆空間とする. 任意の連続曲線$c: [a,b] \rightarrow B$ に対して, 任意の$\tilde p \in \pi ^{-1} (c_a) $ に対して
+$\tilde c: [a,b] \rightarrow E$ で, $\tilde c_ a = \tilde p$ かつ, $\pi \circ \tilde c = c$ を満たす連続曲線が存在する.
+
+\end{prop}
+\begin{pf*}
+工事中.
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
