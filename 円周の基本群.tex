@@ -157,7 +157,7 @@
 %%
 
 
-\title{基本群と基点の取り替え}
+\title{$S^1$の基本群}
 \date{}
 
 
@@ -173,53 +173,54 @@
 
 
 
-
 \begin{dfn}(道の連結). $f, g:[0,1] \rightarrow X$ に対して
 \begin{align*} f \natural g \coloneqq \begin{cases} f(2t) & 0 \leq t \leq \frac{1}{2} \\ g(2t -1) & \frac{1}{2} \leq t \leq 1 \end{cases} \end{align*}
 \end{dfn}
 
-\begin{dfn}(逆路). $f :[0,1] \rightarrow X$ に対して
-\begin{align*} \bar f(t) \coloneqq f(1- t) \end{align*}
-と定める. 
-\end{dfn}
 
-\begin{setting}$c_q^p : [0,1] \rightarrow X$ で$c_0 = p, c_1 = 1$ なる適当な連続曲線を表す. 
 
+\section{}
+
+\begin{setting}
+\begin{align*}
+& c_n: [0,1] \rightarrow S^1; t \mapsto (\cos 2 \pi n t, \sin 2 \pi n t) \\ 
+& \pi: \mathbb R \rightarrow S^1 ; s \mapsto (\cos 2 \pi s, \sin 2 \pi s) \\
+& \tilde c_n : [0, 1] \rightarrow \mathbb R; t \mapsto nt
+\end{align*}
 \end{setting}
 
-\begin{prop}(基点のとりかえ). $X$ を弧状連結とする. $\beta_q^p : \pi_1 (X, p) \rightarrow \pi_1 (X, q)$ を
-\begin{align*} \beta_q^p ([f]) \coloneqq [ c_q^p \natural f \natural \overline{c_q^p} ]\end{align*}
-により定めると, これは同型写像である.
+
+\begin{prop}
+$\pi_1 (S^1)$ は$c(t) \coloneqq (\cos 2 \pi t, \sin 2 \pi s)$ のホモトピー類が生成する無限巡回群と同型である. 
 \end{prop}
 \begin{pf*}
-
 \begin{claim}
-準同型である. 
+\begin{align*} [c_1]^n = [c_n]\end{align*}
 \end{claim}
 \begin{claimproof}
-\begin{align*} \beta_q^p[f \natural g] = [ c_q^p \natural f \natural g \natural \overline{c_q^p} ] =
-[ c_q^p \natural f \natural \overline{c_q^p} \natural c_q^p \natural g \natural \overline{c_q^p} ] =
-[ c_q^p \natural f \natural \overline{c_q^p} ]  [c_q^p \natural g \natural \overline{c_q^p} ] = 
-\beta_q^p [f ] \beta_q^p[g]
- \end{align*}
+明らかである. 
 \end{claimproof}
 
 \begin{claim}
-全単射である. 
+任意の$l \in \pi(S^1, (1, 0) )$ に対して, $n \in \mathbb Z$ で$l \simeq c_n$ を満たすものが存在する. 従って
+\begin{align*} [l] = [c_n] \end{align*}
+が成り立つ. 
 \end{claim}
 \begin{claimproof}
-$\beta_p^q$ を考えると, 
-\begin{align*} \beta_q^p \circ \beta_p^q = \id, \quad \beta_p^q \circ \beta_q^p = \id \end{align*}
-が成り立つ.
+$l: [0, 1] \rightarrow S^1$ を$(1, 0)$ を基点とするループとする. $\mathbb R$ へのリフト$\tilde l : [0, 1] \rightarrow \mathbb R$ がとれる. ループ$l$ は時刻$1$ で基点に戻ってくるので, その持ち上げについて$\tilde l_1 \in \mathbb Z$ である. $\tilde c_{\tilde l_1} $ を考え, 
+\begin{align*} (1 - t)\tilde l + t c_{\tilde l_1} \end{align*}
+を考えると, これは$\tilde l$ から$\tilde c_{\tilde l} $ へのホモトピーである.
+\end{claimproof}
+
+\begin{claim}($\tilde l $ は適当な$c_n$ とホモトピックであるが, 別の$c_m$ とホモトピックであるかもしれない. )
+\begin{align*} f  \simeq c_n, f \simeq c_m \naraba n = m. \end{align*}
+\end{claim}
+\begin{claimproof}
+$c_n$ から$c_m$ へのホモトピーを$f_t$ とする. $\mathbb R$ へのリフト$\tilde f : [0, 1] \rightarrow \mathbb R$ がとれる. $\tilde f_t (1)$ は$t$ によらず同じである. $\tilde f_0 (1) = n, \tilde f_1 (1) = m$ であるので, $n = m$ が成り立つ. 
 \end{claimproof}
 
 \qed
 \end{pf*}
-
-
-
-
-
 
 
 
