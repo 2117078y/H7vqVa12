@@ -1,0 +1,207 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+
+
+
+
+%%
+
+
+\title{$S^2$の基本群}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+
+\begin{prop}
+$X$ が基点$p \in X$ を含む弧状連結な開集合$\cbra{U_\lambda}$ の和で表され, 任意の共通部分$U_\lambda \cap U_ \lambda \mu$ は弧状連結であるとする. このとき, $X$ の任意のループは, 適当な$U_\lambda$ に含まれるループの連結とホモトピックである. (たとえば, $U_\lambda$ に含まれるループと, $U_\mu$ に含まれるループの連結など.) 
+\end{prop}
+\begin{pf*}
+$p\in X $ を基点とするループ$f: [0, 1] \rightarrow X$ をとる. $f([0,1])$ はコンパクトなので,  有限部分被覆$\cbra{U_i}$ がとれる. 任意の $t \in [0, 1]$ に対して$f(t)$ は適当な$U_i$ に含まれているので, $f$ の連続性から, $t$ の開近$V_t$で, $f(V_t)$ が$U_i$ に含まれるものがとれる. $(a, b) = V_t$ の境界の点$a, b$ の像$f(a), f(b)$が境界$\partial U_i$ に属する場合は, $(a, b)$ を十分小さく縮めて $(a + \veps, b - \veps)$ とし, これを改めて$V_t$ とすることで, $f(\overline V_t) \subset U_i$ となるようにしておく. このような$V_t$ の族は$[0, 1]$ の開被覆であるので, コンパクト性から有限部分被覆をとる. 
+\begin{align*} V_{i_1}, V_{i_2} , \ldots , V_N \end{align*}
+と適当にうまく並べて, $[s_{i_2}, t_{i_2}] = V_{i_2}$ と表しておいて, 
+\begin{align*} [0, t_{i_1}], [t_{i_1}, t_{i_2}]  , \ldots , [t_{N}, 1] \end{align*}
+と分割することで, $f([t_{i_n}, t_{i_m}]) $ が適当な$U_\lambda$ に含まれるようにしておく. 
+\begin{align*} t_{i_k}  \in V_{i_k} \cap V_{i_{k+1}} \end{align*} 
+であり, $f(t_{i_k}) \in U_\alpha \cap U_\beta$ であり, $U_\alpha \cap U_\beta$ は弧状連結なので, $p$ と$f(t_{i_k}) $を結ぶ道$c_k$ がとれる. 
+\begin{align*} f_1 \coloneqq [0, t_{i_1}], f_2 \coloneqq f|_{[t_{i_1}, t_{i_2}]}, \ldots , f_{N+1} \coloneqq f|_{[t_{N}, 1]} \end{align*}
+と定め, 
+\begin{align*} f_1 \natural \bar c_1 \natural c_1 \natural f_2 \natural \bar c_2 \natural c_2 \natural f_3 \cdots \natural c_{N}  \natural f_{N+1}  \end{align*}
+を考えると, これがもとめる
+\qed
+\end{pf*}
+
+
+\begin{prop}
+\begin{align*} \pi_1 (S^2) = 0 \end{align*}
+\end{prop}
+\begin{pf*}
+$S^2$ は適当に赤道上に基点$p$ をとって, 北半球を少し広げたもの($N$ で表す)と, 南半球を少し広げたもの($S$ で表す)で被覆する. それらは前述の命題の条件を満たしているので$S^2$ の任意のループは$N$ のループと$S$ のループの連結とホモトピックである. $N, S$ はともに$\mathbb R^2$ と同相であるので, これらのループは可縮である. 従って, $S^2$ の任意のループは自明なループとホモトピックである. 
+\qed
+\end{pf*}
+
+
+
+
+
+
+\end{document}
