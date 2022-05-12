@@ -157,27 +157,38 @@
 %%
 
 
-\title{コボルディズム}
-\date{}
+\title{コンパクト群作用}
 
+\date{}
 
 \author{}
 
-
 \begin{document}
-
 
 \maketitle
 
 \section{}
 
-\begin{dfn}(コボルディズム). $M$ を境界のないコンパクト$m$次元多様体とする. $N_1, N_2$ を$M$ の中の境界のないコンパクト$n$ 次元多様体とする. ある$0 < \veps < \frac{1}{2}$ で, 部分集合
-\begin{align*} N_1 \times [0, \veps ) \cup N \times (1 - \veps, 1]\end{align*}
-が
-\begin{align*} \partial X = N_1 \times \cbra{0} \cup N_2 \times \cbra{1}  \end{align*}
-であり(つまり変に途中で境界があったりしないということ), $X \cap ( M \times \cbra{0} \cup M \times {1} ) \subset \partial X$ が成り立つ
-コンパクト多様体$X$ に拡張される, ものが存在するとき, $N_1, N_2$ はコボルタントという. また, このときの$X$ を$N_1, N_2$ の間のコボルディズムという.  
+\begin{dfn}($G$-equivalent). $\varphi : X \rightarrow Y$ で, 
+\begin{align*} \varphi(gx) = g(\varphi x) \quad (x \in X) \end{align*} 
+は, $G$-equivalent という. 
+\end{dfn}
 
+\begin{prop}(Tietze-Gleasonの拡張定理).  $X$ を正規空間. $G$ を$X$ に作用するコンパクトリー群とする. さらに, $G$ を$\mathbb R^n$ に線型に(つまり, $g(rx) = r g(x)$ ということ) 作用するとする. $A \subset G$ を閉集合とする. このとき, $G$-equivalent $\varphi: A \rightarrow \mathbb R^n$ は, $\varphi: X \rightarrow \mathbb R^n$ に拡張できる. 
+\end{prop}
+\begin{pf*}
+謎. 
+\qed
+\end{pf*}
+
+\begin{dfn}(Saturation). $A \subset X$ の saturation を
+\begin{align*} G(A) \coloneqq \cup_{g \in G} g(A) \end{align*} 
+で定める. 
+\end{dfn}
+
+\begin{dfn}  $X \times Y$  に$g; (xg, y) \sim (x, gy)$ という同値関係 を定める.  
+\begin{align*} X \times_G Y \coloneqq (X \times Y) / \siq  \end{align*}
+を定める. 
 \end{dfn}
 
 
@@ -193,4 +204,16 @@
 
 
 
+
+
 \end{document}
+
+
+
+
+
+
+
+
+
+

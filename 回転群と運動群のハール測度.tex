@@ -1,0 +1,272 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{notation}[dfn]{記号}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+\newcommand{\diag}{\textrm{diag}}
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+%%マグニチュード
+
+
+\newcommand{\Mag}{\textrm{Mag}}
+
+
+\title{回転群と運動群のハール測度}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+\begin{remark}多分, 一般に, 局所コンパクト位相群にはハール測度が存在する.
+
+\end{remark}
+
+\begin{notation}
+\begin{align*} LI_d \coloneqq \cbra{(x_1, \ldots, x_d) \in S^{d-1} \times \cdots \times S^{d-1} \mid x_1, \ldots, x_d \textrm{は線型独立である.}} 
+\end{align*}
+とする. 
+\begin{align*} \varphi^{pgs}: LI_d \rightarrow SO_d  \end{align*}
+を以下のように定める. $(x_1, \ldots, x_d)$ に対して,添字順に直交化して$(z_1, \ldots, z_d) \in (S^{d-1} )^d$ を得て, 次に$z_d$ のみに$+1$ か$-1$ をかけて$(\tilde z_1, \ldots, \tilde z_d) \in (S^{d-1} )^d$ を得る. 
+\begin{align*} \exists R_{\theta } \in SO_d  ; R_{\theta } (e_1, \ldots, e_d) = (\tilde z_1, \ldots, \tilde z_d)  \end{align*}
+であるので, $(x_1, \ldots , x_d) LI_d$ にこの$R_\theta \in SO_d$ を対応させる写像として$\varphi^{pgs}$ を定める. 続いて, その拡張
+\begin{align*} \tilde \varphi^{pgs}:  (S^{d-1})^d \rightarrow SO_d  \end{align*}
+を, $LI_d$ に対してはそのまま$\varphi^{pgs}$ で, $(S^{d-1})^d \setminus LI_d$ に対しては自明な回転($id_{\mathbb R^d}$)を与える, とすることで定める. 
+\end{notation}
+
+\begin{dfn}(球面ルベーグ測度). ボレル可測空間$(S^{d-1}, \mathcal B (S^{d-1})    )  $ に, $B \in \mathcal B S^{d-1}$ に対して
+\begin{align*} \sigma(A) \coloneqq  d \Leb_d (\cbra{sx \in \mathbb R^d \mid x \in B , 0 \leq s \leq 1} )\end{align*}
+によりボレル測度$\sigma$ を定める. これを球面ルベーグ測度という. 
+\end{dfn}
+
+
+\begin{prop}(回転群のハール測度). 回転群$SO_d$ 上にはハール確率測度が一意に存在する. 
+
+\end{prop}
+\begin{pf*}
+
+
+\begin{align*} \tilde \varphi^{psd} : (S^{d-1})^d \rightarrow SO_d \end{align*}
+は, $LI_d$ 上で, 任意の$R_\theta \in SO_d$ に対して
+\begin{align*} \tilde \varphi^{psd}(R_\theta x_1, \ldots , R_\theta x_d) = R_\theta \tilde \varphi^{psd} (x_1, \ldots x_d) \end{align*} が成り立つ. 
+
+
+
+$(S^{d-1})^d$ 上のボレル測度を, 積測度
+\begin{align*} \sigma^d \coloneqq \sigma \otimes \cdots \otimes \sigma \end{align*}
+で定める. 
+
+\begin{claim}$(S^{d-1})^d \setminus LI_d$ は$\sigma^d$に関して測度ゼロの集合である. 
+\end{claim}
+\begin{claimproof}
+
+非正則行列$M$ に対して, $tEM$ は任意の$t \in [0,1] $ に対して非正則行列であるので, $Set \coloneqq \cup_{s \in [0,1]} s ((S^{d-1})^d \setminus LI_d  )$ は非正則行列に含まれるので, その$d^2$ 次元ルベーグ測度はゼロである. 
+$\sigma^d = d^2 Leb_{d^2}$ であるので, 主張が従う. 
+\end{claimproof}
+
+\begin{claim}$\tilde \varphi^{psd}$ はボレル可測である. 
+
+\end{claim}
+\begin{claimproof}
+任意に開集合$B \subset SO_d$ をとる. $ B \cap SO_d\setminus \cbra{Id_{\mathbb R^d} } , B \cap  \cbra{Id_{\mathbb R^d} } $ はそれぞれ開集合と$1$点であり, $\tilde \varphi^{psd} : (S^{d-1})^d $ の$LI_d, (S^{d-1})^d$ への制限はそれぞれ連続写像(直交化は多項式で表されるので)と定値写像である. $LI_d$ への制限は連続写像なので, その逆像は$LI_d$ の開集合だが, $LI_d$ 自体が開集合なので, 開集合である$LI_d$ との共通部分は開集合であり従ってボレル集合である. $1$点の方の逆像は$LI_d$ の補集合であり, それは閉集合なのでボレル集合である. 最後にボレル集合とボレル集合の合併はボレル集合であるので, 結局逆像がボレル集合なのでボレル可測である.
+\end{claimproof}
+
+$\tilde \varphi^{psd}: (S^{d-1})^d \rightarrow SO_d$ による押し出しによって有限測度を
+\begin{align*} \check \nu = \tilde \varphi^{psd}_\#  \sigma^d \end{align*}
+と定める. 
+
+\begin{claim}$\check \nu$ 
+
+\end{claim}
+\begin{claimproof}任意に$R_{\theta_0} \in SO_d$ と非負可測関数$f \geq 0$ をとる. 
+\begin{align*} \int_{SO_d} f(R_{\theta_0} R_\theta ) d\check \nu (R_\theta )   &= \int_{(S^{d-1})^d} f(R_{\theta_0}  \tilde \varphi^{psd} (x_1, \ldots , x_d) ) d\sigma^d  \\
+&=   \int_{(S^{d-1})^d} f(  \tilde \varphi^{psd} (R_{\theta_0}x_1, \ldots , R_{\theta_0} x_d) ) d\sigma^d  \\
+&= \int_{S^{d-1}}  \cdots \int_{S^{d-1}} f(  \tilde \varphi^{psd} (R_{\theta_0}x_1, \ldots , R_{\theta_0} x_d) ) d\sigma(x_1) \ldots, d\sigma(x_d) \\
+&= \int_{S^{d-1}}  \cdots \int_{S^{d-1}} f(  \tilde \varphi^{psd} (x_1, \ldots , x_d) ) d\sigma(x_1) \ldots, d\sigma(x_d) \\
+&= \int_{SO_d} f(R_\theta) d \tilde \nu (R_\theta ) 
+\end{align*}
+が成り立つ. 最後の等号は, ルベーグ球面測度が$R_\theta$ 不変であることを用いた.  
+\end{claimproof}
+
+従って, これは可測関数に関して積分左不変, 
+最後に, $\tilde \nu$ は有限なので, 適当に確率測度となるように正規化すればよい. 
+\qed
+\end{pf*}
+
+
+\begin{dfn}(運動群のハール群). 
+\begin{align*} \gamma : \mathbb R^d \times SO_d \rightarrow G_d; (x, R_\theta) \mapsto \tau_x \circ R_\theta \end{align*}
+と定める(ただし, $\tau_x$ は$x$ 分の平行移動).
+$\lambda$ を$d$ 次元単位キューブ$C^d$ にルベーグ測度を制限したもの, $\nu$ を$SO_d$ 上のハール確率測度とする. 
+\begin{align*} \mu = \gamma_# (\lambda \otimes \nu)\end{align*}
+により, $G_d$ の測度を定める. 
+\end{dfn}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
