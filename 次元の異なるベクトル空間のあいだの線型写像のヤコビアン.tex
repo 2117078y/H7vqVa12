@@ -1,0 +1,262 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{notation}[dfn]{記号}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+\newcommand{\diag}{\textrm{diag}}
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+%%マグニチュード
+
+
+\newcommand{\Mag}{\textrm{Mag}}
+
+
+\title{次元の異なるベクトル空間のあいだの線型写像のヤコビアン}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+\begin{remark}
+内積空間として有限次元のものを考えることにする. 
+\end{remark}
+
+\begin{prop}$V$ を内積空間, $\cbra{v_1, \ldots, v_n}, \cbra{w_1, \ldots, w_n} $ をそれぞれ$V$ の基底とする. 正則行列$A$ を
+\begin{align*} v = A w\end{align*}
+を満たす行列とすると, 
+\begin{align*} \det(v_i, v_j) = (\det A)^2 \det (w_i, w_j) \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+\begin{align*} \det(v_i, v_j) = \det(v v^t) = \det (Aww^t A^t) = (\det A)^2 \det (w w^t) = (\det A)^2 \det (w_i, w_j) .\end{align*}
+\qed
+\end{pf*}
+
+\begin{prop}$V$ を内積空間, 任意の$p \in \mathbb N$ 個の元$x_1, \ldots , x_p$ に対して
+\begin{align*} \det(x_i, x_j) \leq \prod \norm{x_i} \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}$v_i, w_i$ を次が成り立つように定めていく. 
+\begin{align*} &x_1 = v_1 +  w_1 \quad (v_1 = 0, w_1 = x_1) \\ &x_2 = v_2 + w_2 \quad (v_2 \in \textrm{span}(x_1), w_2 \in \textrm{span}(x_1) ^\perp )\\ &
+x_3 = v_3 + w_3 \quad (v_3 \in \textrm{span}(x_1, x_2), w_3 \in \textrm{span}(x_1, x_2) ^\perp0 ) \\& \vdots  
+ \end{align*}
+ すると, 落ち着いて計算すると$i\neq j \naraba (w_i, w_j) = 0 $ となるので, 
+ \begin{align*} \det(x_i, x_j) = \det(w_i, w_j) \leq \prod \norm{w_i}^2 \leq \prod \norm{x_i}^2   \end{align*}
+ が成り立つ. 
+\qed
+\end{pf*}
+
+
+
+\begin{dfn}$V, W$ をそれぞれ次元が$m \geq n$ の内積空間とする. $F: V \rightarrow W$ を線型写像とする.
+\begin{align*} JF \coloneqq \sup \cbra{  \sqrt{\det ((Fu_i, Fu_j))_{i,j = 1, \ldots ,n} } \mid u_1, \ldots , u_n \textrm{は}V \textrm{の正規直交系}   }\end{align*}
+と定め, これを$F$ のヤコビアンという. 
+\end{dfn}
+
+
+\begin{remark}$V$ を内積空間とするとき, 任意の1次独立なベクトルの組$v_1, \ldots, v_n$ に対して$\textrm{span} (v_1, \ldots, v_n)$ の正規直交基底を$u_1, \ldots , u_n$ とすると, $v = A u$ なる正則行列$A$ がとれる. 故に
+\begin{align*} \det (v_i, v_j) = (\det A)^2 \det (u_i, u_j) =(\det A)^2  \geq 0 \end{align*}
+であるので, 線形写像のヤコビアンの定義でルートをとるところはwell-definedである. 
+\end{remark}
+
+
+
+\begin{prop}$F$ が全射でないとき, $JF = 0$ である.
+\end{prop}
+\begin{pf*}
+$F$ が全射でない時, $\dim \textrm{Im} F < n$ である. 適当に$V$ の正規直交系$u_1, \ldots , u_n$ をとると, ある添字$i\neq j$ で, $a \in \mathbb R$ で$Fu_i = a Fu_j$ となるものがとれるようなものが存在する. 
+\begin{align*} (Fu_k, Fu_i) = (Fu_k, aFu_j) \quad (k = 1, \ldots , n) \end{align*}
+が成り立つ. 
+\qed
+\end{pf*}
+
+
+
+
+\begin{prop}($F$ のヤコビアンのexplicitな表示). $F$ が全射であるとき, $(\ker F)^\perp $の任意の基底$v_1, \ldots, v_n \in (\ker F)^\perp $ に対して, 
+\begin{align*} JF = \frac{ \sqrt{\det (Fv_i, Fv_j)  }}{\sqrt{ \det (v_i, v_j) } }  \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+$(\ker F)^\perp $ の任意の正規直交基底$u_1, \ldots, u_n \in (\ker F)^\perp$と任意の基底$v_1, \ldots, v_n \in (\ker F)^\perp$, $V$ の任意の正規直交系$w_1, \ldots , w_n \in V$ を適当にとっておく. 
+
+\begin{align*} w_i = w^P_i + w^K_i \quad(w^P_i \in (\ker F)^\perp,  w^K_i \in \ker F) \end{align*}
+とおくと, $w^ P = A u$ なる正則行列$A$ がとれる. 
+ \begin{align*}  \frac{ \sqrt{\det (Fw^P_i, Fw^P_j)  } }{\sqrt{ \det (w^P_i, w^P_j) } } = \frac{ \sqrt{ \det A \det (Fu_i, Fu_j)  } }{\sqrt{ \det A \det (u_i, u_j) } }  =  \sqrt{\det (Fu_i, Fu_j)  }  \end{align*}
+が成り立っていることに注意すると, 
+\begin{align*} \det (Fw_i, Fw_j) &= \det(Fw^P_i, Fw^P_j) \leq \det (Fu_i, Fu_j) \det (w^P_i, w^P_j)  \\&
+\leq \det (Fu_i, Fu_j) \prod \norm{w^P_i}^2 \\
+&\leq \det (Fu_i, Fu_j) \prod \norm{w_i}^2 \\
+&= \det (Fu_i, Fu_j) \cdot 1 \\
+&= \frac{{\det (Fv_i, Fv_j)  } }{{ \det (v_i, v_j) } } 
+\end{align*}
+従って, 
+\begin{align*} JF \leq \frac{ \sqrt{\det (Fv_i, Fv_j)  }}{\sqrt{ \det (v_i, v_j) } }  \leq JF.  \end{align*}
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+
+\end{document}

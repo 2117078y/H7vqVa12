@@ -226,17 +226,10 @@
 \qed
 \end{pf*}
 
-\begin{prop}$(X, d)$ を有限距離空間とする. $X$ のウェイトが存在することと, $X$ のメビウス行列が存在することは必要十分である. 
-\end{prop}
-\begin{pf*}メビウス行列が存在するならば, ウェイトが存在することは既に命題\ref{1703}で示してある. $X$ のウェイトが存在するとする. $X$ の類似度行列を$Z$ とする. 対称行列は対角化可能であるので, 
-$\lambda : X \rightarrow \mathbb R$ と$ P: X \times X \rightarrow \mathbb R$
-で, 任意の$x \in X$ に対して
-\begin{align*} \sum_{y \in X} \lambda (y) w(y) P(x, y) = \sum_{y \in X} P(x, y) \end{align*}
-が成り立つ. 固有ベクトルは線型独立なので任意の$x \in X$ に対して, 
-\begin{align*} \lambda(x) w(x) = 1\end{align*}
-が成り立つ. 故に, $\lambda (x) \neq 0$ である. 固有値に$0$ を含まない対称行列は正則行列であるので, $X$ はメビウス行列をもつ. 
-\qed
-\end{pf*}
+\begin{remark}メビウス行列が存在するならウェイトは存在するが, ウェイトが存在したからといってメビウス行列が存在するとは限らない. 
+
+\end{remark}
+
 
 
 
@@ -269,10 +262,13 @@ $M_N(\mathbb R)$において, 正則行列全体$GL_N (\mathbb R)$は開集合�
 
 
 
-\begin{prop}($2$点空間のマグニチュード). 距離空間$X = (\cbra{p,q}, d)$ のマグニチュードは
-\begin{align*} \Mag(X) =  \end{align*}
+\begin{prop}($2$点空間のマグニチュード). 距離空間$X = (\cbra{p,q}, d)$ のマグニチュードは, 
+\begin{align*} \Mag(X) =  1 + \tanh \frac{e^{d(p,q)  } }{2}  \end{align*}
 \end{prop}
 \begin{pf*}
+\begin{align*}  \gyouretsu{1 & e^{-d(p,q)} \\ e^{-d(p,q)}  & 1  } \gyouretsu{\frac{1}{1 + e^{-d(p,q)} } \\ \frac{1}{1 + e^{-d(p,q)} } } = \gyouretsu{1 \\ 1}. \\ 
+\frac{2}{1 + e^{-d(p,q)} }  =   \frac{2 e^{d(p,q)}}{   e^{d(p,q)   } + 1} = \frac{ e^{d(p,q)}  + 1 +  e^{d(p,q)}   -1}{ e^{d(p,q)  } + 1} = 1 + \frac{e^{d(p,q)  } - 1}{e^{d(p,q)  } + 1 } 
+\end{align*}
 
 \qed
 \end{pf*}
@@ -285,8 +281,10 @@ $M_N(\mathbb R)$において, 正則行列全体$GL_N (\mathbb R)$は開集合�
 \begin{align*} \Mag(X \times _1 Y ) = \Mag(X) \Mag(Y) \end{align*}
 で与えられる.
 \end{prop}
-\begin{pf*}
-
+\begin{pf*}$X = \cbra{x_1, \ldots, x_N}, Y = \cbra{y_1, \ldots , Y_M}$ とする. 
+$d((x_i, y_k), (x_j, y_l)) = d(x_i, x_j) + d(y_k, y_l ) $ より, 
+\begin{align*} e^{- d((x_i, y_k), (x_j, y_l)) } = e^{-d(x_i, x_j) } e^{-d(y_k, y_l ) }\end{align*}
+であるので, $w^{X\times Y}_{ik} = w^X_i w^Y_k$ と定めるとこれはウェイトになることが簡単な計算でわかる. 
 \qed
 \end{pf*}
 
@@ -335,7 +333,7 @@ $(X, d)$ を距離空間とする. 群$G$で$X$に等長かつ推移的に作用
 
 
 \begin{prop}$(X, d)$ を有限な斉次距離空間とする. 任意の$p \in X$ に対して 
-\begin{align*} \Mag(X) = \frac{\# X}{\sum_{x \in X} d(p, x)}  \end{align*}
+\begin{align*} \Mag(X) = \frac{\# X}{\sum_{x \in X} e^{-d(p, x) } }  \end{align*}
 が成り立つ.
 \end{prop}
 \begin{pf*}
@@ -343,8 +341,47 @@ $(X, d)$ を距離空間とする. 群$G$で$X$に等長かつ推移的に作用
 \qed
 \end{pf*}
 
+\subsection{合併のマグニチュード}
+
+\begin{dfn}(良い射影). $A, B \subset X$ を部分集合とする. $a \in A$ は 
+\begin{align*} ^\exists \pi(a) \in A \cap B ; b \in B \naraba  d(a, b) = d(a, \pi (a)) + d(\pi (a), b) \end{align*}
+であるとき, $B$ に良く射影される. 任意の点$a \in A$ が$B$ に良く射影される, $A$ は$B$ に良く射影されるという. $A$ が$B$ に良く射影され, $B$ が$A$ に良く射影されるとき, $A, B$ は互いに良く射影されるという. 
+\end{dfn}
+
+\begin{remark} $a \in A$ が$B$ に良く射影されるとき, 類似度行列$Z$の成分に関して, 当たり前だが任意の$b \in B$ に対して
+\begin{align*} z_{a b} = z_{a \pi(a)} z_{\pi(a) b}\end{align*}
+が成り立つ. 
+\end{remark}
+
+\begin{prop}(和集合のマグニチュード). $A, B \subset X$ を$X$ の有限部分集合で, $A, B, A \cap B$ がそれぞれウェイト$w^A, w^B, w^{A \cap B}$を持つとする. $A, B$ が互いに良く射影される. 
+\begin{align*} w(x) \coloneqq \begin{cases} w^A(x) & x \in A \\ w^A(x) + w^B(x) - w^{A \cap B }(x) & x \in A\cap B \\ w^B(x) & x \in B \end{cases} \end{align*}
+と定めると, これは$A \cup B$ のウェイトである. 従って, 
+\begin{align*} \Mag(A \cup B) = \Mag(A) + \Mag(B) - \Mag(A \cap B) \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}実際, $w$ がウェイトになることは例えば類似度行列の$a \in A$ 行目に関しては
+\begin{align*} \sum_{x \in X} Z(a, x) w(x) &= \sum_{a^\prime \in A} Z(a, a^\prime) w^A(a^\prime)   + \sum_{b \in B} Z(a, b) w^{B} (b)  \\& = \sum_{a^\prime \in A} Z(a, a^\prime) w^A(a^\prime) - \sum_{c^\prime \in A \cap B} Z(a, c) w^{A \cap B} (c) \\& \quad + \sum_{b \in B} Z(a, \pi(a)) Z(\pi(a), b) w^{B} (b) - \sum_{c^\prime \in A \cap B} Z(a, \pi(a)) Z(\pi(a), c) w^{A \cap B} (c)    \\ 
+&= 1 + Z(a, \pi(a)) (  \sum_{b \in B}  Z(\pi(a), b) w^{B} (b)  - \sum_{c^\prime \in A \cap B} Z(\pi(a), c) w^{A \cap B} (c) ) \\
+&= 1 + Z(a, \pi(a)) (1- 1) = 1
+\end{align*}
+よりわかる. $b \in B$ 行目に関しても全く同様に示される. さらに, この$\sum_{x \in A \cup B} w(x)$ を計算すると, 主張が従う. 
+\qed
+\end{pf*}
+
+\begin{prop}($1$点で交わる集合同士の和). $A, B \subset X$ を $1$ 点($c \in A\cap B$ で表す. )で共通部分をもつ有限部分集合とする. $A, B$ がマグニチュードをもち, $A, B$ が互いに良く射影されるとき, $A \cup B$ はメビウス行列をもち, 
+\begin{align*} \mu_{A \cup B}( x, y) \coloneqq \begin{cases} \mu^A(x, y)  & x, y \in A, (x, y) \neq  (c, c) \\ \mu(x, y)  & x, y \in B , (x, y) \neq  (c, c) \\ \mu^A(c, c) + \mu^B (c, c) - 1 & (x, y) = (c, c)  \\ 0 & \textrm{otherwise} \end{cases} \end{align*}
+で与えられる. ただし, $A, B$ のメビウス行列を$M^A = (\mu^A_{ij}), M^B = (\mu^B_{ij})$ で表している. 
+
+\end{prop}
+\begin{pf*}実際, 適当に成分を並べて
+\begin{align*} &Z^{A\cup B} \paren{ \gyouretsu{ M^A & 0 \\ 0 & 0   } + \gyouretsu{ 0 & 0 \\ 0 & M^B   } - \diag(0, \ldots ,0,  1 , 0, \ldots , 0) }  \\ & =   \gyouretsu{ E & 0 \\ 0 & 0   } +  \gyouretsu{ 0 & 0 \\ 0 & E   } -  \diag(0, \ldots ,0,  1 , 0, \ldots , 0)  = E \end{align*}
+と計算できる. 
+\qed
+\end{pf*}
 
 
+
+\subsection{正定値距離空間}
 
 
 \begin{dfn}(scattered space). 有限距離空間$(X, d)$ は任意の$x, y \in X$ に対して$\log(\# X - 1) < d(x, y)$ を満たす時に, scattered 空間という. 
@@ -382,9 +419,145 @@ $X$ のメビウス行列が存在する. すなわち, $X$ はマグニチュ�
 
 \end{prop}
 \begin{pf*}
-
+前述の命題の証明が, そのまま正定値距離空間であることを示している.
 \qed
 \end{pf*}
+
+\begin{prop}$2$ 点からなる距離空間は正定値距離空間である. 
+
+\end{prop}
+\begin{pf*}
+固有値が$1 + e^{-d(p,q)}, 1 - e^{-d(p,q)} > 0$ で与えられる. 
+\qed
+\end{pf*}
+
+\begin{prop}$3$ 点からなる距離空間は正定値距離空間である. 
+
+\end{prop}
+\begin{pf*}類似度行列が
+$Z  =\gyouretsu{1 & a & c \\
+a& 1 & b \\
+c & b& 1 } $ の形である. 主座小行列の行列式が全て正であれば, その行列は正定値であるので, それを調べる. $2$ 次の主座小行列までは正定値であるので, あとは$Z$ 自体の行列式が正であればよい. 
+\begin{align*} \det Z  &=1 - a^2 - b^2 - c^2 + 2abc \\&= (1-a)(1-b)(1-c)+ (1-a)(a- bc) + (1-b)(b- ca) + (1-c)(c- ab) \end{align*}
+であり, 距離に関する三角不等式から$ab \leq c, bc \leq a, ca \leq b$ であることと, $0 < a, b, c < 1$ であることから, $\det Z > 0$ である.  
+\qed
+\end{pf*}
+
+
+
+\begin{prop}(正定値距離空間のマグニチュードの別の表現). $(X, d)$ を正定値距離空間とする. $X$ の類似度行列を$Z$ で表すことにする. $N = \#X$ とする.
+\begin{align*} \Mag X = \max_{v \neq 0} \frac{ (\Sigma v_i )^2 }{v^t Z v}  \end{align*}
+が成り立つ.
+\end{prop}
+\begin{pf*}$Z$ が正定値でることから, 
+コーシーシュワルツの不等式より, 任意の$w, v \in \mathbb \mathbb R^N$ に対して
+\begin{align*} (w^t Z v) ^2  \leq (w^t Z w)(v^t Z v)  \end{align*}
+が成り立つ. $w$ として$X$ のウェイトを代入すると, 任意の$v \in \mathbb R^N$ に対して
+\begin{align*} (\Sigma v_i) ^2  \leq \Mag (X) (v^t Z v)  \end{align*}
+が成り立つ. 
+\qed
+\end{pf*}
+
+\begin{remark}
+特に断らない限り, 距離空間$(X, d)$ の部分集合には同じ距離$d$ を備えることとする. 
+\end{remark}
+
+
+\begin{prop}(正定値距離空間の部分集合). 正定値距離空間の部分集合は正定値距離空間である. 
+
+\end{prop}
+\begin{pf*}
+正定値行列の主小行列は正定値(適当に$0$成分を足すことを考えればわかる). 対称行列の主小行列は対称行列である. 故に正定値対称行列の主小行列は正定値対称行列である.  
+\qed
+\end{pf*}
+
+\begin{prop}$(X, d)$ を正定値距離空間とする. $Y \subset X$ を部分集合とすると, 
+\begin{align*} \Mag(Y) \leq \Mag(X). \end{align*}
+\end{prop}
+\begin{pf*}
+$X = \cbra{1, \ldots , N}, Y = \cbra{i_1, \ldots , i_M}$ とし, $X, Y$ の類似度行列をそれぞれ$Z_X, Z_Y$ で表す. $Y$ のウェイトを$w^Y = (w_{i_1}, \ldots , w_{i_M})$ とする. $i = 1,\ldots , N$ に対して, 
+\begin{align*} w_i \coloneqq \begin{cases} w_{i_k} & ^\exists k \in \cbra{1, \ldots , M} ; i_k = i \\ 0 & otherwise  \end{cases} \end{align*}
+により$w \in \mathbb R^N$ を定める. 
+\begin{align*} \Mag(Y) =  \frac{ (\Sigma_k w^Y_{i_k} )^2 }{{w^Y}^t Z_Y w^Y} = \frac{ (\Sigma_i w_i )^2 }{{w}^t Z_X w} \leq \max_{v \neq 0} \frac{ (\Sigma v_i )^2 }{v^t Z_X v} = \Mag(X).  \end{align*}
+\qed
+\end{pf*}
+
+\begin{prop}$(X, d)$ を正定値距離空間とすると, $1 \leq \Mag(X)$ である.  
+\end{prop}
+\begin{pf*}
+$1$点 という部分集合を考えると, $\Mag(\textrm{1点}) = 1$ であり, もとの空間のマグニチュードは部分集合のマグニチュード以上になることから主張が従う. 
+\qed
+\end{pf*}
+
+\begin{remark}もちろん, 正定値ではない距離空間の場合, マグニチュードは部分集合のマグニチュード以上であるとは限らない. 仮に部分集合のマグニチュード以上になるとしたら, マグニチュードは$1$ 未満の値をとれないことになる. 
+\end{remark}
+
+\begin{prop}(正定値距離空間の$l_1$ 直積). 正定値距離空間の$l_1$ 直積は正定値距離空間である. 
+
+\end{prop}
+\begin{pf*}
+正定値行列のクロネッカー積は正定値行列である. 
+\qed
+\end{pf*}
+
+\begin{prop}$2$点距離空間$(\cbra{p, q}, d)$のメビウス行列$M$ に関して次が成り立つ. 
+\begin{align*} v^t M v \geq \max{v_p ^2 , v_q^2 } \quad (\any v \in \mathbb R^2) \end{align*}
+\end{prop}
+\begin{pf*}
+$a \coloneqq e^{-d(p, q)}$ と表すことにすると, $M = \frac{1}{1 - a^2} \gyouretsu{1 & - a \\ - a & 1}$ であるので, 
+任意の$v \in \mathbb R^2$ に対して
+\begin{align*} v^t M v = \frac{1}{1 - a^2} (v_p^2 + v_q^2 - 2a v_p v_q) . \end{align*}
+ここで, $v_p^2 \geq v_q^2$ のときを考えると, 
+\begin{align*} \frac{1}{1 - a^2} (v_p^2 + v_q^2 - 2a v_p v_q) - v_p^2 &= \frac{1}{1 - a^2}  (v_p^2 + v_q^2 - 2a v_p v_q - (1-a^2) v_p^2) \\&=  \frac{1}{1 - a^2}  (av_p - v_q) ^2 \geq 0. \end{align*}
+$v_p^2 \leq v_q^2$ の時も同じなので主張が従う. 
+\qed
+\end{pf*}
+
+\begin{prop}\label{2149} $A, B \subset X$ を有限部分集合とする. $A, B$ が互いに良く射影され, $A \cap B$ が$1$点であるとする. $A, B$ のメビウス行列$M^A, M^B$ に関して
+\begin{align*} & v^t M^A v \geq \max_{x \in A }{v(x)^2 } \quad (\any v \in \mathbb R^{\# A}) \\ & v^t M^B v \geq \max_{x \in B }{v(x)^2 } \quad (\any v \in \mathbb R^{\# B}) \end{align*}
+が成り立つ時, $A \cup B$ のメビウス行列$M^{A \cup B}$に関して
+\begin{align*}  v^t M^{A \cup B} v \geq \max_{x \in A \cup B }{v(x)^2 } \quad (\any v \in \mathbb R^{\# A \cup B})  \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+\begin{align*} & v^t \paren{ \gyouretsu{ M^A & 0 \\ 0 & 0   } + \gyouretsu{ 0 & 0 \\ 0 & M^B   } - \diag(0, \ldots ,0,  1 , 0, \ldots , 0) } v \\& \geq \max_{x \in A}  v(x) ^2  + \max_{x \in B} v(x) ^2  - v(c)^2  \\& \geq \max_{x \in A \cup B}  v(x) ^2  \end{align*}
+より従う. 最後の不等式は, 例えば$\max_{x \in A \cup B}  v(x) ^2  = \max_{x \in A}  v(x) ^2 $ なら, $\max_{x \in A}  v(x) ^2  + \max_{x \in B} v(x) ^2  - v(c)^2  =\max_{x \in A \cup B}  v(x) ^2 +  (\max_{x \in B} v(x) ^2  - v(c)^2) $ であり, $\max_{x \in B} v(x) ^2  - v(c)^2 \geq 0 $ であることからわかる. 
+\qed
+\end{pf*}
+
+
+
+\begin{prop}実数直線$\mathbb R$ の有限部分集合は正定値距離空間である. 
+\end{prop}
+\begin{pf*}
+実数直線上の有限部分集合を$x_1 < x_2 < \cdots < x_n$ と並べることにする. 
+\begin{align*} &\cbra{x_1, x_2, x_3} =  \cbra{x_1, x_2} \cup \cbra{x_2, x_3} \\
+&\cbra{x_1, x_2, x_3, x_4} =  \cbra{x_1, x_2, x_3} \cup \cbra{x_3, x_4} \\ 
+& \vdots 
+\end{align*}
+のように, 互いに良く射影される集合の合併を, 共通部分が$1$ 点となるように繰り返しとることを考える. すると, 命題\ref {2149} が適用できる状況を繰り返していることになるので, 主張が従う. 
+\qed
+\end{pf*}
+
+\begin{prop}ユークリッド空間に$l^1$ 距離を備えた距離空間$(\mathbb R^n, d_{l^1})$ の有限部分集合は正定値距離空間である. 
+
+\end{prop}
+\begin{pf*}
+有限部分集合$\cbra{(x^1_1, \ldots, x^1_n)  , (x^2_1, \ldots, x^2_n), \ldots, (x^N_1, \ldots, x^N_n)}$ は
+\begin{align*} X \coloneqq \cbra{(p_1, \ldots , p_n) \mid p_i \in \cbra{x^1_i, x^2_i, \ldots, x^N_i}, i = 1, \ldots, n } \end{align*}
+の部分集合でもある. 正定値距離空間の$l^1$ 直積は正定値距離空間であることと合わせると, これは正定値距離空間の部分集合であるので, 正定値距離空間である. 
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -393,11 +566,143 @@ $X$ のメビウス行列が存在する. すなわち, $X$ はマグニチュ�
 \section{マグニチュードホモロジー}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \section{凸}
 
-\begin{dfn}(凸体). $A \subset \mathbb R^n$ は, コンパクトかつ凸であるとき, 凸体という.
+\begin{dfn}(凸体). $A \subset \mathbb R^n$ は, 空でなく, コンパクトかつ凸であるとき, 凸体という. また, 凸体全体の集合を$\mathcal K^n$ で表す.
 
 \end{dfn}
+
+\begin{prop}(凸体とミンコフスキー和) 
+\begin{align*} K, L \in \mathcal K ^n \naraba K + L \in \mathcal K ^n \end{align*}
+が成り立つ.
+\end{prop}
+\begin{pf*}空でないことは明らか. 
+\begin{claim}
+$K + L$ はコンパクトである. 
+\end{claim}
+\begin{claimproof}
+点列$z_n = x_n + y_n \in K+ L$ をとると, $x_n, y_n$ はそれぞれ収束部分列をもつので, $z_n$ も収束部分列をもつ.  
+\end{claimproof}
+
+\begin{claim}
+$K + L$ は凸集合である. 
+\end{claim}
+\begin{claimproof}
+$t(x_0 + y_0) + s(x_1 + y_1) = (t x_0 + s x_1) + (t y_0 + s y_1).$ 
+\end{claimproof}
+\qed
+\end{pf*}
+
+\begin{prop}次が成り立つ.
+\begin{align*} K \in \mathcal K ^n, \alpha \in \mathbb R \naraba \alpha K \in \mathcal K ^n. \end{align*}
+\end{prop}
+\begin{pf*}
+$t(\alpha x_0) + s(\alpha x_1) = \alpha (t x_0 + s x_1).$
+\qed
+\end{pf*}
+
+\begin{dfn}(凸錐). $C \subset \mathbb R^n$ は, 任意の$x \in C$ と任意の実数$a > 0$ に対して$ax \in C$ が成り立つとき, 凸錐という. 
+
+\end{dfn}
+
+\begin{remark}$\mathcal K ^n$ 自体, 冪集合において, 凸錐である. 
+
+\end{remark}
+
+
+\begin{dfn}(支持関数). $K \in \mathcal K^n$ とする. 
+\begin{align*} h_K: \mathbb R^n \rightarrow \mathbb R; x \mapsto \sup_{y \in K} (y, x)\end{align*}
+を$K$ の定める支持関数という. 
+\end{dfn}
+
+\begin{remark}
+$K$ はコンパクトであるので, $x$ ごとに最大値を実現する元が存在するので, 右辺は常に$\max_{y \in K}(x, y)$ である. 
+\end{remark}
+
+\begin{prop}$y \in \mathcal K$ が$\sup_{y \in K}(x, y)$ のmaximizerであるならば, $y \in \partial K$
+\end{prop}
+\begin{pf*}
+$y \in K$ を$h_K$ のmaximizerとする. $y$ が$K$ の内点であるとする(背理法). 十分小さい$\veps > 0$ をとると, $y + \veps x \in K$ である. 
+\begin{align*} (x, y + \veps x) > (x, y)  \end{align*}
+となるので矛盾する. 
+\qed
+\end{pf*}
+
+\begin{remark}この命題をみてると, 大体$K$ の中をまだ$x$ 方向に進んでいけるような状態だと, $(x, y)$ という量はまだ増やせる. 従って, $x$ と直交する超平面を考えて, $x$ 方向にその超平面を並行に動かしていったとき, ぎりぎり$K$ と交点をもつような瞬間を想像すればよい. 
+
+\end{remark}
+
+
+
+
+\begin{dfn}(半空間). 部分集合$H^{\geq} \subset \mathbb R^n$ は, $a \in \mathbb R^n, b \in \mathbb R$ で
+\begin{align*} (a, x) \geq b \quad (x \in H)\end{align*} 
+を満たすものが存在するとき, 半空間という. 
+\end{dfn}
+
+\begin{prop}半空間は凸集合である.
+
+\end{prop}
+\begin{pf*}
+$(a, tx_0 + s x_0) \geq tb + sb = b.$
+\qed
+\end{pf*}
+
+\begin{dfn}(支持超平面). $K \in \mathcal K^n$, $h_K$ を$K$ の定める支持関数, $u \in S^{n-1}$ とする. 
+\begin{align*} H(K; u) \coloneqq \cbra{x \in \mathbb R^n \mid (x, u) = h_K (u) } \end{align*}
+と定めこれを支持平面という. 
+\begin{align*}  &H^{>} (K; u) \coloneqq \cbra{x \in \mathbb R^n \mid (x, u) > h_K (u) }  \\
+&H^{\geq} (K; u) \coloneqq \cbra{x \in \mathbb R^n \mid (x, u) \geq h_K (u) } \\
+&H^{<} (K; u) \coloneqq \cbra{x \in \mathbb R^n \mid (x, u) < h_K (u) } \\
+&H^{\leq} (K; u) \coloneqq \cbra{x \in \mathbb R^n \mid (x, u) \leq h_K (u) } 
+  \end{align*}
+という記号も導入しておく. 
+\end{dfn}
+
+\begin{dfn}(凸多面体). $P \subset \mathbb R^n$ は, 有限個の半空間の族$\cbra{H^{\geq}_i}$ で, $P = \bigcap H^{\geq}_i$ を満たすものが存在するとき, 凸多面体という. 凸多面体全体を$\mathcal P ^n$ で表す. 
+\end{dfn}
+
+
+\begin{notation}有限個の族だけでなく, 無限個の族を許すと, 多分凸体全体と一致する. 有限個の頂点の凸包として定義する場合もあるが, その場合は半空間などは凸多面体に含まないことになる. 
+
+\end{notation}
+
+\begin{dfn}(凸多面体の面). $P \in \mathcal P^n$ が半空間$\cbra{H^\geq _1, \ldots, H^\geq _N}$に対して$P = \bigcap H^{\geq}_i$ と表されているとする. 各, $H^\geq_i$ に対して, $u_i \in S^{n-1}$ で
+\begin{align*} H^\geq_i =  H^{\geq} (K; u_i) \end{align*}
+を満たすものがとれるので, 
+\begin{align*} P(u_i) \coloneqq P \cap H^{\geq} (K; u_i) \end{align*}
+\end{dfn}
+
+
+
+\begin{prop}
+(1)任意の$K \in \mathcal K ^n$ と任意の$\veps > 0$ に対して, $P \in \mathcal P^n$ で, $P \subset K$ かつ, $d_H(K, P) \leq \veps$ を満たすものが存在する. \\
+(2)任意の$K \in \mathcal K ^n$ と任意の$\veps > 0$ に対して, $P \in \mathcal P^n$ で, $K \subset P$ かつ, $d_H(K, P) \leq \veps$ を満たすものが存在する. 
+\end{prop}
+\begin{pf*}
+(1)$\bigcup_{x \in \partial K} B(x; \veps) \cup \textrm{int} K$ は $K$ の開被覆なので, $K$ がコンパクトであることから有限部分被覆がとれる. 従って, $\partial K$ は 有限個の開球$B(x_1; \veps), \ldots B(x_N; \veps)$ で被覆できる. $x_1, \ldots , x_N$ の凸包を$P$ とすると, これが求める凸多面体である. (実際, $P_\veps = P + B(\veps)$ は$\partial K$ を含む凸集合であり, 任意の点$x \in \textrm{int} K$ は適当に$x$ を通る直線を考えた時に, その直線は$\partial K$ と交点を2つもって, その交点は凸集合である$P_\veps$ に含まれているので, $2$ 点を結ぶ線分上にある$x$ も$P_\veps$ に含まれる.) \\
+(2)
+\qed
+\end{pf*}
+
 
 
 
@@ -531,6 +836,13 @@ fp \in \textrm{右} \naraba h^{-1} fp \in B
 
 \end{remark}
 
+\begin{prop}回転群$SO_d$ にはハール確率測度が一意に存在する.
+
+\end{prop}
+\begin{pf*}
+回転群と運動群のハール測度, のpdf参照.
+\qed
+\end{pf*}
 
 
 
