@@ -157,6 +157,8 @@
 
 \newcommand{\Mag}{\textrm{Mag}}
 
+\usepackage{mathrsfs}
+
 
 \title{距離空間のマグニチュード}
 \date{}
@@ -360,8 +362,8 @@ $(X, d)$ を距離空間とする. 群$G$で$X$に等長かつ推移的に作用
 が成り立つ. 
 \end{prop}
 \begin{pf*}実際, $w$ がウェイトになることは例えば類似度行列の$a \in A$ 行目に関しては
-\begin{align*} \sum_{x \in X} Z(a, x) w(x) &= \sum_{a^\prime \in A} Z(a, a^\prime) w^A(a^\prime)   + \sum_{b \in B} Z(a, b) w^{B} (b)  \\& = \sum_{a^\prime \in A} Z(a, a^\prime) w^A(a^\prime) - \sum_{c^\prime \in A \cap B} Z(a, c) w^{A \cap B} (c) \\& \quad + \sum_{b \in B} Z(a, \pi(a)) Z(\pi(a), b) w^{B} (b) - \sum_{c^\prime \in A \cap B} Z(a, \pi(a)) Z(\pi(a), c) w^{A \cap B} (c)    \\ 
-&= 1 + Z(a, \pi(a)) (  \sum_{b \in B}  Z(\pi(a), b) w^{B} (b)  - \sum_{c^\prime \in A \cap B} Z(\pi(a), c) w^{A \cap B} (c) ) \\
+\begin{align*} \sum_{x \in X} Z(a, x) w(x) &= \sum_{a^\prime \in A} Z(a, a^\prime) w^A(a^\prime)   + \sum_{b \in B} Z(a, b) w^{B} (b) - \sum_{c^\prime \in A \cap B} Z(a, c) w^{A \cap B} (c)  \\& = \sum_{a^\prime \in A} Z(a, a^\prime) w^A(a^\prime)  \\& \quad + \sum_{b \in B} Z(a, \pi(a)) Z(\pi(a), b) w^{B} (b) - \sum_{c \in A \cap B} Z(a, \pi(a)) Z(\pi(a), c) w^{A \cap B} (c)    \\ 
+&= 1 + Z(a, \pi(a)) (  \sum_{b \in B}  Z(\pi(a), b) w^{B} (b)  - \sum_{c \in A \cap B} Z(\pi(a), c) w^{A \cap B} (c) ) \\
 &= 1 + Z(a, \pi(a)) (1- 1) = 1
 \end{align*}
 よりわかる. $b \in B$ 行目に関しても全く同様に示される. さらに, この$\sum_{x \in A \cup B} w(x)$ を計算すると, 主張が従う. 
@@ -369,7 +371,7 @@ $(X, d)$ を距離空間とする. 群$G$で$X$に等長かつ推移的に作用
 \end{pf*}
 
 \begin{prop}($1$点で交わる集合同士の和). $A, B \subset X$ を $1$ 点($c \in A\cap B$ で表す. )で共通部分をもつ有限部分集合とする. $A, B$ がマグニチュードをもち, $A, B$ が互いに良く射影されるとき, $A \cup B$ はメビウス行列をもち, 
-\begin{align*} \mu_{A \cup B}( x, y) \coloneqq \begin{cases} \mu^A(x, y)  & x, y \in A, (x, y) \neq  (c, c) \\ \mu(x, y)  & x, y \in B , (x, y) \neq  (c, c) \\ \mu^A(c, c) + \mu^B (c, c) - 1 & (x, y) = (c, c)  \\ 0 & \textrm{otherwise} \end{cases} \end{align*}
+\begin{align*} \mu_{A \cup B}( x, y) \coloneqq \begin{cases} \mu^A(x, y)  & x, y \in A, (x, y) \neq  (c, c) \\ \mu^B(x, y)  & x, y \in B , (x, y) \neq  (c, c) \\ \mu^A(c, c) + \mu^B (c, c) - 1 & (x, y) = (c, c)  \\ 0 & \textrm{otherwise} \end{cases} \end{align*}
 で与えられる. ただし, $A, B$ のメビウス行列を$M^A = (\mu^A_{ij}), M^B = (\mu^B_{ij})$ で表している. 
 
 \end{prop}
@@ -501,7 +503,7 @@ $1$点 という部分集合を考えると, $\Mag(\textrm{1点}) = 1$ であり
 \end{pf*}
 
 \begin{prop}$2$点距離空間$(\cbra{p, q}, d)$のメビウス行列$M$ に関して次が成り立つ. 
-\begin{align*} v^t M v \geq \max{v_p ^2 , v_q^2 } \quad (\any v \in \mathbb R^2) \end{align*}
+\begin{align*} v^t M v \geq \max \cbra{v_p ^2 , v_q^2 } \quad (\any v \in \mathbb R^2) \end{align*}
 \end{prop}
 \begin{pf*}
 $a \coloneqq e^{-d(p, q)}$ と表すことにすると, $M = \frac{1}{1 - a^2} \gyouretsu{1 & - a \\ - a & 1}$ であるので, 
@@ -513,7 +515,7 @@ $v_p^2 \leq v_q^2$ の時も同じなので主張が従う.
 \qed
 \end{pf*}
 
-\begin{prop}\label{2149} $A, B \subset X$ を有限部分集合とする. $A, B$ が互いに良く射影され, $A \cap B$ が$1$点であるとする. $A, B$ のメビウス行列$M^A, M^B$ に関して
+\begin{prop}\label{2149} $A, B \subset X$ をメビウス行列をもつ有限部分集合とする. $A, B$ が互いに良く射影され, $A \cap B$ が$1$点であるとする. $A, B$ のメビウス行列$M^A, M^B$ に関して
 \begin{align*} & v^t M^A v \geq \max_{x \in A }{v(x)^2 } \quad (\any v \in \mathbb R^{\# A}) \\ & v^t M^B v \geq \max_{x \in B }{v(x)^2 } \quad (\any v \in \mathbb R^{\# B}) \end{align*}
 が成り立つ時, $A \cup B$ のメビウス行列$M^{A \cup B}$に関して
 \begin{align*}  v^t M^{A \cup B} v \geq \max_{x \in A \cup B }{v(x)^2 } \quad (\any v \in \mathbb R^{\# A \cup B})  \end{align*}
@@ -549,6 +551,21 @@ $v_p^2 \leq v_q^2$ の時も同じなので主張が従う.
 \qed
 \end{pf*}
 
+\subsection{コンパクト距離空間のマグニチュード}
+
+\begin{dfn}$(X, d)$ をコンパクト距離空間とする. 
+\begin{align*} \Mag(X) \coloneqq \sup \cbra{\Mag(A) \mid A \textrm{は} X \textrm{の有限部分集合}}\end{align*}
+によりコンパクト距離空間のマグニチュードを定める. 
+\end{dfn}
+
+\begin{prop}(区間のマグニチュード). 有界閉区間$[a, b] \subset \mathbb R$ のマグニチュードは
+\begin{align*} \Mag ([a,b]) = 1 + \frac{b -a}{ 2}  \end{align*}
+で与えられる. 
+\end{prop}
+\begin{pf*} 
+
+\qed
+\end{pf*}
 
 
 
@@ -561,7 +578,142 @@ $v_p^2 \leq v_q^2$ の時も同じなので主張が従う.
 
 
 
-\subsection{無限距離空間のマグニチュード}
+
+
+
+
+
+
+
+
+\subsection{非コンパクト距離空間のマグニチュード}
+
+\begin{dfn}(正定値距離空間とウェイト空間). $(X, d)$ を距離空間とする. $(X, d)$ 上の台が有限集合である符号付き有限測度全体を$FM(X, d)$ で表す. $FM(X)$ に双線形形式を
+\begin{align*} \tbra{\mu, \nu} \coloneqq \int_{X \times X} e^{-d(x,y)} d\mu d\nu \end{align*}
+により定める. この双線形形式が正定値(つまり内積になる)とき, $(X, d)$ をPDMS(正定値距離空間)という. 
+また, $X$ がPDMSであるときに, この内積が定めるノルムに関して$FM(X)$ を完備化した空間を$\mathcal W_X$ で表し, $X$ のウェイト空間という. コンパクト集合$A \subset X$ に対しては, $\mathcal W _A $ で, $FM(A)$ の$\mathcal W_X$ における閉包を表す. 
+\end{dfn}
+
+\begin{prop}$(X, d)$ をPDMS, $x, y \in X$ とする.  \\
+(1)$\norm{\delta_x}_{\mathcal W} = 1$ \\
+(2)$\norm{\delta_x  - \delta_y}_{\mathcal W} = 2(1 - e^{-d(x, y)})$ \\
+(3)$\norm{\delta_x  - \delta_y}_{\mathcal W} \leq \sqrt{2 d(x, y)}$
+が成り立つ.
+\end{prop}
+\begin{pf*}
+(1)$ \norm{\delta_x}_{\mathcal W}^2  = \int e^{-d(p,q)} d\delta_x(p) d \delta_x(q) = e^{-d(x,x)} = 1 $. (2)普通に計算. (3)$1+x \leq e^{x}$ っていうよく知られた不等式を使う. 
+\qed
+\end{pf*}
+
+
+\begin{dfn}(ヘルダー連続). $(X, d)$ 上の連続関数で
+\begin{align*} \abs{fx - fy} \leq C \sqrt{d(x, y)} \quad (x, y \in X) \end{align*}
+を満たすものを, $1/2$ ヘルダー連続関数といい, $C^{1/2}(X)$ で表す. 
+\end{dfn}
+
+\begin{setting}$C^{1/2}(X)$ に
+\begin{align*} \norm{f}_{C^{1/2}} \coloneqq \max \cbra{\norm{f}_\infty, \sup_{x, y \in X, x \neq y} \frac{\abs{fx - fy}}{\sqrt{2d(x, y)}} } \end{align*}
+でノルムを定める. 
+\end{setting}
+
+\begin{prop}$(X, d)$ を距離空間とする. $x, y, p \in X$ に対して, 
+\begin{align*} e^{-d(x, p)} - e^{-d(y, p)} \leq d(x, y)\end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+$e^{-d(x, p)} - e^{-d(y, p)} = e^{-d(x, p)}(1 - e^{-(d(y, p) - d(x, p) )   }) \leq 1 \cdot ( d(y, p) - d(x, p) )  \leq d(x, y) .$
+\qed
+\end{pf*}
+
+
+\begin{notation}$\mu \in FM$ に対して, 
+\begin{align*} Z\mu(x) \coloneqq \int e^{-d(x,y)} d\mu(y)\end{align*}
+という記号を導入する. 
+\end{notation}
+
+\begin{prop}$\nu \in FM(X), x \in X$ に対して
+\begin{align*} Z\mu(x) = \tbra{\mu, \delta_x} \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+定義から直ちにわかる. 
+\qed
+\end{pf*}
+
+
+
+\begin{prop}$\mu \in \mathcal FM$ とする. $Z \mu \in C^{1/2}$ かつ, $\norm{Z \mu}_{C^{1/2}} \leq \norm{\mu}_{\mathcal W}$ が成り立つ. 
+
+\end{prop}
+\begin{pf*}
+$\abs{Z \mu (x)} = \abs{\tbra{\mu, \delta_x}} \leq \norm \mu \norm \delta_x = \norm \mu$ より, $\norm{Z\mu}_\infty \leq \norm \mu$ が成り立ち, 
+\begin{align*} \abs{Z \mu (x) - Z \mu (y)} = \abs{\tbra{\mu, \delta_x - \delta_y}} \leq \norm \mu \norm{\delta_x - \delta_y} \leq \norm \mu \sqrt{2 d(x, y) }\end{align*}
+より, $\sup_{x \neq y} \frac{\abs{Z\mu (x) - Z \mu(y)}}{\sqrt{2d(x, y)}} < \norm \mu$
+が成り立つ. 
+\qed
+\end{pf*}
+
+\begin{prop}(BLT定理). ノルム空間$X$ からバナッハ空間$Y$への有界線型作用素は, $X$ の完備化$\bar X$ から$Y$ への有界線型作用素に作用素ノルムを変えずに一意に拡張できる.
+
+\end{prop}
+\begin{pf*}
+よく知られた事実である. 
+\qed
+\end{pf*}
+
+\begin{prop}$(X,d)$ をPDMSとする. $Z: FM(X) \rightarrow C^{1/2}(X)$ は, 有界線型作用素$Z: \mathcal W_X \rightarrow C^{1/2}$ に一意に拡張でき, 次の(1)(2)を満たす. \\
+(1)$\norm Z = 1.$ \\
+(2)$w \in \mathcal W, \mu \in FM \naraba \tbra{w, \mu}_\mathcal W = \int Zw d\mu.$ \\
+(3)$Z$ は単射である. 
+\end{prop}
+\begin{pf*} 一意に拡張できることは, BLT定理より従う. (1)は$1 = \norm{Z \delta_x}_\infty \leq \norm{Z \delta_x}_{C^{1/2}} \leq \norm{\delta_x}_{\mathcal W} = 1$ より従う. (2)は$w_i \in FM, w_i \rightarrow w \in \mathcal W$ を考えることで従う. (3)$Zw = 0$ なる$w \in \mathcal W$ をとる. $0 = Zw(x) = \tbra{w, \delta_x}$ より, 線形性から任意の$\mu \in FM$ に対して$\tbra{w, \nu} = 0$ が成り立つ. $FM$ は$\mathcal W$ で稠密なので, $\tbra{w, w} = 0$ となり, 主張が従う. 
+\qed
+\end{pf*}
+
+
+\begin{dfn}(PDMSのマグニチュード). $(X, d)$ をPDMSとする. $A \subset X$ をコンパクトとする. $w \in \mathcal W_A$ で
+$Zw(a) = 1 \quad (\any a \in A)$ を満たすものを, $A$ のウェイトという. $X$ がウェイトをもつとき, $X$ はマグニチュードをもつといい, 
+\begin{align*} \Mag(A) \coloneqq \norm{w} _{\mathcal W} ^2\end{align*}
+と定め, これを$A$ のマグニチュードという. $(X, d)$ がPDMSであれば$Z$ が単射であることから, $X$ はただ一つのウェイトしかもたないことに注意しておく. 
+\end{dfn}
+
+
+
+
+\begin{setting}$(X, d)$がPDMSのとき, $\mathcal H = Z(\mathcal W) \subset C^{1/2}(X)$ を考えると, $Z$ が単射であったことから, $Z: \mathcal W \rightarrow \mathcal H$ は全単射である. 
+\begin{align*} \tbra{f, g}_{\mathcal H} \coloneqq \tbra{Z^{-1}f, Z^{-1}g}_{\mathcal W} \end{align*}
+により$\mathcal H$ に内積を定める. 当然, $Z$ は全単射等長写像となる. 
+\end{setting}
+
+\begin{remark}
+$X = \mathbb R^n$ を考えているときには, ウェイト空間は$H^{-(n+1)/2}$ と一致し, $\mathcal H$ は$H^{(n+1)/2}$ と一致する. 
+\end{remark}
+
+
+
+
+
+\begin{dfn}(ベッセルポテンシャル空間). 
+\begin{align*} H^\alpha \coloneqq \cbra{ \varphi \in S^\prime (\mathbb R^n) \mid (1 + \norm{\cdot} ^2) ^{\alpha/2} \hat \varphi \in L^2(\mathbb R^n)}  \end{align*}
+に
+\begin{align*} \norm{\varphi }_{H^\alpha} \coloneqq \sqrt{ \int_{\mathbb R^n} (1 + \norm \xi ^2) ^\alpha \abs{\hat \varphi(\xi)} ^2 d\xi }  \end{align*}
+でノルムを定める. 
+\end{dfn}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \section{マグニチュードホモロジー}
 
@@ -585,6 +737,14 @@ $v_p^2 \leq v_q^2$ の時も同じなので主張が従う.
 
 
 \section{凸}
+
+
+
+\subsection{凸体に関する基本事項}
+
+
+
+
 
 \begin{dfn}(凸体). $A \subset \mathbb R^n$ は, 空でなく, コンパクトかつ凸であるとき, 凸体という. また, 凸体全体の集合を$\mathcal K^n$ で表す.
 
@@ -637,6 +797,12 @@ $t(\alpha x_0) + s(\alpha x_1) = \alpha (t x_0 + s x_1).$
 $K$ はコンパクトであるので, $x$ ごとに最大値を実現する元が存在するので, 右辺は常に$\max_{y \in K}(x, y)$ である. 
 \end{remark}
 
+\begin{remark}冷静に考えるとわかるが, $u \in S^{n-1}$ 単位ベクトルをとれば, $h_K(u)$ は原点から$u$ 方向に進んで行った時の, $K$ の$u$ 方向の端っこまでの距離である. 
+
+
+\end{remark}
+
+
 \begin{prop}$y \in \mathcal K$ が$\sup_{y \in K}(x, y)$ のmaximizerであるならば, $y \in \partial K$
 \end{prop}
 \begin{pf*}
@@ -677,7 +843,7 @@ $(a, tx_0 + s x_0) \geq tb + sb = b.$
 という記号も導入しておく. 
 \end{dfn}
 
-\begin{dfn}(凸多面体). $P \subset \mathbb R^n$ は, 有限個の半空間の族$\cbra{H^{\geq}_i}$ で, $P = \bigcap H^{\geq}_i$ を満たすものが存在するとき, 凸多面体という. 凸多面体全体を$\mathcal P ^n$ で表す. 
+\begin{dfn}(凸多面体). $P \subset \mathbb R^n$ は, 有限個の半空間の族$\cbra{H^{\leq}_i}$ で, $P = \bigcap H^{\leq}_i$ を満たすものが存在するとき, 凸多面体という. 凸多面体全体を$\mathcal P ^n$ で表す. 
 \end{dfn}
 
 
@@ -685,23 +851,90 @@ $(a, tx_0 + s x_0) \geq tb + sb = b.$
 
 \end{notation}
 
-\begin{dfn}(凸多面体の面). $P \in \mathcal P^n$ が半空間$\cbra{H^\geq _1, \ldots, H^\geq _N}$に対して$P = \bigcap H^{\geq}_i$ と表されているとする. 各, $H^\geq_i$ に対して, $u_i \in S^{n-1}$ で
-\begin{align*} H^\geq_i =  H^{\geq} (K; u_i) \end{align*}
+\begin{dfn}(凸多面体の面). $P \in \mathcal P^n$ が半空間$\cbra{H^\leq _1, \ldots, H^\leq _N}$に対して$P = \bigcap H^{\leq}_i$ と表されているとする. 各, $H^\leq_i$ に対して, $u_i \in S^{n-1}$ で
+\begin{align*} H^\leq_i =  H^{\leq} (K; u_i) \end{align*}
 を満たすものがとれるので, 
-\begin{align*} P(u_i) \coloneqq P \cap H^{\geq} (K; u_i) \end{align*}
+\begin{align*} P(u_i) \coloneqq P \cap H^{\leq} (K; u_i) \end{align*}
+と定めて, これを$u_i$ 方向の面という. 
 \end{dfn}
 
 
+\begin{dfn}(相対的内部). 部分集合$A \subset \mathbb R^n$ に対して, $\textrm{relint} A$ で, $A$ のアファイン包の内部を表し, これを$A$ の相対的内部という. 
+
+\end{dfn}
 
 \begin{prop}
 (1)任意の$K \in \mathcal K ^n$ と任意の$\veps > 0$ に対して, $P \in \mathcal P^n$ で, $P \subset K$ かつ, $d_H(K, P) \leq \veps$ を満たすものが存在する. \\
-(2)任意の$K \in \mathcal K ^n$ と任意の$\veps > 0$ に対して, $P \in \mathcal P^n$ で, $K \subset P$ かつ, $d_H(K, P) \leq \veps$ を満たすものが存在する. 
+(2)任意の$K \in \mathcal K ^n$ と任意の$\veps > 0$ に対して, $P \in \mathcal P^n$ で, $K \subset P$ かつ, $d_H(K, P) \leq \veps$ を満たすものが存在する.  \\
+(3)$K \in \mathcal K ^n$ は, $0 \in \textrm{relint}K$ を満たすならば, 任意の$\veps > 0$ に対して$P \in \mathcal P^n$ で, $P \subset K \subset (1 + \veps) P$ を満たすものが存在する. 
+
 \end{prop}
 \begin{pf*}
 (1)$\bigcup_{x \in \partial K} B(x; \veps) \cup \textrm{int} K$ は $K$ の開被覆なので, $K$ がコンパクトであることから有限部分被覆がとれる. 従って, $\partial K$ は 有限個の開球$B(x_1; \veps), \ldots B(x_N; \veps)$ で被覆できる. $x_1, \ldots , x_N$ の凸包を$P$ とすると, これが求める凸多面体である. (実際, $P_\veps = P + B(\veps)$ は$\partial K$ を含む凸集合であり, 任意の点$x \in \textrm{int} K$ は適当に$x$ を通る直線を考えた時に, その直線は$\partial K$ と交点を2つもって, その交点は凸集合である$P_\veps$ に含まれているので, $2$ 点を結ぶ線分上にある$x$ も$P_\veps$ に含まれる.) \\
 (2)
 \qed
 \end{pf*}
+
+\subsection{内在的体積}
+
+\begin{remark}
+凸多面体として, 有界なもののみを考えることとする. 
+\end{remark}
+
+\begin{notation}$u \in S^{n -1}$ に直交し, 原点を通る超平面$u^\perp$ への正射影を
+\begin{align*} \pi^\perp_u : \mathbb R^n \rightarrow u^\perp \end{align*}
+で表す. 
+\end{notation}
+
+\begin{dfn}(凸多面体の内在的体積). $\mathcal P^n$ 上の関数 $V_1, \ldots, V_n$ を帰納的に定義していく. \\
+(1)$P \in \mathcal P^1$ に対しては, 
+\begin{align*} V_1 (P) \coloneqq b - a \end{align*} 
+と定める. \\
+(2)$P \in \mathcal P^n$ に対しては, 
+\begin{align*} V_n (P) \coloneqq \begin{cases} \frac{1}{n} \sum_{u \in S^{n-1}; u\textrm{方向の面が存在}} h_P(u) V_{n-1}(\pi^\perp_u P(u)) & \dim P = n-1, n \\ 0 &   \dim P \leq n-2 \end{cases} \end{align*}
+
+\end{dfn}
+
+\begin{remark}
+例えば, $\mathbb R^2$ の中の$u \in S^1$ に直交する線分$L$は$4$つの半平面の共通部分で表される凸多面体で, $\dim L = 1$ であるが, 試しに$V_2 (L)$ を計算してみると, $u$ 方向の面と$-u$ 方向の面があるので, それらに関する項が打ち消しあって, (残り$2$ 方向分は, 射影すると$1$ 点になる方向なので, それらの$V_1$ に関する値は$0$ になる) 結局$0$ になる. 
+\end{remark} 
+
+
+
+\begin{prop}$P \in \mathcal P ^n$ に対して, 
+\begin{align*} V_n (P) = \textrm{Leb}_n (P) \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+
+\begin{prop}任意の$K \in \mathcal K^n$ に対して
+\begin{align*} \sup_{P \subset K, P \in \mathcal P^n} V_n (P) = \inf_{K \subset P, P \in \mathcal P^n} V_n (P)  \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}$V_n$ は剛体運動に関して不変であるので, $0 \in \textrm{relint} K$ となるように$K$ を動かしておく. すると, 任意の$\veps >0$ に対して 
+\begin{align*} P \subset K \subset (1 + \veps) P\end{align*}
+を満たす$P \in \mathcal P^n$ がとれる.  
+\qed
+\end{pf*}
+
+\begin{dfn}(凸体の内在的体積). $K \in \mathcal K^n$ に対して
+\begin{align*} V_n (K) \coloneqq  \sup_{P \subset K, P \in \mathcal P^n} V_n (P)  \paren{ = \inf_{K \subset P, P \in \mathcal P^n} V_n (P) }  \end{align*}
+と定める. 
+\end{dfn}
+
+\begin{dfn}(多面体の混合体積). $n$ 次元ユークリッド空間$\mathbb R^n$ の部分集合である$n$ 個の凸多面体$P_1, \ldots , P_n \in \mathcal P^n$ に対して, $V_i(P_1, \ldots, P_n) \quad ( i = 1, \ldots , n)$ を帰納的に定義していく. \\
+(1)$n = 1$ のとき, 
+\begin{align*} V_1(P_1) \coloneqq b-a.\end{align*}
+(2)$n \geq 2 $ のとき, 
+\begin{align*}V_n (P_1,\ldots , P_n) \coloneqq \sum_{\star} h_{P_n} (u) V_{n-1} (\pi^\perp_u P_1 (u) ,  \ldots ,\pi^\perp_u P_{n-1} (u))  \end{align*}
+ただし, $\star$ は, $P_1 + \cdots P_{n-1}$ について$u \in S^{n-1}$ 方向の面が存在するすべての$u$ をはしる. 
+\end{dfn}
+
+
 
 
 
@@ -843,6 +1076,33 @@ fp \in \textrm{右} \naraba h^{-1} fp \in B
 回転群と運動群のハール測度, のpdf参照.
 \qed
 \end{pf*}
+
+
+\section{失敗集}
+
+\subsection{測度距離空間におけるウェイトの定義}
+
+$(X, d, \mu)$ を$X$ が有限集合である確率測度距離空間とする. $Z$ を$X$ の類似度行列とし, 任意の$x \in X$ に対して
+\begin{align*} \sum_{y \in X} Z(x, y)w(y)\mu(y) = 1 \end{align*}
+が成り立つ$w$ を$X$ のウェイトということにする. すると残念ながら, 
+$w, v$ をともに$X$ のウェイトとすると, 
+\begin{align*} \sum w(x) = \sum v(x) \end{align*}
+は必ずしも成り立たない. 
+
+\begin{remark}
+けど, よく考えたら, もしウェイトがユニークであることが言えれば, これは別に定義できるのでは. つまり, $Z$ がメビウス行列をもつような空間であれば, ウェイトはユニークであるので, 定義できる. 
+\end{remark}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
