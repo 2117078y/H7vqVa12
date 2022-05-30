@@ -646,7 +646,7 @@ $e^{-d(x, p)} - e^{-d(y, p)} = e^{-d(x, p)}(1 - e^{-(d(y, p) - d(x, p) )   }) \l
 
 \end{prop}
 \begin{pf*}
-$\abs{Z \mu (x)} = \abs{\tbra{\mu, \delta_x}} \leq \norm \mu \norm \delta_x = \norm \mu$ より, $\norm{Z\mu}_\infty \leq \norm \mu$ が成り立ち, 
+$\abs{Z \mu (x)} = \abs{\tbra{\mu, \delta_x}} \leq \norm \mu \norm {\delta_x} = \norm \mu$ より, $\norm{Z\mu}_\infty \leq \norm \mu$ が成り立ち, 
 \begin{align*} \abs{Z \mu (x) - Z \mu (y)} = \abs{\tbra{\mu, \delta_x - \delta_y}} \leq \norm \mu \norm{\delta_x - \delta_y} \leq \norm \mu \sqrt{2 d(x, y) }\end{align*}
 より, $\sup_{x \neq y} \frac{\abs{Z\mu (x) - Z \mu(y)}}{\sqrt{2d(x, y)}} < \norm \mu$
 が成り立つ. 
@@ -699,6 +699,150 @@ $X = \mathbb R^n$ を考えているときには, ウェイト空間は$H^{-(n+1
 \begin{align*} \norm{\varphi }_{H^\alpha} \coloneqq \sqrt{ \int_{\mathbb R^n} (1 + \norm \xi ^2) ^\alpha \abs{\hat \varphi(\xi)} ^2 d\xi }  \end{align*}
 でノルムを定める. 
 \end{dfn}
+
+\begin{prop}(デルタ関数が)
+
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+
+\begin{prop}(ポテンシャルの下限による表示). 
+
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+
+
+\begin{notation}ノルム空間$(X, \norm )$ に対して, 
+\begin{align*} \zeta(x) \coloneqq e^{-\norm{x}} \end{align*}
+と定める. 
+\begin{align*} \hat \zeta (\xi) = \frac{1}{(2\pi)^{n/2}} n! \omega_n (1 + \norm \xi ^2)^{-(n+1)/2} \end{align*}
+が成り立つ. 
+\end{notation}
+
+\begin{prop}(1)$FM \subset  H^{-(n+1)/2} $ である. \\
+(2)包含写像$FM \rightarrow H^{-(n+1)/2} $ は全単射$\mathcal W \rightarrow H^{-(n+1)/ 2}$ に拡張される. また, 任意の$\mu \in FM$ に対して$\norm{\mu}_{\mathcal W} = \sqrt{n ! \omega_n} \norm{\mu}_{H^{(n+1)/2}}$ が成り立つ. 
+
+\end{prop}
+\begin{pf*}
+
+
+
+\begin{align*} 
+n! \omega _n \norm{\mu}^2_{H^{-(n+1)/2}} 
+&= n! \omega _n \int (1 + \norm \xi ^2) ^{-(n+1)/2} \abs{\widehat \mu (\xi)}^2 d \xi
+\\&= (2 \pi )^{n/2} \int \hat \zeta (\xi) (\hat \mu (\xi))^2 d\xi 
+\\&= (2 \pi )^{n/2} \int \hat \zeta (\xi) (\sum c_k \widehat{\delta_{x_k}} (\xi))^2 d\xi 
+\\&= (2 \pi )^{n/2} \int \hat \zeta (\xi) (\sum c_k c_l  \paren{\frac{1}{(2\pi)^{n/2}}}^2 e^{- i x_k \xi} e^{ -i x_l \xi }  ) d\xi 
+\\&= \frac{1}{(2 \pi )^{n/2}} \sum c_k c_l  \int \hat \zeta (\xi)  e^{- i (x_k - x_l) \xi}   d\xi 
+\\&=\frac{1}{(2 \pi )^{n/2}} \sum c_k c_l  \int \hat \zeta (\xi)  e^{i (x_l - x_k) \xi}   d\xi 
+\\&=  \sum c_k c_l   \zeta (x_l - x_k)  
+\\&= \int e^{-\norm{x_l - x_k}} d\mu d\mu
+\\& = \norm{\mu}^2_{\mathcal W}  
+\end{align*}
+が成り立つ. 
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{その他の話題}
+
+\begin{prop}$X \subset \mathbb R^2$ を滑らかなコンパクト領域とする. 
+\begin{align*} M_X (r) = M_B (r) + o(r) \quad (r \rightarrow \infty ) \end{align*}
+が成り立つとき, $X$ は単位閉球に等長同型である. 
+
+\end{prop}
+\begin{pf*}
+\begin{align*}&n! \omega_n M_X (r) = \vol_n (X) r^2 + \frac{2 + 1}{2} \vol_1 (\partial X) r + o(r) \\ 
+&n! \omega_n M_B (r) = \vol_n (B) r^2 + \frac{2 + 1}{2} \vol_1 (\partial B) r + o(r) 
+\end{align*}
+より, $M_X (r) = M_B (r) + o(r) \quad (r \rightarrow \infty ) $ とすると$\vol_2 (X) = \vol_2 (B), \vol_1 (\partial X) = \vol_1 (\partial B)$ が成り立つ. 等周不等式を考えると, $X$ は$B$ に等長同型である. 
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+\subsection{2マグニチュード}
+
+\begin{screen}
+2マグニチュードはほとんどの場合で退化していて使い物にならない. 
+\end{screen}
+
+\begin{dfn}(2マグニチュード). 
+
+\end{dfn}
+
+\begin{dfn}$(X, d)$ をPDMSとする. $FM$ に内積を, 
+\begin{align*} (\mu, \nu) \coloneqq \int e^{-\frac{d^2(x,y)}{2}} d\mu(x) d\nu(y)  \end{align*}
+で定める. $FM$ をこの内積が定めるノルムに関して完備化したものを, $\mathcal W$ で表すことにする. 
+\end{dfn}
+
+\begin{prop}距離空間$(X, d)$ のリプシッツ関数全体$\Lip(X)$に
+\begin{align*} \norm f \coloneqq \max \cbra{ \norm{f}_\infty     , \sup_{x \neq y} \frac{\abs{f(x) - f(y)}}{d(x, y)}  }  \end{align*}
+と定めると, これはノルムとなり, $(Lip(X), \norm \cdot)$ は完備である. 
+\end{prop}
+\begin{pf*}ノルムとセミノルムの$\max$ なので, ノルムであることは直ちにわかる. 
+\begin{align*} \frac{1}{2}( \norm{f}_\infty  +   \sup_{x \neq y} \frac{\abs{f(x) - f(y)}}{d(x, y)} )  \leq \max \cbra{ \norm{f}_\infty, \sup_{x \neq y} \frac{\abs{f(x) - f(y)}}{d(x, y)}  } \leq  \norm{f}_\infty  +   \sup_{x \neq y} \frac{\abs{f(x) - f(y)}}{d(x, y)}    \end{align*}
+が成り立っている. $\norm{f}_\infty  +   \sup_{x \neq y} \frac{\abs{f(x) - f(y)}}{d(x, y)} $ に関して完備性を示すことにする. 適当にコーシー列をとると, $\norm \cdot _\infty$ に関してコーシー列になっている. $L_\infty$ が完備であることの証明とほとんど全く同様に, $\norm \cdot _\infty $ に関して収束列であることが示せる. 収束先を$f$ で表す. 
+\begin{align*} \frac{\abs{f(x) - f(y)}}{d(x, y)} \leq \frac{\abs{f(x) - f_n(x)} + \abs{f_n(x) - f_n(y)} + \abs{f_n(y) - f (y)} }{d(x, y)}                              \end{align*}
+が成り立つことを用いると主張が従う. 
+\qed
+\end{pf*}
+
+\begin{prop}$\mu \in FM \naraba Z\mu  \in \Lip$
+
+\end{prop}
+\begin{pf*}
+通常のマグニチュードの時と同様の手順で, 
+\begin{align*} \norm{Z\mu (x) - Z \mu (y)} \leq \norm{\mu} d(x, y) \end{align*}
+が示せる. 
+\qed
+\end{pf*}
+
+\begin{prop}$\mu \in FM(A)$ に対して, $x \in A^c \naraba Z\mu (x) = 0 $ が成り立つ. 
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1076,6 +1220,38 @@ fp \in \textrm{右} \naraba h^{-1} fp \in B
 回転群と運動群のハール測度, のpdf参照.
 \qed
 \end{pf*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \section{失敗集}
