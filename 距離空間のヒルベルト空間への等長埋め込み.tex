@@ -1,0 +1,218 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{notation}[dfn]{記号}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+\newcommand{\diag}{\textrm{diag}}
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+\renewcommand{\div}{\textrm{div}}
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+%%マグニチュード
+
+
+\newcommand{\Mag}{\textrm{Mag}}
+
+\usepackage{mathrsfs}
+
+
+\title{距離空間のヒルベルト空間への等長埋め込み}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+\begin{dfn}(Conditionally of negative type). $X$ を位相空間とする. 連続関数$\phi: X \times X \rightarrow \mathbb R$ は\\
+(1)$x \in X \naraba \phi (x, x) = 0.$ \\
+(2)$x, y \in X \naraba \phi (x, y) = \phi(y, x).$ \\
+(3)$n \in N, x_1, \ldots, x_n \in X, c_1, \ldots , c_n \in \mathbb R, \sum c_i = 0 \naraba, \sum\sum c_i c_j \phi (x_i, x_j) \leq 0.$ \\
+を満たす時に, CND(conditionally of negative type)核という. 
+
+\end{dfn}
+
+\begin{prop}(GNS構成法). $X$ を位相空間, 連続関数$\phi: X \times X \rightarrow \mathbb R$ をCND核, $x_0 \in X$とする. このとき, ヒルベルト空間と連続関数の組$(H, f)$で, 
+\begin{align*} \phi(x, y) = \norm{f(x) - f(y)}^2 \quad (x, y \in X) \end{align*}
+を満たすものが存在する. 
+\end{prop}
+\begin{pf*}
+\begin{align*} V \coloneqq \cbra{ \lambda: X \rightarrow \mathbb R \mid \# [\lambda \neq 0] < \infty, \sum_{x \in X} \lambda(x) = 0 } \end{align*}
+双線形写像を
+\begin{align*} \tbra{\lambda, \xi} \coloneqq - \frac{1}{2} \sum_{x \in X}\sum_{y \in X} \lambda(x)\xi(y) \phi(x, y)   \end{align*}
+で定める. 
+\begin{align*} N \coloneqq \cbra{\lambda : X \rightarrow \mathbb R  \mid  \tbra{\lambda, \lambda} = 0 } \end{align*}
+と定める. 
+\begin{align*} \lambda_1, \lambda_2 \in N \naraba (\lambda_1 + \lambda_2, \lambda_1 + \lambda_2) \leq 2 \norm{\lambda_1} \norm{\lambda_2} = 0  \end{align*}
+となることから, $N$ は部分空間であることに注意する. 
+ $V / N $ に$ \tbra{[\lambda], [\xi] } \coloneqq \tbra{\lambda, \xi}$ で内積を定める. この内積に関して, 完備化してできるヒルベルト空間を$(H, \tbra{, })$ とする. 
+\begin{align*} f: X \rightarrow H; x \mapsto [\delta_x - \delta_{x_0}]\end{align*}
+と定めると, 
+\begin{align*} \norm{f(x) - f(y)}^2 &= \norm{[ (\delta_x - \delta_{x_0}) -   (\delta_y - \delta_{x_0})    ]}^2 \\&= \norm{ [\delta_x - \delta_y]  }^2 \\&= \norm{\delta_x}^2 - 2\tbra{\delta_x, \delta_y} + \norm{\delta_y} ^2  \\&= -\frac{1}{2} \paren{\phi(x,x) - 2 \phi(x,y) + \phi(y,y)} \\&= \phi(x, y) \end{align*}
+が成り立つ. 
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

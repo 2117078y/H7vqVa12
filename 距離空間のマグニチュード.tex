@@ -700,11 +700,23 @@ $X = \mathbb R^n$ を考えているときには, ウェイト空間は$H^{-(n+1
 でノルムを定める. 
 \end{dfn}
 
-\begin{prop}(デルタ関数が)
+\begin{prop}ベッセルポテンシャル空間はヒルベルト空間である. 
 
 \end{prop}
 \begin{pf*}
 
+\qed
+\end{pf*}
+
+
+\begin{prop} $p \in \mathbb R^n$ とする. $\alpha \leq -1$ ならば, 
+
+\begin{align*} \delta_p \in H^{\alpha}(\mathbb R^n) \end{align*}
+
+\end{prop}
+\begin{pf*}
+$\delta_p \subset S^\prime (\mathbb R^n)$ であり, フーリエ変換は$\frac{1}{(2\pi)^{n/2}}e^{-i p x}$ である. 
+\begin{align*} \int_{\mathbb R^n} \abs{ \frac{1}{(1 + \norm x ^2) ^\alpha}\frac{1}{(2\pi)^{n/2}} e^{-i p x}    } dx \leq \frac{1}{(2\pi)^{n/2}}  \int_{\mathbb R^n} \frac{1}{(1 + \norm x ^2) ^\alpha}  dx < \infty \end{align*}
 \qed
 \end{pf*}
 
@@ -739,11 +751,11 @@ n! \omega _n \norm{\mu}^2_{H^{-(n+1)/2}}
 &= n! \omega _n \int (1 + \norm \xi ^2) ^{-(n+1)/2} \abs{\widehat \mu (\xi)}^2 d \xi
 \\&= (2 \pi )^{n/2} \int \hat \zeta (\xi) (\hat \mu (\xi))^2 d\xi 
 \\&= (2 \pi )^{n/2} \int \hat \zeta (\xi) (\sum c_k \widehat{\delta_{x_k}} (\xi))^2 d\xi 
-\\&= (2 \pi )^{n/2} \int \hat \zeta (\xi) (\sum c_k c_l  \paren{\frac{1}{(2\pi)^{n/2}}}^2 e^{- i x_k \xi} e^{ -i x_l \xi }  ) d\xi 
-\\&= \frac{1}{(2 \pi )^{n/2}} \sum c_k c_l  \int \hat \zeta (\xi)  e^{- i (x_k - x_l) \xi}   d\xi 
-\\&=\frac{1}{(2 \pi )^{n/2}} \sum c_k c_l  \int \hat \zeta (\xi)  e^{i (x_l - x_k) \xi}   d\xi 
-\\&=  \sum c_k c_l   \zeta (x_l - x_k)  
-\\&= \int e^{-\norm{x_l - x_k}} d\mu d\mu
+\\&= (2 \pi )^{n/2} \int \hat \zeta (\xi) (\sum c_k \overline{c_l}  \paren{\frac{1}{(2\pi)^{n/2}}}^2 e^{- i x_k \xi} e^{ + i x_l \xi }  ) d\xi 
+\\&= \frac{1}{(2 \pi )^{n/2}} \sum c_k \overline{c_l}  \int \hat \zeta (\xi)  e^{- i (x_k - x_l) \xi}   d\xi 
+\\&=\frac{1}{(2 \pi )^{n/2}} \sum c_k \overline{c_l}  \int \hat \zeta (\xi)  e^{i (x_l - x_k) \xi}   d\xi 
+\\&=  \sum c_k \overline{c_l}  \zeta (x_l - x_k)  
+\\&= \int e^{-d(x, y)} d\mu d\bar \mu
 \\& = \norm{\mu}^2_{\mathcal W}  
 \end{align*}
 が成り立つ. 
@@ -1236,7 +1248,12 @@ fp \in \textrm{右} \naraba h^{-1} fp \in B
 
 
 
+\section{グラフ上の熱方程式}
 
+\begin{dfn}(グラフラプラシアン).
+\begin{align*} L \coloneqq D - A, \quad \mathcal L \coloneqq I - A D^{-1}\end{align*}
+をそれぞれ, グラフラプラシアンとランダムウォーク正規化グラフラプラシアンという. 
+\end{dfn}
 
 
 
