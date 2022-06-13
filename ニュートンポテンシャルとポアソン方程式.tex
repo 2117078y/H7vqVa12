@@ -1,0 +1,236 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{notation}[dfn]{記号}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+\newcommand{\diag}{\textrm{diag}}
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+\renewcommand{\div}{\textrm{div}}
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+%%マグニチュード
+
+
+\newcommand{\Mag}{\textrm{Mag}}
+
+\usepackage{mathrsfs}
+
+
+\title{ニュートンポテンシャルとポアソン方程式}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+\begin{dfn}(ラプラス方程式の基本解). $F: \mathbb R^n \setminus 0 \rightarrow \mathbb R$ を
+\begin{align*} F(z) \coloneqq \frac{1}{(n-2)\vol_{n-1} (S^{n-1})} \frac{1}{\abs z ^{n-2}} \end{align*}
+で定め, これを次元$3$ 以上のラプラス方程式の基本解という. 
+\end{dfn}
+
+\begin{prop}(ラプラス方程式の基本解). $F$ を次元$3$ 以上のラプラス方程式の基本解とする. $F_a (x) \coloneqq F(x -a)$ として$\mathbb R^n \setminus a$ の関数を定めると, 
+\begin{align*} \Delta F_a  (x_1, \ldots , x_n) = 0 \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+例えば$n = 3$ の時を見てみる. 
+\begin{align*} (\partial_x)^2 F(x, y, z) = \frac{3 (x - a)^2}{((x - a)^2 + (y - b)^2 + (z - c)^2)^{\frac{5}{2}}} - \frac{1}{((x - a)^2 + (y - b)^2 + (z - c)^2)^{\frac{3}{2}}}  \end{align*}
+なので, 
+\begin{align*}  &((\partial_x)^2 +(\partial_y)^2 + (\partial_z)^2)  F(x, y, z)  \\ &= \frac{3( (x - a)^2 + (y - b)^2 + (z - c)^2)  }{((x - a)^2 + (y - b)^2 + (z - c)^2)^{\frac{5}{2}}} -  \frac{3}{((x - a)^2 + (y - b)^2 + (z - c)^2)^{\frac{3}{2}}} \\&= 3 - 3 \\&= 0  \end{align*}
+が成り立つ. 
+\qed
+\end{pf*}
+
+
+\begin{prop}$F$ を次元$3$ 以上のラプラス方程式の基本解, $\mu \in C_c^\infty (\mathbb R^N)$とする. $F_x (y) \coloneqq F(x-y) = F(y-x)$と定めると, 
+\begin{align*} \div(F_x \nabla \mu - \mu \nabla F_x) = F_x \Delta \mu   \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}$F_x$ が$\mathbb R^n \setminus x$ で調和であることに注意すると, 
+\begin{align*} &\div(F_x \nabla \mu) = (\nabla F_x, \nabla \mu) + F_x \Delta \mu \\ &\div(\mu \nabla F_x) = (\nabla \mu, \nabla F_x) + \mu \Delta F_x =  (\nabla \mu, \nabla F_x) + 0\end{align*}
+であるので, 上から下を引けばよい. 
+\qed
+\end{pf*}
+
+
+\begin{prop}($\mathbb R^n$ におけるポアソン方程式の基本解).  $N \geq 3$ とsるう. $\mu \in C_c^\infty (\mathbb R^N)$ とする. 
+\begin{align*} u \coloneqq F * \mu \end{align*}
+は$- \delta u = \mu \quad \in \mathbb R^n$ を満たす有界かつ滑らかな関数である. 
+\end{prop}
+\begin{pf*}$\mu \mu \in C_c^\infty (\mathbb R^N)$ であるので, 積分記号下の微分が行えて, 
+\begin{align*} \Delta u (x) = \int_{\mathbb R^n} F(x-y) \Delta \mu (y) d y\end{align*}
+が成り立つ.  任意の$r > 0$ に対して, $\overline{B(x; r)}^c$ (これ自体は連結な開集合だが, 非有界である. しかし, 無限遠点で消えるベクトル場であれば, 十分大きな開球との共通部分を考えて, 極限をとることで発散定理を適用することで,) 
+\begin{align*} \int_{\overline{B(x; r)}^c } F_x(y) \Delta \mu(y) d y = \int_{\partial B(x;r)} ((F_x \nabla \mu - \mu \nabla F_x) , - \xi ) d \mathcal H_{n-1} \end{align*}
+が成り立つ(ただし, $\xi_z \coloneqq \frac{z-x}{r}$). また, 
+\begin{align*} &z \in \partial B(x;r) \naraba F(z) \coloneqq \frac{1}{(n-2)\vol_{n-1} (S^{n-1}   )      } \frac{1}{ r ^{n-2}} \\ &z \in \partial B(x;r) \naraba  \nabla (F_x (z), \xi(z) ) = \frac{-1}{  \vol_{n-1} (S^{n-1})  r^{n-1} }   \end{align*}
+であるので, 
+\begin{align*}\int_{\overline{B(x; r)}^c } F_x(y) \Delta \mu(y) d y  &=  \frac{r}{(n-2) \vol_{n-1} (S^{n-1} r^{n-1}) } \int_{\partial B(x;r)}(\nabla \mu , \xi) d\mathcal H_{n-1} \\& \quad \quad - \frac{1}{\vol_{n-1} (S^{n-1} r^{n-1})}\int_{\partial B(x;r)} \mu d \mathcal H_{n-1}  \end{align*}
+が成り立つ. ルベーグの微分定理より, $r \rightarrow 0$ とすると, 右辺の$1$項目は$0$ に収束し, $2$項目は$-\mu(x)$ に収束するので, 
+\begin{align*} \Delta u (x) = \lim_{r \rightarrow 0} \int_{\mathbb R^n \setminus \overline{B(x; r)}} F(x-y) \Delta \mu (y) d y = - \mu(x) \end{align*}
+が成り立つ. 
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+
+\end{document}
