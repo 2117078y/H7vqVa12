@@ -25,6 +25,8 @@
 \newtheorem{lem}[dfn]{補題}
 \newtheorem{prop}[dfn]{命題}
 \newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{notation}[dfn]{記号}
 \newtheorem{cor}[dfn]{系}
 \newtheorem*{pf*}{証明}
 \newtheorem{problem}[dfn]{問題}
@@ -125,31 +127,53 @@
 \newcommand{\id}{\textrm{id}}
 \newcommand{\Ker}{\textrm{Ker}}
 \newcommand{\im}{\textrm{Im}}
-
-
-
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+\newcommand{\diag}{\textrm{diag}}
 
 \renewcommand{\;}{\, ; \,}
 \renewcommand{\d}{\, {d}}
 
 \newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
 
+\renewcommand{\div}{\textrm{div}}
+
+
 %%図式
 
 \usepackage[dvipdfm,all]{xy}
 
 
-\newenvironment{claim}[1]{\par\noindent\underline{claim:}\space#1}{}
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
 \newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
 
 
 \newcommand{\pprime}{{\prime \prime}}
 
+%%マグニチュード
 
 
+\newcommand{\Mag}{\textrm{Mag}}
+
+\usepackage{mathrsfs}
 
 
-%%
+%%6.13
+\def\Xint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\Xint=}
+\def\dashint{\Xint-}
+
 
 
 \title{部分多様体の曲率}
@@ -166,9 +190,31 @@
 
 \section{}
 
-\subsection{部分多様体の曲率}
+\begin{setting}
+$(M, g)$ をリーマン多様体, $N \subset M$ を部分多様体, $\iota: N \rightarrow M$ を包含写像, $h \coloneqq \iota^* g$ とする.   
+\end{setting}
 
-$(M,g)$ をリーマン多様体とする. $N \subset M$ を正則部分多様体とする. $M$ における接続を$D$ で表すことにする. 包含写像を$\iota$ で表すことにすると, $N$ には誘導計量$\iota^* g $ が定まるので, この計量によって定まるレビチビタ接続$D^{\iota ^* }$ があるが, これも$D$ で表すことにする. 
+\begin{prop}$X, Y, Z, W \in T_p N$ に対して($T_p M$ でないことに注意), 
+\begin{align*} R^M (X, Y, Z, W) = R^N (X, Y, Z, W) + g((\nabla^M_X Z)^\perp, (\nabla^M_Y W)^\perp ) - g((\nabla^M_Y Z)^\perp , (\nabla^M_X W)^\perp )  \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+\begin{align*} R^M(X, Y)Z &= \nabla^M_X (\nabla^M_Y Z) - \nabla^M_Y (\nabla^M_X Z) - \nabla^M_{[X, Y]} Z 
+\\&=   \nabla^M_X (  (\nabla^M_Y Z)^\top + (\nabla^M_Y Z)^\perp   ) - \nabla^M_Y ((\nabla^M_X Z)^\top + (\nabla^M_X Z) ^\perp ) \\& \quad - ((\nabla^M_{[X, Y]} Z) ^\top + (\nabla^M_{[X, Y]} Z) ^\perp)
+ \end{align*}
+ であるので, 
+ \begin{align*} (R^M(X, Y)Z)^\top &=  (\nabla^M_X (  (\nabla^M_Y Z)^\top + (\nabla^M_Y Z)^\perp   ))^\top - (\nabla^M_Y ((\nabla^M_X Z)^\top + (\nabla^M_X Z) ^\perp ))^\top \\& \quad - ((\nabla^M_{[X, Y]} Z) ^\top + (\nabla^M_{[X, Y]} Z) ^\perp)^\top 
+ \\&=  (\nabla^M_X (  (\nabla^M_Y Z)^\top + (\nabla^M_Y Z)^\perp   ))^\top - (\nabla^M_Y ((\nabla^M_X Z)^\top + (\nabla^M_X Z) ^\perp ))^\top \\& \quad - ((\nabla^M_{[X, Y]} Z) ^\top + 0) 
+ \\&=  \nabla^N_X \nabla^N_Y Z + (\nabla^M_X (\nabla^M _Y Z) ^\perp )^\top  - \nabla^N_Y \nabla^N_X Z - (\nabla^M_Y (\nabla^M _X Z) ^\perp )^\top - \nabla^N_{[X, Y]} Z    \end{align*}
+ が成り立つ. $W \in T_p N$ より, $R(X, Y, Z, W) = g((R(X, Y)Z )^\top, W)$ であるので, 上の式において$W$ との内積をとることにする.
+\begin{align*} &((\nabla^M_X (\nabla^M _Y Z )^\perp )^\top , W) = - ( (\nabla^M_X W)^\perp , (\nabla^M _Y Z )^\perp)   
+\\& ((\nabla^M_Y (\nabla^M _X Z) ^\perp )^\top, W) = -  ( (\nabla^M_Y W)^\perp , (\nabla^M _X Z )^\perp)   \end{align*}
+であるので, 
+\begin{align*} R^M (X, Y, Z, W) = R^N (X, Y, Z, W) + g((\nabla^M_X Z)^\perp, (\nabla^M_Y W)^\perp ) - g((\nabla^M_Y Z)^\perp , (\nabla^M_X W)^\perp )  \end{align*}
+が成り立つ. 
+\qed
+\end{pf*}
+
 
 
 
