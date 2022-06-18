@@ -1,0 +1,371 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{notation}[dfn]{記号}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+\newcommand{\diag}{\textrm{diag}}
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+\renewcommand{\div}{\textrm{div}}
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+%%マグニチュード
+
+
+\newcommand{\Mag}{\textrm{Mag}}
+
+\usepackage{mathrsfs}
+
+
+%%6.13
+\def\Xint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\Xint=}
+\def\dashint{\Xint-}
+
+
+
+\title{対称連続関数の正と負のタイプについて}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+\begin{setting}$X$ で適当な位相空間を表す. 
+
+\end{setting}
+
+\begin{dfn}(対称な関数). $S$ を集合とする. $f: S \times S \rightarrow \mathbb R$ は
+\begin{align*} f(x, y) = f(y, x) \quad (\any x, y \in S)\end{align*}
+を満たす時に, 対称であるという. 
+\end{dfn}
+
+\begin{dfn}(Positive type). 対称な連続関数$k : X \times X \rightarrow \mathbb R$ は有限な台をもつ任意の関数$\lambda : X \rightarrow \mathbb R$ に対して
+\begin{align*} \sum_{x \in X}\sum_{y \in X} \lambda(x) \lambda (y) k(x, y) \geq 0  \end{align*}
+を満たす時に, 正であるという. 
+\end{dfn}
+
+\begin{prop}(和, 積に関するpositivityの保存). 対称連続関数$k_1, k_2 : X \times X \rightarrow \mathbb R$ が正ならば, $k_1 + k_2, k_1k_2$ も正である. 
+
+\end{prop}
+\begin{pf*}
+明らか. 
+\qed
+\end{pf*}
+
+
+\begin{prop}(各点収束に関するpositivityの保存). $k_t : X \times X \rightarrow \mathbb R$ を正の対称連続関数の族とする. $k_t$ が対称連続関数$k: X \times X \rightarrow \mathbb R$ に各点収束するならば, $k$も正である. 
+
+\end{prop}
+\begin{pf*}有限な台をもつ関数$\lambda : X \rightarrow \mathbb R$ に対して
+\begin{align*}  \sum_{x \in X}\sum_{y \in X} \lambda(x) \lambda(y) k(x, y) =  \sum_{x \in X}\sum_{y \in X} \lambda(x) \lambda(y) \lim k_t(x, y) \geq 0  \end{align*}
+が成り立つ. 
+\qed
+\end{pf*}
+
+\begin{prop}対称連続関数$k : X \times X \rightarrow \mathbb R$ が正ならば, $e^k$ も正の対称連続関数である. 
+
+\end{prop}
+\begin{pf*}
+\begin{align*} e^{k(x,y)} \coloneqq \sum \frac{1}{n!}(k(x, y))^n  \end{align*}
+であることから, 正の対称連続関数の各点収束の極限であるから. 
+\qed
+\end{pf*}
+
+
+
+
+\begin{dfn}(Conditionally of negative type). 対称な連続関数$k : X \times X \rightarrow \mathbb R$ は有限な台をもつ任意の関数$\lambda : X \rightarrow \mathbb R$ で$\sum_{x \in X} \lambda (x) = 0$ を満たすものに対して, \\
+(1)$k(x, x) = 0 \quad (\any x \in X)$ \\
+(2)
+\begin{align*} \sum_{x \in X}\sum_{y \in X} \lambda(x) \lambda (y) k(x, y) \leq 0  \end{align*}
+を満たす時に, 条件付き負であるという. 
+\end{dfn}
+
+\begin{prop}(各点収束に関する条件付きnegativityの保存). $k_t : X \times X \rightarrow \mathbb R$ を条件付き負の対称連続関数の族とする. $k_t$ が対称連続関数$k: X \times X \rightarrow \mathbb R$ に各点収束するならば, $k$も条件付き負である. 
+
+\end{prop}
+\begin{pf*}有限な台をもつ関数$\lambda : X \rightarrow \mathbb R$ で, $\sum_{x \in X} \lambda(x) = 0$ を満たすものに対して
+\begin{align*}  \sum_{x \in X}\sum_{y \in X} \lambda(x) \lambda(y) k(x, y) =  \sum_{x \in X}\sum_{y \in X} \lambda(x) \lambda(y) \lim k_t(x, y) \leq  0  \end{align*}
+が成り立つ. 
+\qed
+\end{pf*}
+
+
+\begin{prop}$(H, d_H)$ をヒルベルト空間$(H, \tbra{, })$ の定める距離空間とする.  $d^2_H$ は条件付き負の対称連続関数である. 
+
+\end{prop}
+\begin{pf*}
+
+
+
+\begin{align*} &\sum_{x \in X}\sum_{y \in X} \lambda(x) \lambda (y) d^2_H(x, y) \\&= \sum_{x \in X}\sum_{y \in X} \lambda(x) \lambda (y)\norm{x - y}^2 
+\\&=  \sum_{x \in X}\sum_{y \in X}\lambda(x) \lambda (y)  \norm x ^2 - \sum_{x \in X}\sum_{y \in X}\lambda(x) \lambda (y)  2\tbra{x, y} + \sum_{x \in X}\sum_{y \in X} \lambda(x) \lambda (y) \norm y^2 
+\\&= 0 - \sum_{x \in X}\sum_{y \in X}   \lambda(x) \lambda (y)  2\tbra{x, y}  + 0 
+\\&= - \norm{\sum_{x \in X} \lambda (x) x } ^2 \leq 0.  \end{align*}
+\qed
+\end{pf*}
+
+\begin{remark}$k$ を$k(x, x) = 0 \quad (\any x \in X)$ を満たす対称連続関数とする. $k$ が正であるとき, $-k$ は条件付き負 $k$ が条件付き負であるとき, $- k$ は正であるとは限らない.
+
+\end{remark}
+
+\begin{prop}対称連続関数$k: X \times X \rightarrow \mathbb R$ が条件付き負であるならば, ヒルベルト空間$(H, \tbra{, })$ と$f: X \rightarrow H$ で 
+\begin{align*} k \coloneqq f^*d^2_H \end{align*}
+を満たすものが存在する. (ただし, $f^*d^2_H(x, y) \coloneqq d^2_H(f(x), f(y))$と定める. )
+\end{prop}
+\begin{pf*}
+\begin{align*} V \coloneqq \cbra{ \lambda: X \rightarrow \mathbb R \mid \# [\lambda \neq 0] < \infty, \sum_{x \in X} \lambda(x) = 0 } \end{align*}
+双線形写像を
+\begin{align*} \tbra{\lambda, \xi} \coloneqq - \frac{1}{2} \sum_{x \in X}\sum_{y \in X} \lambda(x)\xi(y) k (x, y)   \end{align*}
+で定める. 
+\begin{align*} N \coloneqq \cbra{\lambda : X \rightarrow \mathbb R  \mid  \tbra{\lambda, \lambda} = 0 } \end{align*}
+と定める. 
+\begin{align*} \lambda_1, \lambda_2 \in N \naraba (\lambda_1 + \lambda_2, \lambda_1 + \lambda_2) \leq 2 \norm{\lambda_1} \norm{\lambda_2} = 0  \end{align*}
+となることから, $N$ は部分空間であることに注意する. 
+ $V / N $ に$ \tbra{[\lambda], [\xi] } \coloneqq \tbra{\lambda, \xi}$ で内積を定める(この内積がwell-definedであることは, コーシーシュワルツより従う). この内積に関して, 完備化してできるヒルベルト空間を$(H, \tbra{, })$ とする. 
+\begin{align*} f: X \rightarrow H; x \mapsto [\delta_x - \delta_{p}]\end{align*}
+と定めると, 
+\begin{align*} \norm{f(x) - f(y)}^2 &= \norm{[ (\delta_x - \delta_{p}) -   (\delta_y - \delta_{p})    ]}^2 \\&= \norm{ [\delta_x - \delta_y]  }^2 \\&= \norm{\delta_x}^2 - 2\tbra{\delta_x, \delta_y} + \norm{\delta_y} ^2  \\&= -\frac{1}{2} \paren{k (x,x) - 2 k (x,y) + k (y,y)} \\&= k (x, y) \end{align*}
+が成り立つ. 
+\qed
+\end{pf*}
+
+
+\begin{prop}$k : X \times X \rightarrow \mathbb R$ を正の対称連続関数とすると, 任意の$x, y \in X$ に対して$k(x,x) = k(y, y)$ が成り立つならば, 
+\begin{align*} \varphi(x, y) \coloneqq k(x, x) - k(x, y)    \end{align*}
+で定まる対称連続関数は, 条件付き負である. 
+\end{prop}
+\begin{pf*}$\sum_{x \in X} \lambda(x) = 0$ である有限な台をもつ関数$\lambda$  に対して, 
+\begin{align*} \sum \sum \lambda (x) \lambda (y) (k(x, x) - k(x, y)  ) =  0 - \sum \sum \lambda (x) \lambda (y)k(x, y) \leq 0 . \end{align*}
+\qed
+\end{pf*}
+
+\begin{prop}対称連続関数$k: X \times X \rightarrow \mathbb R$ が, $k(x, x) = 0 \quad ( \any x \in X)$ を満たすとする. 適当な点$p \in X$ に対して, 
+\begin{align*} \kappa (x, y) \coloneqq k(x, p) + k(y, p) - k(x, y) \end{align*}
+対称連続関数を定める. このとき, $\kappa$ が正であることと, $k$ が条件付き負であることは必要十分である. 
+\end{prop}
+\begin{pf*}($\naraba$). $\kappa$ が正であるので, 有限な台をもち, $\sum \lambda(x) = 0$ を満たす関数$\lambda : X \rightarrow \mathbb R$ に対して, 
+\begin{align*} \sum \sum \lambda(x) \lambda(y)k(x, y) &= - (0 + 0 - \sum \sum \lambda(x) \lambda(y)k(x, y) ) \\&=  - \sum \sum \lambda(x) \lambda(y) \paren{k(x, p) + k(y, p) - k(x, y)} \\&= - \sum \sum \lambda(x) \lambda(y) \kappa (x, y)  \leq 0  \end{align*}
+が成り立つ.  \\
+($\gyaku$). $k$ が条件付き負なので, ヒルベルト空間$(H, \tbra{, })$ と, 連続写像$f : X \rightarrow H$ で, $k = f^* d_{H}^2$ を満たすものがとれる. 
+\begin{align*} \kappa (x, y) &= \norm{fx - fp}^2 + \norm{fy - fp}^2 - \norm{fx - fy}^2 \\&= 2\tbra{fx- fp, fy - fp}\end{align*}
+であるので, 有限な台をもつ関数$\lambda$ に対して
+\begin{align*} \sum \sum \lambda(x) \lambda(y) \kappa(x, y) = 2 \sum \sum \norm{\lambda (x) (fx - fp)}^2 \geq 0  \end{align*}
+が成り立つ. 
+\qed
+\end{pf*}
+
+
+\begin{prop}(シェーンベルクの定理). 対称連続関数$k : X \times X \rightarrow \mathbb R$ が, $k(x, x) = 0 \quad (\any x \in X)$ を満たすならば, (1)(2)は同値である. \\
+(1)$k$ は条件付き負である. (2)任意の正の実数$s > 0$ に対して$e^{-sk}$ は正である. 
+
+\end{prop}
+\begin{pf*}$((2)  \naraba (1)).$ 
+\begin{align*} k(x, y) = \lim_{s \rightarrow 0} - \frac{e^{-k(x,y) s} - e^{-k(x,y) 0} }{s} = \lim_{s \rightarrow 0} \frac{e^{- k(x, x) s} - e^{-k(x, y) s}}{s}   \end{align*}
+が成り立つ. 従って, 条件付き負の対称連続関数の各点収束先になっているので, 条件付き負である. \\
+$((1) \naraba (2))$. 任意に$s > 0$ をとる. $sk$ が条件付き負であるので, $p \in X$ を適当に選んで
+\begin{align*} s\kappa(x, y) \coloneqq sk(x, p) + sk(y, p) - sk(x, y) \quad \end{align*}
+と定めると, これは正の対称連続関数である. 
+\begin{claim}
+\begin{align*} e^{-sk(x,p)}e^{-sk(y,p)} \end{align*}
+は正の対称連続関数である. 
+\end{claim}
+\begin{claimproof}
+\begin{align*} \sum\sum \lambda(x) \lambda(y)e^{-sk(x,p)}e^{-sk(y,p)}  = \abs{\sum \lambda(x) e^{-sk(x,p)} }^2 \geq 0 \end{align*}
+\end{claimproof}
+
+従って, 
+$e^{ s\kappa (x,y )} $と $e^{ - sk(x, p)} e^{ - sk(y, p)} $ はそれぞれ正の対称連続関数であるので, その積である
+\begin{align*}  e^{ - sk(x,y )} = e^{ s\kappa (x,y )} e^{ - sk(x, p)} e^{ - sk(y, p)} \end{align*}
+も正の対称連続関数である. 
+\qed
+\end{pf*}
+
+\begin{prop}$x \in \mathbb R, 0 < \alpha < 1$ に対して
+\begin{align*} x^ \alpha = \paren{\int_0^\infty \frac{1 - e^{-y}}{y^{\alpha + 1}} dy}^{-1} \int_0^\infty \frac{1 - e^{- tx }}{t^{\alpha + 1}} dt  \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}$\int_0^\infty \frac{1 - e^{- tx }}{t^{\alpha + 1}}  $ を$y = tx$ で積分変換すると形式的にこの式が出てくる. 
+収束と発散については不明. 
+\qed
+\end{pf*}
+
+\begin{prop}対称連続関数$k$ が条件付き負であるならば, $0 < \alpha \leq 1$ に対して$k^\alpha $ も条件付き負である. 
+
+\end{prop}
+\begin{pf*}$\sum \lambda(x) = 0$ である有限な台をもつ関数$\lambda: X \rightarrow \mathbb R$ をとる.  
+\begin{align*} \sum \sum \lambda(x) \lambda(y) k^\alpha (x, y) &= \paren{\int_0^\infty \frac{1 - e^{-y}}{y^{\alpha + 1}} dy}^{-1} \int_0^\infty \sum \sum \lambda(x) \lambda(y)  \frac{1 - e^{- tk(x, y) }}{t^{\alpha + 1}} dt  \\&= \Const \int_0^\infty \sum \sum \lambda(x) \lambda(y)  \frac{- e^{- tk(x, y) }}{t^{\alpha + 1}} dt  \leq 0  \end{align*}
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
