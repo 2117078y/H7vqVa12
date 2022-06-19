@@ -1,0 +1,227 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{notation}[dfn]{記号}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+\newcommand{\diag}{\textrm{diag}}
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+\renewcommand{\div}{\textrm{div}}
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+%%マグニチュード
+
+
+\newcommand{\Mag}{\textrm{Mag}}
+
+\usepackage{mathrsfs}
+
+
+%%6.13
+\def\Xint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\Xint=}
+\def\dashint{\Xint-}
+
+
+
+\title{フーリエ反転公式}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+\begin{prop}$f \in L^1(\mathbb R), \mathcal F f \in L^1(\mathbb R)$ であるならば, 
+\begin{align*} f(x) = \mathcal F^{-1} \mathcal F f(x)  \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+
+\begin{align*} f_t(x)              \coloneqq                  \frac{1}{2 \pi} \int_{\mathbb R} e^{ix \xi} e^{-t \xi ^2} \paren{\int_{\mathbb R} e^{- i \xi y} f(y) dy } d \xi                 \end{align*}
+と定める. $e^{ix \xi} e^{-t \xi ^2} e^{- i \xi y} f(y)$ が$y$ に関して可積分で, $e^{- t \xi ^2} \norm{f}_{L^1}$ が$\xi$ に関して可積分であるので, フビニの定理より, 
+\begin{align*} f_t (x) &=     \frac{1}{2 \pi} \int_{\mathbb R} \paren{ \int_{\mathbb R} e^{i(x - y) \xi} e^{-t \xi ^2}  d\xi }   f(y)                   dy \\&= \frac{1}{2 \pi} \int_{\mathbb R} \paren{\frac{ \pi }{t}}^{\frac{1}{2}} e^{- \frac{\norm{x - y} ^2 }{4t}}  f(y)      dy     \\& =    \int_{\mathbb R} \frac{1}{(4 \pi t)^{\frac{1}{2}}} e^{- \frac{\norm{x - y} ^2 }{4t}}  f(y)      dy      \end{align*}
+が成り立つ. $\frac{1}{(4 \pi t)^{\frac{1}{2}}} e^{- \frac{\norm{x - y} ^2 }{4t}} $ は$\mathbb R$ における熱核であるので, 
+\begin{align*} \lim_{t \rightarrow 0} \norm{f_t - f}_{L^1} = 0 \end{align*} 
+が成り立つ. 従って, 概収束部分列がとれることと, $\abs{e^{ix\xi}e^{-t\xi^2} \mathcal F f (\xi)} \leq \abs{\mathcal F f(\xi)}  \in L^1$ より優収束定理が成り立つことから, 
+\begin{align*} f(x) = \lim_{t \rightarrow 0} f_t (x) =  \frac{1}{2 \pi} \int_{\mathbb R} e^{ix \xi} \paren{\int_{\mathbb R} e^{- i \xi y} f(y) dy } d \xi   = \mathcal F^{-1} \mathcal F f (x) \end{align*}
+が成り立つ. 
+\qed
+\end{pf*}
+
+
+
+\begin{prop}$f \in \mathcal S (\mathbb R)$ に対して, 
+\begin{align*} f(x) = \mathcal F^{-1} \mathcal F f(x) \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+$ S (\mathbb R) \subset L^1 (\mathbb R)$ であることと, 急減少関数のフーリエ変換が急減少関数であることから, 主張が従う. 
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+\end{document}
