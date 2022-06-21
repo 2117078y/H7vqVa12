@@ -134,6 +134,7 @@
 \newcommand{\grad}{\textrm{grad}}
 \newcommand{\dom}{\textrm{dom}}
 \newcommand{\diag}{\textrm{diag}}
+\newcommand{\dist}{\textrm{dist}}
 
 \renewcommand{\;}{\, ; \,}
 \renewcommand{\d}{\, {d}}
@@ -176,7 +177,7 @@
 
 
 
-\title{距離空間の$\sup$ ノルムを備えた数列空間への等長埋め込み}
+\title{閉路グラフ$C_4$はユークリッド空間に等長埋め込み不可能}
 \date{}
 
 
@@ -190,77 +191,13 @@
 
 \section{}
 
-\begin{dfn}$S$ を集合とする. 
-\begin{align*} l_{\infty}(S) \coloneqq \cbra{ (r_\lambda)_{\lambda \in S} \in \mathbb R ^{\# S}  \mid \sup \abs{ r_{\lambda }} < \infty } \end{align*}
-と定める. $\sup$ ノルムを備えておく. 
-\end{dfn}
-
-
-\begin{prop}距離空間$(X, d)$ は, 数列空間$l_{\infty}^{\# X}$ と等長同型である. 
+\begin{prop}
+$4$頂点からなる閉路グラフ$C_4$ にグラフ距離を備えた距離空間$(C_4, d)$ はどの次元のユークリッド空間$(\mathbb R^N, \norm \cdot _2)$ にも等長埋め込み不可能である. 
 \end{prop}
-\begin{pf*}$p \in X$ を適当にとっておく. 
-\begin{align*} j: X \rightarrow l _{\infty}( X)   ; x \mapsto  (d(x, z) - d(p, z))_{z \in X} \end{align*}
-と定めると, 
-\begin{align*} d_{l _{\infty}( X) }(jx, jy) = \sup_{z \in X} \abs{d(x, z) - d(y, z)}  \end{align*} 
-である. 
-\begin{claim}
-\begin{align*} \sup_{z \in X} \abs{d(x, z) - d(y, z)}  \leq d(x, y) . \end{align*}
-\end{claim}
-\begin{claimproof}
-任意の$z \in X$ に対して, $\abs{d(x, z) - d(y, z)} \leq d(x, y)$ が成り立つ. 
-\end{claimproof}
-
-\begin{claim}
-\begin{align*} \sup_{z \in X} \abs{d(x, z) - d(y, z)}  \geq d(x, y) . \end{align*}
-\end{claim}
-\begin{claimproof}
-$z \in X$ として$z = y$ を選べばよい.  
-\end{claimproof}
-
-従って, $\sup_{z \in X} \abs{d(x, z) - d(y, z)}  = d(x, y)$ であるので, 
-\begin{align*} d_{l _{\infty}( X) }(jx, jy) = d(x, y)\end{align*}
-が成り立つ. 
+\begin{pf*}
+$p, q \in C_4$ で$d(p, q) = 2$ であるものをとると. 残りの$2$ 点はともに, $p, q$ からそれぞれ距離$1$の位置にあるが, ユークリッド空間においてそのような点は$1$点しか存在しない. 等長埋め込み不可能である. 
 \qed
 \end{pf*}
-
-\begin{prop}$(X, d)$ が可分な距離空間であるならば, $(X, d)$ は数列空間$l_{\infty}(\mathbb N)$ へ等長に埋め込める.  
-
-\end{prop}
-\begin{pf*}可算稠密部分集合$A \subset X$ をとる. $p \in A$ を適当にとっておく. 
-\begin{align*} j: X \rightarrow l _{\infty}( \mathbb N)   ; x \mapsto (d(x, z) - d(p, z))_{z \in A} \end{align*}
-と定めると, 
-
-\begin{align*} d_{l _{\infty}^{\# X}}(jx, jy) = \sup_{z \in X} \abs{d(x, z) - d(y, z)}  \end{align*} 
-である. 
-\begin{claim}
-\begin{align*} \sup_{z \in A} \abs{d(x, z) - d(y, z)}  \leq d(x, y) . \end{align*}
-\end{claim}
-\begin{claimproof}
-任意の$z \in A$ に対して, $\abs{d(x, z) - d(y, z)} \leq d(x, y)$ が成り立つ. 
-\end{claimproof}
-
-$y \in X$ に対して$y_n \in A , d(y_n, y) \leq \frac{1}{n}$ をとると, 
-
-\begin{claim}
-\begin{align*} \sup_{z \in X} \abs{d(x, z) - d(y, z)}  \geq d(x, y_n) - \frac{1}{n} . \end{align*}
-\end{claim}
-\begin{claimproof}
-$z \in A$ として$z = y_n$ を選べばよい.  
-\end{claimproof}
-
-従って, $d(x, y_n) - \frac{1}{n}  \sup_{z \in X} \abs{d(x, z) - d(y, z)}  = d(x, y)$ であるので, $n$ に関して極限をとると, 
-\begin{align*} d_{l _{\infty}(X)}(jx, jy) = d(x, y)  \end{align*}
-が成り立つ. 
-
-
-\qed
-\end{pf*}
-
-
-
-
-
-
 
 
 

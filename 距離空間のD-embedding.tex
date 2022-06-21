@@ -134,6 +134,7 @@
 \newcommand{\grad}{\textrm{grad}}
 \newcommand{\dom}{\textrm{dom}}
 \newcommand{\diag}{\textrm{diag}}
+\newcommand{\dist}{\textrm{dist}}
 
 \renewcommand{\;}{\, ; \,}
 \renewcommand{\d}{\, {d}}
@@ -176,7 +177,7 @@
 
 
 
-\title{距離空間の$\sup$ ノルムを備えた数列空間への等長埋め込み}
+\title{距離空間のD-embedding}
 \date{}
 
 
@@ -190,71 +191,43 @@
 
 \section{}
 
-\begin{dfn}$S$ を集合とする. 
-\begin{align*} l_{\infty}(S) \coloneqq \cbra{ (r_\lambda)_{\lambda \in S} \in \mathbb R ^{\# S}  \mid \sup \abs{ r_{\lambda }} < \infty } \end{align*}
-と定める. $\sup$ ノルムを備えておく. 
+\begin{dfn}($D$埋め込み). $(X, d_X), (Y, d_Y)$ を距離空間とする. $f: X \rightarrow Y$ は
+$\lambda > 0$ で
+\begin{align*} d(x, y) \leq \lambda d(fx, fy) \leq Dd(x, y) \quad (x, y \in X)\end{align*}
+を満たすものが存在するとき, $D$埋め込みという.
 \end{dfn}
 
+\begin{remark}明らかに, $D < 1$ の$D$埋め込みは存在しない. また, $f$ が単射でないならば, $D$ 埋め込みになり得ない. また, $D$ 埋め込みであるならば, $D^\prime (\geq D) $ 埋め込みである. 
 
-\begin{prop}距離空間$(X, d)$ は, 数列空間$l_{\infty}^{\# X}$ と等長同型である. 
+\end{remark}
+
+\begin{dfn}(distortion). $(X, d_X), (Y, d_Y)$ を距離空間, $f: X \rightarrow Y$ とする.
+\begin{align*} \dist f \coloneqq \inf \cbra{D \geq 1 \mid f \textrm{は}D\textrm{埋め込み}} \end{align*}
+を$f$ のディストーションという. 
+\end{dfn}
+
+\begin{dfn}
+\begin{align*} c_{(Y, d_Y)}(X, d_X) \coloneqq \inf  \cbra{ D \mid X \textrm{から}Y \textrm{への}D\textrm{埋め込みが存在}  }     \end{align*}
+と定める. 
+\end{dfn}
+
+\begin{dfn}
+\begin{align*} c_p (X, d_X) \coloneqq c_{(L_p(0,1), \norm \cdot _{p})}(X, d_X) \end{align*}
+\end{dfn}
+
+\begin{dfn}(ハミングキューブ). 離散立方体$\cbra{0, 1}^n$  に$l_1$ 距離(ハミング距離)
+\begin{align*} \norm{x - y}_1 \coloneqq \sum_{i = 1}^n \abs{x_i - y_i}\end{align*}
+を定めたものを, ハミングキューブという. 
+\end{dfn}
+
+\begin{prop}
+
 \end{prop}
-\begin{pf*}$p \in X$ を適当にとっておく. 
-\begin{align*} j: X \rightarrow l _{\infty}( X)   ; x \mapsto  (d(x, z) - d(p, z))_{z \in X} \end{align*}
-と定めると, 
-\begin{align*} d_{l _{\infty}( X) }(jx, jy) = \sup_{z \in X} \abs{d(x, z) - d(y, z)}  \end{align*} 
-である. 
-\begin{claim}
-\begin{align*} \sup_{z \in X} \abs{d(x, z) - d(y, z)}  \leq d(x, y) . \end{align*}
-\end{claim}
-\begin{claimproof}
-任意の$z \in X$ に対して, $\abs{d(x, z) - d(y, z)} \leq d(x, y)$ が成り立つ. 
-\end{claimproof}
+\begin{pf*}
 
-\begin{claim}
-\begin{align*} \sup_{z \in X} \abs{d(x, z) - d(y, z)}  \geq d(x, y) . \end{align*}
-\end{claim}
-\begin{claimproof}
-$z \in X$ として$z = y$ を選べばよい.  
-\end{claimproof}
-
-従って, $\sup_{z \in X} \abs{d(x, z) - d(y, z)}  = d(x, y)$ であるので, 
-\begin{align*} d_{l _{\infty}( X) }(jx, jy) = d(x, y)\end{align*}
-が成り立つ. 
 \qed
 \end{pf*}
 
-\begin{prop}$(X, d)$ が可分な距離空間であるならば, $(X, d)$ は数列空間$l_{\infty}(\mathbb N)$ へ等長に埋め込める.  
-
-\end{prop}
-\begin{pf*}可算稠密部分集合$A \subset X$ をとる. $p \in A$ を適当にとっておく. 
-\begin{align*} j: X \rightarrow l _{\infty}( \mathbb N)   ; x \mapsto (d(x, z) - d(p, z))_{z \in A} \end{align*}
-と定めると, 
-
-\begin{align*} d_{l _{\infty}^{\# X}}(jx, jy) = \sup_{z \in X} \abs{d(x, z) - d(y, z)}  \end{align*} 
-である. 
-\begin{claim}
-\begin{align*} \sup_{z \in A} \abs{d(x, z) - d(y, z)}  \leq d(x, y) . \end{align*}
-\end{claim}
-\begin{claimproof}
-任意の$z \in A$ に対して, $\abs{d(x, z) - d(y, z)} \leq d(x, y)$ が成り立つ. 
-\end{claimproof}
-
-$y \in X$ に対して$y_n \in A , d(y_n, y) \leq \frac{1}{n}$ をとると, 
-
-\begin{claim}
-\begin{align*} \sup_{z \in X} \abs{d(x, z) - d(y, z)}  \geq d(x, y_n) - \frac{1}{n} . \end{align*}
-\end{claim}
-\begin{claimproof}
-$z \in A$ として$z = y_n$ を選べばよい.  
-\end{claimproof}
-
-従って, $d(x, y_n) - \frac{1}{n}  \sup_{z \in X} \abs{d(x, z) - d(y, z)}  = d(x, y)$ であるので, $n$ に関して極限をとると, 
-\begin{align*} d_{l _{\infty}(X)}(jx, jy) = d(x, y)  \end{align*}
-が成り立つ. 
-
-
-\qed
-\end{pf*}
 
 
 

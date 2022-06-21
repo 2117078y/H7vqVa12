@@ -1,0 +1,273 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{notation}[dfn]{記号}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+\newcommand{\diag}{\textrm{diag}}
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+\renewcommand{\div}{\textrm{div}}
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+%%マグニチュード
+
+
+\newcommand{\Mag}{\textrm{Mag}}
+
+\usepackage{mathrsfs}
+
+
+%%6.13
+\def\Xint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\Xint=}
+\def\dashint{\Xint-}
+
+
+
+\title{数学総合講義Hレポート}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{問1}
+\begin{prop}$f \in L^1(\mathbb R), \mathcal F f \in L^1(\mathbb R)$ であるならば, 
+\begin{align*} f(x) = \mathcal F^{-1} \mathcal F f(x)  \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+
+\begin{align*} f_t(x)              \coloneqq                  \frac{1}{2 \pi} \int_{\mathbb R} e^{ix \xi} e^{-t \xi ^2} \paren{\int_{\mathbb R} e^{- i \xi y} f(y) dy } d \xi                 \end{align*}
+と定める. $e^{ix \xi} e^{-t \xi ^2} e^{- i \xi y} f(y)$ が$y$ に関して可積分で, $e^{- t \xi ^2} \norm{f}_{L^1}$ が$\xi$ に関して可積分であるので, フビニの定理より, 
+\begin{align*} f_t (x) &=     \frac{1}{2 \pi} \int_{\mathbb R} \paren{ \int_{\mathbb R} e^{i(x - y) \xi} e^{-t \xi ^2}  d\xi }   f(y)                   dy \\&= \frac{1}{2 \pi} \int_{\mathbb R} \paren{\frac{ \pi }{t}}^{\frac{1}{2}} e^{- \frac{\norm{x - y} ^2 }{4t}}  f(y)      dy     \\& =    \int_{\mathbb R} \frac{1}{(4 \pi t)^{\frac{1}{2}}} e^{- \frac{\norm{x - y} ^2 }{4t}}  f(y)      dy      \end{align*}
+が成り立つ. $\frac{1}{(4 \pi t)^{\frac{1}{2}}} e^{- \frac{\norm{x - y} ^2 }{4t}} $ は$\mathbb R$ における熱核であるので, 
+\begin{align*} \lim_{t \rightarrow 0} \norm{f_t - f}_{L^1} = 0 \end{align*} 
+が成り立つ. 従って, 概収束部分列がとれることと, $\abs{e^{ix\xi}e^{-t\xi^2} \mathcal F f (\xi)} \leq \abs{\mathcal F f(\xi)}  \in L^1$ より優収束定理が成り立つことから, 
+\begin{align*} f(x) = \lim_{t \rightarrow 0} f_t (x) =  \frac{1}{2 \pi} \int_{\mathbb R} e^{ix \xi} \paren{\int_{\mathbb R} e^{- i \xi y} f(y) dy } d \xi   = \mathcal F^{-1} \mathcal F f (x) \end{align*}
+が成り立つ. 
+\qed
+\end{pf*}
+
+
+
+\begin{prop}$f \in \mathcal S (\mathbb R)$ に対して, 
+\begin{align*} f(x) = \mathcal F^{-1} \mathcal F f(x) \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+$ S (\mathbb R) \subset L^1 (\mathbb R)$ であることと, 急減少関数のフーリエ変換が急減少関数であることから, 主張が従う. 
+\qed
+\end{pf*}
+
+\section{問2}
+\begin{prop}$(X, \norm{\cdot}_{X}), (Y, \norm{\cdot}_Y)$ をノルム空間とする. $(Y, \norm{\cdot}_Y)$ が完備であるならば, $X$ の稠密部分空間$A$ で定義される有界線型作用素は, 作用素ノルムを保ったまま, $X$ 上に一意に拡張できる. 
+
+\end{prop}
+\begin{pf*}$x \in X$ に対して, $\tilde T x$ を, $a_n \in A$ で $a_n \rightarrow x$ である点列を適当にひとつ選ぶと,  $Ta_n$ は完備ノルム空間$Y$ のコーシー列であるので, 極限が存在するので, 
+\begin{align*} \tilde T (x) \coloneqq \lim_{n \rightarrow \infty} T(a_n)  \end{align*}
+により定める. well-definedであることを確かめるために, $b_n \in A$ で$b_n \rightarrow x$ である点列をとる. $T$ は$a, b \in A$ に対して
+\begin{align*} \norm{Ta- Tb} \leq \norm{T} \norm{a - b}\end{align*}
+が成り立つため, 一様連続である. 従って, $\veps > 0$ に対して$\delta > 0$ で
+\begin{align*} \norm{a - b} \leq \delta \naraba \norm{Ta - Tb} < \veps \end{align*}
+を満たすものが存在する. 従って, $N_1 \in \mathbb N$ で, $n \geq N_1$ ならば
+\begin{align*} \norm{Ta_n - Tb_n } < \veps \end{align*}
+となるものがとれる. また, $N_2 \in \mathbb N$ で, $n \geq N_2$ ならば, 
+\begin{align*} \norm{Tb_n - \tilde T x} < \veps \end{align*} を満たすものが存在する. 従って, $n \geq \max \cbra{N_1, N_2}$ であるならば, 
+\begin{align*} \norm{T b_n - \tilde T x} \leq \norm{Tb_n - T a_n} + \norm{T a_n - \tilde T x} < 2 \veps  \end{align*}
+が成り立つ. 従って, $\tilde T : X \rightarrow Y$ はwell-defined である. また, $c_1, c_2 \in \mathbb R, a, b \in X$ に対して,
+\begin{align*} \tilde T(c_1 a + c_2 b) - c_1 \tilde T (a) - c_2 \tilde T(b) = \lim \paren{T(c_1 a_n + c_2 b_n) - c_1 \tilde T (a_n) - c_2 \tilde T(b_n)  } = \lim 0 = 0 \end{align*}
+より線型である. また, 
+\begin{align*} \norm{\tilde T} = \sup \cbra{ \frac{\norm{\tilde T x}}{\norm x} \mid x \in X, x \neq 0 }  \geq \sup \cbra{ \frac{\norm{T a}}{\norm a} \mid a \in A, x \neq 0 } = \norm{T} \end{align*} と
+\begin{align*} \norm{\tilde T x} = \norm{\lim T a_n} = \lim \norm{T a_n} \leq \lim \norm{T} \norm{a_n} = \norm{T} \norm{x}  \end{align*}
+より, $\norm{\tilde T} \leq \norm{T}$ であることから, 
+\begin{align*} \norm{ \tilde T} = \norm{T} \end{align*}
+が成り立つ. また, $T$ の線型拡張$\hat T: X \rightarrow Y$ で, $\norm {\hat T} = \norm{ \tilde T}$ であるが, $\hat T \neq \tilde T$ であるものが存在するとする. $\tilde T x \neq \hat T x$ なる$x \in X$ をとると, $a_n \in A$ で$a_n \rightarrow x$ であるものがとれて, 
+\begin{align*} 0 \neq \hat T x - \tilde T x = \lim T a_n - \lim T a_n = 0 \end{align*} 
+より矛盾するので, このような拡張は一意である. 
+\qed
+\end{pf*}
+
+\section{問3}
+
+
+\begin{prop}(縮小写像の原理). $(X, d)$ を完備距離空間, $f: X \rightarrow X$ を$0 < \lambda < 1$ で
+\begin{align*} d(f(x), f(y)) \leq \lambda d(x, y)  \quad (\any x, y \in X) \end{align*}
+を満たすものが存在する写像とする. このとき, $p \in X $ で
+\begin{align*} fp = p\end{align*}
+を満たすものがただ一つ存在する. 
+\end{prop}
+\begin{pf*}適当に$x_0 \in X$ をとる. 
+\begin{align*}  x_1 \coloneqq f(x_0), \,\, x_2 \coloneqq f(x_1), \ldots, x_n \coloneqq f(x_{n-1}), \ldots  \end{align*}
+と定めると, $n \leq m$ に対して, 
+\begin{align*} d(x_n, x_m) &\leq d(x_n, x_{n+1})+ d(x_{n + 1}, x_{n+2}) + \cdots + d(x_{m-1}, x_m) \\&\leq (\lambda ^n + \lambda^{n+1} + \cdots \lambda ^{m-1}) d(x_0, fx_0)  \end{align*}
+が成り立つ. 
+\begin{align*} d(x_0, fx_0) \sum_{i = 0}^{\infty } \lambda^i < \infty  \end{align*}
+であるので, $x_n$ はコーシー列である. $X$ は完備であるので, $x_n (= f(x_{n-1}))$ は適当な点$x$ に収束する. 
+\begin{align*} d(f(x), f(y)) \leq \lambda d(x, y)  \quad (\any x, y \in X) \end{align*}
+より, $f$ は連続であるので, 
+\begin{align*} f(x) = f(\lim x_n) = \lim f(x_n) = x \end{align*}
+が成り立つ. 
+\qed
+\end{pf*}
+
+
+
+\end{document}
