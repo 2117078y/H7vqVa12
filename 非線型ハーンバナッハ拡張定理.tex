@@ -177,7 +177,7 @@
 
 
 
-\title{距離空間のD-embeddingと双リプシッツ}
+\title{非線型ハーンバナッハ拡張定理}
 \date{}
 
 
@@ -191,58 +191,37 @@
 
 \section{}
 
-\begin{dfn}($D$埋め込み). $(X, d_X), (Y, d_Y)$ を距離空間とする. $f: X \rightarrow Y$ は
-$\lambda > 0$ で
-\begin{align*} d(x, y) \leq \lambda d(fx, fy) \leq Dd(x, y) \quad (x, y \in X)\end{align*}
-を満たすものが存在するとき, $D$埋め込みという.
-\end{dfn}
-
-\begin{remark}明らかに, $D < 1$ の$D$埋め込みは存在しない. また, $f$ が単射でないならば, $D$ 埋め込みになり得ない. また, $D$ 埋め込みであるならば, $D^\prime (\geq D) $ 埋め込みである. 
-
-\end{remark}
-
-\begin{prop}$(X, d_X), (Y, d_Y)$ を距離空間とする. $f: X \rightarrow Y$ は$L$双リプシッツ であるならば, $\sqrt L$ 埋め込みである. 
+\begin{prop}(非線型ハーンバナッハ拡張定理). $(X, d)$ を距離空間とする. $A \subset X, f: A \rightarrow \mathbb R$ をリプシッツ関数とする. このとき, リプシッツ定数を保存する$X$ 上への拡張が存在する. 
 
 \end{prop}
-\begin{pf*}
-\begin{align*} \frac{1}{ L} d(x, y) \leq  d(fx, fy) \leq L d(x, y) \quad (x, y \in X)\end{align*}
+\begin{pf*}$L \coloneqq \Lip f $ とする. 
+
+\begin{align*} \tilde f (x) \coloneqq \inf_{a \in A} \cbra{ f(a) + L d(x, a)} \end{align*}
+と定めるとよい. 
+
+\begin{claim}
+\begin{align*} \tilde f(a) = f(a) \quad  (\any a \in A)   \end{align*}
+\end{claim}
+\begin{claimproof}
+$\inf_{b \in A} \cbra{ f(b) + L d(a, b)} \leq f(a)$ は明らか. $b \in A$ で, $f(b) + L d(a, b) < f(a)$ を満たす点が 存在すると, $Lip f = L$ であることに矛盾するので, $\inf_{b \in A} \cbra{ f(b) + L d(a, b)} \geq f(a)$ が成り立つ. 
+\end{claimproof}
+
+$a_n \in A$ で
+
+\begin{align*} \tilde f (x) \leq f(a_n) + L d(x, a_n)   \leq \tilde f(x) +  \frac{1}{n}  \end{align*}
+
+を満たすものをとる. 
+
+\begin{align*} &- \tilde f (x) \leq - f(a_n) - L d(x, a_n) + \frac{1}{n}   \\&\tilde f(y) \leq f(a_n) + L d(y, a_n) \end{align*}
 であるので, 
-\begin{align*} 1 d(x, y) \leq L  d(fx, fy) \leq L^2 d(x, y) \quad (x, y \in X)\end{align*}
-が成り立つ. 
+\begin{align*} \tilde f (y) - \tilde f(x) \leq L (d(y, a_n) - d(x, a_n)) + \frac{1}{n} \leq Ld(x, y)+ \frac{1}{n}  \end{align*}
+極限をとることで, 
+\begin{align*}  \tilde f (y) - \tilde f(x) \leq L d(x, y)\end{align*}
+が成り立つ. $x, y$ を取り替えて同じ議論をすることで, 
+\begin{align*}  \tilde f (x) - \tilde f(y) \leq L d(y, x)\end{align*}
+が成り立つので, $\Lip \tilde f \leq \Lip f$ である. 拡張であることから, $\Lip \tilde f \geq \Lip f$ であることは明らかであるので, 主張が従う. 
 \qed
 \end{pf*}
-
-
-\begin{dfn}(distortion). $(X, d_X), (Y, d_Y)$ を距離空間, $f: X \rightarrow Y$ とする.
-\begin{align*} \dist f \coloneqq \inf \cbra{D \geq 1 \mid f \textrm{は}D\textrm{埋め込み}} \end{align*}
-を$f$ のディストーションという. 
-\end{dfn}
-
-\begin{dfn}
-\begin{align*} c_{(Y, d_Y)}(X, d_X) \coloneqq \inf  \cbra{ D \mid X \textrm{から}Y \textrm{への}D\textrm{埋め込みが存在}  }     \end{align*}
-と定める. 
-\end{dfn}
-
-\begin{dfn}
-\begin{align*} c_p (X, d_X) \coloneqq c_{(L_p(0,1), \norm \cdot _{p})}(X, d_X) \end{align*}
-\end{dfn}
-
-\begin{dfn}(ハミングキューブ). 離散立方体$\cbra{0, 1}^n$  に$l_1$ 距離(ハミング距離)
-\begin{align*} \norm{x - y}_1 \coloneqq \sum_{i = 1}^n \abs{x_i - y_i}\end{align*}
-を定めたものを, ハミングキューブという. 
-\end{dfn}
-
-\begin{prop}
-
-\end{prop}
-\begin{pf*}
-
-\qed
-\end{pf*}
-
-
-
-
 
 
 
