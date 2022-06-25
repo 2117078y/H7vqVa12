@@ -1,0 +1,304 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{notation}[dfn]{記号}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+\newcommand{\diag}{\textrm{diag}}
+\newcommand{\dist}{\textrm{dist}}
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+\renewcommand{\div}{\textrm{div}}
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+%%マグニチュード
+
+
+\newcommand{\Mag}{\textrm{Mag}}
+
+\usepackage{mathrsfs}
+
+
+%%6.13
+\def\Xint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\Xint=}
+\def\dashint{\Xint-}
+
+
+
+\title{CAT(0)の$2$-四角不等式による特徴づけ}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+\begin{dfn}(CAT(0))$(X, d)$ を測地的距離空間とする. 任意の$x, y, z \in X$ に対して, 
+\begin{align*} d^2(x, \gamma_z^y(\frac{1}{2}d(y,z))  ) \leq \frac{1}{2} d^2(x, y) +  \frac{1}{2} d^2(x, z) -  \frac{1}{4} d^2(y, z) \end{align*}
+が成り立つとき, CAT(0)空間であるという. ただし, $\gamma_z^y $ は$y, z$ を結ぶ測地線を表す. 
+\end{dfn}
+
+\begin{dfn}$(X, d)$ を距離空間とする. 
+4点$x, y, z, w \in X$ は, 
+\begin{align*} d^2(x, z)+ d^2(y, w) \leq d^2(x, y) + d^2(y, z) + d^2(x, w) + d^2(z, w) \end{align*} 
+が成り立つとき, $2$-四角不等式をみたすという. 任意の$4$ 点が2-四角不等式を満たすとき, $(X, d)$ は2-四角不等式を満たすという. 
+\end{dfn}
+
+\begin{remark}$d^2$ に関して, 対角線の和より周長の方が長いことを意味する不等式. しかしながら, 別に絵を描く時に本当に対角に位置しているかどうかとは関係ない. 例えば, $x, z, y, w$ を左上, 右上, 左下, 右下の順にかくと, $x, y, z, w$ に関する四角形不等式の左辺$d^2(x, z)+ d^2(y, w) $は, 絵的には対角ではない. 
+
+\end{remark}
+
+
+\begin{prop}$(X, d)$ を距離空間とする. $(X, \sqrt d)$ は2-四角不等式を満たす. 
+
+\end{prop}
+\begin{pf*}任意の4点$x, y, z, w \in X$ に対して, 
+\begin{align*} &d(x, z) \leq d(x, y) + d(y, z) \\&d(x, z) \leq d(x, w) + d(w, z) \\& d(y, w) \leq d(y, x) + d(x, w) \\& d(y, w) \leq d(y, z) + d(z, w) \end{align*}
+が成り立つので, 
+\begin{align*} 2(d(x,z) + d(y, w) ) \leq 2 (d(x, y) + d(y ,  z) + d(z, w) + d(w, x))\end{align*}
+が成り立つ. よって主張が従う. 
+\qed
+\end{pf*}
+
+\begin{prop}測地的距離空間$(X, d)$ が2-四角不等式を満たすならば, 任意の3点$x, y, z \in X$ に対して
+\begin{align*} d(y^\prime, z^\prime) \leq d(y, z)\end{align*}
+が成り立つ. 
+ただし, $\gamma_y^x, \gamma_z^x$ をそれぞれ$x$から$y$, $x$から$z$ の測地線とし, $y^\prime \coloneqq \gamma_y^x(\frac{1}{2}d(x,y)), \gamma_z^x(\frac{1}{2}d(x,z))$ とする. 
+\end{prop}
+\begin{pf*}$x, y^\prime, y, z^\prime$ に対して2-四角不等式を用いると, 
+\begin{align*} d^2(x,y ) + d^2(y^\prime, z^\prime ) &\leq d^2(x, y^\prime) + d^2( y^\prime, y)  + d^2(y, z) + d^2(z, z^\prime) 
+\\ &\leq (\frac{1}{2}d(x,y))^2 + (\frac{1}{2}d(x,y))^2 + d^2(y, z^\prime) + (\frac{1}{2}d(z^\prime ,x))^2 
+\\& =  \frac{1}{2}d(x,y)^2 + d^2(y, z^\prime) + \frac{1}{4}d^2(z^\prime ,x) \end{align*}
+同様にして, $x, y^\prime, z, z^\prime$ に対して2-四角不等式を用いると, 
+\begin{align*} d^2(x,z) + d^2(y^\prime, z^\prime) \leq \frac{1}{2}d(x, z)^2 + d^2(y^\prime , z) + \frac{1}{4}d^2(x ,y) \end{align*}
+従って, 
+\begin{align*} 2d^2(y^\prime, z^\prime) + \frac{1}{4}d^2(x, y) + \frac{1}{4} d^2(x, z) \leq d^2(y, z^\prime) + d^2(y^\prime, z) \end{align*}
+が成り立つ. また, $y, z, z^\prime, y^\prime$ に2-四角不等式を用いると
+\begin{align*} d^2(y^\prime, z^\prime) + d^2(y^\prime, z) \leq d^2(y, z) + \frac{1}{4}d^2(x, y) + \frac{1}{4}d^2(x, z) + d^2(y^\prime, z^\prime) \end{align*}　
+が成り立つので, それと組み合わせると, 
+\begin{align*} d^2(y^\prime, z^\prime) \leq d^2(y, z) \end{align*}
+が成り立つ. 従って, $d(y^\prime, z^\prime) \leq d(y, z)$ が成り立つ. 
+\qed
+\end{pf*}
+
+\begin{prop}測地的距離空間$(X, d)$ が2-四角形不等式を満たすとする. このとき, 任意の$x, y, z, w \in X$ に対して
+\begin{align*} d^2(y, w)  + d^2(x, z) \leq 2 d^2(w, x) + d^2(x, y) + \frac{1}{2} d^2(y, z) + d^2(z, w)                       \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}$\gamma_z^y$ を$y, z$ を結ぶ測地線とし, $o \coloneqq \gamma_z^y (\frac{1}{2} d(y, z))$ とする. そして, $w, x, y, o$ と$w, x, o, z$ に2-四角不等式を用いると, 
+\begin{align*}
+&d^2(w, y) + d^2(x, o) \leq d^2(x, w) + d^2(w, o) + d^2(o, y) + d^2(x, y)
+\\&d^2(w, o) + d^2(x, z) \leq d^2(w,z) + d^2(z, y) + d^2(o, x) + d^2(x, w)
+ \end{align*}
+であるので, これらを足す. 
+
+\qed
+\end{pf*}
+
+
+\begin{prop}測地的距離空間$(X, d)$ が2-四角形不等式を満たすとする. このとき, 任意の$x, y, z, w \in X$ に対して
+\begin{align*} 2d^2(x, y) + 2d^2(x, z) - d^2(y, z) - 4d^2(x, o) \geq 2\paren{2d^2(y^\prime, y) + 2d(y^\prime, z) - d^2(y, z) - 4d(y^\prime , o)}                    \end{align*}
+が成り立つ. ただし, $\gamma_z^y$ を$y, z$ を結ぶ測地線とし, $o \coloneqq \gamma_z^y (\frac{1}{2} d(y, z))$ とし, $\gamma_x^y$ を$x, y$ を結ぶ測地線とし $y \coloneqq \gamma_y^x (\frac{1}{2} d(x, y))$ と定める. 
+\end{prop}
+\begin{pf*}
+$o, y^\prime, x, z$ に対して2-四角不等式を用いる. 
+\qed
+\end{pf*}
+
+
+
+
+\begin{prop}$(X, d)$ を測地的空間とする. このとき, 次は同値である. \\
+(1)$(X, d)$ はCAT(0)である. \\
+(2)$(X, d)$ が$2$-四角不等式を満たす. 
+\end{prop}
+\begin{pf*}
+$(\naraba)$. 任意に$x, y, z, w \in X$ をとる. $ \gamma_y^z$ を$y, z$ を結ぶ測地線とし, $o \coloneqq \gamma_z^y(\frac{1}{2}d(y,z))$ と定める. 
+\begin{align*} &d^2(x, o)  +  \frac{1}{4} d^2(y, z) \leq \frac{1}{2} d^2(x, y) +  \frac{1}{2} d^2(x, z)  
+\\ &d^2(w, o)  +  \frac{1}{4} d^2(y, z) \leq \frac{1}{2} d^2(w, y) +  \frac{1}{2} d^2(w, z) 
+\\& \frac{1}{2}d^2(x, w)  \leq  \frac{1}{2}d^2(x, w)  + 2 d^2(o, \gamma_w^x(\frac{1}{2}d(x,w))) \leq d^2(x, o) +  d^2(w, o) \end{align*}
+が成り立つ(ただし, $\gamma_w^x$ は$x, w$ を結ぶ測地線を表す). 従って, 
+\begin{align*} \frac{1}{2} d^2(x, w) + \frac{1}{2}d^2(y, z)& \leq d^2(x, o ) + d^2(w, o) + \frac{1}{2} d^2 (y, z)  \\&\leq \frac{1}{2}(d^2(x, y) + d^2(y, z) + d^2(z, w) + d^2(w, x)) \end{align*}
+が成り立つ. \\
+$(\gyaku)$. $\gamma_y^z$ を$y, z$ を結ぶ測地線とし, $o \coloneqq \gamma_y^z (\frac{1}{2} d(y, z))$ とする. $\gamma_x^y$ を$y$ から$x$ への測地線とし, $y_n \coloneqq \gamma_x^y (\frac{1}{2^n} d(y, x))$ とする. $\gamma_{y_n}^z$ を$y_n, z$ を結ぶ測地線とし, $z_n \coloneqq \gamma_{y_n}^z (\frac{1}{2} d(y_n, z))$ とする. 
+
+\begin{align*}&2d^2(x, y) + 2d^2(x, z) - d^2(y, z) - 4d^2(x, w) \geq 2^n \paren{2d^2(y_n, y) + 2d^2(y_n, z) - d^2(y, z) - 4d(y_n, o)} 
+\\& 2d^2(y_n, y) + 2d(y_n, z) - d^2(y, z) - 4d^2(y_n, o) \geq 2\paren{2d^2(z_n, y) + 2d^2(y_n, z) - d^2(y, z) - 4d^2(y_n, o)}\end{align*}
+が成り立つので, $z_n, y, o, z$ に2-四角不等式を用いると, 
+\begin{align*} d^2(z_n, o) ; d^2(y, z) \leq d^2(z_n, y) + c^2(z_n, z) + \frac{1}{2}d^2(y, z) \end{align*}
+が成り立つので, これらを合わせると, 
+\begin{align*} 2d^2(x,y) + 2d^2(x, z) - d^2(y, z) - 4d^2(x, o) \geq - 2^{n + 2} d^2(z_n, w) \geq -2^{n + 2} d^2(z_n, z) = - 2^{2 -n} d^2(x, y) \end{align*}
+が成り立つので極限をとれば, 主張が従う. 
+\qed
+\end{pf*}
+
+
+
+\subsection{参考文献}
+
+T. sato. An alternative proof of Berg and Nikolaev's characterization of CAT(0)-spaces via quadrilateral inequality, 2009. 
+
+
+
+
+
+
+\end{document}
