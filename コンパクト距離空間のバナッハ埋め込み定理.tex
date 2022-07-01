@@ -134,6 +134,7 @@
 \newcommand{\grad}{\textrm{grad}}
 \newcommand{\dom}{\textrm{dom}}
 \newcommand{\diag}{\textrm{diag}}
+\newcommand{\dist}{\textrm{dist}}
 
 \renewcommand{\;}{\, ; \,}
 \renewcommand{\d}{\, {d}}
@@ -176,7 +177,7 @@
 
 
 
-\title{?}
+\title{コンパクト距離空間のバナッハ埋め込み定理}
 \date{}
 
 
@@ -190,29 +191,35 @@
 
 \section{}
 
-\begin{dfn}$(X, d)$ を距離空間とする. 有限集合$A \subset X$ に対して, 
-\begin{align*} \sum_{y \in X} \lambda(y) e^{- d(x, y)} = 1_{A}(x) \end{align*}
-を満たす$[\lambda \neq 0] \subset A$ なる$\lambda: X \rightarrow \mathbb R$ が存在する時, 
-\begin{align*} \Mag A \coloneqq \sum_{x \in X} \sum_{y \in X} \lambda(x) \lambda(y) e^{-d(x, y)} \paren{= \sum_{x \in X} \lambda (x) = \sum_{x \in A}\lambda(x)} \end{align*}
-と定めて, これを$A$ のマグニチュードという. 
-\end{dfn}
 
-\begin{dfn}$(X, d)$ を距離空間とする. 任意の$[\lambda \neq 0] < \infty$ を満たす$\lambda: X \rightarrow \mathbb R$に対して
-\begin{align*} \sum_{x \in X} \sum_{y \in X} \lambda (x) \lambda(y) e^{-d(x, y)} \geq 0 \end{align*}
-かつ, 
-\begin{align*} \sum_{x \in X} \sum_{y \in X} \lambda (x) \lambda(y) e^{-d(x, y)} = 0 \,\, \LR \,\, \lambda = 0 \end{align*}
-を満たす時, $(X, d)$ を正定値距離空間という. 
-\end{dfn}
+\begin{prop}任意のコンパクト距離空間に対して, カントール集合からの全射連続写像が存在する. 
+\end{prop}
 
-
-\begin{itembox}[l]{予想}
-正定値距離空間$(X, d)$ がコンパクトならば, 
-\begin{align*} \sup \cbra{ \Mag A \mid A \subset X \,\, \textrm{有限部分集合} } < \infty \end{align*}
-が成り立つ. 
-\end{itembox}
-
-
-
+\begin{prop}
+任意のコンパクト距離空間は, $C([0, 1])$ に等長に埋め込める. 
+\end{prop}
+\begin{pf*}コンパクト距離空間を$K$ で表すことにする. $K$ は可分であるので, $K$ の可算稠密部分集合を$K^\prime $ とする. フレシェ埋め込みにより, $l^\infty \coloneqq \cbra{\lambda : K^\prime \rightarrow \mathbb R}$ に$sup$ ノルムを備えた空間に等長に埋め込める.  $K^\prime$ の生成する自由$\mathbb Q$ 加群$\mathbb Q \tbra{K^\prime} \subset l^\infty$ 
+を考えると, 
+\begin{align*} &K^\prime \subset  \mathbb Q \tbra{K^\prime } \subset l^\infty 
+\\&K = \overline{K^\prime} \subset \overline{\mathbb  Q \tbra{K^\prime } } \subset l^\infty
+ \end{align*}
+ が成り立つ. $X \coloneqq \overline{\mathbb  Q \tbra{K^\prime } } $ とおくと, $X^*$ の単位閉球を$B$ で表すと, $B$は弱$^*$位相に関してコンパクトであり, $X$ が可分であることから, この位相に関して距離化可能である.  カントール集合$C$ から$B$ への全射連続写像$f : \mathcal C \rightarrow B\subset X^* $ がとれる. 
+ \begin{align*} F: X \rightarrow C(\mathcal C) ; x \mapsto \tbra{f (\cdot) , x } \end{align*}
+ と定めると, $x, y \in X$ に対して
+ \begin{align*} \norm{Fx - Fy}_{\infty} = \sup_{c \in \mathcal C} \tbra{f (c) , x - y  } \leq \sup_{c \in \mathcal C} \norm{fc} \norm{x- y} \leq \norm{x - y}_X  \end{align*}
+ が成り立つ. また, ハーンバナッハの定理より, $x - y \in X$ に対して, $T \in B$ で
+ \begin{align*} \tbra{T, x- y} = \norm{x - y}_X \end{align*}
+ を満たすものが存在する. $f$ は$\mathcal C$ から$B$ への全射であるので, 適当な$c \in \mathcal C$ で
+ \begin{align*} \tbra{fc, x-y} = \norm{x - y}\end{align*}
+ を満たすものが存在するので, 
+ \begin{align*} \norm{Fx - Fy}_{\infty} = \sup_{c \in \mathcal C} \tbra{f (c) , x - y  }  \geq \norm{x - y}_X \end{align*}
+ が成り立つ. 故に, 
+ \begin{align*} \norm{Fx - Fy}_{\infty} = \norm{x - y}_X \end{align*}
+ が成り立つ. 故に$F: X \rightarrow C(\mathcal C) $ は等長埋め込みである. $\mathcal C$ は$[0, 1]$ の閉集合であり, $[0, 1]$ は閉集合同士を分離できるので, Tietzeの拡張定理より一様ノルムを保った連続拡張$\iota$が存在する. 包含写像$K \subset \overline{\mathbb  Q \tbra{K^\prime } }$ を$i:K \rightarrow  \overline{\mathbb  Q \tbra{K^\prime } } $ で表すと$\iota \circ F \circ i : K \rightarrow C(\mathcal C)$
+ は等長埋め込みである. 
+ 
+\qed
+\end{pf*}
 
 
 

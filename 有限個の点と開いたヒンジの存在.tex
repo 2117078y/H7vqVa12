@@ -134,6 +134,7 @@
 \newcommand{\grad}{\textrm{grad}}
 \newcommand{\dom}{\textrm{dom}}
 \newcommand{\diag}{\textrm{diag}}
+\newcommand{\dist}{\textrm{dist}}
 
 \renewcommand{\;}{\, ; \,}
 \renewcommand{\d}{\, {d}}
@@ -176,7 +177,7 @@
 
 
 
-\title{?}
+\title{有限個の点と開いたヒンジの存在}
 \date{}
 
 
@@ -190,27 +191,23 @@
 
 \section{}
 
-\begin{dfn}$(X, d)$ を距離空間とする. 有限集合$A \subset X$ に対して, 
-\begin{align*} \sum_{y \in X} \lambda(y) e^{- d(x, y)} = 1_{A}(x) \end{align*}
-を満たす$[\lambda \neq 0] \subset A$ なる$\lambda: X \rightarrow \mathbb R$ が存在する時, 
-\begin{align*} \Mag A \coloneqq \sum_{x \in X} \sum_{y \in X} \lambda(x) \lambda(y) e^{-d(x, y)} \paren{= \sum_{x \in X} \lambda (x) = \sum_{x \in A}\lambda(x)} \end{align*}
-と定めて, これを$A$ のマグニチュードという. 
-\end{dfn}
+\begin{prop}
+任意の$n \in \mathbb N$ と, $0 < \beta < \pi$ に対して, $N = N(n, \beta) \in \mathbb N$ で, $N$ 点距離空間$S$が, $n$ 次元ユークリッド空間の部分集合であるならば, $x, y, z \in S$ で
+\begin{align*} \beta  < \theta(x, y, z) < \pi  \end{align*}
+を満たすものが存在するようなものがとれる. 
+\end{prop}
 
-\begin{dfn}$(X, d)$ を距離空間とする. 任意の$[\lambda \neq 0] < \infty$ を満たす$\lambda: X \rightarrow \mathbb R$に対して
-\begin{align*} \sum_{x \in X} \sum_{y \in X} \lambda (x) \lambda(y) e^{-d(x, y)} \geq 0 \end{align*}
-かつ, 
-\begin{align*} \sum_{x \in X} \sum_{y \in X} \lambda (x) \lambda(y) e^{-d(x, y)} = 0 \,\, \LR \,\, \lambda = 0 \end{align*}
-を満たす時, $(X, d)$ を正定値距離空間という. 
-\end{dfn}
+\begin{remark}つまり任意の次元のユークリッド空間と, 適当な角度$\beta $に対して, 十分個数の多い点は, $\beta$ より開いたヒンジを含む ということ. 
+
+\end{remark}
 
 
-\begin{itembox}[l]{予想}
-正定値距離空間$(X, d)$ がコンパクトならば, 
-\begin{align*} \sup \cbra{ \Mag A \mid A \subset X \,\, \textrm{有限部分集合} } < \infty \end{align*}
-が成り立つ. 
-\end{itembox}
 
+\subsection{参考文献}
+
+\begin{itemize}
+\item Antti K\UTF{00E4}enma\UTF{00E4}ki and Ville Suomala, Nonsymmetric canonical upper density and k-porosity, Trans. 2011.  のLemma 2.1.
+\end{itemize}
 
 
 
