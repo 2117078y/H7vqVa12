@@ -176,7 +176,7 @@
 
 
 
-\title{?}
+\title{再生核ヒルベルト空間のデルタ関数による特徴づけ}
 \date{}
 
 
@@ -190,35 +190,56 @@
 
 \section{}
 
-\begin{dfn}$(X, d)$ を距離空間とする. 有限集合$A \subset X$ に対して, 
-\begin{align*} \sum_{y \in X} \lambda(y) e^{- d(x, y)} = 1_{A}(x) \end{align*}
-を満たす$[\lambda \neq 0] \subset A$ なる$\lambda: X \rightarrow \mathbb R$ が存在する時, 
-\begin{align*} \Mag A \coloneqq \sum_{x \in X} \sum_{y \in X} \lambda(x) \lambda(y) e^{-d(x, y)} \paren{= \sum_{x \in X} \lambda (x) = \sum_{x \in A}\lambda(x)} \end{align*}
-と定めて, これを$A$ のマグニチュードという. 
-\end{dfn}
+\begin{dfn}(再生核ヒルベルト空間). $X$ を空でない集合とする. ヒルベルト空間$\mathcal H \subset \cbra{f \mid X\textrm{上の実数値関数}}$は, 
+任意の$x \in X$ に対して, $\delta _x $ が$\mathcal H$ 上の有界線型作用素となるとき, $\mathcal X$ 上の再生核ヒルベルト空間(RKHS)という. 
 
-\begin{dfn}$(X, d)$ を距離空間とする. 任意の$[\lambda \neq 0] < \infty$ を満たす$\lambda: X \rightarrow \mathbb R$に対して
-\begin{align*} \sum_{x \in X} \sum_{y \in X} \lambda (x) \lambda(y) e^{-d(x, y)} \geq 0 \end{align*}
-かつ, 
-\begin{align*} \sum_{x \in X} \sum_{y \in X} \lambda (x) \lambda(y) e^{-d(x, y)} = 0 \,\, \LR \,\, \lambda = 0 \end{align*}
-を満たす時, $(X, d)$ を正定値距離空間という. 
 \end{dfn}
 
 
-\begin{itembox}[l]{予想}
-正定値距離空間$(X, d)$ がコンパクトならば, 
-\begin{align*} \sup \cbra{ \Mag A \mid A \subset X \,\, \textrm{有限部分集合} } < \infty \end{align*}
+\begin{prop}$\mathcal H$ を集合$\mathcal X$ 上のRKHSとする. $f_n \in \mathcal H$ がこのRKHSのノルムに関して$f \in \mathcal H$ に収束するならば, 各点収束する. 
+\end{prop}
+\begin{pf*}任意の$x \in X$ に対して, 
+\begin{align*} \abs{f_n x - f x} = \abs{\delta_x f_n - \delta_x f} \leq \norm{\delta_x} \norm{f_n - f}_{\mathcal H}  \end{align*}
 が成り立つ. 
-\end{itembox}
+\qed
+\end{pf*}
+
+\begin{dfn}(再生核). $\mathcal H \subset \cbra{f \mid X\textrm{上の実数値関数}}$をヒルベルト空間とする. $k: X \times X \rightarrow \mathbb R$ は, \\
+(1)任意の$x \in X$ に対して, $ k(\cdot, x) \in \mathcal H$ である. \\
+(2)任意の$x \in X, f \in \mathcal H$ に対して, $\tbra{f, k(\cdot, x)}_{\mathcal H} = f(x)$ が成り立つ. \\
+を満たす時に, $\mathcal H$ の再生核という. 再生核が存在するとき, 再生核をもつという. 
+\end{dfn}
+
+\begin{prop}(再生核の存在). $\mathcal H$ を集合$X$ 上のヒルベルト空間とする. このとき次は同値である. \\
+(1)$\mathcal H$ がRKHSである. \\
+(2)$\mathcal H$ が再生核をもつ. 
+
+\end{prop}
+\begin{pf*}
+$(\naraba)$. $\delta_x$ は有界線型作用素なので, 表現定理により定まる$f_{\delta_x} \in \mathcal H$ を用いて
+\begin{align*} k(y, x) \coloneqq f_{\delta_x}(y) \quad (y \in X)\end{align*}
+と定めると, 
+\begin{align*} \tbra{g, k(\cdot, x)} = \tbra{g, f_{\delta_x}} = \delta_x g = g(x)\end{align*}
+が成り立つ. \\
+$(\gyaku)$. $k$ を再生核とする. 任意の$x \in X$ に対して, 
+\begin{align*} \norm{\delta_x f} = \tbra{f, k(\cdot, x)} \leq \tbra{k(\cdot, x), k(\cdot, x)}^{\frac{1}{2}} \norm{f} = k(x, x)^{\frac{1}{2}} \norm{f} \end{align*}
+が成り立つので, $\delta_x$ は有界である. 
+\qed
+\end{pf*}
 
 
-\newpage
-
-\begin{align*}& \sum_{y \in X} \lambda(y) e^{- d(x, y)} = 1_{A}(x)  \\& \sum_{y \in X} \xi (y) e^{- d(x, y)} = 1_{A}(x) \end{align*}
-ならば, 
 
 
-\begin{align*} \sum  \lambda(x) = \sum \sum  \lambda (x) \xi (y) e^{-d(x, y)} = \sum \xi (y)  \end{align*}
+
+
+
+
+
+
+
+
+
+
 
 
 
