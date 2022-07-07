@@ -1,0 +1,259 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{notation}[dfn]{記号}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+\newcommand{\diag}{\textrm{diag}}
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+\renewcommand{\div}{\textrm{div}}
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+%%マグニチュード
+
+
+\newcommand{\Mag}{\textrm{Mag}}
+
+\usepackage{mathrsfs}
+
+
+%%6.13
+\def\Xint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\Xint=}
+\def\dashint{\Xint-}
+
+
+
+\title{メンガー凸性と測地性}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+
+\begin{dfn}$(X, d)$ を距離空間とする. $x, y \in X, t \in [0, 1]$ に対して, $z \in X$ で
+\begin{align*} d(x, z) = t d(x, y), \quad d(z, y) = (1- t)d(x, y)  \end{align*}
+を満たすものを, $t$中間点という. 
+\end{dfn}
+
+\begin{remark}
+中間点という用語は, 別の使われ方もするので注意する. 
+\end{remark}
+
+
+\begin{prop}$(X, d)$ を距離空間とする. 
+\begin{align*} \cbra{z \in Z  \mid d(x, y) = d(x, z) + d(z, y)          }          \end{align*}
+は有界閉集合である. 
+\end{prop}
+\begin{pf*}
+$z_n \rightarrow z$ とすると, 
+\begin{align*} d(x, z) + d(z, y) = \lim d(x, z_n) + \lim d(z_n, y) = \lim d(x, y) = d(x, y)  \end{align*}
+が成り立つので, 閉集合である. また, 
+\begin{align*} d(x, z) \leq d(x, z) + d(z, y) = d(x, y) \end{align*}
+が成り立つので, 有界である.
+\qed
+\end{pf*}
+
+
+
+\begin{prop}$(X, d)$ をプロパー距離空間とする. TFAE\\
+(1)$(X, d)$ はメンガー凸 である. \\
+(2)任意の$2$点$x, y \in X$ に対して, $1/2$中間点が存在する. . \\
+(3)任意の$2$点$x, y \in X$ に対して, 任意の$t \in [0, 1]$ に対して$t$ 中間点が存在する. \\
+(4)$(X, d)$ は測地的である. 
+\end{prop}
+\begin{pf*}$(4) \naraba (3) \naraba (2) \naraba (4), (1) \naraba (2) \naraba (1)$ の順で示すことにする. \\
+$(4) \naraba (3)$. $x, y \in X $ に対して, $x, y$ を結ぶ測地線$\gamma^x_y$ をとり, $z = \gamma^x_y(td(x, y))$ とすればよい. \\
+$(3) \naraba (2)$. 明らかである. \\
+$(2) \naraba (4)$. $D \coloneqq \cbra{\frac{k}{2^n} d(x,y) \mid n \in \mathbb N, k = 0, 1, \ldots, 2^n}   \subset  [0, d(x,y)] $ と定める. $D$から$X$ への等長写像$\gamma$ で, $\gamma (0) = x, \gamma(d(x, y)) = y$ を満たすものがつくれる. $D$ は$x$ を中心とする半径$d(x, y)$ の閉球の中に含まれ, $(X, d)$ がプロパーであることから半径有限の閉球はコンパクトであるので, 完備である(コンパクトならば完備であることを思い出しておく). 従って, $t \in [0, d(x, y)]$ に対して, $t_n \in D$ で$t_n \rightarrow t$ となる列をとる. $\gamma (t_n)$ は閉球の中のコーシー列であるので, 収束列である. 
+\begin{align*} \gamma (t) \coloneqq \lim \gamma(t_n) \end{align*}  
+と定める. $\gamma$ は定め方から連続写像である. $t, t^\prime \in [0, d(x,y)]$ に対しては, $t_n \rightarrow t, t^\prime_n \rightarrow t^\prime$ となる$D$ の点列をとると, 
+\begin{align*} d(\gamma(t), \gamma(t^\prime)) = \lim d(\gamma (t_n), \gamma(t^\prime _n)) = \lim d(t_n, t^\prime_n) = d(t, t^\prime)\end{align*}
+が成り立つので, たしかに$\gamma $ は$x, y$ を結ぶ等長写像である. \\
+$(1) \naraba (2)$. 前述の命題より, $S_x \coloneqq  \cbra{z \in X  \mid d(x, y) = d(x, z) + d(z, y), d(x, z) \leq \frac{1}{2}d(x, y)}$ は有界閉集合であるので, $(X, d)$ がプロパーであることからコンパクトである. 連続関数
+\begin{align*} z \mapsto d(x, z) \end{align*}
+を考え, $S_x$ 上の最大値を実現する点を$z \in S_x$ とする. $d(x, z) = \frac{1}{2}d(x, y)$ であれば, この点$z$ が求める点であるので証明は終了する. $d(x, z) < \frac{1}{2}d(x, y)$ であったと仮定する. $T_y \coloneqq  \cbra{w \in X  \mid d(z, y) = d(z, w) + d(w, y), d(y, w) \leq \frac{1}{2}d(x, y)}$ と定めて, 連続関数
+\begin{align*} w \mapsto d(w, y) \end{align*}
+の$S_y$ 上の最大値を実現する点を$w \in S_y$ とする. $d(y, w) = \frac{1}{2}d(x, y)$ であれば, この点$w$ が求める点であるので証明は終了する. $d(w, y) < \frac{1}{2}d(x, y)$ であったと仮定する. 
+\begin{align*} d(x, z ) + d(z, y) = d(x, y), \quad d(z, w) + d(w, y) = d(z, y)\end{align*}
+であるので, 
+\begin{align*} d(z, w) = d(x, y) - d(x, z) - d(z, y)\end{align*}
+である. $d(x, z), d(z, y) < \frac{1}{2}d(x, y)$ であることから, $d(z, w) > 0$ であるので, メンガー凸性から, 
+\begin{align*} d(z, \eta) + d(\eta , w) = d(z, w) \end{align*}
+なる点$\eta \in X$ がとれる. 
+\begin{align*} d(x, \eta) + d(\eta, y) = d(x, y), \quad d(x, \eta) > d(x, z) \end{align*}
+であることから, $d(x, z)$ が$z \mapsto d(x, z)$ の$S_x$ 上の最大値であることに矛盾する. 
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
