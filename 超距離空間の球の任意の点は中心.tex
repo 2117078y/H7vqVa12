@@ -176,7 +176,7 @@
 
 
 
-\title{超距離空間は距離空間}
+\title{超距離空間の球の任意の点は中心}
 \date{}
 
 
@@ -190,19 +190,19 @@
 
 \section{}
 
-\begin{prop}$(X, d)$ を超距離空間とする. このとき, $(X, d)$ は距離空間である. 
-
+\begin{prop}$(X, d)$ を超距離空間とする. 任意の$x \in X$ と$r > 0$ に対して, 
+\begin{align*} B(x; r) = B(y; r) \quad (\any y \in B(x; r))\end{align*}
+が成り立つ. 
 \end{prop}
 \begin{pf*}
-
-任意の$x, y, z \in X$ に対して, 
-\begin{align*} xy \leq \frac{1}{2}  (xz + zy) + \frac{1}{2} \abs{xz - zy} \leq \frac{1}{2} (xz + zy) + \frac{1}{2}xy \leq \frac{1}{2} (xz + zy) + \frac{1}{2}(xz + zy) = xz + zy \end{align*}
+$y \in B(x; r)$ をとる. $z \in B(x; r)$ に対して, 
+\begin{align*} zy \leq \max \cbra{zx, xy} < \max{r, r} = r \end{align*}
+が成り立つので, $B(x; r) \subset B(y; r)$ である. また, $z \in B(y; r)$ に対して
+\begin{align*} zx \leq \max \cbra{zy, yx} < \max{r, r} = r\end{align*}
+が成り立つので, $B(yl r) \subset B(x; r)$ である. 故に$B(x; r) = B(y; r) $ が成り立つ. 
 
 \qed
 \end{pf*}
-
-
-
 
 
 \end{document}
