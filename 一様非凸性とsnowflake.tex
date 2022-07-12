@@ -1,0 +1,264 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{notation}[dfn]{記号}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+\newcommand{\diag}{\textrm{diag}}
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+\renewcommand{\div}{\textrm{div}}
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+%%マグニチュード
+
+
+\newcommand{\Mag}{\textrm{Mag}}
+
+\usepackage{mathrsfs}
+
+
+%%6.13
+\def\Xint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\Xint=}
+\def\dashint{\Xint-}
+
+
+
+\title{一様非凸性とsnowflake}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+
+\begin{dfn}(一様非凸). $0 < \delta < \frac{1}{2}$ とする. $(X, d)$ を距離空間とする. 任意の2点$x, y \in X$ に対して, $\lambda(x, y) \in (0, 1)$ で 
+\begin{align*} B(x;  (\lambda + \delta) d(x, y)) \cap B(y; (1 - \lambda + \delta) d(x, y)) = \varnothing \end{align*}
+を満たすものが存在する時に, $(X, d)$ は$\delta $-一様非凸(UNC)であるという. 
+\end{dfn}
+
+\begin{remark}
+$1 - \lambda , \lambda \leq \delta$ の時は, $B(x;  (\lambda + \delta) d(x, y)) \cap B(y; (1 - \lambda + \delta) d(x, y)) \neq \varnothing$ であるので, $\lambda \in (\delta, 1- \delta)$ に条件を置き換えてもよい. 
+\end{remark}
+
+\begin{prop}$0 < \delta < \frac{1}{2}$ とすると, \\
+(1)$4 \delta ^2 - \delta \leq \delta $ が成り立つ. \\
+(2)$0 \leq 4 \delta (\frac{1}{2} - \delta) \leq \frac{1}{4}$が成り立つ.
+\end{prop}
+\begin{pf*}
+計算するだけ. 
+\qed
+\end{pf*}
+
+
+\begin{prop}$(X, d)$ を距離空間とする. $(X, d)$ が$\delta $UNC であるならば, 
+ $(X, d)$ は $p$-snowflakeである. ただし, 
+ \begin{align*} p \coloneqq \frac{\log 2}{\log 2 - (1 + 4 \delta ^2)} \end{align*}
+ である. 
+\end{prop}
+\begin{pf*}
+\begin{align*} D \coloneqq 4d(\frac{1}{2} - \delta) , \quad  c \coloneqq D ^p \end{align*}
+と定める. $N + 1$ 個の点$x_0, \ldots, x_N$ に対して
+\begin{align*} c d^p(x_0, x_N) \leq \sum d^p(x_{i}, x_{i + 1}) \end{align*}
+が成り立つことを帰納法により示す. $N = 1$ の時, $c \leq 1$ より明らかに成り立つ. $1, \ldots, N$ 個の点に対して成り立つとする. 任意に$x, y \in X$ をとり, $N + 1$ 個の点列$x = x_0, x_1, \ldots , x_N = y$ をとる. $\delta $-UNC であることから, 適当な$\lambda \in (\delta , 1- \delta)$ で, 
+\begin{align*} B(x;  (\lambda + \delta) d(x, y)) \cap B(y; (1 - \lambda + \delta) d(x, y)) = \varnothing \end{align*}
+を満たすものがとれる. $B(x; (\lambda + \delta) d(x, y) ) \setminus B(x; (\lambda + 4\delta^2 - \delta) d(x, y) )$ に$\cbra{x = x_0, x_1, \ldots, x_N = y}$ の点が含まれるかどうかに応じて, 
+\\(1)任意の$x_k \in \cbra{x = x_0, x_1, \ldots, x_N = y}$ に対して
+\begin{align*} d(x, x_k) \leq (\lambda + 4 \delta ^2 - \delta) d(x, y) \end{align*} または
+\begin{align*}  (\lambda + \delta) d(x, y) \leq d(x, x_k) \end{align*}
+が成り立つ. 
+あるいは
+\\(2)ある$x_k \in \cbra{x = x_0, x_1, \ldots, x_N = y}$ に対して, 
+\begin{align*} (\lambda + 4 \delta ^2 - \delta )d(x, y) \leq d(x, x_k), \quad d(x_k, y) \geq (1 - \lambda + \delta ) d(x, y)\end{align*}
+が成り立つ. \\
+(1)の場合, $x_{k}, x_{k + 1} \in \cbra{x = x_0, x_1, \ldots, x_N = y}$ で
+\begin{align*} d(x, x_{k}) \leq (\lambda + 4 \delta ^2 - \delta) d(x, y), \quad (\lambda + \delta ) d(x, y) \leq d(x, x_{k+ 1})\end{align*}
+を満たすものがとれる. 
+\begin{align*} D d(x, y) \leq  d(x, x_{k + 1}) - d(x, x_k) \leq d(x_k, x_{k + 1}) \end{align*}
+が成り立つので, 
+\begin{align*} D^p d^p(x, y) \leq  d^p(x_k, x_{k + 1}) \leq \sum d^p(x_o, x_{i + 1})  \end{align*}
+が成り立つ. \\
+(2)の場合, 帰納法の仮定より, 
+\begin{align*} D^p d^p(x, x_k) \leq \sum_[i = 0]^{k-1} d^p(x_i, x_{i + 1})   , \quad D^p d^p(x_k, y) \leq \sum_[i = k]^{N-1} d^p(x_i, x_{i + 1}) \end{align*}
+が成り立つので, 
+\begin{align*} D^p (d^p(x, x_k) + d^p(x_k , y)) \leq \sum d^p (x_i, x_{i + 1}) \end{align*}
+が成り立つ. 
+\begin{align*} d(x, x_{k}) \leq (\lambda + 4 \delta ^2 - \delta) d(x, y), \quad (\lambda + \delta ) d(x, y) \leq d(x, x_{k+ 1})\end{align*}
+より, 
+\begin{align*} (1 + 4 \delta ^2 ) d(x, y) \leq d(x, x_k) + d(x_k ,y)  \end{align*}
+であるので, $p$ に対して, 
+\begin{align*}d^p(x, y) \leq d^p(x, x_k) + d^p (x_k, y) \end{align*}
+が成り立つ. 従って, 
+\begin{align*} D^p d^p(x, y) \leq D^p (d^p(x, x_k) + d^p(x_k , y)) \leq \sum d^p (x_i, x_{i + 1}) \end{align*}
+が成り立つ. 以上により主張が従う. 
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+\end{document}
