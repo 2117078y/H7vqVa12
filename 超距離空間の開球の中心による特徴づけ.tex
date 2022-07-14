@@ -180,7 +180,7 @@
 
 
 
-\title{開球の中心になるかどうかについて}
+\title{超距離空間の開球の中心による特徴づけ}
 \date{}
 
 
@@ -194,36 +194,22 @@
 
 \section{}
 
-\begin{dfn}$(X, d)$ を距離空間とする. $x, y, z \in X$ は, 
-\begin{align*} xy, yz, xz\end{align*}
-のうち, 
-\begin{align*}  \max{xy, yz, xy}   \end{align*}
-と一致するものが2つ以上存在する時に, 
-長二等間隔三頂点であるという. 
-\end{dfn}
-
-\begin{prop}$(X, d)$ を距離空間, $x \in X$とする. $y, z \in X$ で $x, y, z $ が長二等間隔三頂点とならないものが存在する時, 
+\begin{prop}$(X, d)$ を距離空間とする. 任意の$x \in X, r > 0$ に対して, 
+\begin{align*} B(x; r) = B(y; r) \quad (y \in B(x; r))\end{align*}
+が成り立つならば, $(X, d)$ は超距離空間である. 
+\end{prop}
+\begin{pf*}$(X, d)$ が超距離空間でないとする(背理法). $x, y, z \in X$ で長二等間隔三頂点とならないものがとれる. すると, 
 \begin{align*} m < R \leq M
  \end{align*}
  とすると, $p \in B(x; R)$ で, $B(x; R) \neq B(p; R)$ となるものが存在する. 
-
-(ただし, $xy, yz, xz$ のうち最大の値を$M$ , 2番目に大きい値を$m$ とする. )
-\end{prop}
-\begin{pf*}
-(1)$xy \leq yz \leq xz$ のとき, $y \in B(x; R), z \notin B(x; R)$ だが, $z \in B(y; R)$ である. \\
-(2)$xy \leq xz \leq yz$ のとき, $y , z \in B(x; R)$  だが, $z \notin B(y; R)$ である. \\
-(3)$yz \leq xy \leq xz$ のとき, $y \in B(x; R), z \notin B(x; R)$ だが, $z \in B(y; R)$ である. \\
-(4)$xz \leq xy \leq yz$ のとき, $y, z \in B(x; R)$ だが, $z \notin B(y; R)$ である. \\
-(5)$yz \leq xz \leq xy$ のとき, $z \in B(x; R), y \notin B(x; R)$ だが, $y \in B(z; R)$ である. \\
-(6)$xz \leq yz \leq xy$ のとき, $z \in B(x, R), y \notin B(x; R)$ だが, $y \in B(z; R)$ である. 
-
+(ただし, $xy, yz, xz$ のうち最大の値を$M$ , 2番目に大きい値を$m$ とする. ) 
+よって矛盾する. 
 
 \qed
 \end{pf*}
 
-\begin{remark}長二等間隔三頂点 だと, $m = M$ となるので, 上のような$R$ がとれない. 
 
-\end{remark}
+
 
 
 
