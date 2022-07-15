@@ -1,0 +1,263 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{notation}[dfn]{記号}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+\newcommand{\diag}{\textrm{diag}}
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+\renewcommand{\div}{\textrm{div}}
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+%%マグニチュード
+
+
+\newcommand{\Mag}{\textrm{Mag}}
+
+\usepackage{mathrsfs}
+
+
+%%6.13
+\def\chint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\chint=}
+\def\dashint{\chint-}
+
+%%7.13
+
+\usepackage{here}
+
+%7.15
+\newcommand{\Span}{\textrm{Span}}
+
+
+\title{$l_1$ 内在的体積}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+\begin{notation}$\mathbb R^n$ に$l_1$ 距離を備えた距離空間を$l^n_1 = (\mathbb R^n, d_{l_1})$ で表す. 
+
+\end{notation}
+
+\begin{dfn}(座標部分空間). $e_1, \ldots, e_n \in \mathbb R^n$ を標準基底とする. 部分空間$P \subset R^n$ は, $i \in \cbra{1, 2, \ldots, n}$ 個の異なる標準基底$e_{k_1} , \ldots , e_{k_i}$ で, $P = \Span (e_{k_1} , \ldots , e_{k_i}) $ を満たすものがとれるとき, ($i$ 次元の)座標部分空間という. $G^\prime _{n, i}$ で$R^n$ における$i$ 次元座標部分空間全体を表す. ただし, $0$ 次元座標部分空間は, $0 \in \mathbb R^n$ として定める. 
+\end{dfn}
+
+\begin{prop}$R^n$ において, 異なる$i$ 次元座標部分空間は, $_nC_i$ 個存在する. すなわち, $\# G^\prime_{n,i} = _n C _i$ である.  
+
+\end{prop}
+\begin{pf*}
+省略. 
+\qed
+\end{pf*}
+
+\begin{notation}$P \in G^\prime _{n,i }$ に対して, 
+\begin{align*} \pi_P : \mathbb R^n \rightarrow \mathbb R^n \end{align*}
+で, $P$ への正射影を現す. 
+\end{notation}
+
+\begin{dfn}($l_1$ 内在的体積). $A \subset R^n$ に対して, 
+\begin{align*} V^\prime_{n, i} \coloneqq \sum_{P \in G^\prime_{n, i}} \vol_i (\pi_P A) \end{align*}
+により, $V^\prime_{n, i }     :   2^X \rightarrow \mathbb R$ を定める. 
+\end{dfn}
+
+\begin{ex}$A \coloneqq [0,3] \times [0, 5] \subset \mathbb R^2$ とする. 
+\begin{align*} V^\prime_{2, 0} (A) = 1, \quad V^\prime_{2, 1} = 3 + 5 = 8, \quad V^\prime_{2, 2} = 15  \end{align*}
+\end{ex}
+
+\begin{ex}$A \coloneqq B(0; r) \subset l^3_1$ とする. 
+\begin{align*} &V^\prime_{3, 0}(A) = 1, \quad V^\prime_{3, 1}(A) = r \omega_1 + r \omega_1 + r\omega_1 = 3 r \omega_1 = 3r\cdot 2, \\&V^\prime_{3, 2} (A) = r^2 \omega_2 + r^2 \omega_2 + r^2 \omega_2 = 3 r^2 \omega_2 = 3r^2 \cdot 2, \quad V^\prime_{3, 3} = r^3  \omega_3 = r^3 \cdot \frac{2^3}{2!} \end{align*}
+\end{ex}
+
+\begin{remark}$l^n_1$ において, $B(0; r) \subset l^n_1$ の体積は
+\begin{align*} \vol_n (B_r) =  \frac{2^n}{n!}\end{align*}
+です. 
+\end{remark}
+
+\begin{prop}($i$ 次斉次性). $A ( \subset \mathbb R^n )\in \dom(V^\prime_{n, i })  $ に対して, $sA \in  \dom(V^\prime_{n, i }) $ であるならば, 
+\begin{align*} V^\prime_{n, i }   (sA) = s^i V^\prime_{n, i }(A)\end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+省略. 
+\qed
+\end{pf*}
+
+\begin{prop}(内在性). $\iota^n_{n+1}: \mathbb R^n \rightarrow \mathbb R^{n+1}; (x_1, \ldots, x_n) \mapsto (x_1, \ldots, x_n, 0) $ と定めると, 任意の$A \subset (\mathbb R^n) \in \dom(V^\prime_{n, i }) $ に対して, $\iota^n_{n+1} A \in \dom(V^\prime_{n + 1, i }) $ であるならば, 
+\begin{align*} V^\prime_{n, i } (A) =  V^\prime_{n+ 1, i }(\iota^n_{n+1} A)  \end{align*}
+
+\end{prop}
+\begin{pf*}
+省略. 
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+\end{document}
