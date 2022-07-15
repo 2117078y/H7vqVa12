@@ -1,0 +1,291 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{notation}[dfn]{記号}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+\newcommand{\diag}{\textrm{diag}}
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+\renewcommand{\div}{\textrm{div}}
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+%%マグニチュード
+
+
+\newcommand{\Mag}{\textrm{Mag}}
+
+\usepackage{mathrsfs}
+
+
+%%6.13
+\def\chint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\chint=}
+\def\dashint{\chint-}
+
+%%7.13
+
+\usepackage{here}
+
+%7.15
+\newcommand{\Span}{\textrm{Span}}
+
+
+\title{直交凸体上の単調かつ平行移動不変な付値は連続}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+\begin{dfn}(直交凸体). $\mathbb R^n$ の直交凸かつコンパクトな集合を直交凸体といい, その全体を$\mathcal K$ で表す. 
+
+\end{dfn}
+
+\begin{remark}$\mathcal K$ にはハウスドルフ距離を備えておく. 
+
+\end{remark}
+
+
+\begin{notation}$n$ 次元単位立方体を
+\begin{align*} C_n \coloneqq [-\frac{1}{2}, \frac{1}{2}]^n  \end{align*}
+で表す. 
+\end{notation}
+
+\begin{notation}$R \geq 0$ とする. $\mathcal K_n [R]$ で, $RC_n$ に含まれる直交凸集合を表す. 
+
+\end{notation}
+
+\begin{notation}$\nu_i: \mathbb R \rightarrow \mathbb R^n; x \mapsto (0, \ldots, x, \ldots, 0 )$ で第$i$ 成分への入射を表すことにする. 
+\end{notation}
+
+
+
+\begin{prop}単調増大な付値は, 非負である. 
+\end{prop}
+\begin{pf*}$\varphi$ を付値とする. 
+$\varphi (\varnothing) = 0$ であるという付値の定義から明らか. 
+\qed
+\end{pf*}
+
+
+\begin{prop}(区間との和に関する連続性). $\varphi : \mathcal K \rightarrow \mathbb R$ を, 単調かつ平行移動不変な付値とする. このとき, 任意の$K \in \mathcal K$ に対して
+\begin{align*} \lim_{\delta \rightarrow 0} \varphi(K+ \nu_i [-\delta/2, \delta/2] ) = \varphi(K)   \end{align*}
+が任意の$i$ に対して成り立つ. 
+\end{prop}
+\begin{pf*}任意に$K \in \mathcal K$ をとる. 
+\begin{align*} F: [0, \infty) \rightarrow \mathbb R; \delta \mapsto \varphi(K+ \nu_i [-\delta/2, \delta/2] ) - \varphi(K) \end{align*}
+と定める. 付値の定義から包除原理が成り立つことと, 平行移動不変であることに注意すると, 
+\begin{align*} &F(\delta_1 + \delta_2) =  \varphi(K+ \nu_i [-\delta_1 , \delta _2] ) - \varphi(K) \\&= \varphi(K+ \nu_i [-\delta_1 , 0] ) + \varphi(K+ \nu_i [0 , \delta _2] ) - \varphi(K) - \varphi(K) = F(\delta_1) + F(\delta_2)  \end{align*}
+が成り立つので, 加法的である. $\varphi$ が単調であること合わせると, $F$ は単調かつ加法的な関数であるので, 
+\begin{align*} F(\delta) = \delta F(1) \end{align*}
+が成り立つ. $\varphi$ が単調増大であるときには, 十分大きい$R \geq 0$ をとると, 
+
+\begin{align*} &0 \leq F(1) = \varphi(K+ \nu_i [- 1/2 , 1/2 ] ) - \varphi (K) \\& \leq \varphi(K+ \nu_i [- 1/2 , 1/2 ] )  \leq \varphi(RC_n) \end{align*}
+が成り立つ. 従って, 
+\begin{align*} 0 \leq F(\delta ) =  \delta F(1) \leq  \delta \varphi(RC_n) \end{align*}
+が成り立つので, $\delta \rightarrow 0$ と極限をとればよい. $\varphi$ が単調減少のときも同様にしてできる. 
+\qed
+\end{pf*}
+
+\begin{prop}(キューブとの和に関する連続性). $\varphi : \mathcal K \rightarrow \mathbb R$ を, 単調かつ平行移動不変な付値とする. このとき, 任意の$K \in \mathcal K$ に対して
+\begin{align*} \lim_{\delta \rightarrow 0} \varphi(K+ \delta C_n ) =  \varphi(K)   \end{align*}
+が成り立つ. 
+
+\end{prop}
+\begin{pf*} $R \geq 0$ は十分大きくとっておく. 前述の命題の証明と全く同様に
+\begin{align*} 0 \leq F(\delta ) \leq  \delta \varphi(RC_n) \end{align*}
+が成り立つ. すなわち
+\begin{align*} 0  \leq \varphi(K + \nu_i [- \delta /2 , \delta/2]) \leq \varphi(K) + \delta \varphi(R C_n) \end{align*}
+\begin{align*} C_n = \nu_1 [-1/2, 1/2] + \nu_2 [- 1/2, 1/2] + \cdots \nu_n [-1/2, 1/2] \end{align*}
+であるので, 任意の$\delta \geq  0$ に対して, 
+\begin{align*} &\varphi (K + \delta C_n) \\&= \varphi(K + \nu_1 [-1/2, 1/2] + \nu_2 [- 1/2, 1/2] + \cdots \nu_n [-1/2, 1/2] ) \\&= \varphi(K + \nu_1 [-1/2, 1/2] + \nu_2 [- 1/2, 1/2] +\cdots \nu_{n-1} [-1/2, 1/2] ) +  \delta \varphi(RC_n) 
+\\& = \varphi(K + \nu_1 [-1/2, 1/2] + \nu_2 [- 1/2, 1/2] +\cdots \nu_{n-2} [-1/2, 1/2] ) + 2 \delta \varphi(RC_n) 
+\\& \cdots 
+\\& = \varphi(K) + n  \delta \varphi(RC_n)
+ \end{align*}
+ が成り立つ. 
+ 故に, 
+ \begin{align*} 0 \leq \varphi(K + \delta C_n) - \varphi(K) \leq n\delta (RC_n)  \end{align*}
+ が成り立つので, 極限をとればよい. 
+\qed
+\end{pf*}
+
+\begin{remark}
+適当に証明を読めば, 一様収束であることもわかる. 
+\end{remark}
+
+
+\begin{prop}$\varphi : \mathcal K \rightarrow \mathbb R$ を, 単調かつ平行移動不変な付値とする. 
+このとき, $\varphi$ は連続である. 
+\end{prop}
+\begin{pf*}$X \in \mathcal K$ に対して十分大きな$R \geq 2$ で, $X \subset (R - 2)C_n$ を満たすものをとる. 任意に$\veps > 0$ をとる. 前述の命題より$\eta \geq 0$ で
+\begin{align*} \varphi(K + \eta C_n) \leq \varphi(K) + \veps \quad ( \any K \in \mathcal K) \end{align*}
+
+\qed
+\end{pf*}
+
+
+
+
+
+
+\end{document}
