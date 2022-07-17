@@ -159,6 +159,8 @@
 
 \newcommand{\Mag}{\textrm{Mag}}
 
+\newcommand{\Conv}{\textrm{Conv}}
+
 \usepackage{mathrsfs}
 
 
@@ -196,6 +198,9 @@
 
 \section{}
 
+
+
+
 \begin{prop}$A , B \subset \mathbb R^n$ とし, $T: \mathbb R^n \rightarrow \mathbb R^n$ を同型な線型変換とする.  適当な$s \geq 0$ に対して
 \begin{align*} TA \subset TB \subset sTA \end{align*}
 が成り立つとき, 
@@ -207,6 +212,22 @@
 \qed
 \end{pf*}
 
+\begin{prop}(Johnの楕円体定理の簡単バージョン). $K \subset \mathbb R^n$ を中心対称, 有界な閉凸体で内部が空でない集合とする. このとき, $E \subset K$ を$K$に含まれる体積最大の楕円体とする.  
+\begin{align*} E \subset K \subset \sqrt n E\end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}(sketch). 
+$E $ 適当な線型変換を行なって, はじめから開球$B$ だと思うことにしておく. $K \subsetneq \sqrt n B$ とすると, $ x \in K$ で
+\begin{align*} \sqrt n < \norm x \end{align*} 
+を満たすものがとれる. 適当に$\mathbb R^n$ の基底をとりかえて, 正規直交基底$u_1, \ldots, u_n$ で$u_1$ が$x$ 方向になるようにとる. 
+\begin{align*} R \coloneqq \Conv \paren{   B \cup \cbra{-x , x} } \end{align*} 
+と定めると, $ B \cup \cbra{-x , x} \subset K$ なので, $K$ が凸集合であることから, $R \subset K$ が成り立つ. $B$ を$u_1$ 方向に$a > 1$ 倍し, $u_2, \ldots , u_n$ 方向にそれぞれ$b < 1$ 倍してつくられる楕円体$E(a,b)$考える. $E(a,b) \subset R$ に含まれており,  
+\begin{align*} \vol(E(a,b)) = a b^{n-1} \vol (B)\end{align*}
+が成り立つ. 
+$a > \sqrt n$ なので, $a, b$ をうまくとれば, $\vol B < \vol E(a, b)$
+が成り立つことから, $B$ が$K$ に含まれる体積最大の楕円体であることに矛盾する. 
+\qed
+\end{pf*}
 
 
 
