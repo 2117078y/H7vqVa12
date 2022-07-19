@@ -1,0 +1,262 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{notation}[dfn]{記号}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+\newcommand{\diag}{\textrm{diag}}
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+\renewcommand{\div}{\textrm{div}}
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+%%マグニチュード
+
+
+\newcommand{\Mag}{\textrm{Mag}}
+
+\usepackage{mathrsfs}
+
+
+%%6.13
+\def\chint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\chint=}
+\def\dashint{\chint-}
+
+%%7.13
+
+\usepackage{here}
+
+%7.15
+\newcommand{\Span}{\textrm{Span}}
+
+\newcommand{\Conv}{\textrm{Conv}}
+
+
+\title{ピクセルと$l_1$ 凸集合}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+\begin{remark}ちょっとこのノートの完成度低いです. 
+
+\end{remark}
+
+
+\begin{notation}$(X, d)$ を距離空間とする. 
+\begin{align*} &((x, y)) \coloneqq \cbra{z \in X \mid xy = xz + zy, \quad x \neq z \neq y} \\& [[x, y]] \coloneqq \cbra{z \in X \mid xy = xz + zy}\end{align*}
+という記号を用いることにする. 
+\end{notation}
+
+
+\begin{notation}$C_n \coloneqq [-1/2, 1/2]^n$ で$n$ 次元単位立方体を表す. $\mathbb H \coloneqq \cbra{z + 1/2 \mid z \in \mathbb Z}$ で半整数全体を表す. 
+
+\end{notation}
+
+\begin{dfn}
+\begin{align*} P_x(\lambda) \coloneqq \cbra{\lambda(h + C_n) \mid h \in \mathbb H^n} \end{align*}
+を$\lambda$ ピクセル集合族という. $\lambda$ ピクセル集合族の要素を, $\lambda$ピクセル集合という. 
+\end{dfn}
+
+\begin{dfn}($\lambda$-ピクセル). $A \subset \mathbb R^n$ に対して, 
+\begin{align*} A_{\lambda } \coloneqq \bigcup_{\lambda \in \mathbb H ^n , \lambda(h + C_n) \cap A \neq \varnothing} \lambda(h + C_n)\end{align*}
+と定める. 
+\end{dfn}
+
+\begin{prop}$I \subset \mathbb R^n$ を$n$ 次元有界閉区間(つまり有界閉区間の$n$ 個の直積)とする. $F \subset \mathbb R^n $ を$x, y \in F$ が
+\begin{align*} x + I \cap y + I = \varnothing  \end{align*}
+を満たすならば, $z \in F$ で$d(x, z) + d(z, y) = d(x, y), \quad x \neq z, \quad z \neq y$  を満たすものが存在するような閉集合とする. このとき, $F + I$ は$l_1$ 凸集合である. 
+\end{prop}
+\begin{pf*}
+工事中. 
+\qed
+\end{pf*}
+
+\begin{prop}$A \subset \mathbb R^n$ が$l_1$ 凸集合であるならば, 任意の$\lambda > 0$ に対して, $A_\lambda $ は$l_1$ 凸集合である.  
+
+\end{prop}
+\begin{pf*}
+\begin{align*} L(\lambda) \coloneqq \cbra{h \in \mathbb H^n \mid \lambda (h + C_n) \cap A \neq \varnothing} \end{align*}
+とする. このとき, $X = \lambda L(\lambda) + \lambda C_n$ が成り立つ. $\lambda h, \lambda h^\prime \in  \lambda L(\lambda)$ で$\lambda(h + C_n) \cap \lambda(h^\prime + C_n) = \varnothing$ を満たすものをとる. $\lambda h_1 < \lambda h^\prime_1$ となるようにしておく(ただし, $h_1, h^\prime_1$ はそれぞれ$h, h^\prime$ の第一成分である). 適当に$x \in \lambda(h + C_n) \cap A, x^\prime \in \lambda(h + C_n) \cap A$ をとる. $A$ が$l_1$ 凸であるので, $y \in ((x, x^\prime))$ で
+\begin{align*} x_1 \leq \lambda (h_1 + 1/2) < y_1 <  \lambda (h^\prime_1 - 1/2) \leq x^\prime_1  \end{align*}
+を満たすものが取れる(ただし, $x_1, x^\prime_1, y_1$ は$x, x^\prime, y$ の第一成分). 適当な$k \in \mathbb H^n$ で, $y \in \lambda(k +  C_n) $ かつ, $k \in [[h, h^\prime]]$ を満たすものがとれる. $k_1$ を$k$ の第一成分とすると, $\lambda (h_1 + 1/2) < y_1 <  \lambda (h^\prime_1 - 1/2)$ より, $h_1 < k_1 < h^\prime_1$ であるので, $h \neq k \neq h^\prime $ であるので, $k \in ((h, h^\prime))$ が成り立つ. $\lambda L(\lambda)$ が閉集合であることから, 前述の命題より, $A_\lambda $ は$l_1$ 凸集合である.
+\qed
+\end{pf*}
+
+\begin{dfn}$A \subset \mathbb R^n$ は$\lambda$ ピクセル集合の有限和で表されるとき, $\lambda$ -pixellated 集合という. 適当な$\lambda$ に対して$\lambda$-pixellated 集合である集合を, 単にpixellated 集合という. 
+
+\end{dfn}
+
+\begin{prop}コンパクト$l_1$ 凸集合全体において, pixellated $l_1$ 凸集合 全体はハウスドルフ距離に関して稠密である. 
+
+\end{prop}
+\begin{pf*}集合$A$ に対して$A_\lambda$ は$\lambda$ を小さくしていけば$A$ にいくらでも近くなるようにとれる. あとはコンパクト性から有限個のピクセル集合で被覆できるかどうかは適当に検討すればいい. 
+\qed
+\end{pf*}
+
+
+
+
+
+
+\end{document}
