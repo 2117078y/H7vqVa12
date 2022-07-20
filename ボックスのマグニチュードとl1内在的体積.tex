@@ -1,0 +1,225 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{notation}[dfn]{記号}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+\newcommand{\diag}{\textrm{diag}}
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+\renewcommand{\div}{\textrm{div}}
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+%%マグニチュード
+
+
+\newcommand{\Mag}{\textrm{Mag}}
+
+\usepackage{mathrsfs}
+
+
+%%6.13
+\def\chint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\chint=}
+\def\dashint{\chint-}
+
+%%7.13
+
+\usepackage{here}
+
+%7.15
+\newcommand{\Span}{\textrm{Span}}
+
+\newcommand{\Conv}{\textrm{Conv}}
+
+
+\title{ボックスのマグニチュードと$l_1$内在的体積}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+\begin{notation}$V_i^\prime $ で$i$ 次の$l_1$内在的体積を表す. 
+
+\end{notation}
+
+\begin{notation}$J = \prod_{i = 1}^n [a_i, b_i] \subset \mathbb R^n$ のかたちの集合を$n$ 次元ボックスという. 
+
+\end{notation}
+
+\begin{prop}$n$ 次元ボックス$J \subset \mathbb R^n$ に対して 
+\begin{align*} \Mag(J) = 1 \cdot V^\prime_0 (J) + \frac{1}{2} V^\prime_1 (J) + \frac{1}{2^2} V^\prime_2 (J) + \cdots \frac{1}{2^n} V^\prime_n (J) \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}$A, B \subset \mathbb R$ に対して$A \times B \subset \mathbb R^2$ の$l_1$ 距離に関するマグニチュードは 
+\begin{align*} \Mag(A \times B) = \Mag(A) \Mag(B) \end{align*}
+が成り立つ. $\Mag([a, b]) = 1 + \frac{1}{2}(b-a)$ であるので, $J =  \prod_{i = 1}^n [a_i, b_i] $ とし, $d_i = \coloneqq b_i - a_i$ とすると, 
+\begin{align*} \Mag(J) &= \prod (1 + \frac{1}{2} d_i)  = 1 +  \frac{1}{2}\sum_i d_i  + \frac{1}{2^2} \sum_{i < j} d_i d_j + \cdots \frac{1}{2^n} d_1 \cdots d_n \\&= 1 \cdot V^\prime_0 (J) + \frac{1}{2} V^\prime_1 (J) + \frac{1}{2^2} V^\prime_2 (J) + \cdots \frac{1}{2^n} V^\prime_n (J)   \end{align*}
+\qed
+\end{pf*}
+
+
+
+
+
+
+\end{document}
