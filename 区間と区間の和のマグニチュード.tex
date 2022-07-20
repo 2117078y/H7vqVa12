@@ -184,7 +184,7 @@
 \newcommand{\Conv}{\textrm{Conv}}
 
 
-\title{ボックスのマグニチュードと$l_1$内在的体積}
+\title{区間と区間の和のマグニチュード}
 \date{}
 
 
@@ -198,26 +198,24 @@
 
 \section{}
 
-\begin{setting}ユークリッド空間には$l_1$ 距離を備えておく. 
 
-\end{setting}
-
-\begin{notation}$V_i^\prime $ で$i$ 次の$l_1$内在的体積を表す. 
-
-\end{notation}
-
-\begin{notation}$J = \prod_{i = 1}^n [a_i, b_i] \subset \mathbb R^n$ のかたちの集合を$n$ 次元ボックスという. 
-
-\end{notation}
-
-\begin{prop}$n$ 次元ボックス$J \subset \mathbb R^n$ に対して 
-\begin{align*} \Mag(J) = 1 \cdot V^\prime_0 (J) + \frac{1}{2} V^\prime_1 (J) + \frac{1}{2^2} V^\prime_2 (J) + \cdots \frac{1}{2^n} V^\prime_n (J) \end{align*}
-が成り立つ. 
+\begin{prop}(区間と1点の和). $d, l > 0$ とする. 
+\begin{align*} \Mag([0, d] \cup \cbra{d + l}  ) = 1 + \frac{d}{2} + \tanh \frac{l}{2}  \end{align*}
 \end{prop}
-\begin{pf*}$A, B \subset \mathbb R$ に対して$A \times B \subset \mathbb R^2$ の$l_1$ 距離に関するマグニチュードは 
-\begin{align*} \Mag(A \times B) = \Mag(A) \Mag(B) \end{align*}
-が成り立つ. $\Mag([a, b]) = 1 + \frac{1}{2}(b-a)$ であるので, $J =  \prod_{i = 1}^n [a_i, b_i] $ とし, $d_i = \coloneqq b_i - a_i$ とすると, 
-\begin{align*} \Mag(J) &= \prod (1 + \frac{1}{2} d_i)  = 1 +  \frac{1}{2}\sum_i d_i  + \frac{1}{2^2} \sum_{i < j} d_i d_j + \cdots \frac{1}{2^n} d_1 \cdots d_n \\&= 1 \cdot V^\prime_0 (J) + \frac{1}{2} V^\prime_1 (J) + \frac{1}{2^2} V^\prime_2 (J) + \cdots \frac{1}{2^n} V^\prime_n (J)   \end{align*}
+\begin{pf*}
+\begin{align*} [0, d] \cup \cbra{d + l} = [0, d]  \cup \paren{\cbra{d} \cup \cbra{d + l}}   \end{align*}
+と表せる. $1 + \frac{d}{2} + 1 + \tanh \frac{l}{2} - 1 = 1 + \frac{d}{2} + \tanh \frac{l}{2}$ である. 
+\qed
+\end{pf*}
+
+
+\begin{prop}(区間と区間の和). $d , l, d^\prime > 0$ とする. 
+\begin{align*} \Mag( [0, d] \cup [d + l, d+ l + d^\prime] \subset \mathbb R ) = 1 + \frac{1}{2} (d + d^\prime + h) + \frac{1}{4} h(d + d^\prime) + (\tanh \frac{l}{2} +  \frac{1}{2} \tanh \frac{l}{2})\end{align*}
+\end{prop}
+\begin{pf*}
+\begin{align*} [0, d] \cup [d + l, d+ l + d^\prime] = \paren{[0, d] \cup \cbra{d + l  } } \cup \paren{{d} \cup [d + l, d + l + d^\prime]          } \end{align*} 
+と表せる. 
+$\paren{[0, d] \cup \cbra{d + l  } } \cap \paren{{d} \cup [d + l, d + l + d^\prime] }   = \cbra{d, d + l} $ なので, マグニチュードが計算できる.
 \qed
 \end{pf*}
 
