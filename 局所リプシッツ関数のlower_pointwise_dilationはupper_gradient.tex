@@ -175,8 +175,18 @@
 \def\dashint{\chint-}
 
 
+%%7.13
 
-\title{1-良い射影}
+\usepackage{here}
+
+%7.15
+\newcommand{\Span}{\textrm{Span}}
+
+\newcommand{\Conv}{\textrm{Conv}}
+
+
+
+\title{局所リプシッツ関数のlower pointwise dilationはupper gradient}
 \date{}
 
 
@@ -190,47 +200,28 @@
 
 \section{}
 
-\begin{dfn}(良い射影). $A, B \subset X$ を部分集合とする. $a \in A$ は 
-\begin{align*} ^\exists \pi(a) \in A \cap B ; b \in B \naraba  d(a, b) = d(a, \pi (a)) + d(\pi (a), b) \end{align*}
-であるとき, $B$ に良く射影される. 任意の点$a \in A$ が$B$ に良く射影される, $A$ は$B$ に良く射影されるという. $A$ が$B$ に良く射影され, $B$ が$A$ に良く射影されるとき, $A, B$ は互いに良く射影されるという. 
-\end{dfn}
+\begin{remark}$X$ 上の曲線を, コンパクト区間上で定義された, 連続写像で, 求長可能かつ, 弧長パラメータづけられているとする. 
 
-\begin{remark} $a \in A$ が$B$ に良く射影されるとき, 類似度行列$Z$の成分に関して, 当たり前だが任意の$b \in B$ に対して
-\begin{align*} z_{a b} = z_{a \pi(a)} z_{\pi(a) b}\end{align*}
-が成り立つ. 
 \end{remark}
 
-\begin{prop}(和集合のマグニチュード). $A, B \subset X$ を$X$ の有限部分集合で, $A, B, A \cap B$ がそれぞれウェイト$w^A, w^B, w^{A \cap B}$を持つとする. $A, B$ が互いに良く射影されるならば,  
-\begin{align*} w(x) \coloneqq \begin{cases} w^A(x) & x \in A \setminus B  \\ w^A(x) + w^B(x) - w^{A \cap B }(x) & x \in A\cap B \\ w^B(x) & x \in B \setminus A \end{cases} \end{align*}
-と定めると, これは$A \cup B$ のウェイトである. 従って, 
-\begin{align*} \Mag(A \cup B) = \Mag(A) + \Mag(B) - \Mag(A \cap B) \end{align*}
-が成り立つ. 
-\end{prop}
-\begin{pf*}実際, $w$ がウェイトになることは例えば類似度行列の$a \in A$ 行目に関しては
-\begin{align*} \sum_{x \in X} Z(a, x) w(x) &= \sum_{a^\prime \in A} Z(a, a^\prime) w^A(a^\prime)   + \sum_{b \in B} Z(a, b) w^{B} (b) - \sum_{c^\prime \in A \cap B} Z(a, c) w^{A \cap B} (c)  \\& = \sum_{a^\prime \in A} Z(a, a^\prime) w^A(a^\prime)  \\& \quad + \sum_{b \in B} Z(a, \pi(a)) Z(\pi(a), b) w^{B} (b) - \sum_{c \in A \cap B} Z(a, \pi(a)) Z(\pi(a), c) w^{A \cap B} (c)    \\ 
-&= 1 + Z(a, \pi(a)) (  \sum_{b \in B}  Z(\pi(a), b) w^{B} (b)  - \sum_{c \in A \cap B} Z(\pi(a), c) w^{A \cap B} (c) ) \\
-&= 1 + Z(a, \pi(a)) (1- 1) = 1
-\end{align*}
-よりわかる. $b \in B$ 行目に関しても全く同様に示される. さらに, この$\sum_{x \in A \cup B} w(x)$ を計算すると, 主張が従う. 
-\qed
-\end{pf*}
+\begin{remark}実数値関数は全て拡張実数値関数であるとする. 
 
-\begin{prop}($1$点で交わる集合同士の和). $A, B \subset X$ を $1$ 点($c \in A\cap B$ で表す. )で共通部分をもつ有限部分集合とする. $A, B$ がマグニチュードをもち, $A, B$ が互いに良く射影されるとき, $A \cup B$ はメビウス行列をもち, 
-\begin{align*} \mu_{A \cup B}( x, y) \coloneqq \begin{cases} \mu^A(x, y)  & x, y \in A, (x, y) \neq  (c, c) \\ \mu^B(x, y)  & x, y \in B , (x, y) \neq  (c, c) \\ \mu^A(c, c) + \mu^B (c, c) - 1 & (x, y) = (c, c)  \\ 0 & \textrm{otherwise} \end{cases} \end{align*}
-で与えられる. ただし, $A, B$ のメビウス行列を$M^A = (\mu^A_{ij}), M^B = (\mu^B_{ij})$ で表している. 
+\end{remark}
+
+
+\begin{dfn}(upper gradient). $(X, d)$ を距離空間とする. 実数値関数$f : X \rightarrow \bar {\mathbb R} $ に対して, ボレル関数$g: X \rightarrow  \bar {\mathbb R} $ で, 任意の曲線$\gamma: [0, L(\gamma)] \rightarrow X$ に対して, 
+\begin{align*} \abs{f\circ\gamma (L(\gamma)) - f \circ \gamma (0) } \leq \int_0^{L(\gamma)} g \circ \gamma (s) ds \end{align*}
+を満たすものを, $f$ のupper gradientという. 
+\end{dfn}
+
+
+\begin{prop}
 
 \end{prop}
-\begin{pf*}実際, 適当に成分を並べて
-\begin{align*} &Z^{A\cup B} \paren{ \gyouretsu{ M^A & 0 \\ 0 & 0   } + \gyouretsu{ 0 & 0 \\ 0 & M^B   } - \diag(0, \ldots ,0,  1 , 0, \ldots , 0) }  \\ & =   \gyouretsu{ E & 0 \\ 0 & 0   } +  \gyouretsu{ 0 & 0 \\ 0 & E   } -  \diag(0, \ldots ,0,  1 , 0, \ldots , 0)  = E \end{align*}
-と計算できる. 
+\begin{pf*}
+
 \qed
 \end{pf*}
-
-
-
-
-
-
 
 
 
