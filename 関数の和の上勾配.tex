@@ -186,7 +186,7 @@
 
 
 
-\title{ニュートン空間}
+\title{関数の和の上勾配 }
 \date{}
 
 
@@ -200,21 +200,28 @@
 
 \section{}
 
+\begin{prop}(関数の和の上勾配). $(X, d)$ を距離空間とする. $u, u_1, u_2: X \rightarrow \overline{\mathbb R}$ を拡張実数値関数とする. $g \in UG(u), g_1 \in UG(u_1), g_2 \in UG(u_2)$ に対して, 
+\begin{align*} &g_1 + g_2 \in UG(u_1 + u_2) \\ &\abs a g \in UG(au) \quad (a \in \mathbb R )  \end{align*} 
+が成り立つ. 
+\end{prop}
+\begin{pf*}省略. 
 
-\begin{dfn}$(X, d)$ を距離空間, $f$ を$X$ 上の局所リプシッツ関数とする. 任意の$X$ の速度$1$ の絶対連続曲線$\gamma: [0, L\gamma] \rightarrow \mathbb X$ に対して
-\begin{align*} \abs{f(\gamma(L\gamma)) - f(\gamma(0)) }= \int_0^{L\gamma} g(\gamma(t)) dt  \end{align*}
-を満たす非負ボレル関数$g: X \rightarrow \mathbb R_{\geq 0}$ を, $f$ の上勾配という. $f$ の上勾配全体を$UG(f)$ で表すことにする. 
+\qed
+\end{pf*}
 
-\end{dfn}
 
-\begin{dfn}(ニュートン空間). $(X, d)$ を距離空間とする. 
-\begin{align*} &N^{1, p} \coloneqq \cbra{u \in  L^p(X) \mid \paren{ \int_{X} \abs u ^p d \mu + \inf _{g \in UG(u)}  \int_X g^p d\mu }^{\frac{1}{p}} < \infty } \\& \norm{u}  \coloneqq \paren{ \int_{X} \abs u ^p d \mu + \inf _{g \in UG(u)}  \int_X g^p d\mu }^{\frac{1}{p}}  \end{align*}
-と定め, $(N^{1, p} , \norm{\cdot })$をニュートン空間という. 
-\end{dfn}
-
-\begin{remark}$\norm{\cdot }$ はセミノルムであるので, ノルムにしようと思ったら適当に空間を割っておく必要がある. 
+\begin{remark}$u_1(x) \coloneqq x , u_2(x) \coloneqq - x$ とすると, $1 \in UG(u_1) , 1 \in UG(u_2)$ であるわけだが, 
+\begin{align*} u_1(x) - u_2(x) = 2x  \end{align*}
+であるので, $1 - 1 = 0 $ は$UG(u_1 - u_2)$ に属さない. 
 
 \end{remark}
+
+
+
+
+
+
+
 
 
 
