@@ -1,0 +1,280 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{notation}[dfn]{記号}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+\newcommand{\diag}{\textrm{diag}}
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+\renewcommand{\div}{\textrm{div}}
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+%%マグニチュード
+
+
+\newcommand{\Mag}{\textrm{Mag}}
+
+\usepackage{mathrsfs}
+
+
+%%6.13
+\def\chint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\chint=}
+\def\dashint{\chint-}
+
+
+%%7.13
+
+\usepackage{here}
+
+%7.15
+\newcommand{\Span}{\textrm{Span}}
+
+\newcommand{\Conv}{\textrm{Conv}}
+
+
+
+\title{距離空間の集合の容量}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+\begin{setting}$1 \leq p < \infty$ とし, $\mu $ は$X$ 上の適当な完備ボレル測度で, 任意の開球に対して正の測度を割り当てるものとする. ボレル可測でない集合$A \subset X$に対しては, 外測度により$\mu (A) $ を定めることにする. また, このような測度に対しては, 任意の集合$A \subset X$ に対して, ボレル集合$B \subset X$ で, $\mu(A) = \mu(B)$ を満たすものが存在する. 
+
+\end{setting}
+
+
+
+\begin{dfn}$(X, d)$ を距離空間とする. $A \subset X$ に対して, 
+\begin{align*} C_p (A) \coloneqq    \inf_{u \in N^{1, p}(X),  \chi_A \leq u|_A } \norm{u}^p _{N^{1, p}(X)}    \end{align*}
+と定め, これを$A$ の容量という. 
+\end{dfn}
+
+\begin{prop}$(X, d)$ を距離空間とする. $u: X \rightarrow \mathbb R$ に対して, 
+\begin{align*} UG(u) \subset UG( \max \cbra{\min \cbra{u, 1}, 0}          )   \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}$v \coloneqq \max \cbra{\min \cbra{u, 1}, 0}    $ と表すことにする. $g \in UG(u)$ とすると, 任意の弧長パラメータづけられた絶対連続曲線$\gamma$ に対して, 
+\begin{align*} \abs{v\circ \gamma(L\gamma) - v \circ \gamma(0)} \leq \abs{u\circ \gamma(L\gamma) - u \circ \gamma(0)} \end{align*}
+より主張がしたがう. 
+\qed
+\end{pf*}
+
+\begin{prop}$(X, d)$ を距離空間とする. $u \in N^{1, p}(X)$ に対して, 
+\begin{align*}  \norm{ \max \cbra{\min \cbra{u, 1}, 0}      }_{N^{1, p}(X)} \leq \norm{u}_{N^{1, p}(X)}  \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}$UG(u) \subset UG( \max \cbra{\min \cbra{u, 1}, 0}        )  $と, $\abs{\max \cbra{\min \cbra{u, 1}, 0}     } < \abs{u}$ より主張が従う. 
+
+\qed
+\end{pf*}
+
+\begin{prop}$(X, d)$ を距離空間とし, $A \subset X$ とする. $v: X \rightarrow \mathbb R$ が$1 \leq u|_A $ を満たす$u: X \rightarrow \mathbb R$ を用いて, 
+\begin{align*} v =  \max \cbra{\min \cbra{u, 1}, 0}  \end{align*}
+と表されるとき, $\chi_A \leq v \leq 1$ を満たす. 
+\end{prop}
+\begin{pf*}明らかにそう. 
+
+\qed
+\end{pf*}
+
+
+\begin{prop}$(X, d)$ を距離空間とする. $A \subset X$ に対して, 
+\begin{align*} C_p (A) =  \inf_{u \in N^{1, p}(X),  \chi_A \leq u \leq 1} \norm{u}^p _{N^{1, p}(X)}  \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+\begin{align*} &C_p (A) \leq \inf \cbra{ \norm v ^p \mid \chi_A \leq v \leq 1 }  \\& \leq \inf \cbra{ \norm v ^p  \mid {v = \max \cbra{\min \cbra{u, 1}, 0} , 1 \leq u|_A }  } \\& \leq \inf \cbra{ \norm u ^p \mid  1 \leq u|_A  } = C_p (A)     \end{align*}
+
+\qed
+\end{pf*}
+
+\begin{prop}$(X, d)$ を距離空間とする. 
+\begin{align*} C_p(\varnothing ) = 0\end{align*}
+\end{prop}
+\begin{pf*}
+$0$ という関数を考えれば良い. 
+\qed
+\end{pf*}
+
+\begin{prop}$(X, d)$ を距離空間とする. $A \subset X$ とする. 
+\begin{align*} \mu (A) \leq C_p (A)  \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}
+$u \in N^{1, p}(X)$ で $ \chi_A \leq u|_A $ を満たすならば,  
+\begin{align*} \norm{\chi_A }^p _{N^{1, p}(X)}  \leq   \norm{u}^p _{N^{1, p}(X)}  \end{align*}   
+が成り立つ. で, $\norm{\chi_A }^p _{N^{1, p}(X)}  = \mu(A)$ なので, 主張が従う. 
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+\end{document}
