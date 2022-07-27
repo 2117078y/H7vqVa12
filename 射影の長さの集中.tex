@@ -189,7 +189,7 @@
 
 
 
-\title{D-埋め込みの定義}
+\title{射影の長さの集中}
 \date{}
 
 
@@ -203,23 +203,18 @@
 
 \section{}
 
-\begin{dfn}$(X, d_X), (Y, d_Y)$ を距離空間とし, $1 \leq D$ を実数とする. $f: X \rightarrow Y$ は, 
-\begin{align*} d(x, y) \leq r d(fx, fy) \leq D d(x, y) \end{align*}
-を満たす$0 < r$ が存在するとき, $D$ 埋め込みという. 
-\end{dfn}
+\begin{notation}$1 \leq k \leq n-1$ とし, $\pi^k : S^{n-1} \rightarrow \mathbb R^n ; (x_1, \ldots, x_n) \mapsto (x_1, \ldots, x_k)$ とする. 
 
-\begin{remark}つまり, $(Y, d_Y)$ を適当にスケールさせると, $X$ から$Y$ への双リプシッツが存在するようなときのことを考えている. 
+\end{notation}
 
-\end{remark}
+\begin{prop}任意の$t \geq 0$ に対して, 
+\begin{align*} \mu( [ f \geq \Med f + t  ] ) \leq 2 e^{-\frac{t^2 n}{2} }, \quad \mu([ f \geq \Med f - t  ] ) \leq 2 e^{-\frac{t^2 n}{2} }  \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}$ x \mapsto \norm{\pi^k (x) }_2 $ という写像は$1$リプシッツ写像, $[ f \geq \Med f  ]$
 
-\begin{dfn}(歪み). $(X, d_X), (Y, d_Y)$ を距離空間とし, $f: X \rightarrow Y$ が$D$埋め込みとなるような$1 \leq D$ の下限を$f$ の歪み(distortion) という. 
-
-\end{dfn}
-
-
-
-
-
+\qed
+\end{pf*}
 
 
 
