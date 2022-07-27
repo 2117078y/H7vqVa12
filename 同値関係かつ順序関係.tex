@@ -1,0 +1,240 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{notation}[dfn]{記号}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+\newcommand{\diag}{\textrm{diag}}
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+\renewcommand{\div}{\textrm{div}}
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+%%マグニチュード
+
+
+\newcommand{\Mag}{\textrm{Mag}}
+
+\usepackage{mathrsfs}
+
+
+%%6.13
+\def\chint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\chint=}
+\def\dashint{\chint-}
+
+
+%%7.13
+
+\usepackage{here}
+
+%7.15
+\newcommand{\Span}{\textrm{Span}}
+
+\newcommand{\Conv}{\textrm{Conv}}
+
+
+
+\title{同値関係かつ順序関係}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+\begin{prop}$X$ を集合とする. $R$ が同値関係かつ順序関係であるとき, 任意の$x, y \in X$ に対して
+\begin{align*} x R y\end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}任意に$x, y \in X$ をとる. 順序関係であるので, 全順序律より$x R y$ または, $y R X$ である. $y R x$ であるならば, 同値関係の対称律から$x R y$ である. 従って, 主張が成り立つ. 
+
+\qed
+\end{pf*}
+
+
+\begin{prop}$(P, \leq) $ を順序集合とし, $A \subset P$ とし, $U(A)$ で$A$ の上界を表す. $U(A)$が下限をもつならば, それは$A$ の上限である. 
+
+\end{prop}
+\begin{pf*}$p \in P $ を$U(A)$の下限とする.  $U(A)$ の下界を$D(U(A))$ で表すことにする. $p$ が$U(A)$ の最小元でないとする(背理法). 「$p \in U(A)$かつ$q \in U(A) \naraba p \leq q$」 が成り立たないので, 「$p \notin U(A)$ または$x \in U(A)$  de
+$p \leq x$ でないものが存在する」が成り立つ. $p \notin U(A)$ とすると, $a \in A$ で$a \leq p$ でないものがとれる. $a$ は任意の$q \in U(A)$ に対して$a \leq q$ をみたすので, $a \in D(U(A))$ である. $p$ は$D(U(A))$ の最大元なので, $a \leq p$ が成り立つ. よって矛盾する. $x \in U(A)$ で$p \leq x$ でないものが存在すると, $p \in D(U(A))$ であるので, $p \leq x$ が成り立つ. よって矛盾する. いずれにせよ矛盾するので, 主張が従う. 
+
+\qed
+\end{pf*}
+
+\begin{prop}$(P, \leq)$ を順序集合とする. $P$ の任意の部分集合が下限をもつならば, 任意の部分集合が上限をもつ. 
+
+\end{prop}
+\begin{pf*}任意に部分集合$A$ をとる. $A$ の上界は$P$ の部分集合なので, 下限が存在する. $A$ の上界の下限は$A$ の上限であるので, $A$ は上限をもつ. 
+
+\qed
+\end{pf*}
+
+
+$f: \mathcal P_2 (\mathbb N) \rightarrow \mathbb N \times \mathbb N  ;  \cbra{n, m} \mapsto (\min \cbra{n, m}  , \max \cbra{n, m})$ と定めると, $A, B \in P_2 (\mathbb N)$ が$A \neq B$ であるならば, $\max A = \max B$ と$\min A = \min B$ がともに成り立つことはないので(ともに成り立つならば, $A = B$ となるから), $f(A), f(B)$ は第一成分か第二成分のいずれかが異なる. 従って$f$ は単射である. 
+\begin{align*} 1 \mapsto (1, 1), \,\, 2 \mapsto (1, 2), \,\, 3 \mapsto (2, 1), \,\, 4 \mapsto(1, 3), \,\, 5 \mapsto (2,2), \,\, 6 \mapsto (3, 1), 7 \mapsto(1, 4), \ldots  \end{align*}  
+と定める写像が$\mathbb N $ から$\mathbb N \times \mathbb N$ への全単射であるので, $\mathbb N \times \mathbb N$ は可算集合である. $P_2 ( \mathbb N) $ から可算集合への単射が存在するので, $P_2 (\mathbb N) $ は可算集合である. 
+ 
+
+
+
+
+
+\end{document}
