@@ -189,7 +189,7 @@
 
 
 
-\title{実数値関数のメジアン }
+\title{D-埋め込みの定義}
 \date{}
 
 
@@ -201,42 +201,26 @@
 
 \maketitle
 
-
-
-
 \section{}
 
-
-
-\begin{dfn}(メジアン). $(X, \mathcal B, \mu)$ をボレル確率空間とし, $f: X \rightarrow \mathbb R$ とする. 
-\begin{align*} \Med f \coloneqq \sup \cbra{t \mid \mu([f \leq t]) \leq \frac{1}{2}  }\end{align*}
-と定め, これを$f$ のメジアンという. 
+\begin{dfn}$(X, d_X), (Y, d_Y)$ を距離空間とし, $1 \leq D$ を実数とする. $f: X \rightarrow Y$ は, 
+\begin{align*} d(x, y) \leq r d(fx, fy) \leq D d(x, y) \end{align*}
+を満たす$0 < r$ が存在するとき, $D$ 埋め込みという. 
 \end{dfn}
 
-\begin{prop}$(X, \mathcal B, \mu)$ をボレル確率空間とし, $f: X \rightarrow \mathbb R$ とする. 
-\begin{align*} \mu([f < \Med f]) \leq \frac{1}{2} , \quad \mu([f > \Med f]) \leq \frac{1}{2}  \end{align*}
-が成り立つ. 
-\end{prop}
-\begin{pf*}
-\begin{align*} \mu([f < \Med f]) &= \mu ( \lim \bigcup_{n = 1} ^N [f \leq \Med f - \frac{1}{n}]) \\& = \lim \mu ( [f \leq \Med f - \frac{1}{N}] ) \leq \frac{1}{2} \end{align*}
-\qed
-\end{pf*}
+\begin{remark}つまり, $(Y, d_Y)$ を適当にスケールさせると, $X$ から$Y$ への双リプシッツが存在するようなときのことを考えている. 
+
+\end{remark}
 
 
-\begin{ex}$f: \mathbb [0, 1] \rightarrow \mathbb R$ として, $1_{[0, 1/2]}$ を考えると, $\Med 1_{[0, 1/2]} = 1$ なので
-\begin{align*}  \mu([f < \Med f]) = \frac{1}{2}, \quad  \mu([f \leq  \Med f])  = 1 \\   \mu([f > \Med f]) = 0 , \quad  \mu([f \geq  \Med f])  = \frac{1}{2}  \end{align*}
-が成り立つ.  つまるところ, $[f < \Med f]$ に等号をいれて$[f \leq \Med f]$ としてしまうと, $[f \leq \Med f]  \leq 1/2$ という評価は得られない.  また, $Ef = \frac{1}{2}$ なので, 中央値と期待値は一致しない. 
-\end{ex}
 
-\begin{prop}$(X, \mathcal B, \mu)$ をボレル確率空間とし, $f: X \rightarrow \mathbb R$ とする. 
-\begin{align*} \mu([f \leq  \Med f]) \geq \frac{1}{2} , \quad \mu([f \geq \Med f]) \geq \frac{1}{2}  \end{align*}
-が成り立つ. 
 
-\end{prop}
-\begin{pf*}$[f \leq  \Med f]^ c = [f >  \Med f] $ なので前述の命題より明らか. 
 
-\qed
-\end{pf*}
+
+
+
+
+
 
 
 \end{document}
