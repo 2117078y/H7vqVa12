@@ -1,0 +1,238 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{notation}[dfn]{記号}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+\newcommand{\diag}{\textrm{diag}}
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+\renewcommand{\div}{\textrm{div}}
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+%%マグニチュード
+
+
+\newcommand{\Mag}{\textrm{Mag}}
+
+\usepackage{mathrsfs}
+
+
+%%6.13
+\def\chint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\chint=}
+\def\dashint{\chint-}
+
+
+%%7.13
+
+\usepackage{here}
+
+%7.15
+\newcommand{\Span}{\textrm{Span}}
+
+\newcommand{\Conv}{\textrm{Conv}}
+
+%7.27
+
+
+
+
+\title{コンパクト集合と閉集合の距離と共通部分について}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+\begin{notation}$(X, d)$ を距離空間とする. $A, B \subset X$ に対して, 
+\begin{align*} d(A, B) \coloneqq \inf \cbra{d(a, b) \mid a \in A, b \in B}, \quad d(A, b) \coloneqq \inf \cbra{d(a, b) \mid a \in A}           \end{align*}
+という記号を用いる. 
+\end{notation}
+
+\begin{prop}$(X, d)$ を距離空間とする. $A \subset X$ をコンパクト集合, $B \subset X$ を閉集合とする. 
+\begin{align*} d(A, B) > 0 \quad \LR \quad A \cap B = \varnothing \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}$\naraba$. $A \cap B \neq \varnothing$ と仮定する(背理法). $c \in A \cap B$ ととると, $d(A, B) \leq d(c, c) = 0$ となるので矛盾する. \\
+$\gyaku$. 任意の$a, a^\prime \in A$ に対して, 
+\begin{align*}d(B, a) = \inf \cbra{d(b, a) \mid b \in A} \leq \inf \cbra{d(b, a) + d(a, a^\prime) \mid b \in A}   \end{align*}
+が成り立つので, 
+\begin{align*} \abs{d(B, a) - d(B, a^\prime)} \leq d(a, a^\prime)\end{align*}
+$d(B, \cdot)$ は$A$ 上の連続関数である. $A$ はコンパクト集合であるので, $d(B, \cdot)$ の最小値を実現する点$a \in A$ がとれる. 
+\begin{align*} d(B, a) = 0\end{align*}
+であるので, $a \in \overline B$ である. $B$ が閉集合であることから$\overline B = B $ であるので, $a \in B$ である. 従って$A \cap B \neq \varnothing$ が成り立つ.  
+\qed
+\end{pf*}
+
+\begin{remark}$\tanh : \mathbb R \rightarrow \mathbb R$ は連続関数なので, $A \coloneqq \cbra{(x, f(x)) \in \mathbb R^2 \mid x \in \mathbb R}$ は$(\mathbb R^2, d)$ の閉集合である. 閉集合$B \coloneqq \cbra{(x, y) \in \mathbb R^2 \mid y = 1}$ との共通部分を考えると, $\tanh x < 1 \quad (x \in \mathbb R)$ であるので, 
+\begin{align*} A \cap B = \varnothing \end{align*}
+である一方で, $\lim_{x \rightarrow \infty} \tanh (x) = 1$ であるので, 
+\begin{align*} d(A, B) = 0 \end{align*}
+が成り立つ. 
+\end{remark}
+
+
+
+
+
+
+\end{document}
