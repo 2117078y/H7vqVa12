@@ -184,9 +184,12 @@
 
 \newcommand{\Conv}{\textrm{Conv}}
 
+%7.27
 
 
-\title{ }
+
+
+\title{コンパクト空間の連続写像による像はコンパクト}
 \date{}
 
 
@@ -198,40 +201,23 @@
 
 \maketitle
 
-
-
-
 \section{}
 
+\begin{prop}$X, Y$ を位相空間とする. $f: X \rightarrow Y$ を全射連続する. このとき, $Y$ はコンパクトである. 
 
-$(2)$. $Y$ の開被覆$\cbra{U_\lambda}$ をとる. 
+\end{prop}
+\begin{pf*}$Y$ の開被覆$\cbra{U_\lambda}$ をとる. 
 \begin{align*} X = f^{-1} (\bigcup_{\lambda}   U_\lambda)    =  \bigcup_{\lambda} f^{-1} (U_\lambda)  \end{align*}
 が成り立つ, $f$ は連続なので, 各$\lambda$ に対して$f^{-1} (U_\lambda) $ は開集合であるため, $\cbra{f^{-1} (U_\lambda)} $ は$X$ の開被覆である. $X$ はコンパクトであるので, 有限部分被覆$\cbra{ f^{-1} (U_1),  f^{-1} (U_2), \ldots,  f^{-1} (U_N) }$がとれる. 
 \begin{align*} X =  f^{-1} (U_1) \cup f^{-1} (U_2) \cup \cdots f^{-1} (U_N)  \end{align*}
 より, 
 \begin{align*} Y = f(X) = U_1 \cup U_2 \cup \cdots U_N \end{align*}
 が成り立つ. 従って, 有限部分被覆がとれるので, $Y$ はコンパクトである. 
-\\
-$(3)$. 多分この命題は成り立たない. $X$ として$2$ 点からなる部分集合$\cbra{p, q} \subset \mathbb R^n$ をとると, $\cbra{p}, \cbra{q}, \cbra{p,q}$ は$\mathbb R^n$ のコンパクト集合なので, $\cbra{p}, \cbra{q}, \cbra{p,q}$  は閉集合である. 従って$\cbra{p, q}$ には離散位相が入るのでハウスドルフである. 
-\\
-$(4)$. 
-$\naraba$. $A \cap B \neq \varnothing$ と仮定する(背理法). $c \in A \cap B$ ととると, $d(A, B) \leq d(c, c) = 0$ となるので矛盾する. \\
-$\gyaku$. 任意の$a, a^\prime \in A$ に対して, 
-\begin{align*}d(B, a) = \inf \cbra{d(b, a) \mid b \in A} \leq \inf \cbra{d(b, a) + d(a, a^\prime) \mid b \in A}   \end{align*}
-が成り立つので, 
-\begin{align*} \abs{d(B, a) - d(B, a^\prime)} \leq d(a, a^\prime)\end{align*}
-$d(B, \cdot)$ は$A$ 上の連続関数である. $A$ はコンパクト集合であるので, $d(B, \cdot)$ の最小値を実現する点$a \in A$ がとれる. 
-\begin{align*} d(B, a) = 0\end{align*}
-であるので, $a \in \overline B$ である. $B$ が閉集合であることから$\overline B = B $ であるので, $a \in B$ である. 従って$A \cap B \neq \varnothing$ が成り立つ.  また, 
-$\tanh : \mathbb R \rightarrow \mathbb R$ は連続関数なので, $A \coloneqq \cbra{(x, f(x)) \in \mathbb R^2 \mid x \in \mathbb R}$ は$(\mathbb R^2, d)$ の閉集合である. 閉集合$B \coloneqq \cbra{(x, y) \in \mathbb R^2 \mid y = 1}$ との共通部分を考えると, $\tanh x < 1 \quad (x \in \mathbb R)$ であるので, 
-\begin{align*} A \cap B = \varnothing \end{align*}
-である一方で, $\lim_{x \rightarrow \infty} \tanh (x) = 1$ であるので, 
-\begin{align*} d(A, B) = 0 \end{align*}
-が成り立つ. \\
-$(6)$ \\
-$A, B$ どちらかが連結でないと仮定する. $A$ の相対位相における開かつ閉集合$S_1, S_2 \subset A$ で, $S_1 \cap S_2 = \varnothing$ かつ, $S_i \neq \varnothing, A \quad(i = 1, 2)$ かつ$A = S_1 \sqcup S_2$ をみたすものがとれる. 開集合$\tilde S_1, \tilde S_2 \subset X$ で, $\tilde S_1 \cap A = S_1, \tilde S_2 \cap A = S_2$ を満たすものがとれる. $\tilde S_1  \cap (A \cap B)  \neq \varnothing, \tilde S_2  \cap (A \cap B)  \neq \varnothing$ とすると, $\tilde S_1 \cap (A \cap B)  \cap  \tilde S_2 \cap (A \cap B) = \varnothing$ であるので, $A \cap B$ が連結であることに矛盾してしまうので, $\tilde S_1  \cap (A \cap B)  \neq \varnothing, \tilde S_2  \cap (A \cap B)  \neq \varnothing$ ではない. $A \cap B \subset \tilde S_1, A \cap B \subset \tilde S_2 $ のいずれかが成り立つ. $A \cap B \subset \tilde S_1$ とすると, 
-\begin{align*} X = (\tilde S_2 \cap B^c) \sqcup (\tilde S_1 \cup A^c) \end{align*}
-が成り立つことを考えると, $X$ が連結であることに矛盾する. 
+\qed
+\end{pf*}
+
+
+
 
 
 
