@@ -1,0 +1,240 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{notation}[dfn]{記号}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+\newcommand{\diag}{\textrm{diag}}
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+\renewcommand{\div}{\textrm{div}}
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+%%マグニチュード
+
+
+\newcommand{\Mag}{\textrm{Mag}}
+
+\usepackage{mathrsfs}
+
+
+%%6.13
+\def\chint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\chint=}
+\def\dashint{\chint-}
+
+
+%%7.13
+
+\usepackage{here}
+
+%7.15
+\newcommand{\Span}{\textrm{Span}}
+
+\newcommand{\Conv}{\textrm{Conv}}
+
+%7.27
+
+
+
+
+\title{マグニチュードが有限でないコンパクト正定値距離空間}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+\begin{prop}$l_1$ 距離を備えた数列空間において, 
+\begin{align*} 
+\\&J_\infty \coloneqq \cbra{\frac{\pi^2}{6}} \times \cbra{0} \times \cbra{0} \times \cdots 
+\\&J_1 \coloneqq [0, 1] \times \cbra{0} \times \cbra{0} \times \cdots  
+\\& J_2 \coloneqq [1, 1 + \frac{1}{2^2}] \times [0, \frac{1}{2^2}] \times \cbra{0} \times \cbra{0} \times \cdots 
+\\&J_3 \coloneqq [1 + \frac{1}{2^2}, 1 + \frac{1}{2^2} + \frac{1}{3^2} ] \times \cbra{0} \times [0, \frac{1}{3^2}]  \times [0, \frac{1}{3^2}] \times \cbra{0} \times \cdots 
+\\& \cdots
+\end{align*}
+と定めると, 
+\begin{align*} J_\infty \cup \paren{\bigcup_{i \in \mathbb N} J_i }  \end{align*}
+はマグニチュードが有限でないコンパクト正定値距離空間である. 
+\end{prop}
+\begin{pf*}任意に点列$p_n$をとると, $(\frac{\pi^2}{6}, 0, \ldots )$ が集積点でないときは, 適当に十分大きな$N \in \mathbb N$ に対して $\cbra{p_n}\subset  \bigcup_{i \in \mathbb N} J_i$ であり, $\bigcup_{i \in \mathbb N} J_i$ はコンパクトであるので収束部分列をもつ. $(\frac{\pi^2}{6}, 0, \ldots, )$ が集積点であるとき, $\frac{\pi^2}{6}$ に収束する収束部分列をもつ. また, 
+\begin{align*} z \coloneqq (\sum_{i= 1}^n \frac{1}{k^2}, 0, 0, \ldots  )  \in \paren{\bigcup_{i = 1}^{n } J_i } \cap J_{n+1} \end{align*}
+と定めると, 任意に
+\begin{align*}x =  (x_1, x_2, \ldots , x_m, 0, 0, \ldots, ) \in \bigcup_{i = 1}^{n } J_i  \end{align*}
+をとると(ただし, $m  \coloneqq 1 + 2 + \cdots + n-1$), 任意の点$y = (y_1, 0, \ldots , 0 , y_{m +1}, y_{m+2}, \ldots, y_{m+n}, 0, \ldots )  \in J_{n + 1}$ に対して, 
+
+\begin{align*} d(x, y) &= \abs{y_1 - x_1} + \abs{x_2} +  \cdots +  \abs{x_m} + \abs{y_{m+1}} + \cdots \abs{y_{m+n}} \\&= \abs{\sum_{i= 1}^n \frac{1}{k^2} - x_1} + \abs{y_{m+1} - \sum_{i= 1}^n \frac{1}{k^2} }  + \abs{0 - x_2} +  \cdots +  \abs{0- x_m} +  \abs{y_{m+1} - 0 } + \cdots \abs{y_{m+n} - 0} 
+\\&=  d(x, z) + d(z, y)   \end{align*}
+が成り立つので, $\bigcup_{i = 1}^{n } J_i$ は$J_{n+1}$ に対して良く射影される. 同様にして$J_{n+1}$ が$\bigcup_{i = 1}^{n } J_i$ に良く射影されるので, 互いに良く射影される. 従って, マグニチュードを計算すると, 適当な$N \in \mathbb N $ に対して
+\begin{align*} &\Mag \paren{J_\infty \cup \paren{\bigcup_{i \in \mathbb N} J_i } } 
+\\& \geq \Mag (\paren{\bigcup_{i = 1}^N J_i } )
+\\&= (1 + \frac{1}{2}) + (1 + \frac{1}{2}\cdot \frac{1}{2^2} )^2 - 1 + (1 + \frac{1}{2}\cdot \frac{1}{3^2} )^3 - 1 + (1 + \frac{1}{2}\cdot \frac{1}{4^2} )^4 -1 + \cdots +(1 + \frac{1}{2}\cdot \frac{1}{N^2} )^N -1 
+\\&\geq 1 + \frac{1}{2} (1 +  2 \cdot \frac{1}{2^2} + 3 \cdot \frac{1}{3^2} + \cdots N \cdot \frac{1}{N^2} )     \end{align*}
+が成り立つので, マグニチュードは有限ではない. 
+\qed
+\end{pf*}
+
+
+
+
+
+\end{document}
+
