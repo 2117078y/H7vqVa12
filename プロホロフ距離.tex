@@ -204,20 +204,33 @@
 \section{}
 
 
-\begin{dfn}$\mu, \nu$ を$X$ 上のボレル測度とする. 
+\begin{dfn}$\mu, \nu$ を$X$ 上のボレル確率測度とする. 
 
-\begin{align*} d(\mu, \nu) \coloneqq \inf \cbra{ \veps > 0 \mid \mu(A_\veps) \geq \nu(A) - \veps \quad (\any A \subset \mathcal B (X) )}\end{align*}
+\begin{align*} d(\mu, \nu)    \coloneqq \inf \cbra{ \veps > 0 \mid \mu(A_\veps) \geq \nu(A) - \veps \quad (\any A \subset \mathcal B (X) )}\end{align*}
 
 \end{dfn}
 
-\begin{prop}$\mu, \nu$ を$X$ 上のボレル測度とし, $\veps >0$ とする. 
+\begin{prop}$\mu, \nu$ を$X$ 上のボレル確率測度とし, $\veps >0$ とする. 
 \begin{align*}\mu(A_\veps) \geq \nu(A) - \veps \quad (\any A \subset \mathcal B (X) ) \end{align*} 
 が成り立つことと, 
 \begin{align*}\nu(A_\veps) \geq \mu(A) - \veps \quad (\any A \subset \mathcal B (X) ) \end{align*} 
 が成り立つことは, 必要十分である. 
 \end{prop}
-\begin{pf*}
+\begin{pf*}$((A_\veps)^c)_\veps \subset A^c$ が成り立つので, 
+\begin{align*} \mu(A^c) \geq \mu(((A_\veps)^c)_\veps ) \geq \nu((A_\veps)^c) - \veps \end{align*}
+が成り立つ. ので, 
+\begin{align*} - \mu(A^c) \leq   - \nu((A_\veps)^c) + \veps   \end{align*}
+であるので, 両辺に$1$ を足すと, 確率測度であることから, 
+\begin{align*}  \mu(A) \leq    \nu( A_\veps ) + \veps   \end{align*}
+が成り立つ. 反対側も同様である. 
+\qed
+\end{pf*}
 
+\begin{prop}$\mu, \nu$ を$X$ 上のボレル確率測度とする. 
+\begin{align*} d(\mu, \nu)  = d(\nu, \mu)\end{align*}
+\end{prop}
+\begin{pf*}
+前述の命題より明らか. 
 \qed
 \end{pf*}
 
