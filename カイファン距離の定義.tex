@@ -189,7 +189,7 @@
 
 
 
-\title{プロホロフ距離}
+\title{カイファン距離の定義}
 \date{}
 
 
@@ -204,54 +204,25 @@
 \section{}
 
 
-\begin{dfn}$\mu, \nu$ を$X$ 上のボレル確率測度とする. 
 
-\begin{align*} d(\mu, \nu)    \coloneqq \inf \cbra{ \veps > 0 \mid \mu(A_\veps) \geq \nu(A) - \veps \quad (\any A \subset \mathcal B (X) )}   \end{align*}
-
-\end{dfn}
-
-\begin{prop}$\mu, \nu$ を$X$ 上のボレル確率測度とし, $\veps >0$ とする. 
-\begin{align*}\mu(A_\veps) \geq \nu(A) - \veps \quad (\any A \subset \mathcal B (X) ) \end{align*} 
-が成り立つことと, 
-\begin{align*}\nu(A_\veps) \geq \mu(A) - \veps \quad (\any A \subset \mathcal B (X) ) \end{align*} 
-が成り立つことは, 必要十分である. 
-\end{prop}
-\begin{pf*}$((A_\veps)^c)_\veps \subset A^c$ が成り立つので, 
-\begin{align*} \mu(A^c) \geq \mu(((A_\veps)^c)_\veps ) \geq \nu((A_\veps)^c) - \veps \end{align*}
-が成り立つ. ので, 
-\begin{align*} - \mu(A^c) \leq   - \nu((A_\veps)^c) + \veps   \end{align*}
-であるので, 両辺に$1$ を足すと, 確率測度であることから, 
-\begin{align*}  \mu(A) \leq    \nu( A_\veps ) + \veps   \end{align*}
-が成り立つ. 反対側も同様である. 
-\qed
-\end{pf*}
-
-\begin{prop}$\mu, \nu$ を$X$ 上のボレル確率測度とする. 
-\begin{align*} d(\mu, \nu)  = d(\nu, \mu)\end{align*}
+\begin{prop}測度空間$(X, \mu)$ から距離空間$(Y, d)$ への写像 $f, g $ に対して, 
+\begin{align*} \veps \mapsto \mu(\cbra{x \in X \mid d(f(x), g(x)) > \veps }  ) \end{align*}
+は$\veps$ に関する単調減少関数である. 
 \end{prop}
 \begin{pf*}
-前述の命題より明らか. 
+自明. 
 \qed
 \end{pf*}
 
-\begin{notation}
-\begin{align*} A_{\bar \veps} \coloneqq \bigcup_{a \in A} \cbra{x \mid xa \leq \veps}  \end{align*}
-と定める. 
-\end{notation}
-
-\begin{prop}
-\begin{align*} \inf \cbra{ \veps > 0 \mid \mu(A_\veps) \geq \nu(A) - \veps \quad (\any A \subset \mathcal B (X) )}  = \inf \cbra{ \veps > 0 \mid \mu(A_{\bar \veps} ) \geq \nu(A) - \veps \quad (\any A \subset \mathcal B (X) )   } \end{align*}
-\end{prop}
-\begin{pf*}$\geq $ は明らか. $\leq $ を示すために, $>$ であると仮定する. 左辺を$\veps^\prime$ で, 右辺を$\veps$ で表すことにする. $\veps$ より少しだけ大きい$\delta$ で 
-\begin{align*} \mu(A_{\bar \delta} ) \geq \nu(A) - \delta \quad (\any A \subset \mathcal B (X) )  \end{align*}
-が成り立つ. $\delta $ より少しだけ大きくて, $\veps$ よりは小さい$\delta^\prime > \delta$ に対して $A_{\bar \delta} \subset A_{\delta^\prime}$ が成り立つので
-\begin{align*}  \mu(A_{ \delta^\prime} ) \geq  \mu(A_{\bar \delta} ) \geq \nu(A) - \delta \geq \nu(A) - \delta^\prime  \quad (\any A \subset \mathcal B (X) )  \end{align*}
-が成り立つ. 
-\qed
-\end{pf*}
+\begin{remark}
+すなわち, 前述の量は, $\veps$ を$0$ に近づけるにつれて増大する. 
+\end{remark}
 
 
-
+\begin{dfn}(カイファン距離). 測度空間$(X, \mu)$ から距離空間$(Y, d)$ への$\mu$ 加速写像 $f, g $ に対して, 
+\begin{align*} d^\mu _{\textrm{KF}} (f, g) \inf\cbra{\veps >0 \mid  \mu(\cbra{x \in X \mid d(f(x), g(x)) > \veps }  ) \leq \veps } \end{align*}
+とさだめ, これを$\mu$ に関する$f, g$ のカイファン距離という. 
+\end{dfn}
 
 
 
