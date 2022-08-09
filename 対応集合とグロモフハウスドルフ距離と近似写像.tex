@@ -1,0 +1,253 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{notation}[dfn]{記号}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+\newcommand{\diag}{\textrm{diag}}
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+\renewcommand{\div}{\textrm{div}}
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+%%マグニチュード
+
+
+\newcommand{\Mag}{\textrm{Mag}}
+
+\usepackage{mathrsfs}
+
+
+%%6.13
+\def\chint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\chint=}
+\def\dashint{\chint-}
+
+
+%%7.13
+
+\usepackage{here}
+
+%7.15
+\newcommand{\Span}{\textrm{Span}}
+
+\newcommand{\Conv}{\textrm{Conv}}
+
+%7.27
+
+
+
+
+\title{対応集合とグロモフハウスドルフ距離と近似写像}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+\begin{dfn}(対応集合). $X, Y$ を集合とする. $\mathcal R \subset X \times Y$ は, 任意の$x \in X$ に対して, $y \in Y$ で$(x, y ) \in \mathcal R$ を満たすものが存在し, かつ, 任意の$y \in Y$ に対して, $x \in X$ で$(x, y ) \in \mathcal R$を満たすものが存在するときに , 対応集合という. 
+
+\end{dfn}
+
+\begin{prop}$X, Y$ を集合とし, $f: X \rightarrow Y$ を全射とする. このとき, 
+\begin{align*} \cbra{(x, fx) \mid x \in X}\end{align*}
+は対応集合である. 
+\end{prop}
+\begin{pf*}
+明らかである. 
+\qed
+\end{pf*}
+
+\begin{prop}$(X, d_X), (Y, d_Y)$ を距離空間とし, $\veps >0 $ とする. $f: X \rightarrow Y $を, $Y \subset (fX)_\veps $ とする. このとき, 
+\begin{align*} \cbra{(x, y) \mid x \in X ,  yfx < \veps} \end{align*}
+は対応集合である. 
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+\begin{dfn}$(X, d_X) , (Y, d_Y)$ を距離空間とする. $\veps >0$ とする. $f: X \rightarrow Y$ は
+\begin{align*} \abs{fxfx^\prime - xx^\prime } < \veps \end{align*}
+を満たすときに, $\veps$近似写像という. 
+\end{dfn}
+
+\begin{prop}$(X, d_X), (Y, d_Y)$ を距離空間とし, $\veps > 0$ とする. $d_{GH}(X, Y) < \veps$ ならば, $X$ から$Y$ への$2 \veps$ 近似写像が存在する. 
+
+\end{prop}
+\begin{pf*}$d_{GH}(X, Y) < \veps$ ならば, 適当な$(Z, d_Z)$ と等長写像$T: X \rightarrow Z, S: Y \rightarrow Z$で, $d_H (TX, SY) < \veps$ を満たすものが存在する. $x \in X$ に対して, $fx \in Y$ を$TxSy < \veps$ を満たす$y \in Y$ により定めると, $x, x^\prime \in X$ に対して
+\begin{align*} fx fx^\prime - x  x^\prime \leq Sfx Sfx^\prime - xx^\prime \leq Sfx Tx + Tx Tx^\prime + Tx^\prime Sf x^\prime - x x^\prime < 2 \veps \end{align*} 
+が成り立つ. 
+\qed
+\end{pf*}
+
+\begin{prop}$(X, d_X), (Y, d_Y)$ を距離空間とし, $\veps > 0$ とする. $\veps$ 近似写像$f: X \rightarrow Y$  で, $Y \subset (fX)_\veps $ を満たすものが存在するならば, $d_{GH}(X, Y) < 2\veps$ が成り立つ. 
+
+\end{prop}
+\begin{pf*}$X \sqcup Y$ に$xy \coloneqq \inf \cbra{xx^\prime + y^\prime y + \veps \mid (x^\prime, y ^\prime) \in \cbra{(x, y) \mid x \in X, yfx < \veps}}$ により距離を定めると, $d_H(^\iota X, \iota Y) < \veps$ が成り立つ. 多分. きちんと確認してないから気をつけて. 
+
+\qed
+\end{pf*}
+
+
+
+
+\end{document}
