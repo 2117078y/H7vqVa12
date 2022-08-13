@@ -189,7 +189,7 @@
 
 
 
-\title{可積分関数のフーリエ変換は有界かつ連続}
+\title{ソボレフ空間におけるノルムの同値性}
 \date{}
 
 
@@ -203,31 +203,21 @@
 
 \section{}
 
+\begin{prop}
+$m$ 階ソボレフ空間において
+\begin{align*}
+ \norm{f} \coloneqq \int (1 + \norm \xi ^2 )^m \abs{\hat f  (\xi) }^2 d\xi, \quad \norm{f}^\prime \coloneqq \int \sum_{\abs{\alpha} \leq m } (\xi ^\alpha) ^2 \abs{\hat f (\xi)}^2 d\xi    \end{align*}
+は同値なノルムである. 
 
-\begin{prop}$f \in L^1(\mathbb R)$ とする. このとき, $\hat f \in C_b (\mathbb R)$ が成り立つ. 
 
 \end{prop}
 \begin{pf*}
-\begin{align*} \hat f (\xi ) = \frac{1}{(2\pi)^{\frac{1}{2}} } \int f(x) e^{- ix\xi} dx    \end{align*}
-が成り立つので, $\abs{f(\xi)} \leq  \frac{1}{(2\pi)^{\frac{1}{2}} } \norm{f}_1 $ が成り立つ. また, $\xi_n \rightarrow \xi$ とすると, 
-\begin{align*} \abs{f(x) e^{-ix\xi}} \leq f(x) \end{align*}
-なので優収束定理から$\hat f (\xi_n) \rightarrow  \hat f(\xi)$ が成り立つ. 
+\begin{align*} \xi^{(2\alpha_1, 2 \alpha_2, \ldots , 2 \alpha_n )} &\leq \abs{\xi_1}^{2 \alpha} \abs{\xi_2}^{2 \alpha_2} \cdots \abs{\xi_n}^{2 \alpha_n} \\&\leq \norm{\xi}^{2\alpha_1} \norm{\xi}^{2\alpha_2} \cdots  \norm{\xi}^{2\alpha_n} \\&= \norm{\xi}^{2(\alpha_1 + \cdots + \alpha_n)} \leq \norm{\xi}^{2m}     \leq 1 +  \norm{\xi}^{2m}      \end{align*}
+と
+\begin{align*} (1 + \norm{\xi}^2 )^m &= (1 + \xi_1^2 + \cdots + \xi_n^2) ^m \\&= \sum_{\abs \alpha \leq m } \Const (\alpha) \xi^{2 \alpha} \end{align*}
+を用いるとよい. 
 \qed
 \end{pf*}
-
-\begin{prop}$f \in L^1(\mathbb R)$ は, $\hat f \in L^1(\mathbb R)$ であれば, $f \in L^1(\mathbb R) \cap C_b (\mathbb R)$ 
-
-\end{prop}
-\begin{pf*}反転公式より従う. 
-
-\qed
-\end{pf*}
-
-
-
-
-
-
 
 
 
