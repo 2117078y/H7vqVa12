@@ -189,7 +189,7 @@
 
 
 
-\title{擬微分作用素まわりの記号}
+\title{シンボル}
 \date{}
 
 
@@ -203,13 +203,14 @@
 
 \section{}
 
-\begin{notation}(多重指数の階乗). $\alpha \in \mathbb Z^n_{\geq 0}$ とする.
-\begin{align*} \alpha ! \coloneqq \alpha_1 ! \alpha_2 ! \cdots \alpha_n ! \end{align*}
-\end{notation}
+\begin{dfn}$m \in (-\infty, \infty)$ とする. $\sigma \in C^\infty (\mathbb R^n \times \mathbb R^n)$ で, 任意の多重指数$\alpha, \beta$ に対して
+\begin{align*} \abs{(D^\alpha_x D^\beta_\xi \sigma) (x, \xi)} \leq C_{\alpha, \beta} (1 + \abs{\xi})^{m - \abs \beta} \quad (\any x, \xi \in \mathbb R^n)\end{align*}
+を満たすもの全体を$S^m$ で表す. $\bigcup_{m \in \mathbb R} S^m$ に属する関数をシンボルという. 
 
-\begin{notation}(多重二項係数). $\alpha, \beta \in \mathbb Z^n_{\geq 0}$ とする. $\beta \leq \alpha$ であるとき, 
-\begin{align*} _\alpha C_\beta \coloneqq {}_{\alpha_1} C _{\beta_1}  {}_{\alpha_2} C _{\beta_2} \cdots {}_{\alpha_n} C _{\beta_n}                \end{align*}
-と定める. 
-\end{notation}
+\end{dfn}
+
+
+
+
 
 \end{document}

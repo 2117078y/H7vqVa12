@@ -189,7 +189,7 @@
 
 
 
-\title{擬微分作用素まわりの記号}
+\title{多重指数と微分}
 \date{}
 
 
@@ -203,13 +203,30 @@
 
 \section{}
 
-\begin{notation}(多重指数の階乗). $\alpha \in \mathbb Z^n_{\geq 0}$ とする.
-\begin{align*} \alpha ! \coloneqq \alpha_1 ! \alpha_2 ! \cdots \alpha_n ! \end{align*}
-\end{notation}
+\begin{prop}$\alpha, \beta$ を多重指数とする. このとき, 
+\begin{align*} \partial_x^\beta x^\alpha = \begin{cases} \beta ! \cdot {}_\alpha C_\beta x^{\alpha - \beta } & \beta \leq \alpha \\ 0 & \textrm{otherwise} \end{cases}\end{align*}
 
-\begin{notation}(多重二項係数). $\alpha, \beta \in \mathbb Z^n_{\geq 0}$ とする. $\beta \leq \alpha$ であるとき, 
-\begin{align*} _\alpha C_\beta \coloneqq {}_{\alpha_1} C _{\beta_1}  {}_{\alpha_2} C _{\beta_2} \cdots {}_{\alpha_n} C _{\beta_n}                \end{align*}
-と定める. 
-\end{notation}
+\end{prop}
+\begin{pf*}
+明らか. 
+\qed
+\end{pf*}
+
+\begin{prop}$f, g \in C^\infty (\mathbb R^n)$ とし, $\alpha \in \mathbb Z^n_{\geq 0}$ とする. このとき,  
+\begin{align*} D^{\alpha} (fg) = \sum_{\beta \leq \alpha} (D^\beta f) (D^{\alpha - \beta} g) \end{align*}
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
 
 \end{document}

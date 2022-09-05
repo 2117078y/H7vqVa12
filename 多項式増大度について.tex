@@ -189,7 +189,7 @@
 
 
 
-\title{擬微分作用素まわりの記号}
+\title{多項式増大度について}
 \date{}
 
 
@@ -203,13 +203,24 @@
 
 \section{}
 
-\begin{notation}(多重指数の階乗). $\alpha \in \mathbb Z^n_{\geq 0}$ とする.
-\begin{align*} \alpha ! \coloneqq \alpha_1 ! \alpha_2 ! \cdots \alpha_n ! \end{align*}
-\end{notation}
+\begin{prop}$f : \mathbb R^ n \rightarrow \mathbb R$ とする. 適当な$C > 0$ で
+\begin{align*} \abs{f(x)} \leq  C (1 + \norm x^n) \quad (x\in \mathbb R^n) \end{align*}
+を満たすものが存在することと, 
+適当な$C > 0$ で
+\begin{align*} \abs{f(x)} \leq  C (1 + \norm x) ^n \quad (x\in \mathbb R^n) \end{align*}
+を満たすものが存在することは必要十分である. 
 
-\begin{notation}(多重二項係数). $\alpha, \beta \in \mathbb Z^n_{\geq 0}$ とする. $\beta \leq \alpha$ であるとき, 
-\begin{align*} _\alpha C_\beta \coloneqq {}_{\alpha_1} C _{\beta_1}  {}_{\alpha_2} C _{\beta_2} \cdots {}_{\alpha_n} C _{\beta_n}                \end{align*}
-と定める. 
-\end{notation}
+\end{prop}
+\begin{pf*}$\naraba.$
+\begin{align*} 1 + \norm x ^n \leq (1 + \norm x ) ^n \end{align*}
+が成り立つ. \\
+$\gyaku.$ $(1 + \norm x)^n \leq C (1 + \norm x ^n) \quad (\any x \in \mathbb R^n)$ を満たす$C > 0$ が存在しないとする(背理法). すると, 
+\begin{align*} \varphi (x) \coloneqq  \frac{(1 +  \norm x )^n}{(1 + \norm x^n)} \end{align*}
+により定まる関数は非有界ということになる. しかし, $\norm x \rightarrow \infty$ において$\varphi(x) \rightarrow 1$ となり, $\varphi(x) $が連続関数であることと合わせると, 十分大きい閉球$\hat B(0; R)$ を考えることにより有界であることがわかるので矛盾である.  
+\qed
+\end{pf*}
+
+
 
 \end{document}
+
