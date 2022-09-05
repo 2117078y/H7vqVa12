@@ -189,7 +189,7 @@
 
 
 
-\title{緩増加超関数のフーリエ変換}
+\title{多項式増大と緩増加超関数}
 \date{}
 
 
@@ -203,19 +203,32 @@
 
 \section{}
 
-
-
-
-
-
-\begin{dfn}(緩増加超関数のフーリエ変換). $f\in \mathcal S^\prime (\mathbb R^n)$ のフーリエ変換を
-\begin{align*} \tbra{f^\prime , \varphi} = \tbra{f, \hat \varphi} \quad (\any  \varphi \in \mathcal S (\mathbb R^n) ) \end{align*}
-を満たす$\hat f$ により定める. 
+\begin{dfn}急減少関数全体$\mathcal S$ に
+\begin{align*} \norm \varphi _N \coloneqq \sum_{\abs \alpha, \abs \beta < N} \norm{x}^\alpha \abs{\partial_x^\beta f(x) }  \end{align*}
+によりセミノルムを定める. 
 \end{dfn}
 
-\begin{remark}基本的には普通の関数のフーリエ変換と同様の性質が成り立つが, 超関数同士の積は定義されないので, そこだけ注意する. ただし, 滑らかな関数と超関数の積は定義されることに注意する.  
+\begin{prop}$\varphi \in \mathcal S$ に対して, 
+\begin{align*} \norm \varphi_N  \geq \norm x ^N \sup  \abs{f(x)}  \end{align*}
+\end{prop}
+\begin{pf*}
+あたりまえ.
+\qed
+\end{pf*}
 
-\end{remark}
+
+\begin{prop}$f: \mathbb R^n \rightarrow \mathbb R$ を局所可積分関数とする. $M \in \mathbb N$ で
+\begin{align*} \int_{\norm x \geq 1} \frac{\abs{f(x)}}{ \norm{x} ^M} < \infty \end{align*}
+をみたすものが存在するならば, $f$ は緩増加超関数を定める. 
+
+\end{prop}
+\begin{pf*}
+任意に$\varphi \in \mathcal S$ をとる. 適当な$C>0$ で
+\begin{align*}  \abs{(f, \varphi)} \leq \int_{\norm x <  1} \abs{f(x)}\abs{ \varphi(x)}dx + \int_{\norm x \geq  1} \frac{\abs{f(x)}}{ \norm x^M} \norm{x} ^M \abs{ \varphi(x)} \leq C \norm \varphi _M    \end{align*}
+を満たすものが存在する. $\mathcal S$ における収束$\varphi_n \rightarrow \varphi$ は, 任意のセミノルムに関しての収束であるので, もちろん$M \in \mathbb N$ に関しても収束する.  
+\qed
+\end{pf*}
+
 
 
 
