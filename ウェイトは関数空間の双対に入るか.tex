@@ -186,10 +186,12 @@
 
 %7.27
 
+%9.4
+\newcommand{\sing}{\textrm{sing}}
 
 
 
-\title{フーリエ変換の可積分性とソボレフ空間}
+\title{ウェイトは関数空間の双対に入るか}
 \date{}
 
 
@@ -203,19 +205,55 @@
 
 \section{}
 
-\begin{prop}$k$ を十分大きい(具体的には$k > n/2$)とする. このとき, $u \in H^k(\mathbb R^n)$ ならば, $\hat u \in L^1(\mathbb R^n)$ が成り立つ. 
+\begin{setting}$X = (X, d, \mu)$ を測度距離空間とする. $W_X \coloneqq \cbra{w: X \rightarrow \mathbb R \mid \# [w \neq 0] < \infty}$ とする. 
+
+\end{setting}
+
+
+
+\begin{prop}$W_X$ は$X$ 上の有限な台をもつ符号付き測度全体の集合との間に全単射が存在する. 
 
 \end{prop}
-\begin{pf*}コーシーシュワルツの不等式より
-\begin{align*} \paren{ \int \abs{\hat u (\xi)}} ^2 \leq \int \abs{\hat u (\xi)}^2 (1 + \abs{\xi}^2) ^k d\xi \int \paren{1 + \abs{\xi} ^2 } ^{-k} d\xi \end{align*}
-が成り立つ. $k$ が十分大きいと
-\begin{align*} \int \abs{\hat u (\xi)}^2 (1 + \abs{\xi}^2) ^k d\xi \leq \Const \norm u ^2, \quad  \int \paren{1 + \abs{\xi} ^2 } ^{-k} d\xi  < \infty\end{align*}
-が成り立つので, 主張が従う. 
+\begin{pf*}
+明らかである. 
+\qed
+\end{pf*}
+
+\begin{setting}$k: X \times X \rightarrow \mathbb R_{\geq 0}$ を正定値対称連続関数とする. 
+
+\end{setting}
+
+\begin{setting}$(\cdot, \cdot)_k : W_X \times W_X \rightarrow \mathbb R_{\geq 0} ; (w, v) \mapsto \sum_{x, y} w(x)k(x, y)v(y)$ と定めると, これは$W_X$ の内積を定める.  また, この内積により$W_X$ を完備化した空間を$(\mathcal W_X, (\cdot, \cdot)_k)$ により表す. 
+\end{setting}
+
+\begin{dfn}$w \in W_X$ , $f: X \rightarrow \mathbb R$ に対して, 
+\begin{align*} w(f) \coloneqq \int_X f(x) \paren{\sum_y k(x, y) w(y)} d\mu  \end{align*}
+と定める. 
+\end{dfn}
+
+\begin{prop}$w \in W_X$ , $f: X \rightarrow \mathbb R$ とする. 
+\begin{align*} w(f) = \int_X f(x) (\delta_x, w)_k d\mu  \end{align*}
+が成り立つ. 
+
+\end{prop}
+\begin{pf*}
+\begin{align*} \sum_y k(x, y) w(y) = (\delta_x, w)_k \end{align*}
+より明らか. 
 \qed
 \end{pf*}
 
 
 
+
+\begin{prop} $w_n \in W_X, w \in \mathcal W_X$ とし, $w_n \rightarrow w \in \mathcal W_X$ とし, $f$ を$X$ 上の有界連続関数とする. このとき, $w_n(f)$ は$\mathbb R$ におけるコーシー列である. 
+
+\end{prop}
+\begin{pf*}
+
+\begin{align*} \abs{w_n f - w_m f} \end{align*}
+
+\qed
+\end{pf*}
 
 
 

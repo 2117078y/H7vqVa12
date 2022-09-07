@@ -186,10 +186,12 @@
 
 %7.27
 
+%9.4
+\newcommand{\sing}{\textrm{sing}}
 
 
 
-\title{フーリエ変換の可積分性とソボレフ空間}
+\title{帯域制限超関数}
 \date{}
 
 
@@ -203,25 +205,25 @@
 
 \section{}
 
-\begin{prop}$k$ を十分大きい(具体的には$k > n/2$)とする. このとき, $u \in H^k(\mathbb R^n)$ ならば, $\hat u \in L^1(\mathbb R^n)$ が成り立つ. 
 
+\begin{dfn}(帯域制限超関数). 緩増加超関数$T \in \mathcal S^\prime (\mathbb R^n)$ で, $FT$ がコンパクトな台をもつものを, 帯域制限超関数という. 
+
+\end{dfn}
+
+\begin{prop}(帯域制限超関数の表現). $T$ を帯域制限超関数とする. このとき, 緩増加関数$f: \mathbb R^n \rightarrow \mathbb R$ で, 
+\begin{align*} T\varphi = \int f(x)\varphi(x) dx \end{align*}
+を満たすものが存在する. 
 \end{prop}
-\begin{pf*}コーシーシュワルツの不等式より
-\begin{align*} \paren{ \int \abs{\hat u (\xi)}} ^2 \leq \int \abs{\hat u (\xi)}^2 (1 + \abs{\xi}^2) ^k d\xi \int \paren{1 + \abs{\xi} ^2 } ^{-k} d\xi \end{align*}
-が成り立つ. $k$ が十分大きいと
-\begin{align*} \int \abs{\hat u (\xi)}^2 (1 + \abs{\xi}^2) ^k d\xi \leq \Const \norm u ^2, \quad  \int \paren{1 + \abs{\xi} ^2 } ^{-k} d\xi  < \infty\end{align*}
-が成り立つので, 主張が従う. 
+\begin{pf*} $\chi \in \mathcal S$ を$\supp FT$ 上で$1$ であるものとする. 任意の$\varphi \in \mathcal S$ に対して
+
+\begin{align*} (T, \varphi) &= (FT, F^{-1} \varphi) \\&= (\chi FT, F^{-1}\varphi) \\&= (F^{-1}(\chi FT), \varphi )   \end{align*} 
+
+が成り立つので, 超関数の意味で
+
+\begin{align*} T = F^{-1}(\chi FT) = F^{-1}(F(F^{-1}\chi) \cdot FT) = F^{-1} ( (2\pi)^{n/2} F((F^{-1}\chi) * T)) = (2\pi)^{n/2} F^{-1} \chi * T \end{align*}
+急減少関数と, 緩増加超関数の畳み込みは$C^\infty$ 級関数であるので, 主張が従う. 
 \qed
 \end{pf*}
-
-
-
-
-
-
-
-
-
 
 
 \end{document}
