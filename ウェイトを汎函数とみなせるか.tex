@@ -186,12 +186,10 @@
 
 %7.27
 
-%9.4
-\newcommand{\sing}{\textrm{sing}}
 
 
 
-\title{ウェイトは関数空間の双対に入るか}
+\title{ウェイトを汎函数とみなせるか}
 \date{}
 
 
@@ -205,66 +203,10 @@
 
 \section{}
 
-\begin{setting}$X = (X, d, \mu)$ を測度距離空間とする. $W_X \coloneqq \cbra{w: X \rightarrow \mathbb R \mid \# [w \neq 0] < \infty}$ とする. 
-
-\end{setting}
-
-
-
-\begin{prop}$W_X$ は$X$ 上の有限な台をもつ符号付き測度全体の集合との間に全単射が存在する. 
-
-\end{prop}
-\begin{pf*}
-明らかである. 
-\qed
-\end{pf*}
-
-\begin{setting}$k: X \times X \rightarrow \mathbb R_{\geq 0}$ を正定値対称連続関数とする. 
-
-\end{setting}
-
-\begin{setting}$(\cdot, \cdot)_k : W_X \times W_X \rightarrow \mathbb R_{\geq 0} ; (w, v) \mapsto \sum_{x, y} w(x)k(x, y)v(y)$ と定めると, これは$W_X$ の内積を定める.  また, この内積により$W_X$ を完備化した空間を$(\mathcal W_X, (\cdot, \cdot)_k)$ により表す. 
-\end{setting}
-
-\begin{dfn}$w \in W_X$ , $f: X \rightarrow \mathbb R$ に対して, 
-\begin{align*} w(f) \coloneqq \int_X f(x) \paren{\sum_y k(x, y) w(y)} d\mu  \end{align*}
+\begin{dfn}$w \in W_X$ とする. $f: \mathbb X \rightarrow \mathbb R$ に対して
+\begin{align*} w(f) \coloneqq \sum_x f(x) \paren{\sum_y z(x, y) w(y)}\end{align*} 
 と定める. 
 \end{dfn}
-
-\begin{prop}$w \in W_X$ , $f: X \rightarrow \mathbb R$ とする. 
-\begin{align*} w(f) = \int_X f(x) (\delta_x, w)_k d\mu  \end{align*}
-が成り立つ. 
-
-\end{prop}
-\begin{pf*}
-\begin{align*} \sum_y k(x, y) w(y) = (\delta_x, w)_k \end{align*}
-より明らか. 
-\qed
-\end{pf*}
-
-
-
-
-\begin{prop} $w_n \in W_X, w \in \mathcal W_X$ とし, $w_n \rightarrow w \in \mathcal W_X$ とし, $f$ を$X$ 上の有界連続関数とする. $\int_{X} k(x.x)^{1/2} d\mu < \infty$ であるならば,  $w_n(f)$ は$\mathbb R$ におけるコーシー列である. 
-
-\end{prop}
-\begin{pf*}
-
-\begin{align*} \abs{w_n f - w_m f}  & = \abs{ \int_X f(x) \paren{\sum_y k(x, y)(w_n(y) - w_m(y))} d\mu } \\& = \int_X \abs{f(x) (\delta_x, (w_n - w_m))_k} d\mu \\&\leq  \abs{\sup f} \int_X \abs{(\delta_x, w_n - w_m)_k } d\mu 
-\\& \leq  \abs{\sup f} \norm{w_n - w_m}_k \int_X (\delta_x, \delta_x)_k ^{1/2} d\mu  \\&=  \abs{\sup f} \norm{w_n - w_m}_k \int_X k(x, x) ^{1/2} d\mu   < \infty  \end{align*}
-
-\qed
-\end{pf*}
-
-\begin{setting}$k$ を$\int_X k(x,x)^{1/2} d \mu < \infty$ を満たす対称連続関数としておく. 
-
-\end{setting}
-
-\begin{dfn}$w \in \mathcal W_X$ に対して, $w: C_c^\infty \rightarrow \mathbb R$ を
-\begin{align*} w(f) \coloneqq \lim w_n (f)  \end{align*}
-により定める. ただし, $w_n $ は$w_n \rightarrow w$ をみたす適当な点列$w_n \in W_X $ である. 
-\end{dfn}
-
 
 
 
