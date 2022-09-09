@@ -1,0 +1,243 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{notation}[dfn]{記号}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+\newcommand{\diag}{\textrm{diag}}
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+\renewcommand{\div}{\textrm{div}}
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+%%マグニチュード
+
+
+\newcommand{\Mag}{\textrm{Mag}}
+
+\usepackage{mathrsfs}
+
+
+%%6.13
+\def\chint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\chint=}
+\def\dashint{\chint-}
+
+
+%%7.13
+
+\usepackage{here}
+
+%7.15
+\newcommand{\Span}{\textrm{Span}}
+
+\newcommand{\Conv}{\textrm{Conv}}
+
+%7.27
+
+%9.4
+\newcommand{\sing}{\textrm{sing}}
+
+
+
+\title{}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+
+$x \in \mathbb R, r >0$ に対して
+\begin{align*}  B(x; r) \coloneqq \cbra{y \in \mathbb R \mid \abs{x -y} < r}  \end{align*}
+と定める. 
+
+(1) $\cbra{B(x; 1) }_{x \in F}$ は$F$ の開被覆であり, $F$ はコンパクトであるので, 
+適当な$x_1, \ldots , x_N \in F$ で
+\begin{align*} F \subset B(x_1; 1) \cup B(x_2; 1) \cup \cdots \cup B(x_N ; 1) \end{align*}
+を満たすものが存在する. $x_1, \ldots, x_N$ のうち最大の実数を$x_M$ とし, 最小の実数を$x_m$ とする.
+\begin{align*} R \coloneqq \max \cbra{ \abs{x_M}, \abs{x_m}}\end{align*}
+と定めると, 
+\begin{align*} F \subset B(x_1; 1) \cup B(x_2; 1) \cup \cdots \cup B(x_N ; 1)  \subset B(0; R+1)\end{align*}
+が成り立つので, $F$ は有界集合である. 
+\\
+
+(2)$x \in F^c$ を任意にとる. $y \in F$ に対して, $B(x; \abs{x-y}/3) \cap B(y; \abs{x-y}/3) = \varnothing$ が成り立つ. $\cbra{B(y; \abs{x-y}/3)}_{y \in F}$ は$F$ の開被覆であり, $F$はコンパクトであるので, 
+適当な$y_1, \ldots, y_N \in F$ で$F \subset B(y_1; \abs{x - y_1}/3) \cup B(y_2; \abs{x - y_2}/3)  \cup \cdots \cup B(y_N; \abs{x - y_N}/3) $ を満たすものがとれる. 
+\begin{align*} U_x \coloneqq  B(x; \abs{x - y_1}/3) \cap B(x; \abs{x - y_2}/3) \cap \cdots \cap B(x; \abs{x - y_N}/3)  \end{align*}
+と定めると, 
+\begin{align*} \paren{B(y_1; \abs{x - y_1}/3) \cup B(y_2; \abs{x - y_2}/3)  \cup \cdots \cup B(y_N; \abs{x - y_N}/3) } \cap U_x = \varnothing \end{align*}
+であるので, $F \cap U_x = \varnothing $ が成り立つ. $R \coloneqq \min \cbra{\abs{x - y_1}, \abs{x - y_2}, \ldots, \abs{x - y_N} }$ とすると, 
+\begin{align*} B(x; R/3) \subset U_x\end{align*}
+が成り立つので, $U_x$ は$x$ を含む開集合である. 従って, $F^c$ は開集合であるので, $F$ は閉集合である. \\
+
+(3)$F^c$ は開集合なので, 任意の点$q \in \mathbb F^c$ に対して$\delta_q > 0$ で$B(q; \delta_q) \subset F^c$ を満たすものが存在する. $\bigcup_{q \in F^c \cap \mathbb Q} B(q; \delta_q) = F^c$ であるので, $F^c$ は高々可算個の開区間の和で表される. 高々可算個である集合族$\cbra{B(q; \delta_q)}_{q \in F^c \cap \mathbb Q}$ をあらためて$\mathcal B = \cbra{B_1, B_2, \ldots , B_n, \ldots }$ と表すことにする. 
+$B_k, B_l \in \mathcal B$ に対して
+適当な有限個の$B_{k_0}, \ldots , B_{k_N} \in \mathcal B$ で, 
+\begin{align*} B_{k_0} = B_k, B_{k_1} \cap B_{k_2} \neq \varnothing, \ldots, B_{k_{N-1}} \cap B_{k_N} \neq \varnothing, B_{k_N} = B_l\end{align*}
+を満たすものが存在する時に
+\begin{align*} B_k \sim B_l \end{align*}
+であると定めると, これは同値関係である. $[B] \in \mathcal B / \sim$ に対して
+\begin{align*} U_{[B] }\coloneqq \bigcup_{B \in [B]} B \end{align*}
+と定めると, $[B] \neq [B^\prime ] $ であれば, $U_{[B]} \cap U_{[B^\prime]} = \varnothing$ である. 
+\begin{align*} F^c = \bigsqcup_{[B] \in \mathcal B / \sim} U_{[B]}   \end{align*}
+が成り立つので, $F^c$ は高々可算個の互いに交わらない開集合の和で表される. 
+\end{document}
