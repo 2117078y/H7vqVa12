@@ -191,7 +191,7 @@
 
 
 
-\title{ウェイトはなんならソボレフ空間に属する}
+\title{弱ウェイトという言葉を使いたい}
 \date{}
 
 
@@ -205,71 +205,14 @@
 
 \section{}
 
-\begin{notation}$M_X$ で$X$ 上の有限な台をもつ複素測度全体を表す. $w, v \in M_X$ に対して
-\begin{align*} (w, v)_Z \coloneqq \int Zw(x) d\bar v (x)  \end{align*}
-により内積を定める. 
+\begin{notation}$X$ で距離空間を表す. 
+
 \end{notation}
 
-\begin{setting}
-\begin{align*} X = \mathbb R^n \end{align*}
-とする. 
-\end{setting}
-
-\begin{prop}$M_X \subset H_{-{(n+1)/2}}$ が成り立つ. 
-
-\end{prop}
-\begin{pf*}任意の$x \in \mathbb R^n $ に対して $\delta_x \subset H_{-(n+1)/2}$ であることから主張が従う. 
-
-\qed
-\end{pf*}
-
-\begin{prop}$\mathbb R^n$ 上の関数 
-
-\begin{align*} e^{-\norm{x}}\end{align*}
-
-のフーリエ変換は
-
-\begin{align*} \frac{n! \omega_n}{(2 \pi)^{n/2}} \tbra{x}^{-(n+1)} \end{align*}
-
-である. 
-
-\end{prop}
-\begin{pf*}
-認めることにする. 
-\qed
-\end{pf*}
-
-
-\begin{prop}包含写像$W_X \rightarrow H_{-(n+1)/2}$ は有界線型作用素である. 
-
-\end{prop}
-\begin{pf*}$w = \sum_{i} c_i \delta_{x_i }\in W_X$ を適当にとる. $F(\delta_x)(\xi) = \frac{1}{(2\pi)^{n/2}} e^{-ix\xi}$ であることに注意すると,  
-
-\begin{align*} (w, w)_{H_{-(n+1)/2}} &=  \int \tbra{\xi} ^{-(n+1)/2} F(w)(\xi) \tbra{\xi} ^{-(n+1)/2}  \overline{F(w)(\xi)} d \xi  
-\\&= \int  \tbra{\xi} ^{-(n+1)} \sum c_i \overline{c_j} \paren{\frac{1}{(2\pi)^{n/2}}}^2 e^{-ix_i \xi} e^{ix_j \xi} d \xi 
-\\&= \sum c_i \overline{c_j} \paren{\frac{1}{(2\pi)^{n/2}}}^2 \int \tbra{\xi}^{-(n+1)} e^{i(x_j - x_i) \xi} d\xi 
-\\& = \sum c_i \overline{c_j} \paren{\frac{1}{(2\pi)^{n/2}}}^2 \int \paren{ \frac{n! \omega_n}{(2 \pi)^{n/2}} }^{-1} Fz (\xi) e^{i(x_j - x_i) \xi}  d\xi
-\\& =  \sum c_i \overline{c_j} n! \omega_n \frac{1}{(2\pi)^{n/2}} \int  Fz (\xi) e^{i(x_j - x_i) \xi}  d\xi 
-\\& = \sum c_i \overline{c_j} n! \omega_n z(x_j - x_i) 
-\\& = n! \omega_n (w, w)_Z 
-\end{align*}
-より主張が従う. 
-
-\qed
-\end{pf*}
-
-\begin{prop}
-\begin{align*} \mathcal W _X  \subset H_{-(n+1)/2}  \end{align*} が成り立つ. 
-\end{prop}
-\begin{pf*}
-有界線型拡張定理より従う. 
-\qed
-\end{pf*}
-
-
-
-
-
+\begin{dfn}$A \subset X$ とし, $f: X \rightarrow \mathbb R$ とする. $w \in \mathcal W_X$ で, 
+\begin{align*} Zw|_A = f \end{align*}
+を満たすものを$A$ の($f$-)弱ウェイトという.  $w $ が特に$w \in \mathcal W _A$ であるとき, ($f$-)ウェイトという. 
+\end{dfn}
 
 
 
