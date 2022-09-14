@@ -191,7 +191,7 @@
 
 
 
-\title{Zはあるソボレフ空間への全射}
+\title{ウェイトが満たす微分方程式}
 \date{}
 
 
@@ -205,28 +205,33 @@
 
 \section{}
 
+\begin{dfn}$u \in \mathcal S ^\prime $ に対して, 
 
+\begin{align*} (I - \Delta)^{s/2} u \coloneqq F^{-1}\paren{\tbra{\cdot}^{s} F(u)}  \end{align*}
 
-\begin{prop}$Z: \mathcal W \rightarrow H_{(n+1)/2}$ は全射である. 
+\end{dfn}
 
-\end{prop}
-\begin{pf*}
+と定める. 
 
-$w \in H_{-(n+1)/2}$ に対して 
+\begin{prop}$A \subset X$ とし, $w $ を$A$ の標準ウェイトとする. 任意の$\varphi \in C_c^\infty(A^c)$ に対して, 
 
-\begin{align*}  F(Zw) =  n! \omega _n \tbra \cdot ^{-(n+1)} F(w)  \end{align*}
-
-であるので, 
-
-\begin{align*} Z w = n! \omega_n F^{-1}\paren{ \tbra \cdot ^{-(n+1)} F(w) } \end{align*}
+\begin{align*} ( (I - \Delta)^{-(n+1)/2} Zw, \varphi )_{L^2} = 0 \end{align*}
 
 が成り立つ. 
 
-$f \in H_{(n+1)/2}$ を任意にとる. 
+\end{prop}
+\begin{pf*}$Zv = \varphi$ を満たす$v$ が存在するので, これをとる. とりかたより, $v$ は$Z$ の$A$ の広義$0$ウェイトであることに注意する.  
 
-\begin{align*} Z \paren{ \frac{1}{n! \omega_n}  F^{-1} \tbra \cdot ^{n+1} F(f)  } = n! \omega_n F^{-1}\paren{ \tbra \cdot ^{-(n+1)} F \paren{ \frac{1}{n! \omega_n}  F^{-1} \tbra \cdot ^{n+1} F(f)  } } = f  \end{align*}
+\begin{align*}  ( (I - \Delta)^{-(n+1)/2} Zw, \varphi )_{L^2}  &= ( (I - \Delta)^{-(n+1)/2} Zw, Zv )_{L^2} 
+\\&=  ( F^{-1}(\tbra \cdot ^{-(n+1)} F(Zw)), Zv )_{L^2}  
+\\&=    (\tbra \cdot ^{-(n+1)} F(Zw), F(Zv) )_{L^2} 
+\\&=  (\tbra \cdot ^{-(n+1)/2} F(Zw)  , \tbra \cdot ^{-(n+1)/2}  F(Zv) )_{L^2}  
+\\&= (Zw, Zv)_{H_{-(n+1)/2}} 
+\\&= n! \omega_n (w, v)_{Z}
+\\&= 0
+\end{align*}
 
-が成り立つ. 従って, $Z$ は全射である. 
+最後の等号は, 標準ウェイトと広義$0$ウェイトとの$Z$内積が$0$ であるという事実を用いた. 
 
 \qed
 \end{pf*}
