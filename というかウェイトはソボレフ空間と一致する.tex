@@ -191,7 +191,7 @@
 
 
 
-\title{ウェイトはなんならソボレフ空間に属する}
+\title{というかウェイトはソボレフ空間と一致する}
 \date{}
 
 
@@ -205,68 +205,21 @@
 
 \section{}
 
-\begin{notation}$M_X$ で$X$ 上の有限な台をもつ複素測度全体を表す. $w, v \in M_X$ に対して
-\begin{align*} (w, v)_Z \coloneqq \int Zw(x) d\bar v (x)  \end{align*}
-により内積を定める. 
-\end{notation}
 
-\begin{setting}
-\begin{align*} X = \mathbb R^n \end{align*}
-とする. 
-\end{setting}
-
-\begin{prop}$M_X \subset H_{-{(n+1)/2}}$ が成り立つ. 
-
-\end{prop}
-\begin{pf*}任意の$x \in \mathbb R^n $ に対して $\delta_x \subset H_{-(n+1)/2}$ であることから主張が従う. 
-
-\qed
-\end{pf*}
-
-\begin{prop}$\mathbb R^n$ 上の関数 
-
-\begin{align*} e^{-\norm{x}}\end{align*}
-
-のフーリエ変換は
-
-\begin{align*} \frac{n! \omega_n}{(2 \pi)^{n/2}} \tbra{x}^{-(n+1)} \end{align*}
-
-である. 
+\begin{prop}$W_X \subset H_{-(n+1)/2}$ は稠密である. 
 
 \end{prop}
 \begin{pf*}
-認めることにする. 
+$W_X ^\perp = \cbra{0}$ であることを示せば良い. 任意に$u \in W_X ^\perp$ をとる. 任意の$x \in \mathbb R^n$ に対して
+
+\begin{align*} 0 &= (u, \delta_x)_{H_{-(n+1)/2}} \\&= (Zu, \delta_x) \\&= Zu(x) \end{align*}
+
+なので, $Zu = 0$ である. 
+
+\begin{align*} Zu = n! \omega_n F^{-1}\paren{\tbra{\cdot}^{-(n+1)} Fu}  \end{align*}
+なので, $u = 0$ がいえる. 以上により主張が従う. 
 \qed
 \end{pf*}
-
-
-\begin{prop}包含写像$W_X \rightarrow H_{-(n+1)/2}$ は有界線型作用素である. 
-
-\end{prop}
-\begin{pf*}$w = \sum_{i} c_i \delta_{x_i }\in W_X$ を適当にとる. $F(\delta_x)(\xi) = \frac{1}{(2\pi)^{n/2}} e^{-ix\xi}$ であることに注意すると,  
-
-\begin{align*} (w, w)_{H_{-(n+1)/2}} &=  \int \tbra{\xi} ^{-(n+1)/2} F(w)(\xi) \tbra{\xi} ^{-(n+1)/2}  \overline{F(w)(\xi)} d \xi  
-\\&= \int  \tbra{\xi} ^{-(n+1)} \sum c_i \overline{c_j} \paren{\frac{1}{(2\pi)^{n/2}}}^2 e^{-ix_i \xi} e^{ix_j \xi} d \xi 
-\\&= \sum c_i \overline{c_j} \paren{\frac{1}{(2\pi)^{n/2}}}^2 \int \tbra{\xi}^{-(n+1)} e^{i(x_j - x_i) \xi} d\xi 
-\\& = \sum c_i \overline{c_j} \paren{\frac{1}{(2\pi)^{n/2}}}^2 \int \paren{ \frac{n! \omega_n}{(2 \pi)^{n/2}} }^{-1} Fz (\xi) e^{i(x_j - x_i) \xi}  d\xi
-\\& =  \sum c_i \overline{c_j} \frac{1}{n! \omega_n} \frac{1}{(2\pi)^{n/2}} \int  Fz (\xi) e^{i(x_j - x_i) \xi}  d\xi 
-\\& = \sum c_i \overline{c_j} \frac{1}{n! \omega_n} z(x_j - x_i) 
-\\& = \frac{1}{n! \omega_n}(w, w)_Z 
-\end{align*}
-より主張が従う. 
-
-\qed
-\end{pf*}
-
-\begin{prop}
-\begin{align*} \mathcal W _X  \subset H_{-(n+1)/2}  \end{align*} が成り立つ. 
-\end{prop}
-\begin{pf*}
-有界線型拡張定理より従う. 
-\qed
-\end{pf*}
-
-
 
 
 
