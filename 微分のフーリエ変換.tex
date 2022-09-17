@@ -191,7 +191,7 @@
 
 
 
-\title{ウェイトが満たす微分方程式}
+\title{微分のフーリエ変換}
 \date{}
 
 
@@ -205,34 +205,63 @@
 
 \section{}
 
-\begin{dfn}$u \in \mathcal S ^\prime $ に対して, 
 
-\begin{align*} (I - \Delta)^{s/2} u \coloneqq F^{-1}\paren{\tbra{\cdot}^{s} F(u)}  \end{align*}
+\begin{prop}$f \in \mathcal S(\mathbb R^n)$ とする.
 
-\end{dfn}
-
-と定める. 
-
-\begin{prop}$A \subset X$ とし, $w $ を$A$ の標準ウェイトとする. 任意の$\varphi \in C_c^\infty(A^c)$ に対して, 
-
-\begin{align*} ( (I - \Delta)^{(n+1)/2} Zw, \varphi )_{L^2} = 0 \end{align*}
+\begin{align*} F(\partial_j f) = i\xi_j F(f)\end{align*} 
 
 が成り立つ. 
 
 \end{prop}
-\begin{pf*}$Zv = \varphi$ を満たす$v$ が存在するので, これをとる. とりかたより, $v$ は$Z$ の$A$ の広義$0$ウェイトであることに注意する.  
+\begin{pf*}
 
-\begin{align*}  ( (I - \Delta)^{(n+1)/2} Zw, \varphi )_{L^2}  &= ( (I - \Delta)^{(n+1)/2} Zw, Zv )_{L^2} 
-\\&=  ( F^{-1}(\tbra \cdot ^{(n+1)} F(Zw)), Zv )_{L^2}  
-\\&=    (\tbra \cdot ^{(n+1)} F(Zw), F(Zv) )_{L^2} 
-\\&=  (\tbra \cdot ^{(n+1)/2} F(Zw)  , \tbra \cdot ^{(n+1)/2}  F(Zv) )_{L^2}  
-\\&=  (Zw, Zv)_{H_{(n+1)/2}}
-\\&= (w, v)_{H_{-(n+1)/2}} 
-\\&= n! \omega_n (w, v)_{Z}
-\\&= 0
-\end{align*}
+\begin{align*} \partial_j f &= \partial_j \paren{\int Ff e^{-x \xi} d\xi } \\&= \int Ff  \partial_j e^{-x \xi} d\xi \\&= i \xi_j \int Ff e^{i x \xi} d \xi \\&= i \xi_j f   \end{align*}
 
-最後の等号は, 標準ウェイトと広義$0$ウェイトとの$Z$内積が$0$ であるという事実を用いた. 
+\qed
+\end{pf*}
+
+
+\begin{prop}$f \in \mathcal S(\mathbb R^n)$ とする.
+
+\begin{align*} F(\partial_j^2 f) =  - \xi_j^2 F(f)\end{align*} 
+
+が成り立つ. 
+
+\end{prop}
+\begin{pf*}
+
+さっきの命題からすぐわかる. 
+
+\qed
+\end{pf*}
+
+
+\begin{prop}$f \in \mathcal S(\mathbb R^n)$ とする. 
+
+\begin{align*} F(\Delta_x f) = - \norm{\xi} ^2 F(f) \end{align*}
+
+が成り立つ. 
+
+\end{prop}
+\begin{pf*}
+
+明らか. 
+
+\qed
+\end{pf*}
+
+
+
+\begin{prop}$f \in \mathcal S(\mathbb R^n)$ とする. 
+
+\begin{align*} F( ( I - \Delta_x) f) = (1 + \norm{\xi} ^2) F(f) \end{align*}
+
+が成り立つ. 
+
+\end{prop}
+\begin{pf*}
+
+明らか. 
 
 \qed
 \end{pf*}
