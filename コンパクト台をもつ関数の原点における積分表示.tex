@@ -1,0 +1,327 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{notation}[dfn]{記号}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+\newcommand{\diag}{\textrm{diag}}
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+\renewcommand{\div}{\textrm{div}}
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+%%マグニチュード
+
+
+\newcommand{\Mag}{\textrm{Mag}}
+
+\usepackage{mathrsfs}
+
+
+%%6.13
+\def\chint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\chint=}
+\def\dashint{\chint-}
+
+
+%%7.13
+
+\usepackage{here}
+
+%7.15
+\newcommand{\Span}{\textrm{Span}}
+
+\newcommand{\Conv}{\textrm{Conv}}
+
+%7.27
+
+%9.4
+\newcommand{\sing}{\textrm{sing}}
+
+%
+\newcommand{\C}[2]{{}_{#1}C_{#2} }
+
+
+\title{コンパクト台をもつ関数の原点における積分表示}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+\begin{remark}$f: \mathbb [0, \infty) \rightarrow \mathbb R$ を$C^\infty $ 級のコンパクト台をもつ関数とすると, 
+
+\begin{align*}\sbra{t^{k-1} f^{(k-1)} (t)  }_0^\infty  \end{align*}
+
+こういう値は, 十分大きい$R$ をとれば, $R^{k-1} f^(k-1) (R) = 0$ となることに注意する. 
+
+\end{remark}
+
+
+\begin{prop}$f: \mathbb [0, \infty) \rightarrow \mathbb R$ を$C^k$ 級のコンパクト台をもつ関数とする. この時, 
+
+\begin{align*} f(0) = \frac{(-1)^k }{(k-1)!} \int_0^\infty t^{k-1}f^{(k)} (t) d t \end{align*}
+
+が成り立つ. 
+
+\end{prop}
+\begin{pf*}$k = 1$ のとき, $- \int_0^\infty f^\prime (t) dt = f(0)$ なので成り立つ. 部分積分を行うことで, 
+
+\begin{align*} \frac{(-1)^k }{(k-1)!} \int_0^\infty t^{k-1}f^{(k)} (t) d t &= \frac{(-1)^k}{(k-1)!} \paren{ \sbra{t^{k-1} f^{(k-1)} (t)  }_0^\infty  - \int_0^\infty (k-1) t^{k-2}f^{(k-1)} dt }
+\\&= \frac{(-1)^k}{(k-1)!} \paren{ 0 - 0  - \int_0^\infty (k-1) t^{k-2}f^{(k-1)} dt }  \end{align*}
+
+が成り立つので, 帰納法を用いれば主張が従う. 
+
+\qed
+\end{pf*}
+
+
+
+
+\begin{prop} $C^\infty$ 級写像$\varphi(x): S^{n-1} \rightarrow \mathbb R$ を
+
+\begin{align*} \int_{S^{n-1}} \varphi (x) dx = \frac{(-1)^k}{(k-1)!}   \end{align*} 
+を満たすものとする. このとき, 
+
+$u \in C_c^k (\mathbb R^n) $ に対して, 
+
+\begin{align*} u(x) = \int_{\mathbb R^n} \varphi(\frac{y}{\norm y})  \norm y^{-n}   \paren{ \sum_{\abs \alpha = k } \partial^\alpha u(x+y) y^\alpha }   dy        \end{align*}
+
+が成り立つ. 
+
+\end{prop}
+\begin{pf*}$v \in S^{n-1}$ に対して, 
+
+\begin{align*} u(x) &= \frac{(-1)^k}{(k-1)!} \int_0^\infty t^{k-1} (\partial_t ) ^k u (x + tv) dt 
+\\&=    \frac{(-1)^k}{(k-1)!} \int_0^\infty t^{k-1} \paren{ \sum_{\abs \alpha = k } \partial^\alpha u(x+tv) v^\alpha }         dt    \end{align*}
+
+であるので, 両辺に$\varphi(v)$ をかけて$\int_{S^{n-1}}$ で積分すると, 
+
+\begin{align*} u(x) &= \int_{S^{n-1}} \varphi(v) \int_0^\infty  t^{-n}t^{k} \paren{ \sum_{\abs \alpha = k } \partial^\alpha u(x+tv) v^\alpha }   t^{n-1} dt dv
+\\&=  \int_{\mathbb R^n} \varphi(\frac{y}{\norm y})  \norm y^{-n} \norm y ^{k} \paren{ \sum_{\abs \alpha = k } \partial^\alpha u(x+y) {\frac{y}{\norm y}}^\alpha }   dy
+\\&= \int_{\mathbb R^n} \varphi(\frac{y}{\norm y})  \norm y^{-n}   \paren{ \sum_{\abs \alpha = k } \partial^\alpha u(x+y) y^\alpha }   dy    \end{align*}
+
+となる. $2$ つめの等号は極座標変換の逆を行った($t^{n-1} dt dv \mapsto dy $),
+
+\qed
+\end{pf*}
+
+
+
+
+
+
+\begin{remark}$C^\infty$ 級写像$\varphi(x): S^{n-1} \rightarrow \mathbb R$ で
+
+\begin{align*} \int_{S^{n-1}} \varphi (x) dx = \frac{(-1)^k}{(k-1)!}   \end{align*}
+
+を満たすものは存在するのかということについては, $\int_{S^{n-1}} \varphi (x) dx  < \infty$ を適当に低数倍すりゃつくれるので, こういう関数はたくさん存在する. 
+
+\end{remark}
+
+
+
+\begin{prop}$C^\infty$ 級写像$\varphi(x): S^{n-1} \rightarrow \mathbb R$ を
+
+\begin{align*} \int_{S^{n-1}} \varphi (x) dx = \frac{(-1)^k}{(k-1)!}   \end{align*} 
+を満たすものとする. $\chi \in C_c^\infty[0, \infty)$ とする. 
+
+このとき, 
+
+$u \in C^k (\mathbb R^n) $ に対して, 
+
+\begin{align*} u(x) = \int_{\mathbb R^n} \varphi(\frac{y}{\norm y}) \norm{y}^{-n} \sum_{l = 0}^k  \norm{y}^{k-l} \paren{ \C{k}{l} \chi^{(k-l)}(\norm y) \sum_{\abs \alpha = l} \partial^\alpha u(x+ y) {y}^\alpha }dy        \end{align*}
+
+が成り立つ. 
+
+\end{prop}
+\begin{pf*} これまでと同様にして, 
+
+\begin{align*}
+u(x) &= u(x)\chi(0) 
+\\&= \frac{(-1)^k}{(k-1)!} \int_0^\infty t^{k-1} (\partial_t ) ^k (\chi(t)u (x + tv)) dt 
+\\&=  \frac{(-1)^k}{(k-1)!} \int_0^\infty t^{k-1} \sum_{l=0}^k \paren{\C{k}{l} \chi^{(k-l)} (t) \sum_{\abs \alpha = l} \partial^\alpha u(x + tv)v ^\alpha } dt
+\\&=   \frac{(-1)^k}{(k-1)!} \int_0^\infty t^{-n} t^{k}t^{n-1} \sum_{l=0}^k \paren{\C{k}{l} \chi^{(k-l)}(t) \sum_{\abs \alpha = l} \partial^\alpha u(x + tv)v ^\alpha } dt
+ \end{align*}
+
+となるので, これまでと同様に両辺に$\varphi(v)$ をかけて$\int_{S^{n-1}}$ で積分をして,  極座標変換の逆を行うと, 
+
+\begin{align*}
+ \int_{\mathbb R^n} ^{k} \varphi(\frac{y}{\norm y}) \norm y^{-n} \norm y^{k}  \sum_{l=0}^k \paren{\C{k}{l} \chi^{k-l} (\norm y) \sum_{\abs \alpha = l} \partial^\alpha u(x + y) \paren{\frac{y}{\norm y}} ^\alpha } dy
+ \end{align*}
+ となるので, 主張が従う. 
+
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,382 @@
+\documentclass[10pt, fleqn, label-section=none]{bxjsarticle}
+
+%\usepackage[driver=dvipdfm,hmargin=25truemm,vmargin=25truemm]{geometry}
+
+\setpagelayout{driver=dvipdfm,hmargin=25truemm,vmargin=20truemm}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mleftright}
+
+\usepackage{ascmac}
+
+
+
+
+\usepackage{otf}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{ex}[dfn]{例}
+\newtheorem{lem}[dfn]{補題}
+\newtheorem{prop}[dfn]{命題}
+\newtheorem{thm}[dfn]{定理}
+\newtheorem{setting}[dfn]{設定}
+\newtheorem{notation}[dfn]{記号}
+\newtheorem{cor}[dfn]{系}
+\newtheorem*{pf*}{証明}
+\newtheorem{problem}[dfn]{問題}
+\newtheorem*{problem*}{問題}
+\newtheorem{remark}[dfn]{注意}
+\newtheorem*{claim*}{\underline{claim}}
+
+
+
+\newtheorem*{solution*}{解答}
+
+%箇条書きの様式
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+%
+
+\newcommand{\forany}{\rm{for} \ {}^{\forall}}
+\newcommand{\foranyeps}{
+\rm{for} \ {}^{\forall}\varepsilon >0}
+\newcommand{\foranyk}{
+\rm{for} \ {}^{\forall}k}
+
+
+\newcommand{\any}{{}^{\forall}}
+\newcommand{\suchthat}{\, \rm{s.t.} \, \it{}}
+
+
+
+
+\newcommand{\veps}{\varepsilon}
+\newcommand{\paren}[1]{\mleft( #1\mright )}
+\newcommand{\cbra}[1]{\mleft\{#1\mright\}}
+\newcommand{\sbra}[1]{\mleft\lbrack#1\mright\rbrack}
+\newcommand{\tbra}[1]{\mleft\langle#1\mright\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\lopen}[1]{\mleft(#1\mright\rbrack}
+\newcommand{\ropen}[1]{\mleft\lbrack #1 \mright)}
+
+
+
+%
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Cn}{\mathbb{C}^n}
+
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Cm}{\mathbb{C}^m}
+
+
+\newcommand{\projs}[2]{\it{p}_{#1,\ldots,#2}}
+\newcommand{\projproj}[2]{\it{p}_{#1,#2}}
+
+\newcommand{\proj}[1]{p_{#1}}
+
+%可測空間
+\newcommand{\stdProbSp}{\paren{\Omega, \mathcal{F}, P}}
+
+%微分作用素
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+
+\newcommand{\delt}{\frac{\partial}{\partial t}}
+\newcommand{\delx}{\frac{\partial}{\partial x}}
+
+%ハイフン
+\newcommand{\hyphen}{\text{-}}
+
+%displaystyle
+\newcommand{\dstyle}{\displaystyle}
+
+%⇔, ⇒, \UTF{21D0}%
+\newcommand{\LR}{\Leftrightarrow}
+\newcommand{\naraba}{\Rightarrow}
+\newcommand{\gyaku}{\Leftarrow}
+
+%理由
+\newcommand{\naze}[1]{\paren{\because {\mathop{ #1 }}}}
+
+%
+\newcommand{\sankaku}{\hfill $\triangle$}
+
+%
+\newcommand{\push}{_{\#}}
+
+%手抜き
+\newcommand{\textif}{\textrm{if}\,\,\,}
+\newcommand{\Ric}{\textrm{Ric}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\vol}{\textrm{vol}}
+\newcommand{\diam}{\textrm{diam}}
+\newcommand{\supp}{\textrm{supp}}
+\newcommand{\Med}{\textrm{Med}}
+\newcommand{\Leb}{\textrm{Leb}}
+\newcommand{\Const}{\textrm{Const}}
+\newcommand{\Avg}{\textrm{Avg}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\dil}{\textrm{dil}}
+\newcommand{\Ch}{\textrm{Ch}}
+\newcommand{\Lip}{\textrm{Lip}}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\grad}{\textrm{grad}}
+\newcommand{\dom}{\textrm{dom}}
+\newcommand{\diag}{\textrm{diag}}
+
+\renewcommand{\;}{\, ; \,}
+\renewcommand{\d}{\, {d}}
+
+\newcommand{\gyouretsu}[1]{\begin{pmatrix} #1 \end{pmatrix} }
+
+\renewcommand{\div}{\textrm{div}}
+
+
+%%図式
+
+\usepackage[dvipdfm,all]{xy}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{step:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent{($\because$)}\space#1}{\hfill $\blacktriangle $}
+
+
+\newcommand{\pprime}{{\prime \prime}}
+
+%%マグニチュード
+
+
+\newcommand{\Mag}{\textrm{Mag}}
+
+\usepackage{mathrsfs}
+
+
+%%6.13
+\def\chint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\chint=}
+\def\dashint{\chint-}
+
+
+%%7.13
+
+\usepackage{here}
+
+%7.15
+\newcommand{\Span}{\textrm{Span}}
+
+\newcommand{\Conv}{\textrm{Conv}}
+
+%7.27
+
+%9.4
+\newcommand{\sing}{\textrm{sing}}
+
+%
+\newcommand{\C}[2]{{}_{#1}C_{#2} }
+
+
+\title{非負整数微分ソボレフ空間の拡張作用素}
+\date{}
+
+
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+
+\begin{setting}$W^s_p(\Omega)$ を微分によりノルムを定めるソボレフ空間とする. 
+
+\end{setting}
+
+\begin{prop}$\zeta : \mathbb R^{n-1} \rightarrow \mathbb R$ をリプシッツ関数とする. $\Omega \coloneqq \cbra{x \in \mathbb R^n \mid x_n < \zeta(x^\prime )}$ とする. $u \in W^1_2(\Omega)$ に対して
+\begin{align*} E_0u(x) \coloneqq \begin{cases} u(x) & x \in \Omega \\ u(x^\prime, 2 \zeta (x^\prime ) - x_n) & x \in \Omega^c \end{cases} \end{align*}
+と定めると, 
+
+\begin{align*} \norm{E_0 u}_{W^1_2} \lesssim \norm{u}_{W_2^1(\Omega )} \end{align*}
+
+が成り立つ. すなわち, $E_0$ が定める拡張作用素は連続である. 
+
+\end{prop}
+\begin{pf*}
+
+\begin{claim}
+
+\begin{align*} T(\bar \Omega)^c \subset \Omega \end{align*}
+
+が成り立つ. 
+
+\end{claim}
+\begin{claimproof}
+
+$T:\mathbb R^n \rightarrow \mathbb R^n$ を$Tx \coloneqq (x^\prime , 2 \zeta(x^\prime) - x_n) $ により定める. $ x \in (\bar \Omega ) ^c \LR \zeta(x^\prime) < x_n \LR 2 \zeta (x^\prime)  - x_n < \zeta(x^\prime)$ であるので, 
+\begin{align*} x \in (\bar \Omega)^c)  \naraba Tx \in \Omega \end{align*}
+が成り立つ. また, $T(Tx) = (x^\prime, 2 \zeta(x^\prime ) - 2 \zeta (x^\prime) + x_n) = x$ であるので, $T \circ T = \textrm{Id}$ であることに注意すると, 
+\begin{align*} x \in (\bar \Omega)^c   \naraba T(Tx) = x  \in T\Omega \end{align*}
+であるので, 
+\begin{align*} (\bar \Omega)^c \subset T(\Omega) \end{align*}
+であるので, 再び$T$ を作用させると主張が従う. 
+
+\end{claimproof}
+
+従って, $X  = Tx$ による変数変換のヤコビアンが$-1$ であることに注意すると, 
+\begin{align*} \int_{\Omega ^c } u^2(Tx) dx &= \int_{(\bar \Omega)^c} u^2 (Tx) dx 
+\\&= \int_{T(\bar \Omega)^c } u^2(X) (-1) dX 
+\\&\leq \int_\Omega u^2(X) dX 
+\\&=  \norm{u}_{W^1_2(\Omega)}  \end{align*}
+
+が成り立つので, 
+
+\begin{align*}\norm{E_0 u}_{L^2(\mathbb R^n)} &= \norm{E_0 u}_{L^2(\Omega)} + \norm{E_0 u}_{L^2(\Omega^c)}
+\\&\leq \norm{u}_{L^2(\Omega)} + \norm{u}_{L^2(\Omega)} \end{align*}
+
+が成り立つ. 
+
+\begin{claim}
+
+\begin{align*} \norm{\partial_j E_0 u}_{L^2(\Omega^c)} \leq \begin{cases} \norm{\partial_j u}_{L^2(\Omega)} + 2 \Lip \zeta \norm{  \partial_n u }_{L^2(\Omega)}  &j \neq n  \\  \norm{\partial_n u}_{L^2(\Omega )} & j =n \end{cases} \end{align*}
+
+\end{claim}
+\begin{claimproof}
+
+\begin{align*} \partial_j E_0 u (x) = \begin{cases} \partial_j u(Tx) + 2 \partial_j \zeta (x^\prime) \partial_n u(Tx)  &j \neq n  \\ - \partial_n u(Tx) & j =n \end{cases}        \end{align*}
+と, 先ほどと同様の議論を繰り返せば従う. 
+
+\end{claimproof} 
+
+もちろん$\norm{\partial_j E_0 u}_{L^2(\Omega)} = \norm{\partial_j u}_{L^2(\Omega)}$ であるので, すべてひっくるめると主張が従う. 
+
+\qed
+\end{pf*}
+
+
+\begin{prop} $C^\infty$ 級写像$\varphi(x): S^{n-1} \rightarrow \mathbb R$ を
+
+\begin{align*} \int_{S^{n-1}} \varphi (x) dx = \frac{(-1)^k}{(k-1)!}   \end{align*} 
+を満たすものとする. このとき, 
+
+$u \in C_c^k (\mathbb R^n) $ に対して, 
+
+\begin{align*} u(x) = \int_{\mathbb R^n} \varphi(\frac{y}{\norm y})  \norm y^{-n}   \paren{ \sum_{\abs \alpha = k } \partial^\alpha u(x+y) y^\alpha }   dy        \end{align*}
+
+が成り立つ. 
+
+\end{prop}
+\begin{pf*}$v \in S^{n-1}$ に対して, 
+
+\begin{align*} u(x) &= \frac{(-1)^k}{(k-1)!} \int_0^\infty t^{k-1} (\partial_t ) ^k u (x + tv) dt 
+\\&=    \frac{(-1)^k}{(k-1)!} \int_0^\infty t^{k-1} \paren{ \sum_{\abs \alpha = k } \partial^\alpha u(x+tv) v^\alpha }         dt    \end{align*}
+
+であるので, 両辺に$\varphi(v)$ をかけて$\int_{S^{n-1}}$ で積分すると, 
+
+\begin{align*} u(x) &= \int_{S^{n-1}} \varphi(v) \int_0^\infty  t^{-n}t^{k} \paren{ \sum_{\abs \alpha = k } \partial^\alpha u(x+tv) v^\alpha }   t^{n-1} dt dv
+\\&=  \int_{\mathbb R^n} \varphi(\frac{y}{\norm y})  \norm y^{-n} \norm y ^{k} \paren{ \sum_{\abs \alpha = k } \partial^\alpha u(x+y) {\frac{y}{\norm y}}^\alpha }   dy
+\\&= \int_{\mathbb R^n} \varphi(\frac{y}{\norm y})  \norm y^{-n}   \paren{ \sum_{\abs \alpha = k } \partial^\alpha u(x+y) y^\alpha }   dy    \end{align*}
+
+となる. 最後は極座標変換の逆を行った($t^{n-1} dt dv \mapsto dy $),
+
+\qed
+\end{pf*}
+
+
+
+
+
+
+\begin{remark}$C^\infty$ 級写像$\varphi(x): S^{n-1} \rightarrow \mathbb R$ で
+
+\begin{align*} \int_{S^{n-1}} \varphi (x) dx = \frac{(-1)^k}{(k-1)!}   \end{align*}
+
+を満たすものは存在するのかということについては, $\int_{S^{n-1}} \varphi (x) dx  < \infty$ を適当に低数倍すりゃつくれるので, こういう関数はたくさん存在する. 
+
+\end{remark}
+
+
+
+\begin{prop}$k \in C^\infty(\mathbb R^n \setminus \cbra{0} )$ を$1-n$斉次関数とし, $u \in C_c^\infty (\mathbb R^n)$ とする. このとき, $m \in \mathbb N_{\geq 0}$ に対して, 
+
+\begin{align*} \norm{\partial_j (K * u)}_{H^m} \lesssim \norm{u}_{H^m} \end{align*}
+
+が成り立つ. 
+
+\end{prop}
+\begin{pf*}
+
+$u $ はコンパクトな台をもつので, 
+
+\begin{align*} \partial_{x_j} \int_{\norm{x- y} > 0} k(y)u(x - y) dy &= \int_{\norm{x- y} > 0} k(y)\partial_{j} u (x - y) dy 
+\\& = (k * \partial_j u ) (x) 
+\\&= \int_{\norm{y-x} > 0} k(x- y) \partial_j u(y) dy \end{align*}
+
+が成り立つ. ライプニッツ即より, 
+
+\begin{align*} \partial_{y_j}(k(x-y)u(y)) = - (\partial_j k)(x-y) u(y) + k(x-y)(\partial_j u)(y)         \end{align*}
+
+であるので, $\veps > 0$ として両辺を$\int_{\norm{x-y}> \veps }$ で積分すると, 
+
+\begin{align*}  \int_{\norm{x- y} > \veps}   \partial_{y_j}(k(x-y)u(y)) dy  = -   \int_{\norm{x- y} > \veps }  (\partial_j k)(x-y) u(y) + k(x-y)(\partial_j u)(y)  dy                          \end{align*}
+
+である. 左辺を, ベクトル場の発散として書き換えたあとに, 発散定理をもちいることで, 任意の$j$ に対して
+
+\begin{align*}      \int_{\norm{x- y} > \veps}   \partial_{y_j}(k(x-y)u(y)) dy 
+&=  \int_{\norm{x- y} > \veps}   \div\paren{  0, \ldots, 0 ,  k(x-y)u(y) , 0,  \ldots,  0 } dy      
+\\&=   \int_{\norm{x- y} = \veps}   \paren{  0, \ldots, 0 ,  k(x-y)u(y) , 0,  \ldots,  0 } \cdot (\frac{y-x}{\veps})d\sigma(y)    
+\\&= \int_{\norm{y-x} = \veps } \frac{y_j - x_j}{ \veps } k(x-y ) u(y) d\sigma(y)  
+\\&= \int_{\norm \Theta = 1} \theta_j k(\veps \Theta ) u(x - \veps \Theta ) \veps^{n-1 } d\sigma(\Theta ) 
+\\&=   \int_{\norm \Theta = 1} \veps^{1 - n} \theta_j k(\Theta ) u(x - \veps \Theta ) \veps^{n-1 }  d\sigma(\Theta )      \end{align*}
+
+が成り立つ. 
+
+
+
+\qed
+\end{pf*}
+
+
+\begin{prop}$k \in C^\infty (\mathbb R^n \setminus \cbra{0} )$ を$1- n$ 次斉次関数とし, $u \in \mathcal D $ とし, $m \in \mathbb N_{\geq 0}$ とする. このとき, 
+
+\begin{align*} \norm{\partial_j (k * u) }_{H^m} \lesssim \norm{u}_{H^m} \end{align*}
+
+\end{prop}
+\begin{pf*}
+
+わからん
+
+\qed
+\end{pf*}
+
+\begin{prop}
+
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+
+
+
+
+\end{document}
