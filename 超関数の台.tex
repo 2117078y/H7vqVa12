@@ -229,5 +229,81 @@
 つまり, 局所的に$0$ となる点を除いた集合が超関数の台. 
 \end{remark}
 
+\begin{prop}
+
+\begin{align*} x \in (\supp T)^c \LR \exists \veps > 0 ; T\varphi = 0 \quad (\any \varphi \in C_c^\infty (B(x;\veps))) \end{align*}
+
+\end{prop}
+\begin{pf*}$\naraba$.  $x \in \supp T^c$ なので, $x$ の開近傍$U $ で$T \varphi = 0 \quad (\any \varphi \in C_c^\infty (U))$ がとれる. $B(x; \veps ) \subset U$ となる開球がとれて, 
+\begin{align*} C_c^\infty (B(x; \veps) ) \subset C_c^\infty (U) \end{align*}
+であるので, 
+\begin{align*} T \varphi = 0 \quad (\any \varphi \in  C_c^\infty (B(x; \veps) )  ) \end{align*}
+
+が成り立つ. \\
+$\gyaku$. そういう$\veps$ をとる. $B(x; \veps) \subset \mathcal U$ となるから, $B(x; \veps) \subset \supp T ^c $ となるので, $x \in \supp T^c$ が成り立つ. 
+
+\qed
+\end{pf*}
+
+
+\begin{dfn}(局所可積分関数の本質的台). $f \in L_{\textrm{loc}}^1(\mathbb R^n)$ に対して, 
+
+\begin{align*} \mathcal U \coloneqq \cbra{U \subset \mathbb R^n \mid U:\textrm{open},  f|_U = 0\quad \textrm{a.e.} }  \end{align*}
+と定め, 
+\begin{align*} \supp f ^c \coloneqq \bigcup_{U \in \mathcal U} U   \end{align*}
+
+と定める. $\supp f \coloneqq \mathbb R^n \setminus \supp f ^c$ を$f$ の本質的台という. 
+
+\end{dfn}
+
+
+
+
+\begin{prop}(超関数台は本質的台と一致する). $u \in L_{\textrm{loc}}^c(\mathbb R^n)$ とする. $\textrm{ess}\, \supp u$ を$u$ の関数としての本質的台とし, $\supp^d u $ を$u$ の定める超関数の台とすると, 
+\begin{align*} \supp^d u =  \textrm{ess}\, \supp u \end{align*}
+が成り立つ. 
+\end{prop}
+\begin{pf*}$\subset$. 
+
+\begin{align*}   (\supp^d u)^c \supset (\textrm{ess}\, \supp u)^c  \end{align*}
+を示すことにする. $x \in (\textrm{ess}\, \supp u)^c$ とすると, $u|_{U_x} = 0 \quad \textrm{a.e.}$ を満たす$x$ の開近傍$U_x$ がとれる. 
+
+\begin{align*} (u, \varphi) = 0 \quad (\varphi \in C_c^\infty(U_x))\end{align*}
+
+が成り立つので主張が従う. \\
+$\supset$. $f L_{\textrm{loc}}^1(\mathbb R^n)$ に対して, $\int_{\Omega } f(x)\varphi(x) dx \in C_c^\infty (\Omega )$ が成り立つならば, $f|_{\Omega} = 0 \quad \textrm{a.e.}$ であるという変分法の基本補題より主張が従う. 
+\qed
+\end{pf*}
+
+
+\begin{remark}(ふつうの台と本質的台の違い). $[0,1]$ 上のディリクレ関数
+
+\begin{align*} f(x) \coloneqq \begin{cases} 1 & x \in \mathbb Q \cap [0, 1] \\ 0 & x \in \mathbb Q^c \cap [0, 1] \end{cases} \end{align*}
+を考えると, 関数としての台は$[0, 1]$ であるが, 本質的台は$\varnothing$ である. 
+\end{remark}
+
+
+\begin{prop}(超関数微分の台). $f \in L_{\textrm{loc}}^1(\mathbb R^n)$ とする. 任意の多重指数$\alpha$に対して, 
+
+\begin{align*} \supp \partial^\alpha f \subset \supp  f \end{align*}
+が本質的台の意味で成り立つ. 
+
+\end{prop}
+\begin{pf*}
+
+\begin{align*} (\supp \partial^\alpha f)^c \supset (\supp  f) ^c   \end{align*}
+を示すことにする.  開集合$U \subset \supset (\supp  f) ^c  $ をとる. 
+
+$\varphi \in C_c^\infty (U )$ をとると, $\partial ^\alpha \varphi  \in C_c^\infty (U) $ であるので, 
+
+\begin{align*} (\partial^\alpha f,  \varphi) = (-1)^{\abs \alpha } (f, \partial ^\alpha \varphi ) = 0  \end{align*}
+
+が成り立つので, $U \in (\supp \partial^\alpha f)^c$ が成り立つ. 以上により主張が従う. 
+
+
+
+\qed
+\end{pf*}
+
 
 \end{document}

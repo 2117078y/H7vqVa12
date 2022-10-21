@@ -193,7 +193,7 @@
 \newcommand{\C}[2]{{}_{#1}C_{#2} }
 
 
-\title{ユークリッド空間の地面に対するトレース作用素}
+\title{プロパー距離空間は完備}
 \date{}
 
 
@@ -207,92 +207,14 @@
 
 \section{}
 
-\begin{notation}$x = (x^\prime , x_n) \subset \mathbb R^n$ という表記をとることにする. 
-
-\end{notation}
-
-\begin{prop}$s < -1/2$ とする. このとき, 
-
-\begin{align*} \int_{\mathbb R} \tbra{x}^{2s} dx_n = \tbra{x^\prime }^{2s + 1} \int_{\mathbb R} \tbra{t}^{2s} dt \end{align*}
-
-が成り立つ.
+\begin{prop}$X$ をプロパーな距離空間とすると, $X$ は完備である. 
 
 \end{prop}
-\begin{pf*}
-
-\begin{align*} x_n = \tbra{x^\prime } t\end{align*}
-により変数変換すると, 
-
-\begin{align*} \tbra{x}^2 = \tbra{x^\prime } ^2 + x_n ^2 = \tbra{x^\prime} ^2 + \tbra{x^\prime}^2 t^2 = \paren{1 + t^2} \tbra{x^\prime} ^2 = \tbra{t}^2 \tbra{x^\prime} ^2 \end{align*}
-
-\begin{align*}  \int_{\mathbb R} \tbra{x}^{2s} dx_n = \int \tbra{t}^{2s}\tbra{x^\prime}^{2s} \tbra{x^\prime} dt  \end{align*}
-
-が成り立つ. 
+\begin{pf*}$x_i$ を$X$ のコーシー列とする. $\cbra{x_i}_i$ は有界なので, 十分大きな閉球の中に含まれる. 閉球のコンパクト性より, 収束部分列をもつ. 収束部分列をもつコーシー列は収束列であるので主張が従う. 
 
 \qed
 \end{pf*}
 
-\begin{notation}
-\begin{align*} \Gamma_0 : C^\infty(\mathbb R^n) \rightarrow C^\infty(\mathbb R^{n-1}) \end{align*}
-
-を, 
-
-\begin{align*} \Gamma_0 f (x^\prime ) \coloneqq f(x^\prime, 0)\end{align*}
-
-により定める. 
-\end{notation}
-
-\begin{prop}$f \in C_c^\infty (\mathbb R^n)$ に対して, 
-
-\begin{align*} F(\Gamma_0 f) (\xi ^\prime) = \int_{\mathbb R} Ff(\xi^\prime, \xi_n) d\xi_n \end{align*}
-
-が成り立つ. 
-
-\end{prop}
-\begin{pf*}
-
-\begin{align*} \Gamma_0 f (x^\prime) &= \frac{1}{(2 \pi)^{n/2}} \int_{\mathbb R^n} Ff(\xi)e^{i(x^\prime, 0) \xi} d\xi 
-\\& = \frac{1}{(2 \pi)^{n/2}} \int_{\mathbb R^{n-1}} \paren{\int_{\mathbb R}Ff(\xi^\prime, \xi_n) d\xi_n }e^{ix^\prime \xi ^\prime} d\xi^\prime  \end{align*}
-
-であるので, 
-
-\begin{align*} F(\Gamma_0 f) (\xi ^\prime) = \int_{\mathbb R} Ff(\xi^\prime, \xi_n) d\xi_n \end{align*}
-
-が成り立つ. 
-
-
-\qed
-\end{pf*}
-
-
-\begin{prop}$s > 1/2$ とする. $f \in C_c^\infty (\mathbb R^n) $ に対して, 
-
-\begin{align*} \norm{\Gamma_0 f}_{H_{s - 1/2}(\mathbb R^{n-1})} \lesssim_s  \norm{f}_{H_s(\mathbb R^n)}  \end{align*}
-
-が成り立つ. 
-
-\end{prop}
-\begin{pf*}
-
-\begin{align*} F(\Gamma_0 f) (\xi ^\prime) &= \int_{\mathbb R} Ff(\xi^\prime, \xi_n) d\xi_n  \\& = \int \tbra{\xi}^{-s} \tbra{\xi}^s Ff(\xi) d \xi_n  \end{align*}
-であるので, 
-
-\begin{align*} \abs{F(\Gamma_0 f) (\xi ^\prime)}^2 &\leq \int_{\mathbb R} \tbra{\xi}^{-2s} d \xi_n  \int_{\mathbb R} \tbra{\xi}^{2s} (Ff(\xi^\prime, \xi_n) )^2d\xi_n 
-\\&= \tbra{\xi}^{-2s + 1} \int_{\mathbb R } \tbra{t}^{-2s} dt \int_{\mathbb R}  \tbra{\xi}^{2s} (Ff(\xi^\prime, \xi_n) )^2 d\xi_n    \end{align*}
-
-であるので, 
-
-\begin{align*} \abs{ \tbra{\xi}^{2s - 1} \abs{F(\Gamma_0 f) (\xi ^\prime)}^2} \leq  \int_{\mathbb R } \tbra{t}^{-2s} dt \int_{\mathbb R}  \tbra{\xi}^{2s} Ff(\xi^\prime, \xi_n) d\xi_n   \end{align*}
-
-両辺を積分することで, 
-
-\begin{align*} \int_{\mathbb R^n }\tbra{\xi}^{2s - 1}   \abs{F(\Gamma_0 f) (\xi ^\prime)}^2  d\xi^\prime &\lesssim_s \int_{\mathbb R^{n-1}}\paren{  \int_{\mathbb R}  \tbra{\xi}^{2s} (Ff(\xi^\prime, \xi_n))^2 d\xi_n  } d\xi^\prime 
-\\&= \int_{\mathbb R^n} \tbra{\xi}^{2s} (Ff(\xi))^2 d\xi   \end{align*}
-
-より主張が従う. 
-
-\qed
-\end{pf*}
 
 
 
