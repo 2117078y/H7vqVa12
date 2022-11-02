@@ -184,9 +184,16 @@
 
 \newcommand{\Conv}{\textrm{Conv}}
 
+%7.27
+
+%9.4
+\newcommand{\sing}{\textrm{sing}}
+
+%
+\newcommand{\C}[2]{{}_{#1}C_{#2} }
 
 
-\title{ }
+\title{Magnitude}
 \date{}
 
 
@@ -200,34 +207,120 @@
 
 
 
+\section{有限距離空間}
 
-\section{}
 
-まず独立の定義について, 
+\begin{dfn}(類似度行列). $(X, d)$ を有限距離空間とする. $Z:X \times X \rightarrow \mathbb R$ を, 
 
-\begin{dfn}$X, Y$ を整数値確率変数とする. 任意の整数の組$(a, b) \in \mathbb Z \times \mathbb Z$ に対して, 
+\begin{align*} Z(x, y) \coloneqq e^{-d(x, y)} \end{align*}
 
-\begin{align*} P(X = a \cap Y = b) = P(X = a) \cdot P(Y = b)\end{align*}
-
-が成り立つとき, $X, Y$ は独立であるという. 
+により定め, これを類似度行列という. 
 
 \end{dfn}
 
-です. 
+\begin{dfn}(ウェイト). $(X, d)$ を
 
-次に判定について, \\
+\end{dfn}
 
-少なくとも一組の整数の組$(a, b) \in \mathbb Z \times \mathbb Z$ に対して, 
 
-\begin{align*} P(X = a \cap Y = b) \neq P(X = a) \cdot P(Y = b)\end{align*}
 
-がなりたてば, $X, Y$ は独立でないといえる. 実際$(a, b) = (1, 1)$ と選ぶと, 
 
-\begin{align*} P(X = 1 \cap Y = 1) \neq P(X = 1) \cdot P(Y = 1)\end{align*}
+\section{コンパクト距離空間}
 
-であるので$X, Y$ は確かに独立でない. \\
 
-と書けば問題ないと思います. 
+\begin{prop}$K \subset l_2^d$ を凸体とする. このとき, 
+\begin{align*} \Mag(K) \leq \sum_{k = 0}^d \frac{\omega_k}{4^k} V_k (K) \end{align*}
+
+が成り立つ. また, $d = 1$ のとき, 等号が成立する. 
+
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+
+
+
+\begin{cor}$H$ をヒルベルト空間とし, $X \subset  H$ をコンパクト集合とする. $K$ を$X$ の閉凸包とする. $V_1 (K) < \infty $ ならば, $\Mag (X) < \infty$ が成り立つ. 
+
+\end{cor}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+
+\begin{prop}
+
+\end{prop}
+\begin{pf*}
+
+\qed
+\end{pf*}
+
+
+\begin{prop}(グロモフハウスドルフ距離に関する下半連続性). $X$ を正定値コンパクト距離空間とする. 任意の$\veps > 0$ に対して, $\delta > 0$ で, コンパクト正定値距離空間$Y$ が$d_H(X, Y) < \delta$ ならば, $\Mag X - \veps \leq \Mag Y$ となるものが存在する. 
+
+\end{prop}
+\begin{pf*}
+任意に$\veps > 0$ をとる. 有限部分集合$X^\prime \subset X$ で$\Mag X - \veps \leq \Mag X ^\prime$ を満たすものをとる. $X^\prime$ のウェイトを$w$ で表すことにする. $\delta \coloneqq \frac{\veps}{ \norm{w}_1^2}$ ととる. コンパクト正定値距離空間$Y$ が$d(X, Y) < \delta$ をみたすとする. $f: X^\prime \rightarrow Y$ を, $x \in X^\prime$ に対して, $d(x, y) < \delta$ を満たす$y \in Y$ をとり, $f(x) \coloneqq y$ とすることで定める. $Y^\prime \coloneqq f(X^\prime)$ とすると, $Y^\prime$ は$Y$ の有限部分集合であり, $d(X^\prime , Y^\prime) < \delta $ を満たす. $Z_{X^\prime}, Z_{Y^\prime}$ により
+
+\begin{align*} Z_f : X^\prime \times X^\prime \rightarrow \mathbb R\end{align*}
+を, $Z_f (x, x^\prime ) \coloneqq Z_{Y^\prime}(f(x), f(x^\prime))$ により定め, 
+
+\begin{align*} v: Y^\prime \rightarrow \mathbb R \end{align*}
+を, $v(y) \coloneqq \sum_{x \in f^{-1}(y)} w(x)$ により定める. 
+
+\begin{align*} \abs{d(f(x), f(x^\prime)) - d(x, x^\prime)} < \delta \quad (x, x^\prime \in X^\prime) \end{align*}
+
+であるので, 
+
+\begin{align*}\sup_{x, x^\prime \in X} \abs{Z_f(x, x^\prime) - Z_{X^\prime}(x, x^\prime)} 
+&= \sup_{x, x^\prime \in X} \abs{e^{-d(f(x), f(x^\prime))} - e^{-d(x, x^\prime)} } 
+\\&\leq \sup_{x, x^\prime \in X} \abs{d(f(x), f(x^\prime)) - d(x, x^\prime)} \\&< 2 \delta \end{align*}
+
+が成り立つ. $v^t Z_{Y^\prime } v = w^t Z_{f} w$ が成り立つので, 
+
+\begin{align*} \abs{\Mag X^\prime - v^t Z_{Y} v} 
+&=  \abs{w^t Z_{X^\prime} w - w^t Z_{f} w} 
+\\&=  \abs{w^t (Z_{X^\prime} w - Z_{f}) w} 
+\\&= (\sum_x \abs{w(x)})^2 \sup \abs{Z_{X^\prime}  - Z_{f}} 
+\\& < (\sum_x \abs{w(x)})^2 \cdot (2 \delta )
+\\& < 2 \veps
+ \end{align*}
+
+従って, 
+
+\begin{align*} \Mag Y 
+&\geq \Mag Y^\prime 
+\\&\geq \frac{(\sum v(y) )^2}{v^t Z_{Y^\prime} v} 
+\\&= \frac{(\sum w(x) )^2}{w^t Z_{f} w}
+\\&\geq  \frac{(\Mag X^\prime ) ^2 }{\Mag X^\prime + 2 \veps}
+\\& \leq  \Mag X^\prime - 2 \veps 
+\\& > \Mag X - \veps - 2 \veps \end{align*}
+
+が成り立つ. 
+
+
+\qed
+\end{pf*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

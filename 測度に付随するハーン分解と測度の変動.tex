@@ -184,9 +184,16 @@
 
 \newcommand{\Conv}{\textrm{Conv}}
 
+%7.27
+
+%9.4
+\newcommand{\sing}{\textrm{sing}}
+
+%
+\newcommand{\C}[2]{{}_{#1}C_{#2} }
 
 
-\title{ }
+\title{測度に付随するハーン分解と測度の変動}
 \date{}
 
 
@@ -200,34 +207,42 @@
 
 
 
-
 \section{}
 
-まず独立の定義について, 
+\begin{prop}(ハーン分解). $(X, \Sigma, \mu)$ を符号付測度空間とする. このとき, disjointな可測集合$P, N \in \Sigma$ で, \\
+(1)$X = P \sqcup N$ \\
+(2)$A \in \Sigma, A \sum P \naraba \mu A \geq 0$ 
+(3)$A \in \Sigma, A \sum P \naraba \mu A \leq 0$ 
+を満たすものが存在する. 
+\end{prop}
+\begin{pf*}
+認めることにする. 
+\qed
+\end{pf*}
 
-\begin{dfn}$X, Y$ を整数値確率変数とする. 任意の整数の組$(a, b) \in \mathbb Z \times \mathbb Z$ に対して, 
+このような$P, N$ による$X$ の分解を$X$ のハーン分解という. $P$ を正の部分, $N$ を負の部分ということにする. 
 
-\begin{align*} P(X = a \cap Y = b) = P(X = a) \cdot P(Y = b)\end{align*}
+\begin{dfn}(符号付測度のジョルダン分解).  $(X, \Sigma, \mu)$ を符号付測度空間とする. $P, N$ を$X$ の正, 負の部分とする. $E \in \Sigma$ に対して, 
 
-が成り立つとき, $X, Y$ は独立であるという. 
+\begin{align*} \mu^+ (E) \coloneqq \mu (P \cap E), \quad \mu^- (E) \coloneqq  -  \mu (N \cap E),  \end{align*}
+
+と定め, それぞれ $\mu$ の正の部分, 負の部分という. $\mu = \mu^+ - \mu^-$ を$\mu$ のジョルダン分解という. 
+\end{dfn}
+
+\begin{dfn}(符号付測度の変動). $(X, \Sigma, \mu)$ を符号付測度空間とする. $\mu = \mu^+ - \mu^-$ を$\mu$ のジョルダン分解とする. 
+
+\begin{align*} \abs \mu \coloneqq \mu^+ + \mu^- \end{align*}
+
+と定め, これを$\mu$ の変動という. $\norm \mu \coloneqq \abs \mu (X)$ と定め, これを$\mu$ の全変動という. 
 
 \end{dfn}
 
-です. 
 
-次に判定について, \\
+\begin{remark}
+変動は, 実数値符号付測度の場合には, 有限可測分割による定義と一致するらしい. 
+\end{remark}
 
-少なくとも一組の整数の組$(a, b) \in \mathbb Z \times \mathbb Z$ に対して, 
 
-\begin{align*} P(X = a \cap Y = b) \neq P(X = a) \cdot P(Y = b)\end{align*}
-
-がなりたてば, $X, Y$ は独立でないといえる. 実際$(a, b) = (1, 1)$ と選ぶと, 
-
-\begin{align*} P(X = 1 \cap Y = 1) \neq P(X = 1) \cdot P(Y = 1)\end{align*}
-
-であるので$X, Y$ は確かに独立でない. \\
-
-と書けば問題ないと思います. 
 
 
 
